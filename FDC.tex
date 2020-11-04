@@ -37,8 +37,12 @@
 \DeclareMathOperator{\depth}{depth}
 \DeclareMathOperator{\inj}{inj}
 \DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\pd}{pd}
 \DeclareMathOperator{\add}{add}
+\DeclareMathOperator{\Mod}{Mod}
 \def\mod{\operatorname{mod}}
+
+\DeclareMathOperator{\D}{\mathcal{D}}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -94,36 +98,36 @@ FDC \ar[r]\ar[d] & WTC \ar[r] & GSC\\
 NuC\ar[r] & SNC\ar[r] & ARC\ar[r] & NC
 \end{tikzcd}
 
-\begin{theorem} \cite[1.2]{Hap93}
+\begin{theorem} \cite[1.2]{Hap93} \label{thm:findim_implies_inj_generate}
 	\item[i)] If $findim(\Lambda) < \infty$ (FDC) then $K^b(\inj\Lambda)^\perp = 0$.
 	\item[ii)] If $K^b(\inj\Lambda)^\perp = 0$ then for $X\neq 0$ there exists $i$ such that, $\Ext^i(D(\Lambda), X) \neq 0$ (NuC).
 	\begin{proof}
-		\item[i)] Let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero. Since $D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and WLOG we may assume it concentrated in degrees $i \geq 0$.
+		\item[i)] Let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and WLOG we may assume it concentrated in degrees $i \geq 0$, and that $d^0:I^0 \to I^1$ is not split mono. Since if its concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono then replacing $I^0$ by $0$, and $I^1$ be $I^1/I^0$ gives a homotopic complex.
 		
-		$\Hom(D\Lambda, I^i)$ is in $add\Hom(D\Lambda, D\Lambda) = add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives.
+		$\Hom(D\Lambda, I^i)$ is in $\add\Hom(D\Lambda, D\Lambda) = \add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives.
 		
 		\begin{tikzcd}
 		0 \ar[r] \ar[d] & D\Lambda \ar[r] \ar[d, "f"] \ar[dl, dashed]& 0 \ar[d]\\
 		I^{i-1} \ar[r, "d^{i-1}"] & I^i \ar[r, "d^i"] & I^{i+1}
 		\end{tikzcd}
 		
-		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an exact complex.
+		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an exact complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ we have that $\Hom(D\Lambda, d^0)$ is not split mono.
 		
-		$\cok\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is minimal??????? Hence $findim(\Lambda)$ is infinite. \todo{Probably want to use $I$ indecomposable or something like that}
+		$\cok\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is the direct sum of the minimal resolution and an acyclic bounded complex of projectives. Since bounded acyclic complexes of projectives are split and $\Hom(D\Lambda, d^0)$ is not, we must have that the minimal resolution has length $i$, and so $findim(\Lambda) = \infty$.
 		
-		\item[ii)] Assume there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. Proceed by induction: If $I[-i] \in K^b(\inj\Lambda)$ is a stalk complex then $D^b(I[-i], X) = \Ext^i(I, X)$. This is 0 because $D\Lambda$ is the sum of the indecomposable injectives.
+		\item[ii)] Assume there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. Proceed by induction: If $I[-i] \in K^b(\inj\Lambda)$ is a stalk complex then $\D^b(I[-i], X) = \Ext^i(I, X)$. This is 0 because $D\Lambda$ is the sum of the indecomposable injectives.
 		
-		Let $I \in K^b(\inj\Lambda)$ be a complex of width $n$. WLOG assume $I$ concentrated in degrees $0 \leq i \leq n-1$. Then $$I^0 \to I \to I^{<0} \to I^0[1]$$ is a triangle, and $I^{<0}$ has width $n-1$. Taking the long exact sequence in $D^b(-,X)$ it follows that $D^b(I, X)=0$.  
+		Let $I \in K^b(\inj\Lambda)$ be a complex of width $n$. WLOG assume $I$ concentrated in degrees $0 \leq i \leq n-1$. Then $$I^0 \to I \to I^{<0} \to I^0[1]$$ is a triangle, and $I^{<0}$ has width $n-1$. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$.  
 	\end{proof}
 \end{theorem}
 
 \subsection{Recollement}
 \begin{tikzcd}[column sep=5cm]
-D^b(\Lambda') \ar[r, "i_*=i_!"{name=i}] & 
+\D^b(\Lambda') \ar[r, "i_*=i_!"{name=i}] & 
 \ar[l, swap, "i^*"{name=il}, bend right=30] \ar[l, "i^!"{name=ir}, bend left=30]
-D^b(\Lambda) \ar[r, "j^!=j^*"{name=j}] & 
+\D^b(\Lambda) \ar[r, "j^!=j^*"{name=j}] & 
 \ar[l, swap, "j_!"{name=jl}, bend right=30] \ar[l, "j_*"{name=jr}, bend left=30]
-D^b(\Lambda'')
+\D^b(\Lambda'')
 \arrow[phantom, from=il, to=i, "\dashv" rotate=-90]
 \arrow[phantom, from=i, to=ir, "\dashv" rotate=-90]
 \arrow[phantom, from=jl, to=j, "\dashv" rotate=-90]
@@ -142,7 +146,7 @@ Sort of like a split exact sequence of functors. We want
 	i_!i^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & j_*j^* X \ar[r] & \Sigma\\
 	\end{tikzcd}
 	
-	Are triangles in $D^b(\Lambda)$
+	Are triangles in $\D^b(\Lambda)$
 \end{enumerate}
 
 \begin{theorem}
@@ -245,16 +249,86 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 		&\Omega_M^3 X \ar[u, hook] & \Omega_M^2  \ar[u, hook] X & \Omega_M X  \ar[u, hook] & X
 	\end{tikzcd}
 	\end{center}
-	If $\twoheadrightarrow$ are minimal $M$-approximations (they need not be surjective), and $\hookrightarrow$ are their kernels, then this is an $M$-resolution of $X$. The $M$-res-dimesnion of $X$ is the length of the sequence of (nonzero) $M_i$s, and the $M$-res-dimesnion of $\Lambda$ is the supremum of the dimension on its objects.
+	If $\twoheadrightarrow$ are minimal $M$-approximations (they need not be surjective), and $\hookrightarrow$ are their kernels, then this is an $M$-resolution of $X$. The $M$-res-dimesnion of $X$ is the length of the sequence of (nonzero) $M_i$'s, and the $M$-res-dimesnion of $\Lambda$ is the supremum of the dimension on its objects.
 
 \end{defn}
 
 \begin{prop}
-	$repdim-2$ is the minimum of $M$-res-dim$(\mod \Lambda)$ for $M$ both generator and cogenrator.
+	Repdim-2 is the minimum of $M$-res-dim$(\mod \Lambda)$ for $M$ both generator and cogenrator (assuming repdim is at least 2).
+	
+	\begin{proof}
+		The functor $\Hom(M, -)$ is an equivalence from $\add M$ to $\proj\End(M)$, which maps minimal $M$-approximations to projective covers. Let $X$ be any module in $\mod\End(M)$ with projective dimension at least 2. Then it has a projective presentation $$\Omega^2X \to (M,M_1) \to (M,M_0) \to X.$$
+		Because of the equivalence this is induced by a map $f:M_1\to M_0$. Since $\Hom$ is left exact we have that $\Omega^2X \cong \Hom(M, \ker f)$, and so the projective dimension of $X$ is $2$ plus the $M$-res-dimension of $\ker f$.
+		
+		Since $M$ is a cogenerator any module $Y$ in $\mod\Lambda$ has a copresentation 
+		\begin{center}
+		\begin{tikzcd}
+			0 \ar[r] & Y \ar[r] & M_0 \ar[r, "f"] & M_1.
+		\end{tikzcd}
+		\end{center}
+		Applying $\Hom(M,-) =: (M,-)$ we get
+		\begin{center}
+		\begin{tikzcd}
+		0 \ar[r] & (M,Y) \ar[r] & (M,M_0) \ar[r]{}{(M,f)} & (M,M_1) \ar[r] & \cok(M,f) \ar[r] & 0.
+		\end{tikzcd}
+		\end{center}
+		If the projective dimension of $\cok(M,f)$ is less than 2, then $(M, Y)$ is a direct summand of $(M, M_0)$. This means that $(M,Y) \cong (M, M')$, so the minimal $M$-approximation of $Y$ is $M'$, and $(M, \Omega_M Y) = 0$. Since $M$ is a generator this means $\Omega_M Y = 0$ and thus the $M$-res-dimension of $Y$ is 0.
+		
+		So provided the projective dimension of $\cok(M,f)$ is larger than or equal to 2, it equals the $M$-res-dimension of $Y$ plus 2. In particular the global dimension of $\End(M)$ is 2 plus the $M$-res-dimension of $\mod\Lambda$, provided it is at least 2.
+	\end{proof}
 \end{prop}
 
-\begin{theorem}
-	FDC holds for repdim < 3, \cite[cor 8,9]{IgTo05}
+\subsection{The Igusa-Todorov function}
+Let $K$ be the free abelian group generated by isomorphism classes of modules, modulo the relations $[A\oplus B] = [A] + [B]$ and $[P]=0$ when $P$ is projective. Define the linear map $L:K\to K$ by $L[A] = [\Omega A]$. For any module $X$, $[\add X]$ is a finitely generated subgroup of $K$. Fitting's lemma tells us that there is an integer $\eta_X$ such that $L:L^m[\add X] \to L^{m+1}[\add X]$ is an isomorphism for every $m \geq \eta_X$. We define $\psi(X)$ to be $\eta_X + \sup\{\pd Y | Y \in \add \Omega^{\eta_X}X, \pd Y<\infty\}$.
+
+\begin{lemma} \cite[Lemma~3]{IgTo05}
+	\begin{enumerate}
+		\item $\psi(M) = \pd M$ when $\pd M < \infty$.
+		\item $\psi(M^k) = \psi(M)$
+		\item $\psi(M) \leq \psi(A\oplus B)$
+		\item If $Z$ is a direct summand of $\Omega^n(M)$ with finite projective dimesnion, then $\pd Z + n \leq \psi(M)$.
+	\end{enumerate}
+	\begin{proof}
+		\todo{prove}
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}\cite[Theorem~4]{IgTo05}
+	
+\end{theorem}
+
+\begin{theorem}\cite[Corollary~8,9]{IgTo05}
+	FDC holds for repdim $\leq 3$, 
+\end{theorem}
+
+\section{Unbounded derived category}
+
+If we go to the unbounded derived category we can get a sort of converse to \cref{thm:findim_implies_inj_generate}.
+
+\begin{theorem}\cite[Theorem~4.3]{Rick19}
+	If the localizing category of $D\Lambda$ is the entire unbounded derived category then $Findim(\Lambda) < \infty$. (Note the capital F meaning the finitistic dimesnion of $\Mod\Lambda$, which is bigger than or equal to that of $\mod\Lambda$).
+	
+	\begin{proof}
+		Assume $Findim(\Lambda) = \infty$. Then there are modules $M_i$ with projective dimension $i$ for every $i \geq 0$. Let $P_i$ be the minimal projective resolution of $M_i$, and consider $\bigoplus P_i[-i]$ and $\prod P_i[-i]$. Both of these have homology $M_i$ in degree $i$, and are concentrated in non-negative degrees.
+		
+		The inclusion from the sum to the product is clearly a quasi-isomorphism. We want to show that it is not a homotopy equivalence. Assume for the sake of contradiction that it was. Then tensoring with $\Lambda/rad(\Lambda)$ would give us another homotopy equivalence. Since $\Lambda/rad(\Lambda)$ is finitely presented tensoring preserves both products and coproducts. Because all the resolutions were minimal tesnoring with $\Lambda/rad(\Lambda)$ gives us 0 differentials. In degree 0 we get $$\bigoplus \Tor_i(M_i, \Lambda/rad(\Lambda)) \to \prod \Tor_i(M_i, \Lambda/rad(\Lambda)) .$$
+		Since $\Tor_i(M_i, \Lambda/rad(\Lambda))$ is nonzero for every $M_i$ this map is not an isomorphism, and so we don't have a homotopy equivalence.
+		
+		So the cone of the inclusion $\bigoplus P_i[-i] \to \prod P_i[-i]$, $C$, is 0 in the derived category, but non-zero in the homotopy category. Since $\Lambda$ is artinian the product of projectives is projective\cite[Theorem~3.3]{Chase60}, so $\prod P_i[-i]$ consists of projectives, which means that $C$ consists of projectives. 
+		
+		In other words $C$ is an acyclic lower bounded complex of projectives that is not contractible. Tensoring with $D\Lambda$ is an equivalence from projectives to injectives, so $C\otimes D\Lambda$ is an lower bounded complex of injectives that is not contractible. Such a complex cannot be acyclic so $C\otimes D\Lambda$ has homology.
+		
+		The homology of $C$ is 0, so $K(\Lambda)(\Lambda, C[i]) = 0$. Applying the equivalence $-\otimes D\Lambda$ we get $$\D(\Lambda)(D\Lambda, C\otimes D\Lambda [i])=K(\Lambda)(D\Lambda, C\otimes D\Lambda [i])=0.$$ This means that $C\otimes D\Lambda$ is not in the localizing category generated by $D\Lambda$, and so that is not the entire derived category.
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}\cite[Theorem~4.4]{Rick19}
+	$Findim(\Lambda) < \infty$ if and only if $D\Lambda^\perp \cap \D^+(\Lambda) = 0$.
+	\begin{proof}
+		In the theorem above we proved that when the finitistic dimension is infinite then there is a non-zero complex in $\D^+(\Lambda)$ perpendicular to $D\Lambda$. 
+		
+		The proof of the converse is the same as for \cref{thm:findim_implies_inj_generate}. If we have a non-zero object $X \in D\Lambda^\perp \cap \D^+(\Lambda) = 0$, then $\D(\Lambda)(D\Lambda, X)$ is a non-split complex of projectives that continue arbitrarily to the right. So the cokernels have arbitrarily big projective dimension.
+	\end{proof}
 \end{theorem}
 
 \clearpage
