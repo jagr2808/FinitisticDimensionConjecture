@@ -1,0 +1,266 @@
+\documentclass[11pt, a4paper, english]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel, amsmath, amsthm, amssymb, amsfonts, enumitem, mathtools, centernot}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{caption}
+\usepackage{intcalc}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyhdr}
+\usepackage{todonotes}
+\newcommand\tab[1][1cm]{\hspace*{1}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[theorem]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\cok}{Cok}
+\DeclareMathOperator{\depth}{depth}
+\DeclareMathOperator{\inj}{inj}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\add}{add}
+\def\mod{\operatorname{mod}}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhead{}
+%\fancyhead[LO, LE]{\small\emph{McKay correspondence}}
+\fancyhead[LO, LE]{\small\nouppercase\rightmark}
+\fancyfoot[CO, CE]{\thepage}
+%\fancyfoot[RO, RE]{\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{}{\emph{\thesection~#1}}}
+%\renewcommand{\subsectionmark}[1]{}% Remove \subsection from header
+
+\begin{document}
+\title{Finitistic dimension conjecture}
+\author{Jacob Fjeld Grevstad}
+\date{2020}
+\maketitle
+\pagenumbering{roman}
+
+\begin{abstract}
+FDC yo!
+\end{abstract}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\section*{Introduction}
+\addcontentsline{toc}{section}{\protect\numberline{}Introduction}%
+\markboth{section}{Introduction}
+
+This is an introduction
+
+\section{finitistic dimension and conjectures}
+
+\begin{itemize}
+	\item FDC - finitistic dimesnion conjecture
+	Finitistic dimension is always finite
+	\item WTC - Watamatsu tilting conjecture
+	
+	\item GSC - Gorenstein symmetry conjecture
+	\item NuC - Nunke condition
+	\item SNC - strong Nakayama conjecture
+	\item ARC - Auslander Reiten conjecture
+	\item NC - Nakayama conjecture
+\end{itemize}
+
+\subsection{Implications}
+\begin{tikzcd}
+FDC \ar[r]\ar[d] & WTC \ar[r] & GSC\\
+NuC\ar[r] & SNC\ar[r] & ARC\ar[r] & NC
+\end{tikzcd}
+
+\begin{theorem} \cite[1.2]{Hap93}
+	\item[i)] If $findim(\Lambda) < \infty$ (FDC) then $K^b(\inj\Lambda)^\perp = 0$.
+	\item[ii)] If $K^b(\inj\Lambda)^\perp = 0$ then for $X\neq 0$ there exists $i$ such that, $\Ext^i(D(\Lambda), X) \neq 0$ (NuC).
+	\begin{proof}
+		\item[i)] Let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero. Since $D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and WLOG we may assume it concentrated in degrees $i \geq 0$.
+		
+		$\Hom(D\Lambda, I^i)$ is in $add\Hom(D\Lambda, D\Lambda) = add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives.
+		
+		\begin{tikzcd}
+		0 \ar[r] \ar[d] & D\Lambda \ar[r] \ar[d, "f"] \ar[dl, dashed]& 0 \ar[d]\\
+		I^{i-1} \ar[r, "d^{i-1}"] & I^i \ar[r, "d^i"] & I^{i+1}
+		\end{tikzcd}
+		
+		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an exact complex.
+		
+		$\cok\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is minimal??????? Hence $findim(\Lambda)$ is infinite. \todo{Probably want to use $I$ indecomposable or something like that}
+		
+		\item[ii)] Assume there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. Proceed by induction: If $I[-i] \in K^b(\inj\Lambda)$ is a stalk complex then $D^b(I[-i], X) = \Ext^i(I, X)$. This is 0 because $D\Lambda$ is the sum of the indecomposable injectives.
+		
+		Let $I \in K^b(\inj\Lambda)$ be a complex of width $n$. WLOG assume $I$ concentrated in degrees $0 \leq i \leq n-1$. Then $$I^0 \to I \to I^{<0} \to I^0[1]$$ is a triangle, and $I^{<0}$ has width $n-1$. Taking the long exact sequence in $D^b(-,X)$ it follows that $D^b(I, X)=0$.  
+	\end{proof}
+\end{theorem}
+
+\subsection{Recollement}
+\begin{tikzcd}[column sep=5cm]
+D^b(\Lambda') \ar[r, "i_*=i_!"{name=i}] & 
+\ar[l, swap, "i^*"{name=il}, bend right=30] \ar[l, "i^!"{name=ir}, bend left=30]
+D^b(\Lambda) \ar[r, "j^!=j^*"{name=j}] & 
+\ar[l, swap, "j_!"{name=jl}, bend right=30] \ar[l, "j_*"{name=jr}, bend left=30]
+D^b(\Lambda'')
+\arrow[phantom, from=il, to=i, "\dashv" rotate=-90]
+\arrow[phantom, from=i, to=ir, "\dashv" rotate=-90]
+\arrow[phantom, from=jl, to=j, "\dashv" rotate=-90]
+\arrow[phantom, from=j, to=jr, "\dashv" rotate=-90]
+\end{tikzcd}
+
+Sort of like a split exact sequence of functors. We want
+\begin{enumerate}
+	\item All functors are exact/triangulated
+	\item $j^*i_*=0$
+	\item $i^*i_* \cong i^!i_! \cong id$ (induced by unit/counit)
+	\item $j^!j_! \cong j^*j_* \cong id$
+	\item 
+	\begin{tikzcd}
+	j_!j^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & i_*i^* X \ar[r] & \Sigma\\		
+	i_!i^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & j_*j^* X \ar[r] & \Sigma\\
+	\end{tikzcd}
+	
+	Are triangles in $D^b(\Lambda)$
+\end{enumerate}
+
+\begin{theorem}
+	Given a recollement FDC holds for midlle if and only if it holds for the two others.
+	\begin{proof}
+		write later..... Happel reduct technich \cite[3.3]{Hap93}
+	\end{proof}
+\end{theorem}
+
+\subsection{Contravariant finiteness}
+
+\begin{defn}[Resolving]
+	A full subcategory of an abelian category is called resolving if 
+	\begin{itemize}
+		\item It is closed under extensions
+		\item It contains the projectives
+		\item It is contains the kernels of its epimorphisms
+	\end{itemize}
+\end{defn}
+
+Note that the subcategory of modules with finite projective dimension is resolving.
+
+\begin{theorem} \cite[3.8]{AR91}
+	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Let $X_i$ be the minimal approximation of $S_i$. Then any $X \in \mathcal X$ is a direct summand of an $X_i$-filtered module.
+	\begin{proof}
+		Step 1: We want to show by induction on length that any module $C$ is in an exact sequence $0 \to Y \to X \to C \to 0$ with $X$ $X_i$-filtered and $\Ext^1(\mathcal X, Y)=0$.
+		
+		Step 2: Whenever $C$ is in $\mathcal X$ we get that
+		
+		\begin{tikzcd}
+		\Hom(C, X) \ar[r] & \Hom(C, C) \ar[r] & \Ext^1(C,Y) = 0
+		\end{tikzcd}
+		is exact, and thus $C$ is a direct summand of $X$.
+	\end{proof}
+\end{theorem}
+
+\begin{cor}
+	If the subcategory of modules with finite projective dimension is contravariantly finite, then the finitistic dimension is the supremum of the projective dimension of $X_i$. In particular it is finite.
+\end{cor}
+
+\section{repdimension}
+\begin{defn}[dominated dimension]
+	Let \begin{tikzcd}
+		\Lambda \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
+	\end{tikzcd}
+	be a minimal injective resolution of $\Lambda$. Then the dominated dimension of $\Lambda$ is $\inf\{n | I_n$ is not projective \}.
+\end{defn}
+
+\begin{defn}[rep-dimesnion]
+	Let $A = \{\Gamma | domdim\Gamma \geq 2, \Lambda \text{ morita eqquivalent to } \End_\Gamma{I_0(\Gamma)}\}$ where $I_0(\Gamma)$ is the injective envelope of $\Gamma$. Then the repdimesnion of $\Lambda$ is the minimal global dimension of $\Gamma \in A$.
+\end{defn}
+
+\begin{prop}
+	(all modules ar right modules)
+	Repdim is the same as minimal global dimension of $\End(M)$ for $M$ being both a generator and cogenerator. 
+	\begin{proof}
+		Consider $\Gamma \in A$. Since $domdim\Gamma \geq 1$, $I_0(\Gamma)$ is the sum of all projective-injective modules (some probably several times). 
+		
+		Let $\mathcal S$ be the set of all $\Gamma$-modules with a copresentation
+		\begin{center}
+		\begin{tikzcd}
+			0 \ar[r] & X \ar[r] & I_0 \ar[r] & I_1
+		\end{tikzcd}
+		\end{center}
+		with $I_i$ in $\add I_0(\Gamma)$. In particular $\Gamma$ is in $\mathcal S$, because $domdim\Gamma \geq 2$.
+		
+		The Yoneda embedding gives an equivalence $$\Hom_\Gamma(-,I_0(\Gamma)):\add I_0(\Gamma) \to \proj\End_\Gamma(I_0(\Gamma))^{op}$$, and thus we get an equivalence $$D\Hom_\Gamma(-,I_0(\Gamma)):\add I_0(\Gamma) \to \inj\End_\Gamma(I_0(\Gamma))$$
+		Since $I_0(\Gamma)$ is injective $D\Hom(-,I_0(\Gamma))$ is exact and preserves kernels, so extends to an equivalence
+		$$\Hom_\Gamma(-,I_0(\Gamma)):\mathcal S \to \mod \End_\Gamma(I_0(\Gamma))$$
+		
+		Since $\End_\Gamma(I_0(\Gamma))$ is morita equivalent to $\Lambda$, $\mathcal S$ is equivalent to $\mod \Lambda$. $\Gamma \in \mathcal S$ is clearly a generator. To see that it is a cogenerator note that $\Gamma$ contains all the projective-injective indecomposable objects as direct summands, so there is an injection $I_0(\Gamma) \to \Gamma^n$, and since $I_0(\Gamma)$ is a cogenerator in $\mathcal S$, $\Gamma$ is aswell.
+		
+		Thus by the equivalence $\mathcal S \to \mod\Lambda$ there is a cogenerator-generator object $M$ such that $\End_\Lambda(M) = \End_\Gamma(\Gamma)=\Gamma$.
+		
+		The last step of the proof is showing that $\End(M)$ is in $A$ whenever $M$ is a generator-cogenerator.
+		
+		Let $0 \to M \to I_0(M) \to I_1(M)$ be an injective copresentation of $M$. Since $M$ is a cogenerator $I_i(M)$ is in $\add M$, thus we get an exact sequence of projective $\End(M)$-modules
+		\begin{align} \label{eq:injective_copres_of_endM}
+			0 \to \End(M) \to \Hom(M, I_0(M)) \to \Hom(M, I_1(M)).
+		\end{align}
+		Now we have the following isomorphisms of $\Lambda$-$\End(M)$-bimodules
+		\begin{align*}
+			\Hom_\Lambda(M, D\Lambda) =\\
+			\Hom_k(M\otimes\Lambda, k) =\\
+			\Hom_k(M, k) =\\
+			DM =\\
+			D\Hom_\Lambda(\Lambda, M)
+		\end{align*}
+		Since $\Lambda$ is in $\add M$, $\Hom(\Lambda, M)$ is projective, and thus $D\Hom(\Lambda, M) = \Hom(M, D\Lambda)$ is injective. This means that (\ref{eq:injective_copres_of_endM}) is an injective copresentation, and thus $domdim\End(M) \geq 2$.
+		
+		Let $I=I_0(M)$, then $\Hom(I, \Lambda)$ and $I = \Hom(\Lambda, I)$ are bimodules. Need some kind of morita theorem here?????????????????? \todo{I think this is specific to artin algebras}
+	\end{proof}
+\end{prop}
+
+\begin{defn}
+	Let $X$ be an object of $\mod\Lambda$ and $M$ a contravariantaly finite subcategory.
+	\begin{center}
+	\begin{tikzcd}
+		\cdots \ar[rd, two heads] \ar[r] & M_2 \ar[rd, two heads] \ar[r] & M_1 \ar[rd, two heads] \ar[r] & M_0 \ar[rd, two heads]\\
+		&\Omega_M^3 X \ar[u, hook] & \Omega_M^2  \ar[u, hook] X & \Omega_M X  \ar[u, hook] & X
+	\end{tikzcd}
+	\end{center}
+	If $\twoheadrightarrow$ are minimal $M$-approximations (they need not be surjective), and $\hookrightarrow$ are their kernels, then this is an $M$-resolution of $X$. The $M$-res-dimesnion of $X$ is the length of the sequence of (nonzero) $M_i$s, and the $M$-res-dimesnion of $\Lambda$ is the supremum of the dimension on its objects.
+
+\end{defn}
+
+\begin{prop}
+	$repdim-2$ is the minimum of $M$-res-dim$(\mod \Lambda)$ for $M$ both generator and cogenrator.
+\end{prop}
+
+\begin{theorem}
+	FDC holds for repdim < 3, \cite[cor 8,9]{IgTo05}
+\end{theorem}
+
+\clearpage
+
+\bibliography{mybib}
+%\bibliography{mybib}
+%\bibliography{intro_bib}
+\bibliographystyle{alpha}
+\end{document}
