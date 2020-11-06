@@ -188,6 +188,9 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 \end{cor}
 
 \section{repdimension}
+
+Many results based on the survey \cite{Opp09}.
+
 \begin{defn}[dominated dimension]
 	Let \begin{tikzcd}
 		\Lambda \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
@@ -223,21 +226,23 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 		
 		The last step of the proof is showing that $\End(M)$ is in $A$ whenever $M$ is a generator-cogenerator.
 		
-		Let $0 \to M \to I_0(M) \to I_1(M)$ be an injective copresentation of $M$. Since $M$ is a cogenerator $I_i(M)$ is in $\add M$, thus we get an exact sequence of projective $\End(M)$-modules
+		Let $0 \to M \to I_0(M) \to I_1(M)$ be a minimal injective copresentation of $M$. Since $M$ is a cogenerator $I_i(M)$ is in $\add M$, thus we get an exact sequence of projective $\End(M)$-modules
 		\begin{align} \label{eq:injective_copres_of_endM}
-			0 \to \End(M) \to \Hom(M, I_0(M)) \to \Hom(M, I_1(M)).
+		0 \to \End(M) \to \Hom(M, I_0(M)) \to \Hom(M, I_1(M)).
 		\end{align}
 		Now we have the following isomorphisms of $\Lambda$-$\End(M)$-bimodules
 		\begin{align*}
-			\Hom_\Lambda(M, D\Lambda) =\\
-			\Hom_k(M\otimes\Lambda, k) =\\
-			\Hom_k(M, k) =\\
-			DM =\\
-			D\Hom_\Lambda(\Lambda, M)
+		\Hom_\Lambda(M, D\Lambda) =\\
+		\Hom_k(M\otimes\Lambda, k) =\\
+		\Hom_k(M, k) =\\
+		DM =\\
+		D\Hom_\Lambda(\Lambda, M)
 		\end{align*}
 		Since $\Lambda$ is in $\add M$, $\Hom(\Lambda, M)$ is projective, and thus $D\Hom(\Lambda, M) = \Hom(M, D\Lambda)$ is injective. This means that (\ref{eq:injective_copres_of_endM}) is an injective copresentation, and thus $domdim\End(M) \geq 2$.
 		
-		Let $I=I_0(M)$, then $\Hom(I, \Lambda)$ and $I = \Hom(\Lambda, I)$ are bimodules. Need some kind of morita theorem here?????????????????? \todo{I think this is specific to artin algebras}
+		Since $\Hom(M, I_0(M))$ is the beginning of an injective resolution of $\End(M)$, $I_0(\End(M))$, must be a direct summand. Then $\Hom(M, I_0(M)) / I_0(\End(M))$ would map injectively into $\Hom(M, I_1(M))$, but that would mean theres a direct summand of $I_0(M)$ mapping injectively into $I_1(M)$, contradicting minimality. Thus $\Hom(M, I_0(M)) = I_0(\End(M))$.
+		
+		Let $I=I_0(M)$ and $\Gamma = \End_\Lambda(I)$, then $D\Hom(-,I)$ is an exact equivalence from $\add I$ to $\inj\Gamma$. Since $I$ is an injective cogenerator $\add I = \inj\Lambda$. Then because of exactness $D\Hom(-,I)$ becomes an equivalence between $K^{+,b}(\inj\Lambda)$ and $K^{+,b}(\inj\Gamma)$. Considering only those complexes with homology in degree 0, we see that $\mod\Lambda$ is equivalent to $\mod\Gamma$. So $\Lambda$ is morita equivalent to $\Gamma = \End(I_0(M)) = \End(I_0(\End(M)))$.
 	\end{proof}
 \end{prop}
 
