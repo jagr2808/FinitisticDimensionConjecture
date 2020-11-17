@@ -251,17 +251,117 @@ Note that (\ref{item:i_fully-faith}) and (\ref{item:j_fully-faith}) are equivale
 
 Note that the subcategory of modules with finite projective dimension is resolving.
 
+
+\begin{lemma}\label{lem:coresolving_ext_vanish}
+	Let $\mathcal X$ be coresolving. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
+	\begin{proof}
+		Since $\mathcal X$ contains the projectives $\Omega X$ is the kernel of an epimorphism in $\mathcal X$. Thus $\mathcal X$ contains all syzygies. $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
+	\end{proof}
+\end{lemma}
+
+\begin{prop}\label{prop:complement_closed_under_extension}
+	If $\mathcal X$ is resolving then $\mathcal Y := \ker\Ext^{\geq 1}(\mathcal X, -) = \ker\Ext^{1}(\mathcal X, -)$ is closed under extensions.
+	\begin{proof}
+		Let $0 \to Y \to E \to Y' \to 0$ be an extension of objects in $\mathcal Y$, and let $X$ be an object of $\mathcal X$. Then we get an exact sequence  
+		\begin{center}
+			\begin{tikzcd}
+			0=\Ext(X, Y) \ar[r] & \Ext(X, E) \ar[r] & \Ext(X, Y')=0
+			\end{tikzcd}
+		\end{center}
+		Thus $\Ext(X, E)=0$ and $E$ is in $\mathcal Y$.
+	\end{proof}
+\end{prop}
+
+\begin{lemma} \label{lem:exact_sequence_from_approximation}
+	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Then for every object $C \in \mod\Lambda$ there is a short exact sequence $0 \to Y \to X \to C \to 0$ with $X\to C$ minimal $\mathcal X$-approximation and $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
+	\begin{proof}
+		Since $\mathcal X$ is contravariantly finite $C$ has a minimal approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence $0 \to Y \to X \to C \to 0$. Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
+		\begin{center}
+		\begin{tikzcd}
+			\Hom(X', Y) \ar[r]&\Hom(X', X) \ar[r] & \Hom(X', C) \ar[dll, overlay, out=-15, in=165] \\ \Ext(X', Y) \ar[r] & \Ext(X', X) \ar[r] & \Ext(X', C)
+		\end{tikzcd}
+		\end{center}
+		Since $X \to C$ is an approximation we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext(X', X) \to \Ext(X', C)$ is mono we would have that $\Ext(X', Y)=0$. Assume we have an element of $\Ext(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & X \ar[r] \ar[d] & E \ar[r] \ar[d] & X' \ar[d, equal] \ar[r] & 0\\
+			0 \ar[r] & C \ar[r] & C \oplus X' \ar[r] & X' \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		Since $\mathcal X$ is closed under extensions $E$ is in $\mathcal X$. By composing with projection $C\oplus X' \to C$ we get a commutative triangle
+		\begin{center}
+			\begin{tikzcd}
+			 X \ar[r] \ar[d] & E \ar[dl]\\ 
+			 C 
+			\end{tikzcd}
+		\end{center}
+		since $X \to C$ is an approximation we get that $E \to C$ factors through $X$. The endomorphism $X \to E \to X$ leaves the approximation unchanged, so by minimality it must be an isomorphism. Hence $0 \to X \to E \to X' \to 0$ is split and $\Ext(X', X) \to \Ext(X', C)$ is injective. Thus $\Ext(X', Y)=0$.
+	\end{proof}
+\end{lemma}
+
+
 \begin{theorem} \cite[3.8]{AR91}
 	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Let $X_i$ be the minimal approximation of $S_i$. Then any $X \in \mathcal X$ is a direct summand of an $X_i$-filtered module.
 	\begin{proof}
-		Step 1: We want to show by induction on length that any module $C$ is in an exact sequence $0 \to Y \to X \to C \to 0$ with $X$ $X_i$-filtered and $\Ext^1(\mathcal X, Y)=0$.
+		The first part of the proof is to show by induction on length that any module $C$ is in an exact sequence $0 \to Y \to X \to C \to 0$ with $X$ $X_i$-filtered and $\Ext^1(\mathcal X, Y)=0$.
 		
-		Step 2: Whenever $C$ is in $\mathcal X$ we get that
+		For the base case if $C=S_i$ is simple then by \cref{lem:exact_sequence_from_approximation} we have an exact sequence $0 \to Y \to X_i \to C \to 0$. 
 		
+		For the induction step, assume it holds for all modules of length less than $n$, and let $C$ be a module of length $n$. Then by Jordan-Hölder $C$ is the extension of two modules of length less than $n$. Say
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & C' \ar[r] & C \ar[r] & C'' \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		Applying the induction hypothesis we get a diagram on the form
+		\begin{center}
+			\begin{tikzcd}
+			& 0 \ar[d] &&0 \ar[d] &\\
+			& Y' \ar[d] && Y'' \ar[d] & \\
+			 & X' \ar[d] && X'' \ar[d] & \\
+			0 \ar[r] & C' \ar[d] \ar[r] & C \ar[r] & C'' \ar[r] \ar[d] & 0\\
+			& 0 &&0 &
+			\end{tikzcd}
+		\end{center}
+		Taking the pullback of $X'' \to C''$ we get a diagram
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & C' \ar[r] \ar[d, equal] & E \ar[r] \ar[d] & X'' \ar[r] \ar[d] & 0\\
+			0 \ar[r] & C' \ar[r] \ar[d] & C \ar[r] \ar[d] & C'' \ar[r] \ar[d] & 0\\
+			&0&0&0&
+			\end{tikzcd}
+		\end{center}
+		Since $Y'$ satisfies $\Ext^1(\mathcal X, Y') = 0$ by \cref{lem:coresolving_ext_vanish} it also satisfies $\Ext^2(\mathcal X, Y')=0$. In particular from the long exact sequence we get that $X' \to C'$ induces an isomorphism $\Ext(X'', X') \to \Ext(X'', C)$. Thus $0 \to C' \to E \to X'' \to 0$ comes from a sequence $0 \to X' \to X \to X'' \to 0$. In other words we have a diagram
+		\begin{center}
+			\begin{tikzcd}
+			& 0 \ar[d] &&0 \ar[d] &\\
+			 & Y' \ar[d] && Y'' \ar[d] & \\
+			0 \ar[r] & X' \ar[d] \ar[r] & X \ar[r] \ar[d] & X'' \ar[d] \ar[r] & 0\\
+			0 \ar[r] & C' \ar[d] \ar[r] & C \ar[r] & C'' \ar[r] \ar[d] & 0\\
+			& 0 &&0 &
+			\end{tikzcd}
+		\end{center}
+		Applying the snake lemma we can fill out the diagram:
+		\begin{center}
+			\begin{tikzcd}
+			& 0 \ar[d] & 0\ar[d] &0 \ar[d] &\\
+			0 \ar[r] & Y' \ar[d] \ar[r] & Y \ar[r] \ar[d] & Y'' \ar[d] \ar[r] & 0\\
+			0 \ar[r] & X' \ar[d] \ar[r] & X \ar[r] \ar[d] & X'' \ar[d] \ar[r] & 0\\
+			0 \ar[r] & C' \ar[d] \ar[r] & C \ar[r] \ar[d] & C'' \ar[r] \ar[d] & 0\\
+			& 0 &0&0 &
+			\end{tikzcd}
+		\end{center}
+		Since $X$ is an extension of $X_i$-filtered modules, it is also $X_i$-filtered. Since $Y$ is the extension of $Y''$ and $Y'$ it follows from \cref{prop:complement_closed_under_extension} that $\Ext(\mathcal X, Y)=0$.
+		
+		Hence any $C$ fits into a sequence $0 \to Y \to X \to C \to 0$ with $X$ being $X_i$-filtered and $\Ext(\mathcal X, Y)=0$.
+		
+		Now suppose that $C$ is in $\mathcal X$, and let $0 \to Y \to X \to C \to 0$ be as before. Then we get that
+		\begin{center}
 		\begin{tikzcd}
 		\Hom(C, X) \ar[r] & \Hom(C, C) \ar[r] & \Ext^1(C,Y) = 0
 		\end{tikzcd}
-		is exact, and thus $C$ is a direct summand of $X$.
+		\end{center}
+		is exact, and thus $C$ is a direct summand of $X$. So every object in $\mathcal X$ is a direct summand of an $X_i$-filtered module.
 	\end{proof}
 \end{theorem}
 
