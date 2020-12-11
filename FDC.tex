@@ -83,18 +83,43 @@ FDC yo!
 
 This is an introduction
 
-\section{finitistic dimension and conjectures}
+\section{The homological conjectures}
 
 \begin{itemize}
 	\item FDC - finitistic dimesnion conjecture
+	
 	Finitistic dimension is always finite
+	
 	\item WTC - Watamatsu tilting conjecture
 	
+	A module is called watamatsu tilting if
+	\begin{itemize}
+		\item $\Ext^n(T,T)=0$ for all $n >0$.
+		\item There is an exact sequence $$\eta: 0 \to \Lambda \to T_0 \to T_1 \to \cdots$$ where $T_i$ is in $\add T$.
+		\item $\Hom(\eta, T)$ is exact. I.e. $\Ext^1(\Ker f, T)=0$ for every $f$ in $\eta$.
+	\end{itemize}
+	WTC says that any watamatsu tilting module with finite projective dimension is a tilting module. I.e $\eta$ can be chosen to be bounded.
+	
 	\item GSC - Gorenstein symmetry conjecture
+	
+	The injective dimension of $_\Lambda\Lambda$ is finite if and only if the projective dimension of $D(\Lambda_\Lambda)$ is finite.
+	
 	\item NuC - Nunke condition
+	
+	If $X \neq 0$ then there is an $n \geq 0$ such that $\Ext^n(D\Lambda, X) \neq 0$. 
+	
 	\item SNC - strong Nakayama conjecture
+	
+	For every simple module $S$ there is an $n \geq 0$ such that $\Ext^n(D\Lambda, S) \neq 0$. 
+	
 	\item ARC - Auslander Reiten conjecture
+	
+	If $\Ext^n(M, M \oplus \Lambda) = 0$ for all $n > 0$ then $M$ is projective. 
+	
 	\item NC - Nakayama conjecture
+	
+	If $\Lambda$ has infinite dominant dimension then $\Lambda$ is self-injective.
+	
 \end{itemize}
 
 \subsection{Implications}
@@ -105,7 +130,7 @@ NuC\ar[r] & SNC\ar[r] & ARC\ar[r] & NC
 
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:findim_implies_inj_generate}
 	\item[i)] If $\findim(\Lambda) < \infty$ (FDC) then $K^b(\inj\Lambda)^\perp = 0$.
-	\item[ii)] If $K^b(\inj\Lambda)^\perp = 0$ then for $X\neq 0$ there exists $i$ such that, $\Ext^i(D(\Lambda), X) \neq 0$ (NuC).
+	\item[ii)] If $K^b(\inj\Lambda)^\perp = 0$ then for any $X\neq 0$ there exists $i$ such that, $\Ext^i(D(\Lambda), X) \neq 0$ (NuC).
 	\begin{proof}
 		\item[i)] Let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and WLOG we may assume it concentrated in degrees $i \geq 0$, and that $d^0:I^0 \to I^1$ is not split mono. Since if its concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono then replacing $I^0$ by $0$, and $I^1$ be $I^1/I^0$ gives a homotopic complex.
 		
@@ -125,6 +150,122 @@ NuC\ar[r] & SNC\ar[r] & ARC\ar[r] & NC
 		Let $I \in K^b(\inj\Lambda)$ be a complex of width $n$. WLOG assume $I$ concentrated in degrees $0 \leq i \leq n-1$. Then $$I^0 \to I \to I^{<0} \to I^0[1]$$ is a triangle, and $I^{<0}$ has width $n-1$. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$.  
 	\end{proof}
 \end{theorem}
+
+\begin{prop}WTC $\Rightarrow$ GSC
+	\begin{proof}
+	$D(\Lambda_\Lambda)$ is watamatsu tilting. WTC then gives us that if $D\Lambda$ has finite projective dimension then $\Lambda$ has a finite injective dimension.
+	
+	For the other direction assume $_\Lambda\Lambda$ has finite injective dimension. Then $D(_\Lambda\Lambda)$ has finite projective dimension, so WTC gives us that $\Lambda_\Lambda$ has finite injective dimension. Which means $D(\Lambda_\Lambda)$ has finite projective dimension.
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+	ARC is equivalent to $M$ a generator with $\Ext^n(M, M) = 0$ for $n > 0$ implies $M$ projective.
+	\begin{proof}
+		Assume ARC and that $M$ satisfies the hypothesis. Then since $M$ is a generator $\Lambda$ is in $\add M$ and thus $\Ext^n(M, \Lambda)=0$. So $\Ext^n(M, M\oplus \Lambda)=0$ and $M$ is projective.
+		
+		For the other direction Assume $M$ satisfies $\Ext^n(M, M \oplus \Lambda)=0$. Then $\Ext^n(M \oplus \Lambda, M\oplus \Lambda) = 0$, so $M \oplus \Lambda$ is projective, which means that $M$ is projective. 
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+	SNC $\Rightarrow$ ARC
+	\begin{proof}
+		$\Ext^i(D\Lambda, S) = \Ext^i(DS, \Lambda)$, so SNC means that for every simple there is an $i$ such that $\Ext^i(S, \Lambda) \neq 0$.
+		
+		Assume $M$ is a nonprojective generator such that $\Ext^n(M, M)=0$ for all $n>0$. Let $\Gamma$ be $\End(M)^{op}$, and let
+		\begin{center}
+		\begin{tikzcd}
+			M \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
+		\end{tikzcd}
+		\end{center}
+		be an injective resolution of $M$. Since $\Ext^n(M,M)=0$ when we apply $(M,-):=\Hom(M,-)$ we get an exact sequence.
+		\begin{center}
+		\begin{tikzcd}
+			\Gamma \ar[r] & (M,I_0) \ar[r] & (M,I_1) \ar[r] & \cdots
+		\end{tikzcd}
+		\end{center}
+		By \cref{prop:hom_preserves_injectives} this is an injective resolution of $\Gamma$.
+		
+		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma$ does not satisfy SNC.
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+	ARC $\Rightarrow$ NC
+	\begin{proof}
+		Assume $\Gamma$ has dominant dimension $\infty$, but is not self injective, and let
+		\begin{center}
+		\begin{tikzcd}
+			0 \ar[r] & \Gamma \ar[r] & I_0 \ar[r] & I_1
+		\end{tikzcd}
+		\end{center}
+		be an injective copresentation of $\Gamma$. Let $P$ be the sum of the projective covers of all nonisomorphic simple modules in the socle of $I_0$. Then $P$ is Wedderburn projective.\todo{prove this}
+		
+		Let $\Lambda = \End(P)^{op}$ and let $M = \Hom(P, \Gamma)$. Then $M$ is a nonprojective generator, we want to show that $\Ext(M,M)=0$.
+		
+		We have functors $(M,-):\mod\Lambda \to \mod\Gamma$ and $(P,-):\mod\Gamma \to \mod\Lambda$. $(M, -)$ is fully faithful and $(P,-)\circ (M,-) = id_{\Lambda}$.
+		
+		Let $0\to M \to Q_0 \to Q_1$ be an injective copresentation of $M$. Applying $(M,-)$ we get the injective copresentation of $\Gamma$. We conclude that all the projective-inejctive modules are in the essential image of $(M,-)$.
+		
+		In other words if $I^\bullet$ is the minimal injective resolution of $\Gamma$ then $Q^\bullet := (P, I^\bullet)$ is the minimal injective resolution of $M$, and $(M, Q^\bullet)=I^\bullet$. This means that $(M, Q^\bullet)$ is exact, so $\Ext(M,M)=0$. 
+		
+		But then $M$ is a noinprojectvie generator with $\Ext(M,M)=0$, so $\Lambda$ does not satisfy ARC.
+	\end{proof}
+\end{prop}
+
+\begin{prop}\cite{AR75}
+	SNC $\Rightarrow$ NC
+	\begin{proof}
+		$\Ext(D\Lambda, S) = \Ext(DS, \Lambda)$. $\Ext(DS, \Lambda)$ being nonzero means $I(DS)$ appears in the injective resolution of $\Lambda$. If all injectives apear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective.
+	\end{proof}
+\end{prop}
+
+\subsection{Wedderburn correspondence}
+Let $\Lambda$ be an artin algebra and $M$ a generator. Let $\Gamma = \End(M)^{op}$ and $P=(M, \Lambda)$. Then $\End(P)^{op} = \Lambda$ and $(P, \Gamma) = M$.
+
+\begin{proof}
+	By Yonedas lemma we have an equivalence $(M,-):\add M \to \add (M,M)=\proj\Gamma$. Since $M$ is a generator $\Lambda$ is in $\add M$. So $$\End(P)=((M,\Lambda), (M,\Lambda)) = \End(\Lambda)=\Lambda^{op}$$ \centering{and} $$(P,\Gamma)=((M,\Lambda),(M,M))=(\Lambda,M)=M.$$
+\end{proof}
+
+We have that $(P,-)\circ (M,-)$ is the identity on $\mod\Lambda$.
+
+\begin{proof}
+	Let $X$ be a $\Lambda$-module. Since $\add M$ has only a finite number of indecomposables it is functorially finite. So we can take an $M$-resolution of $X$.
+	$$\cdots \to M_1 \to M_0 \to X \to 0$$
+	Since $\add M$ contains the projectives this is exact. Applying $(M,-)$ we get a projective resolution of $(M,X)$. Since $(M, X)$ is determined by its projective resolution and $X$ is determined by its $M$-resolution we need only show that $(P,-)\circ (M,-)$ is the identity on $\add M$. Then again by Yonedas lemma $(P, (M, M')) = (\Lambda, M')=M'$.
+\end{proof}
+
+\begin{prop}\label{prop:hom_preserves_injectives}
+	If $M$ is any module and $I$ is injective then $(M,I)$ is an injective $\Gamma=\End(M)^{op}$-module.
+	\begin{proof}
+		Let $J \subseteq \Gamma$ be a left ideal. We want to show that any map $\psi:J \to (M,I)$ factors through $\Gamma$. Assume that $J$ is generated by a single endomoprhism $f$. Then $\psi$ is determined by where it maps $f$ and is well defined so long as $\psi(f)\circ g = 0$ whenever $f\circ g=0$. In other words we can choose $\psi(f)$ freely as long as $\Ker f \subseteq \Ker \psi(f)$. If $K$ is the kernel of $f$ this means we get a diagram:
+		\begin{center}
+		\begin{tikzcd}
+			M \ar[d] \ar[dd, bend right=60, swap, "f"] \ar[dr, "\psi(f)"] \\
+			M/K \ar[r] \ar[d] & I\\
+			M \ar[ur, dashed, swap, "\hat{f}"]
+		\end{tikzcd}
+		\end{center}
+		Since $M/K$ is injective we have a lift $\hat{f}$. Then we get a lifting of $\psi$ by mapping $1\in\Gamma$ to $\hat{f}$.
+		
+		Now continue by induction assume $J' = J + (f)$ for an ideal $J$ where $(M, I)$ has the lifting property. Then a map $J' \to (M,I)$ is just the sum of maps from $J \to (M, I)$ and $(f) \to (M,I)$, both of which has a lift. Then we get a lift simply by taking the sum of the lifts.
+		
+		Then by \cref{lem:injectives_for_noetherian_ring} $(M, I)$ is inejctive.
+	\end{proof}
+\end{prop}
+
+\begin{defn}[Wedderburn projective]
+	Let $\Gamma$ be an artin algebra and $P$ a finitely generated projective. Let $\Lambda = \End(P)^{op}$ and $M=(P, \Gamma)$. $P$ is said to be Wedderburn projective if $\End(M)^{op}=\Gamma$.
+\end{defn}
+
+\begin{prop}
+	If $P$ contains the projective cover of all simple modules that appear in the socle of an injective in the injective resolution of $\Gamma$, then $P$ is Wedderburn projective.
+	\begin{proof}
+		Maybe the results can be found here \cite{Aus74}
+		\todo{???}
+	\end{proof}
+\end{prop}
 
 \section{Recollement}
 \begin{defn}[Recollement]\label{def:recollement}
@@ -687,7 +828,7 @@ Define the map $\delta_m : P^m \to P^{m-1}$ by $\delta_m(\gamma \otimes \alpha) 
 
 If we go to the unbounded derived category we can get a sort of converse to \cref{thm:findim_implies_inj_generate}.
 
-\begin{theorem}\cite[Theorem~4.3]{Rick19}
+\begin{theorem}\cite[Theorem~4.3]{Rick19}\label{thm:injectives_generate_implies_FDC}
 	If the localizing category of $D\Lambda$ is the entire unbounded derived category then $\Findim(\Lambda) < \infty$. (Note the capital F meaning the finitistic dimesnion of $\Mod\Lambda$, which is bigger than or equal to that of $\mod\Lambda$).
 	
 	\begin{proof}
@@ -726,7 +867,10 @@ FDC holds for the following classes of algebras
 	\begin{proof}
 		This was shown in \cref{sec:monomial_algebras}.
 	\end{proof}
-	\item 
+	\item Gorenstein algebras
+	\begin{proof}
+		An algebra is said to be Gorenstein if all injectives have finite projective dimension and all projectives have finite injective dimension. In particular the $\Lambda$-module $\Lambda$ is isomorphic to a finite injective resolution in the derived category. So $\Lambda$ is in the localizing category generated by injectives. Then \cref{thm:injectives_generate_implies_FDC} gives us that $\Findim(\Lambda) < \infty$, and therefor also $\findim(\Lambda) < \infty$.
+	\end{proof}
 \end{itemize}
 
 \section{Personal appendix}
@@ -791,7 +935,7 @@ $\findim(\Lambda)$ need not equal $\findim(\Lambda^{op}) = \sup\{ $injective dim
 	\end{proof}
 \end{example}
 
-\begin{lemma}\cite[Chapter I, theorem 3.2]{CE56}
+\begin{lemma}\cite[Chapter I, theorem 3.2]{CE56} \label{lem:injectives_for_noetherian_ring}
 	Let $R$ be a noetherian ring. Then an $R$-module $Q$ is injective if and only if it has the injective lifting property for inclusions of ideals into $R$.
 	\begin{proof}
 		If $Q$ is injective then $Q$ has the lifting property for all monomorphisms, so one direction is clear. Assume we have a diagram
@@ -805,7 +949,7 @@ $\findim(\Lambda)$ need not equal $\findim(\Lambda^{op}) = \sup\{ $injective dim
 	\end{proof}
 \end{lemma}
 
-\begin{theorem}\cite[Chapter I, Exercise 8]{CE56}
+\begin{theorem}
 	Let $R$ be a noetherian ring. Then an arbitrary coproduct of injectives is injective.
 	\begin{proof}
 		By the lemma above it is enough to show the lifting property on ideals of $R$. Let $I$ be an ideal and $f:I \to \bigoplus_i Q_i$ be a map to a coproduct of injectives. Since $R$ is notherian $I$ is finitely generated so $f$ factors through a finite sum $I \to \bigoplus_{i=0}^n Q_i \to \bigoplus Q_i$. Since finite coproducts of injectives are injective we are done.
@@ -816,6 +960,39 @@ $\findim(\Lambda)$ need not equal $\findim(\Lambda^{op}) = \sup\{ $injective dim
 			I \ar[u] \ar[r, hook] & R \ar[ul, dashed]
 			\end{tikzcd}
 		\end{center}
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}\cite[Chapter I, Exercise 8]{CE56}
+	Let $R$ be a noetherian ring. Then direct limits of injectives is injective.
+	\begin{proof}
+		By the lemma above it is enough to show the lifting property on ideals of $R$. Let $I$ be an ideal and let $Q = \lim\limits_{\rightarrow} Q_i$ be a direct limit of injectives.
+		
+		Since $R$ is noetherian $I$ is finitely presented, say $R^n \to R^m \to I \to 0$. Applying $\Hom(-,Q)$ we get an exact sequence 
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & \Hom(I, Q) \ar[r] & \Hom(R^m, Q) \ar[r] & \Hom(R^n, Q)
+			\end{tikzcd}
+		\end{center}
+		Since direct limits are exact we also have an exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & \lim\limits_{\rightarrow}\Hom(I, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(R^m, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(R^n, Q_i)
+			\end{tikzcd}
+		\end{center}
+		We also have a natural map $\lim\limits_{\rightarrow}\Hom(-, Q_i) \to \Hom(-, Q)$. $\Hom(R^n, Q_i)$ just equals $Q_i^n$, so this map is an isomorphism at $R^n$. Then by the five lemma applied to the two sequences above we get that $\Hom(I, Q) \cong \lim\limits_{\rightarrow}\Hom(I, Q_i)$ for all ideals $I$. So since 
+		\begin{center}
+			\begin{tikzcd}
+			\lim\limits_{\rightarrow}\Hom(R, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(I, Q_i) \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is exact, we get that
+		\begin{center}
+			\begin{tikzcd}
+			\Hom(R, Q) \ar[r] & \Hom(I, Q) \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+	is exact. Hence $Q$ is injective.
 	\end{proof}
 \end{theorem}
 
