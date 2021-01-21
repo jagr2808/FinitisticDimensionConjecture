@@ -45,6 +45,14 @@
 \DeclareMathOperator{\Mod}{Mod}
 \def\mod{\operatorname{mod}}
 
+\newsavebox{\pullback}
+\sbox\pullback{%
+	\begin{tikzpicture}%
+	\draw (0,0) -- (1ex,0ex);%
+	\draw (1ex,0ex) -- (1ex,1ex);%
+	\end{tikzpicture}
+}
+
 \newcommand{\mymatrix}[1]{\begin{matrix}#1\end{matrix}}
 
 \DeclareMathOperator{\D}{\mathcal{D}}
@@ -568,6 +576,104 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 	If the subcategory of modules with finite projective dimension is contravariantly finite, then the finitistic dimension is the supremum of the projective dimension of $X_i$. In particular it is finite.
 \end{cor}
 
+\begin{example}\cite[Proposition~2.3]{IST90}\label{exam:not_contravariantly_finite}
+	Let $\Lambda$ be the pathalgebra of 
+	\begin{center}
+	\begin{tikzcd}[column sep = 50pt]
+		1 \ar[r, "\alpha", bend left=45] \ar[r, "\beta"] & 2 \ar[l, "\gamma", bend left = 45]
+	\end{tikzcd}
+	\end{center}
+	with relations $\alpha \gamma$, $\beta\gamma$, and $\gamma\alpha$. Then $\findim(\Lambda) = 1$, but the subcategory of modules with finite projective dimension is not contravariantly finite.
+	
+	\begin{proof}
+		Firstly note that both the indecomposable projectives have even dimension, so any projective module will have even dimension. Then if $X$ is a module with finite projective dimension, since $\dim X = \sum (-1)^i \dim P_X^i$ the dimension of $X$ is also even. In particular the two simple modules have infinite projective dimension.
+		
+		The radical of $P_1$ is $P_2$ and the radical of $P_2$ is $S_1$, so the radical of an arbitrary projective looks like $P_2^n \oplus S_1^m$. Let $P \to X$ be the projective cover of a module with finite projective dimension. Then $\Omega X$ is a submodule of $JP = P_2^n \oplus S_1^m$. Let $M$ be an indecomposable summand of $\Omega X$, and consider the composition $M \to JP \to P_2$ for any possible projection to $P_2$. If this is epi then we must have $M = P_2$. If none of these are epi then $M$ is contained in $JP_2^n \oplus S_1^m = S_1^{m+n}$. This would mean $M=S_1$, but $S_1$ has infinite projective dimension. Thus we must have $\Omega X$ projective, and so $\pd X \leq 1$.
+		
+		Nextly we want to show that $S_1$ has no minimal approximation by modules with finite projective dimension. Assume for the sake of contradiction that $X \to S_1$ is such a minimal approximation. Then we claim that $P_2$ is not a submodule of $X$. Since $\Hom(P_2, S_1) = 0$ if this were the case then $X' = X/P_2$ with give an approximation of shorter length, because $X'$ would also have finite projective dimension. Which can be seen in the following diagram
+		\begin{center}
+		\begin{tikzcd}
+			&& 0 \ar[d] & 0 \ar[d] &\\
+			0\ar[r]& P^1_X \ar[d, equal]\ar[r] & P^1_X \oplus P_1 \arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] \ar[d]\ar[r] & P_1\ar[d]\ar[r] & 0\\
+			0 \ar[r] & P^1_X \ar[r] & P^0_X \ar[d]\ar[r] & X\ar[d]\ar[r] & 0\\
+			&& X' \ar[d]\ar[r, equal] & X' \ar[d] \\
+			&&0&0.
+		\end{tikzcd}
+		\end{center}
+		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$ then $X$ would have $P_2$ as a submodule. \todo{more details?}. So $X$ is a $\Lambda/(\gamma)$ module. 
+		
+		$\Lambda/(\gamma)$ is the pathalgebra of the 2-Kronecker quiver, whose representation theory is well understood. The indecomposable modules are as follows:
+		
+		\begin{figure}[!htb]
+		\minipage{0.32\textwidth}
+		\begin{center}
+		\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt]
+			k^n \ar[bend left=25, r, "\begin{bmatrix}
+		I_n\\ 0
+		\end{bmatrix}"pos=0.55] \ar[swap, bend right=25, r, "\begin{bmatrix}
+		0\\I_n
+		\end{bmatrix}"]\& k^{n+1}
+		\end{tikzcd}
+		\captionof*{figure}{preprojective}
+	\end{center}
+		\endminipage\hfill
+		\minipage{0.32\textwidth}
+		\begin{center}
+		\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt, row sep=40pt]
+		k^n \ar[bend left=25]{r}{J(n, \lambda)} \ar[swap, bend right=25]{r}{I_n} \& k^{n}\\
+		k^n \ar[bend left=25]{r}{I_n} \ar[swap, bend right=25]{r}{J(n, 0)} \& k^{n}\\
+		\end{tikzcd}
+		\captionof*{figure}{regular}
+	\end{center}
+		\endminipage\hfill
+		\minipage{0.32\textwidth}
+		\begin{center}
+		\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt]
+		k^{n+1} \ar[bend left=25, pos=0.45]{r}{\begin{bmatrix}
+			I_n & 0
+			\end{bmatrix}} \ar[swap, bend right=25]{r}{\begin{bmatrix}
+			0 & I_n
+			\end{bmatrix}} \& k^{n}
+		\end{tikzcd}
+		\captionof*{figure}{preinjective}
+		\end{center}
+		\endminipage
+	\end{figure}
+	We see that the preprojective and preinjective modules both have odd dimension, so they will have infinite projective dimension as $\Lambda$-modules. We can easily verify that the modules 
+	\begin{tikzcd}
+	k \ar[bend left=15]{r}{\lambda} \ar[swap, bend right=15]{r}{1} & k\\
+	\end{tikzcd}
+	all have finite projective dimension as $\Lambda$-modules and that they have a nonzero map onto $S_1$. So each of these modules would need to have a nonzero map to $X$. But the homset between the regular modules is nonzero only if they have the same value of $\lambda$. So for this to be possible $X$ would need an infinite amount of direct summands.Hence $S_1$ has no approximation, and the subcategory is not contravariantly finite.
+	\end{proof}
+\end{example}
+
+In the next example we look at the opposite algebra of $\Lambda$ to show that there is not necessarily any link between the contravariant finiteness for $\Lambda$ and for $\Lambda^{op}$. 
+
+\begin{example}
+	Let $\Gamma$ be the opposite algebra of the one in \cref{exam:not_contravariantly_finite}. That is, $\Gamma$ is the path algebra of 
+	\begin{center}
+		\begin{tikzcd}[column sep = 50pt]
+		2 \ar[r, "\delta", bend left=45] \ar[r, "\epsilon"] & 1 \ar[l, "\zeta", bend left = 45]
+		\end{tikzcd}
+	\end{center}
+	with relations $\zeta\delta$, $\zeta\epsilon$, and $\delta\zeta$. Then the subcategory of modules with finite projective dimension is contravariantly finite. In other words the subcategory of $\Lambda$-modules with finite injective dimension is covariantly finite.
+	\begin{proof}
+		As before notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have a $k$-dimension that is a multiple of 3. So in particular the simple modules have infinite projective dimension. 
+		
+		Let $X$ be a module with finite projective dimension, and let $P$ be its projective cover. We have that $\Omega X$ is a submodule of $JP$. Notice that $\delta J = \zeta J = 0$, so $\Omega X$ is a $\Gamma/(\delta, \zeta)$-module. But $\Gamma/(\delta, \zeta)$ is simply equal to 
+		\begin{tikzcd}
+			2 \ar[r] & 1
+		\end{tikzcd}
+		over which there are just 3 indecomposable modules. We already know that the simples cannot be summands of $\Omega X$, because they have infinite projective dimension. The last module ¨
+		\begin{tikzcd}
+		k \ar[r] & k
+		\end{tikzcd}
+		is 2-dimensional and thus also has infinite projective dimension over $\Gamma$. So we conclude that $\Omega X = 0$, so $X$ is projective.
+		
+		So there are only a finite number of indecomposable modules with finite projective dimension. So the subcategory is contravariantly finite. 
+	\end{proof}
+\end{example}
+
 \section{repdimension}
 
 Many results based on the survey \cite{Opp09}.
@@ -824,7 +930,7 @@ This generalizes the definition of hereditary algebra by also allowing simple mo
 \begin{prop}
 	If for an algebra $\Lambda$ there is a hereditary algebra $H$ such that $\underline{\mod}\Lambda \cong \underline{\mod}H$ then $\Lambda$ is stably hereditary.
 	\begin{proof}
-		\cite[Lemma~4.12]{AR91} \todo{+ a bit more...}
+		\cite[Lemma~4.12]{AR91} \todo{+ a bit more...} \cite{AR73}
 	\end{proof}
 \end{prop}
 
@@ -1030,7 +1136,7 @@ Not sure where to put this, ill put it here for now
 Many of the cases are equivalent to their dual statements. Some are not.
 \begin{itemize}
 	\item Given a recollement of the bounded derived category you get one for $\Lambda^{op}$. \todo{Look at examples of reccolement to see how it translates.}
-	\item Probably no link between contravariant finiteness of fin-proj-dim and fin-inj-dim. \todo{find counterexample.}
+	\item Just because the subcategory of modules with finite projective dimension is contravariantly finite does not mean the subcategory of modules with finite injective dimension has to be covariantly finite. See \cref{exam:not_contravariantly_finite}.
 	\item repdim of $\Lambda$ equals the repdim of $\Lambda^{op}$.
 	\begin{proof}
 		If $M$ is an auslander generator for $\Lambda$ then $DM$ is an auslander generator for $\Lambda^{op}$.
