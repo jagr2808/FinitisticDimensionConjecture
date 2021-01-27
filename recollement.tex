@@ -1,0 +1,112 @@
+\begin{defn}[Recollement]\label{def:recollement}
+	A recollement is a collection of six functors satisfying:
+\begin{center}
+\begin{tikzcd}[column sep=4cm]
+\D^b(\Lambda') \ar[r, "i_*=i_!"{name=i}] & 
+\ar[l, swap, "i^*"{name=il}, bend right=30] \ar[l, "i^!"{name=ir}, bend left=30]
+\D^b(\Lambda) \ar[r, "j^!=j^*"{name=j}] & 
+\ar[l, swap, "j_!"{name=jl}, bend right=30] \ar[l, "j_*"{name=jr}, bend left=30]
+\D^b(\Lambda'')
+\arrow[phantom, from=il, to=i, "\dashv" rotate=-90]
+\arrow[phantom, from=i, to=ir, "\dashv" rotate=-90]
+\arrow[phantom, from=jl, to=j, "\dashv" rotate=-90]
+\arrow[phantom, from=j, to=jr, "\dashv" rotate=-90]
+\end{tikzcd}	
+\end{center}
+
+\begin{enumerate}
+	\item All functors are exact/triangulated
+	\item $j^*i_*=0$
+	\item $i^*i_* \cong i^!i_! \cong id$ (induced by unit/counit) \label{item:i_fully-faith}
+	\item $j^!j_! \cong j^*j_* \cong id$ \label{item:j_fully-faith}
+	\item \label{recollement:triangles}
+	For every $X \in \D^b(\Lambda)$ we have the following distinguished triangles:
+	\begin{center}
+	\begin{tikzcd}
+	j_!j^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & i_*i^* X \ar[r] & j_!j^!X[1]\\		
+	i_!i^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & j_*j^* X \ar[r] & i_!i^!X[1]\\
+	\end{tikzcd}
+	\end{center}
+\end{enumerate}
+Note that (\ref{item:i_fully-faith}) and (\ref{item:j_fully-faith}) are equivalent to $i_*$, $j_!$, and $j_*$ being fully faithful.
+\end{defn}
+
+\begin{lemma} \label{lem:adjoint_preserves_bounded_proj/inj}
+	Let \begin{tikzcd}
+	\D^b(\Lambda') \ar[r, "i_*"{name=i}, bend right=20] & 
+	\ar[l, swap, "i^*"{name=il}, bend right=20]
+	\D^b(\Lambda)
+	\end{tikzcd} be exact functors with an adjoint pair $(i^*,i_*)$. Then $i^*$ preserves bounded projective complexes and $i_*$ preserves bounded injective complexes.
+	\begin{proof}
+		The bounded projective complexes can be categories as the complexes $P$ such that for any complex $Y$ there is an integer $t_Y$ such that $\Hom(P, Y[t])=0$ for $t\geq t_Y$.
+		
+		Let $P$ be a bounded complex of projectives in $\D^b(\Lambda)$. Then we want to show that $i^*P$ is as well. Let $Y$ be any complex in $\D^b(\Lambda')$. Then $\D^b(\Lambda')(i^*P, Y[t]) = \D^b(\Lambda)(P, i_*Y[t])$, so since $P$ is a bounded complex of projectives there is $t_Y$ such that this vanishes for $t \geq t_Y$.
+		
+		The statement for injectives is exactly dual. 
+	\end{proof}
+\end{lemma}
+
+\begin{lemma} \label{lem:uniform_bound_on_homology}
+	Let \begin{tikzcd}
+	\D^b(\Lambda') \ar[r, "i_*"{name=i}] & 
+	\ar[l, swap, "i^*"{name=il}, bend right=30] \ar[l, "i^!"{name=ir}, bend left=30]
+	\D^b(\Lambda)
+	\end{tikzcd} be exact functors with adjoint pairs $(i^*,i_*)$ and $(i_*, i^!)$. Then the homology of $i_*X$ is uniformly bounded for $X\in\mod\Lambda'$. I.e. there is an $r$ such that $H^{j}(i_*X) = 0$ outside of $j\in(-r, r)$.
+	\begin{proof}
+		We first prove that there is an $r'$ such that $H^{j}(i_*X)=0$ for $j \geq r'$.
+		Let $P$ be $i^*\Lambda \in \D^b(\Lambda')=K^{-,b}(\proj\Lambda')$. Then by \cref{lem:adjoint_preserves_bounded_proj/inj} $P$ is abounded complex of projectives.
+		
+		Thus there is an $r'$ such that $P^{-j}=0$ for $j \geq r'$. Then $\D^b(\Lambda')(P, X[j]) = \D^b(\Lambda)(\Lambda, i_*X[j]) = H^{j}(i_*X)=0$ for $j\geq r'$ and any $\Lambda'$-module $X$.
+		
+		Next we prove that there is an $r''$ such that $H^{-j}(i_*X)=0$ for $j \geq r''$. The argument is completely dual. Let $I$ be $i^!D\Lambda \in \D^b(\Lambda')=K^{+,b}(\inj\Lambda')$. Then again by \cref{lem:adjoint_preserves_bounded_proj/inj} $I$ is abounded complex of injectives.
+		
+		Thus there is an $r''$ such that $I^{j}=0$ for $j \geq r''$. Then $\D^b(\Lambda')(X, I[j]) = \D^b(\Lambda)(i_*X, D\Lambda[j]) = H^{-j}(i_*X)=0$ for $j\geq r''$ and any $\Lambda'$-module $X$.
+		
+		Letting $r$ be the maximum of $r'$ and $r''$ we get that $H^{j}(X)$ is zero outside of $(-r, r)$.
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}\cite[3.3]{Hap93}
+	Given a recollement FDC holds for middle if and only if it holds for the two others.
+	\begin{proof}
+		Assume FDC holds for $\Lambda$, we begin by showing it holds for $\Lambda'$.
+		
+		Let $T = \Lambda' / rad\Lambda'$. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Say:
+		$$i_*X = 0 \to P^{-s} \to \cdots \to P^{s'} \to 0$$
+		By \cref{lem:uniform_bound_on_homology} we know there is an $r$ independent of $X$ such that $H^{-j}(X)=0$ for $j \geq r$. Truncating $i_*X$ at $-r$ gives a projective resolution of $\ker d^{-r}_{i_*X}$. Since $\Lambda$ satisfies FDC this means that $s \leq r + \findim(\Lambda)$.
+		
+		Since $i_*T$ is in $\D^b(\Lambda)$ it is a bounded complex, in particular there is a $t_0$ such that $i_*T^{t}=0$ for $t \geq t_0$. Then by the bounds above $\D^b(\Lambda)(i_*X, i_*T[t]) = 0$ for $t \geq t_0 + r + \findim(\Lambda)$. Since $i_*$ is fully faithful this equals $\D^b(\Lambda')(X, T[t])$, and so $\findim(\Lambda') \leq t_0 + r + \findim(\Lambda)$. That is, $\Lambda'$ satisfies FDC.
+		
+		The proof for $\Lambda''$ is the same, just replacing $i_*$ with $j_!$.
+		
+		For the converse assume $\Lambda'$ and $\Lambda''$ satisfy FDC. Let $T = \Lambda / rad\Lambda$, and $X$ be a $\Lambda$-module with finite projective dimension. By \cref{def:recollement} (\ref{recollement:triangles}) we have distinguished triangles:
+		\begin{center}
+			\begin{tikzcd}
+				j_!j^!X \ar[r] & X \ar[r] & i_*i^* X \ar[r] & j_!j^!X[1]\\		
+				i_!i^!T \ar[r] & T \ar[r] & j_*j^* T \ar[r] & i_!i^!T[1]\\
+			\end{tikzcd}
+		\end{center}
+		Let $(-,-)_m := \D^b(\Lambda)(-,-[m])$, and $X_j := j_!j^!X$, $X_i := i_*i^* X$, $T_i := i_!i^!T$, $T_j = j_*j^* T$. Then we have long exact sequences:
+		\begin{center}
+			\begin{tikzcd}[column sep=0.5cm]
+			\cdots \ar[r] & (X, T_i)_m \ar[r] & (X, T)_m \ar[r] & (X, T_j)_m \ar[r] & (X, T_i)_{m+1} \ar[r] & \cdots\\
+			\cdots \ar[r] & (X_i, T_i)_m \ar[r] & (X, T_i)_m \ar[r] & (X_j, T_i)_m \ar[r] & (X_i, T_i)_{m+1} \ar[r] & \cdots\\
+			\cdots \ar[r] & (X_i, T_j)_m \ar[r] & (X, T_j)_m \ar[r] & (X_j, T_j)_m \ar[r] & (X_i, T_j)_{m+1} \ar[r] & \cdots\\
+			\end{tikzcd}
+		\end{center}
+		We have \begin{align*}
+			(X_i, T_j)_m = (i_*i^* X, j_*j^* T)_m &= (j^*i_*i^*X, j^*T)_m = 0\\
+			&\text{and}\\
+			(X_j, T_i)_m = (j_!j^!X, i_!i^!T)_m &= (j^!X, j^!i_!i^!T)_m = 0
+		\end{align*}
+		which combined with long exact sequences gives us that $(X_i, T_i)_m = (X, T_i)_m$ and $(X_j, T_j)_m = (X, T_j)_m$. If we can show that $(X_i, T_i)_m$ and $(X_j, T_j)_m$ are bounded, then $(X, T_i)_m$ and $(X, T_j)_m$, and consequently $(X, T)_m$ would be bounded. Which would give a bound on the projective dimension of $X$.
+		
+		We start by bounding $(X, T_i)_m = (X_i, T_i)_m$. First note that 
+		\begin{align*}
+			(X_i, T_i)_m = (i_*i^* X, i_!i^!T)_m = (i^*i_*i^* X, i^!T)_m = (i^* X, i^!T)_m
+		\end{align*}
+		Since $X$ has finite projective dimension we can think of it as a bounded complex of projectives. Then by \cref{lem:adjoint_preserves_bounded_proj/inj} $i^*X$ is as well. By the second half of \cref{lem:uniform_bound_on_homology} (using $(i^*, i_*)$ instead of $(i_*, i^!)$) we have that there is an $r$ such that $H^{-j}(i^*X)=0$ for all $j \geq r$. This means that thinking of $i^*X$ as a complex of projectives it is 0 in degree $t$ for all $t \leq -(r + \pd\ker d^{-r}_{i^*X})$, in particualr it is 0 for all $t\leq -(r + \findim(\Lambda'))$. Since $i^!T$ is a bounded complex, it has an upper bound, say $t_0$. Thus $(i^* X, i^!T)_m = 0$ for all $m \geq t_0 + r + \findim(\Lambda')$.
+		
+		The bound on $(X, T_j)_m$ is similar, using the finitistic dimension of $\Lambda''$. Taking the maximum of these two bounds we get a bound on $(X, T)_m$, which gives a bound on the projective dimension independent of $X$, hence a bound on $\findim(\Lambda)$. 
+	\end{proof}
+\end{theorem}

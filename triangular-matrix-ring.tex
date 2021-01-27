@@ -1,0 +1,150 @@
+Something somethign triangular.
+
+\begin{defn}[Comma category]
+	Let $\mathcal A$ and $\mathcal B$ be categories and $F:\mathcal A \to \mathcal B$ a functor. Then the comma category $(F, \mathcal  B)$ has as objects triplets $(A, B, f)$ with $A \in \mathcal  A$, $B \in \mathcal  B$, and $f: FA \to B$ a morphism in $\mathcal  B$. The morphisms are pairs $(\alpha, \beta):(A, B, f) \to (A', B', f')$ with $\alpha: A \to A'$ and $\beta: B \to B'$ such that the following diagram commutes:
+	\begin{center}
+		\begin{tikzcd}
+			FA \ar[r, "f"] \ar[d, swap, "F\alpha"] & B \ar[d, "\beta"]\\
+			FA' \ar[r, "f'"] & B'.
+		\end{tikzcd}
+	\end{center}
+\end{defn}
+
+\begin{prop}
+	If $\mathcal A$ and $\mathcal B$ are abelian categories and $F$ is right exact, then the comma category $(F, \mathcal  B)$ is abelian.
+	\begin{proof}
+		We need to show that $(F, \mathcal B)$ has kernels, has cokernels, and that image equals coimage. First we show kernels. Let $(\alpha, \beta):(A, B, f) \to (A', B', f')$ be a morphism in the comma category. Then we have a diagram:
+		\begin{center}
+		\begin{tikzcd}
+			& F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA \ar[r, "F\alpha"] \ar[d, "f"] & FA' \ar[d, "f'"]\\
+			0 \ar[r] & \ker \beta \ar[r, "\iota_\beta"] & B \ar[r, "\beta"] & B'
+		\end{tikzcd}
+		\end{center}
+		Since $\beta f F\iota_\alpha = f' F\alpha F \iota_\alpha = 0$ there is a unique $\theta$ making the diagram commute. I claim the kernel of $(\alpha, \beta)$ is $(\ker \alpha, \ker \beta, \theta)$. Indeed if any $(\alpha', \beta')$ is any map such that $(\alpha, \beta) \circ (\alpha', \beta') = 0$ then $\alpha\alpha'=0$ and $\beta\beta'=0$ so both $\alpha'$ and $\beta'$ factor uniquely through $\iota_\alpha$ and $\iota_\beta$.
+		\begin{center}
+			\begin{tikzcd}
+			FA'' \ar[d, "f''"] \ar[r, "\alpha''"] & F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA  \ar[d, "f"] \\
+			B'' \ar[r, "\beta''"] & \ker \beta \ar[r, "\iota_\beta"] & B 
+			\end{tikzcd}
+		\end{center}
+		The only thing left to verify is that the left square commutes. This follows from the outer rectangle commuting, and that $\iota_\beta$ is a monomorphism.
+		
+		Showing that cokernels exists is similar, but relies on $F$ being right exact. The construction is completely dual, but to verify commutativity at the end instead of using that $\iota_\beta$ is mono we must use that $F\pi_\alpha: FA' \to F\cok \alpha$ is an epimorphism. This follows from $F$ being right exact. I leave the details to the reader. \todo{or do I?}
+		
+		Now the image equaling the coimage follows from $\mathcal A$ and $\mathcal B$ being abelian, and the way we constructed the kernels and cokernels.
+	\end{proof}
+\end{prop}
+
+For the rest of this section we will assume $F$ is a right exact functor between abelian catgeories so that the comma category is abelian. We will also assume $\mathcal A$ and $\mathcal B$ has enough projectives, whenever we mention projective objects. In particular we will be interested in the case when $\mathcal A$ and $\mathcal B$ are module categories over finite dimensional algebras.
+
+Functors $U: (F, \mathcal B) \to \mathcal A \times \mathcal{B}$, forgetful.
+
+$T: \mathcal A \times \mathcal{B} \to (F, B)$, $(A, B) \mapsto (A, B \oplus FA, FA \to FA \oplus B)$
+
+$Z: \mathcal A \times \mathcal{B} \to (F, B)$ $(A,B) \mapsto (A, B, 0-map)$
+
+$C: (F, B) \to A\times B$, $f:FA \to B \mapsto (A, \cok f)$
+
+$F$ right exact -> $(F, B)$ abelian
+
+$U$ and $Z$ are exact
+
+$(T, U)$ and $(C, Z)$ are adjoint pairs -> $T$ and $C$ preserves projectives.
+
+\begin{prop}\cite[Proposition~1.3]{FGR75}
+	The functors $(T, U)$ and $(C, Z)$ form adjoint pairs.
+	\begin{proof}
+		We want to establish an isomorphism between $\Hom(T(A, B), (A', B', FA' \to B'))$ and $\Hom((A, B), (A', B'))$. A morphism in $\Hom(T(A, B), (A', B', FA' \to B'))$  is given by a commutative diagram
+		\begin{center}
+		\begin{tikzcd}[ampersand replacement=\&]
+			FA \ar{r}{\begin{bmatrix}
+			0 \\ 1
+			\end{bmatrix}} 
+			\ar[d, swap, "F\alpha"]
+		\& B \oplus FA \ar{d}{\begin{bmatrix}
+			\beta & \gamma
+			\end{bmatrix}} \\
+			FA' \ar[r, "f"] \& B'
+		\end{tikzcd}
+		\end{center}
+		The isomorphism is then given by sending this to $(\alpha, \beta)$. This is clearly surjective. For injectivity assume $(\alpha, \beta) = 0$, then $\gamma = \begin{bmatrix}
+		\beta & \gamma
+		\end{bmatrix}\begin{bmatrix}
+		0 \\ 1
+		\end{bmatrix} = fF\alpha= 0$, so the map is injective. So $(T, U)$ is an adjoint pair.
+		
+		Next we consider $(C, Z)$. We want an isomorphism between $\Hom(C(A, B, f), (A', B')) = \Hom((A, \cok f), (A', B'))$ and $\Hom((A, B, f), (A', B', 0))$. A morphism in $\Hom((A, B, f), (A', B', 0))$ is a commutative diagram
+		\begin{center}
+			\begin{tikzcd}
+			FA \ar[r, "f"] \ar[d, swap, "F\alpha"] & B \ar[d, "\beta"]\\
+			FA' \ar[r, "0"] & B'
+			\end{tikzcd}
+		\end{center}
+		Since $\beta f = 0$, we have that $\beta$ factors through the cokernel of $f$ uniquely. Let the factorization be given by the map $\beta': \cok f \to B'$. Then we send this diagram to $(\alpha, \beta')$. Since the choice of $\beta'$ was unique this is an isomorphism, so $(C, Z)$ is an adjoint pair.
+	\end{proof}
+\end{prop}
+
+\begin{cor}
+	The functors $T$ and $C$ preserve projective objects.
+	\begin{proof}
+		What we need to check is that for projective objects $P$ and $Q$ in $(\mathcal A \times \mathcal B)$ and $(F, \mathcal B)$ respectively we have that $\Hom(TP, -)$ and $\Hom(CQ, -)$ are exact. By adjointness these are equal to $\Hom(P, U-)$ and $\Hom(Q, Z-)$ respectively. Since $U$ and $Z$ this holds, and so $T$ and $C$ preserve projective objects.
+	\end{proof}
+\end{cor}
+
+$TC(X) \to X$ is projective cover -> all projectives are $T$ of a projective.
+
+\begin{prop}\cite[Corollary~1.6c]{FGR75}
+	For a projective object $P$ in $(F, \mathcal B)$ we have that $T(C(P)) \cong P$, in particular all projectives are in the essential image of $T$.
+	\begin{proof}
+		Let $P$ be given by $f:FA \to B$. Applying $C$ we get $(A, \cok f)$. We have morphisms $P \to ZC(P)$ and $TC(P) \to ZC(P)$ given by the following diagram
+		\begin{center}
+		\begin{tikzcd}
+			FA \ar[d, equal] \ar[r, "f"] & B \ar[d, two heads]\\
+			FA \ar[r, "0"] & \cok f\\
+			FA \ar[u, equal] \ar[r, hookrightarrow]  & \cok f \oplus FA \ar[u, swap,  two heads]
+		\end{tikzcd}
+		\end{center}
+		By the projective property of $P$ there is some morphism $\beta$ factorizing the map $P \to ZC(P)$ giving us the diagram:
+		\begin{center}
+			\begin{tikzcd}
+			FA \ar[d, equal] \ar[r, "f"] & B \ar[d, "\beta"]\\
+			FA \ar[d, equal] \ar[r, hookrightarrow]  & \cok f \oplus FA \ar[d,  two heads]\\
+			FA \ar[r, "0"] & \cok f
+			\end{tikzcd}
+		\end{center}
+		Since $FA \hookrightarrow \cok f \oplus FA$ is split mono $f$ is split mono, and consequently $\beta$ is an isomorphism. So we have $P \cong TC(P)$.
+	\end{proof}
+\end{prop}
+
+\begin{prop}\cite[Lemma~4.16]{FGR75}\label{prop:pd_in_commacat}
+	Let $X = (A, B, f)$ be an object in the commacategory. Then $\pd X \geq \pd A$, and if $A=0$ then $\pd X = \pd B$.
+	\begin{proof}
+		We first show that $\pd X \geq \pd A$. Note that $\pd C(X) = \max\{ \pd A, \pd \cok f \}$ so we always have $\pd C(X) \geq \pd A$. If $\pd X = \infty$ then the statement holds so let us assume $\pd X = n < \infty$. We proceed by induction. If $n=0$ then $C(X)$ is projective so $\pd X = \pd C(X) = \pd A = 0$. Next assume the statement holds for whenever the projective dimension is less than $n$. Let $P \to A$ and $P' \to \cok f$ be epimorphisms from projectives. Then we have an epimorphism $T(P, P') \to X$. If we let $\Omega A$ be the kernel of $P \to A$ and $X' = (\Omega A, K, \theta)$ be the kernel of $T(P, P') \to X$ as shown in the following diagram
+		\begin{center}
+		\begin{tikzcd}
+			& F\Omega A \ar[r] \ar[d, "\theta", swap] & FP \ar[r] \ar[d, hookrightarrow] & FA \ar[r] \ar[d, "f"] & 0\\
+			0 \ar[r] & K \ar[r] & P' \oplus FP \ar[r] & B \ar[r] & 0
+		\end{tikzcd}
+		\end{center}
+		Then we have $\pd A \leq \pd \Omega A + 1$ and $\pd X = \pd X' + 1$. By induction we have that $\pd X' \geq \pd \Omega A$ and so $\pd X \geq \pd \Omega A +1 \geq \pd A$. 
+		
+		If $A=0$ then we can associate $C(X)=(0, B)$ with $B$. Any projective resolution $P_B^\bullet$ of $B$ gives a resolution of $X$ by $T(0, P_B^\bullet)$, and any resolution $P_X^\bullet$ of $X$ gives a resolution of $(0, B)$ by $C(P_X^\bullet)$. 
+	\end{proof}
+\end{prop}
+
+\begin{theorem}\cite[Theorem~4.20]{FGR75}
+	The finitistic dimension of the comma category $(F, \mathcal B)$ is bounded above by $\findim(\mathcal A) + \findim(\mathcal B) + 1$.
+	\begin{proof}
+		Let $X=(A, B, f)$ be an element of the commacategory with finite projective dimension. Let $P_A^\bullet$ be a projective resolution of $A$ shorter than $\findim(\mathcal A)$. Similar to what we did in \cref{prop:pd_in_commacat} define $P_X^0$ to be $T(P_A^0, P(\cok f))$ where $P(\cok f)$ is a projective module with an epimorphism onto $\cok f$. Then we have that the kernel of $P_X^0 \to X$ is 
+		\begin{tikzcd}
+			F\Omega A \ar[r, "\theta^0"] & K^0.
+		\end{tikzcd}
+		We continue inductively defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Then by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So $\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1$.
+	\end{proof}
+\end{theorem}
+
+define triangular matrix ring
+
+apply theorem to them
+
+vertecies

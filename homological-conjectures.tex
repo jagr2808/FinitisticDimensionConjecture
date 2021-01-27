@@ -1,0 +1,238 @@
+
+\begin{itemize}
+	\item FDC - finitistic dimesnion conjecture
+	
+	Finitistic dimension is always finite
+	
+	\item WTC - Watamatsu tilting conjecture
+	
+	A module is called watamatsu tilting if
+	\begin{itemize}
+		\item $\Ext^n(T,T)=0$ for all $n >0$.
+		\item There is an exact sequence $$\eta: 0 \to \Lambda \to T_0 \to T_1 \to \cdots$$ where $T_i$ is in $\add T$.
+		\item $\Hom(\eta, T)$ is exact. I.e. $\Ext^1(\Ker f, T)=0$ for every $f$ in $\eta$.
+	\end{itemize}
+	WTC says that any watamatsu tilting module with finite projective dimension is a tilting module. I.e $\eta$ can be chosen to be bounded.
+	
+	\item GSC - Gorenstein symmetry conjecture
+	
+	The injective dimension of $_\Lambda\Lambda$ is finite if and only if the projective dimension of $D(\Lambda_\Lambda)$ is finite.
+	
+	\item NuC - Nunke condition
+	
+	If $X \neq 0$ then there is an $n \geq 0$ such that $\Ext^n(D\Lambda, X) \neq 0$. 
+	
+	\item SNC - strong Nakayama conjecture
+	
+	For every simple module $S$ there is an $n \geq 0$ such that $\Ext^n(D\Lambda, S) \neq 0$. 
+	
+	\item ARC - Auslander Reiten conjecture
+	
+	If $\Ext^n(M, M \oplus \Lambda) = 0$ for all $n > 0$ then $M$ is projective. 
+	
+	\item NC - Nakayama conjecture
+	
+	If $\Lambda$ has infinite dominant dimension then $\Lambda$ is self-injective.
+	
+\end{itemize}
+
+\subsection{Implications}
+\begin{tikzcd}
+FDC \ar[r]\ar[d] & WTC \ar[r] & GSC\\
+NuC\ar[r] & SNC\ar[r] & ARC\ar[r] & NC
+\end{tikzcd}
+
+\begin{theorem} \cite[1.2]{Hap93} \label{thm:findim_implies_inj_generate}
+	\item[i)] If $\findim(\Lambda) < \infty$ (FDC) then $K^b(\inj\Lambda)^\perp = 0$.
+	\item[ii)] If $K^b(\inj\Lambda)^\perp = 0$ then for any $X\neq 0$ there exists $i$ such that, $\Ext^i(D(\Lambda), X) \neq 0$ (NuC).
+	\begin{proof}
+		\item[i)] Let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and WLOG we may assume it concentrated in degrees $i \geq 0$, and that $d^0:I^0 \to I^1$ is not split mono. Since if its concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono then replacing $I^0$ by $0$, and $I^1$ be $I^1/I^0$ gives a homotopic complex.
+		
+		$\Hom(D\Lambda, I^i)$ is in $\add\Hom(D\Lambda, D\Lambda) = \add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives.
+		
+		\begin{tikzcd}
+		0 \ar[r] \ar[d] & D\Lambda \ar[r] \ar[d, "f"] \ar[dl, dashed]& 0 \ar[d]\\
+		I^{i-1} \ar[r, "d^{i-1}"] & I^i \ar[r, "d^i"] & I^{i+1}
+		\end{tikzcd}
+		
+		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an exact complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ we have that $\Hom(D\Lambda, d^0)$ is not split mono.
+		
+		$\cok\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is the direct sum of the minimal resolution and an acyclic bounded complex of projectives. Since bounded acyclic complexes of projectives are split and $\Hom(D\Lambda, d^0)$ is not, we must have that the minimal resolution has length $i$, and so $\findim(\Lambda) = \infty$.
+		
+		\item[ii)] Assume there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. Proceed by induction: If $I[-i] \in K^b(\inj\Lambda)$ is a stalk complex then $\D^b(I[-i], X) = \Ext^i(I, X)$. This is 0 because $D\Lambda$ is the sum of the indecomposable injectives.
+		
+		Let $I \in K^b(\inj\Lambda)$ be a complex of width $n$. WLOG assume $I$ concentrated in degrees $0 \leq i \leq n-1$. Then $$I^0 \to I \to I^{<0} \to I^0[1]$$ is a triangle, and $I^{<0}$ has width $n-1$. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$.  
+	\end{proof}
+\end{theorem}
+
+\begin{prop}WTC $\Rightarrow$ GSC
+	\begin{proof}
+	$D(\Lambda_\Lambda)$ is watamatsu tilting. WTC then gives us that if $D\Lambda$ has finite projective dimension then $\Lambda$ has a finite injective dimension.
+	
+	For the other direction assume $_\Lambda\Lambda$ has finite injective dimension. Then $D(_\Lambda\Lambda)$ has finite projective dimension, so WTC gives us that $\Lambda_\Lambda$ has finite injective dimension. Which means $D(\Lambda_\Lambda)$ has finite projective dimension.
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+	ARC is equivalent to $M$ a generator with $\Ext^n(M, M) = 0$ for $n > 0$ implies $M$ projective.
+	\begin{proof}
+		Assume ARC and that $M$ satisfies the hypothesis. Then since $M$ is a generator $\Lambda$ is in $\add M$ and thus $\Ext^n(M, \Lambda)=0$. So $\Ext^n(M, M\oplus \Lambda)=0$ and $M$ is projective.
+		
+		For the other direction Assume $M$ satisfies $\Ext^n(M, M \oplus \Lambda)=0$. Then $\Ext^n(M \oplus \Lambda, M\oplus \Lambda) = 0$, so $M \oplus \Lambda$ is projective, which means that $M$ is projective. 
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+	SNC $\Rightarrow$ ARC
+	\begin{proof}
+		$\Ext^i(D\Lambda, S) = \Ext^i(DS, \Lambda)$, so SNC means that for every simple there is an $i$ such that $\Ext^i(S, \Lambda) \neq 0$.
+		
+		Assume $M$ is a nonprojective generator such that $\Ext^n(M, M)=0$ for all $n>0$. Let $\Gamma$ be $\End(M)^{op}$, and let
+		\begin{center}
+		\begin{tikzcd}
+			M \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
+		\end{tikzcd}
+		\end{center}
+		be an injective resolution of $M$. Since $\Ext^n(M,M)=0$ when we apply $(M,-):=\Hom(M,-)$ we get an exact sequence.
+		\begin{center}
+		\begin{tikzcd}
+			\Gamma \ar[r] & (M,I_0) \ar[r] & (M,I_1) \ar[r] & \cdots
+		\end{tikzcd}
+		\end{center}
+		By \cref{prop:hom_generator_equivalence} this is an injective resolution of $\Gamma$.
+		
+		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma$ does not satisfy SNC.
+	\end{proof}
+\end{prop}
+
+The next proposition requires part of the theory of Wedderburn projectives. The relevant theory is proven in \cref{sec:wedderburn_correspondence} below.
+
+\begin{prop}
+	ARC $\Rightarrow$ NC
+	\begin{proof}
+		Assume $\Gamma$ has dominant dimension $\infty$, but is not self injective, and let
+		\begin{center}
+		\begin{tikzcd}
+			0 \ar[r] & \Gamma \ar[r] & I_0 \ar[r] & I_1
+		\end{tikzcd}
+		\end{center}
+		be an injective copresentation of $\Gamma$. Let $P$ be the sum of the projective covers of all nonisomorphic simple modules in the socle of $I_0$. Then by \cref{prop:wedderburn_criterion} we have that $P$ is Wedderburn projective.
+		
+		Let $\Lambda = \End(P)^{op}$ and let $M = \Hom(P, \Gamma)$. Then $M$ is a nonprojective generator, we want to show that $\Ext^{>0}(M,M)=0$.
+		
+		We have functors $(M,-):\mod\Lambda \to \mod\Gamma$ and $(P,-):\mod\Gamma \to \mod\Lambda$. By \cref{prop:hom_generator_equivalence} $(M, -)$ is fully faithful and $(P,-)\circ (M,-) = id_{\Lambda}$.
+		
+		Let $0\to M \to Q_0 \to Q_1$ be an injective copresentation of $M$. Applying $(M,-)$ we get an injective copresentation of $\Gamma$. We conclude that all the projective-inejctive modules are in the essential image of $(M,-)$.
+		
+		In other words if $I^\bullet$ is the minimal injective resolution of $\Gamma$ then $Q^\bullet := (P, I^\bullet)$ is the minimal injective resolution of $M$, and $(M, Q^\bullet)=I^\bullet$. This means that $(M, Q^\bullet)$ is exact away from 0, so $\Ext^{>0}(M,M)=0$. 
+		
+		But then $M$ is a nonprojectvie generator with $\Ext^{>0}(M,M)=0$, so $\Lambda$ does not satisfy ARC.
+	\end{proof}
+\end{prop}
+
+\begin{prop}\cite{AR75}
+	SNC $\Rightarrow$ NC
+	\begin{proof}
+		$\Ext(D\Lambda, S) = \Ext(DS, \Lambda)$. $\Ext(DS, \Lambda)$ being nonzero means $I(DS)$ appears in the injective resolution of $\Lambda$. If all injectives apear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective.
+	\end{proof}
+\end{prop}
+
+\subsection{Wedderburn correspondence}\label{sec:wedderburn_correspondence}
+\begin{prop} \label{prop:hom_generator_equivalence}
+Let $\Lambda$ be an artin algebra and $M$ a generator. Let $\Gamma = \End(M)^{op}$ and $P=(M, \Lambda)$. Then we have the following:
+\begin{itemize}
+	\item $\End(P)^{op} = \Lambda$ and $(P, \Gamma) = M$.
+
+\begin{proof}
+	By Yonedas lemma we have an equivalence $(M,-):\add M \to \add (M,M)=\proj\Gamma$. Since $M$ is a generator $\Lambda$ is in $\add M$. So $$\End(P)=((M,\Lambda), (M,\Lambda)) = \End(\Lambda)=\Lambda^{op}$$ \centering{and} $$(P,\Gamma)=((M,\Lambda),(M,M))=(\Lambda,M)=M.$$
+\end{proof}
+
+\item $(P,-)\circ (M,-)$ is the identity on $\mod\Lambda$.
+
+\begin{proof}
+	Let $X$ be a $\Lambda$-module. Since $\add M$ has only a finite number of indecomposables it is functorially finite. So we can take an $M$-resolution of $X$.
+	$$\cdots \to M_1 \to M_0 \to X \to 0$$
+	Since $\add M$ contains the projectives this is exact. Applying $(M,-)$ we get a projective resolution of $(M,X)$. Since $(M, X)$ is determined by its projective resolution and $X$ is determined by its $M$-resolution we need only show that $(P,-)\circ (M,-)$ is the identity on $\add M$. Then again by Yonedas lemma $(P, (M, M')) = (\Lambda, M')=M'$.
+\end{proof}
+\end{itemize}
+\end{prop}
+
+\begin{prop}\label{prop:hom_generator_preserves_injectives}
+	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is a direct summand of $M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{op}$-module.
+	\begin{proof}
+		Let $J \leq \Gamma$ be a left ideal and let $\psi: J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} it is enough to show that $\psi$ factors through $\Gamma$. Assume $J$ is generated by $f_i$. If we can find $\gamma: M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization by mapping $1\in \Gamma$ to $\gamma$.
+		\begin{center}
+			\begin{tikzcd}
+			\bigoplus M \ar[dr, "\sum \psi(f_i)"] \ar[d, swap, "\sum f_i"]\\
+			M \ar[r, swap, dashed, "\gamma"] & I
+			\end{tikzcd}
+		\end{center}
+		Next we want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$. To se this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$ then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is a direct summand of $M$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
+		
+		Let $a_i$ be the composition 
+		\begin{tikzcd}
+			M \ar[r, two heads] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M
+		\end{tikzcd}.
+		Then we get $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction. Thus $K'$ contains $K$.
+		
+		Using this we get the following commutative diagram:
+		\begin{center}
+			\begin{tikzcd}
+			\bigoplus M \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f)"] \\
+			\bigoplus M/ K \ar[r] \ar[d, hookrightarrow] & I\\
+			M \ar[ur, dashed, swap, "\exists\gamma"]
+			\end{tikzcd}
+		\end{center}
+		Since $I$ is injective it lifts monomorphisms so we know that $\gamma$ exists. Thus $(M, I)$ is an injective $\Gamma$-module.
+	\end{proof}
+\end{prop}
+
+\begin{defn}[Wedderburn projective]
+	Let $\Gamma$ be an artin algebra and $P$ a finitely generated projective. Let $\Lambda = \End(P)^{op}$ and $M=(P, \Gamma)$. $P$ is said to be Wedderburn projective if $\End(M)^{op}=\Gamma$.
+\end{defn}
+
+\begin{prop}\label{prop:wedderburn_criterion}
+	If $P$ contains the projective cover of all simple modules that appear in the socle of an injective copresentation of $\Gamma$, then $P$ is Wedderburn projective.
+\end{prop}
+
+To prove this we first need the next proposition as a lemma.
+
+\begin{prop}
+	Let $P$ be a projective $\Gamma$-module, and let $\Lambda = \End(P)^{op}$. Then $(P, -):\mod \Gamma \to \mod \Lambda$ is fully faithful on $\add I(P/JP)$.
+	\begin{proof}
+		We want to show that the map $\Hom_\Gamma(I, I') \to \Hom_\Lambda((P,I), (P, I'))$ is an isomorphism. Let's first show injectivity. Let $f:I\to I'$ be a non-zero map. Then the socle of $\Image f$ is a semisimple submodule of $I'$, so it is in $\add P/JP$. Then there exists a nonzero map from $P$ to $\Image f$. Since $P$ is projective this lifts to a map $\hat{f}:P\to I$. Then $f \circ \hat{f}$ is non-zero, so $\Hom_\Gamma(I, I') \to \Hom_\Lambda((P,I), (P, I'))$ is injective.
+		
+		The argument for surjectivity is similar to that for \cref{prop:hom_generator_preserves_injectives}. Let $\psi:(P,I)\to (P, I')$ be a $\Lambda$-linear map. Let $f_i:P\to I$ generate $(P,I)$ as a lambda module. Consider the diagram
+		\begin{center}
+		\begin{tikzcd}
+			\bigoplus P \ar[r, "\sum f_i"] \ar[rd, swap, "\sum \psi(f_i)"] & I \ar[d, dashed, "?"]\\
+			& I'
+		\end{tikzcd}
+		\end{center}
+		We wish to show that there is a map at ? completing the diagram. We wish to show that $K'$ contains $K$. Assume for the sake of contradiction that it does not. Then $Q := K / K' \cap K$ is mapped injectively into $I'$ by $\sum \psi(f_i)$. So the socle of $Q$ is in $\add P/JP$, and we have a non-zero map $P \to Q$.
+		
+		Since $P$ is projective this extends to a map $P \to K$. Let $a_i$ be the compositions 
+		\begin{tikzcd}
+			P \ar[r] & K \ar[r] & \bigoplus P \ar[r, "\pi_i"] & P
+		\end{tikzcd}
+		Then clearly $\sum f_i \circ a_i = 0$, but $\sum \psi(f_i) \circ a_i$ is non-zero. Since $\psi$ is $\Lambda$-linear this is a contradiction, so $K'$ contains $K$.
+		
+		Then we get an induced diagram
+		\begin{center}
+			\begin{tikzcd}
+			\bigoplus P \ar[d, two heads,]\\
+			(\bigoplus P) / K \ar[r, hookrightarrow, "\sum f_i"] \ar[rd, swap, "\sum \psi(f_i)"] & I \ar[d, dashed, "\exists"]\\
+			& I'
+			\end{tikzcd}
+		\end{center}
+		Now because $I'$ is injective we know that there is a lift, and so $\Hom_\Gamma(I, I') \to \Hom_\Lambda((P,I), (P, I'))$ is surjective, and thus an isomorphism.
+	\end{proof} 
+\end{prop}
+
+\begin{cor}
+	\cref{prop:wedderburn_criterion}
+	\begin{proof}
+		Let $\Gamma \to I_0 \to I_1$ be a minimal injective presentation of $\Gamma$. Then by \cref{prop:hom_generator_preserves_injectives}we have that $(P, I_0) \to (P,I_1)$ is an injective presentation of $(P,\Gamma)$. The proposition gives us that $(P,-)$ is fully faithful on $I_0$ and $I_1$. Since the endomorphisms of $\Gamma$ are exactly endomorphisms of $I_0 \to I_1$ up to homotopy this means that $$\Gamma^{op}=\End_\Gamma(\Gamma) = \End_\Lambda((P, \Gamma))$$
+		So $P$ is Wedderburn projective.
+	\end{proof}
+\end{cor}
