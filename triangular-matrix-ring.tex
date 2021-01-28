@@ -143,7 +143,60 @@ $TC(X) \to X$ is projective cover -> all projectives are $T$ of a projective.
 	\end{proof}
 \end{theorem}
 
-define triangular matrix ring
+\begin{example}
+	If $k$ is a field, $\mathcal A = \mathcal B = \mod k$ and $F$ is the identity, then the comma category $(F, \mathcal B)$ is equivalent to the category of finite dimensional representations of $A_2$ over $k$. Then $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0 while $(F, \mathcal B)$ has finitistic dimension 1. So the bound shown above is tight. 
+\end{example}
+
+\begin{defn}[Triangular matrix ring]
+	Let $R$ and $S$ be rings, and let $M$ be an $S-R$-bimodule. Then the triangular matrix ring $\begin{pmatrix}
+	R & 0\\
+	M & S
+	\end{pmatrix}$ is the ring of all matricies $\begin{bmatrix}
+	r & 0\\
+	m & s
+	\end{bmatrix}$ with $r\in R$, $s\in S$, and $m\in M$. The multplication is given by
+	$$\begin{bmatrix}
+	r & 0\\
+	m & s
+	\end{bmatrix}\begin{bmatrix}
+	r' & 0\\
+	m' & s'
+	\end{bmatrix}=\begin{bmatrix}
+	rr' & 0\\
+	mr' + sm' & ss'
+	\end{bmatrix}.$$
+\end{defn}
+
+Notice if $N$ is a module over the matrix ring $\begin{pmatrix}
+R & 0\\
+M & S
+\end{pmatrix}$ then as an abelian group $N$ splits as a direct sum into
+$$N=
+\begin{bmatrix}
+1 & 0\\
+0 & 0
+\end{bmatrix}N \oplus
+\begin{bmatrix}
+0 & 0\\
+0 & 1
+\end{bmatrix}N.$$
+
+By restriction of scalars we can think of $N_R:=\begin{bmatrix}
+	1 & 0\\
+	0 & 0
+\end{bmatrix}N$ as an $R$-module and $N_S:=\begin{bmatrix}
+0 & 0\\
+0 & 1
+\end{bmatrix}N$ as an $S$-module. Further multiplication by $\begin{bmatrix}
+0 & 0\\
+m & 0
+\end{bmatrix}$ is 0 on $N_S$ and maps $N_R$ into $N_S$. So $N$ consists of an $R$-module $N_R$, an $S$-module $N_S$ and a $S-R$-linear map $M \to \Hom_\mathbb{Z}(N_R, N_S)$, or equivalently a $S$-linear map $M \otimes_R N_R \to N_S$. This means that $\mod \begin{pmatrix}
+R & 0\\
+M & S
+\end{pmatrix}$ is equivalent to the comma category $(\mod R, \mod S, M \otimes_R -)$. So $\findim\begin{pmatrix}
+R & 0\\
+M & S
+\end{pmatrix} \leq \findim(R) + \findim(S)+1$.
 
 apply theorem to them
 
