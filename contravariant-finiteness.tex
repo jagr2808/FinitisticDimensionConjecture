@@ -1,25 +1,25 @@
 
 \begin{defn}[Resolving]
-	A full subcategory of an abelian category is called resolving if 
-	\begin{itemize}
-		\item It is closed under extensions
-		\item It contains the projectives
-		\item It is contains the kernels of its epimorphisms
-	\end{itemize}
+	A full subcategory of an abelian category is called \emph{resolving} if 
+	\begin{enumerate}[i)]
+		\item It is closed under extensions.
+		\item It contains the projectives.
+		\item It is contains the kernels of its epimorphisms.
+	\end{enumerate}
 \end{defn}
 
 Note that the subcategory of modules with finite projective dimension is resolving.
 
 
-\begin{lemma}\label{lem:coresolving_ext_vanish}
-	Let $\mathcal X$ be coresolving. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
+\begin{lemma}\label{lem:resolving_ext_vanish}
+	Let $\mathcal X$ be resolving. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ contains the projectives $\Omega X$ is the kernel of an epimorphism in $\mathcal X$. Thus $\mathcal X$ contains all syzygies. $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
+		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism in $\mathcal X$. Thus $\mathcal X$ contains all syzygies. $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
 	\end{proof}
 \end{lemma}
 
 \begin{prop}\label{prop:complement_closed_under_extension}
-	If $\mathcal X$ is resolving then $\mathcal Y := \ker\Ext^{\geq 1}(\mathcal X, -) = \ker\Ext^{1}(\mathcal X, -)$ is closed under extensions.
+	If $\mathcal X$ is resolving, then $\mathcal Y := \ker\Ext^{\geq 1}(\mathcal X, -) = \ker\Ext^{1}(\mathcal X, -)$ is closed under extensions.
 	\begin{proof}
 		Let $0 \to Y \to E \to Y' \to 0$ be an extension of objects in $\mathcal Y$, and let $X$ be an object of $\mathcal X$. Then we get an exact sequence  
 		\begin{center}
@@ -32,15 +32,17 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 \end{prop}
 
 \begin{lemma} \label{lem:exact_sequence_from_approximation}
-	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Then for every object $C \in \mod\Lambda$ there is a short exact sequence $0 \to Y \to X \to C \to 0$ with $X\to C$ minimal $\mathcal X$-approximation and $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
+	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Then for every object $C \in \mod\Lambda$ there is a short exact sequence 
+	$$0 \to Y \to X \to C \to 0$$ 
+	with $X\to C$ minimal $\mathcal X$-approximation and $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ is contravariantly finite $C$ has a minimal approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence $0 \to Y \to X \to C \to 0$. Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
+		Since $\mathcal X$ is contravariantly finite, $C$ has a minimal $\mathcal X$-approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence $0 \to Y \to X \to C \to 0$. Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
 		\begin{center}
 		\begin{tikzcd}
 			\Hom(X', Y) \ar[r]&\Hom(X', X) \ar[r] & \Hom(X', C) \ar[dll, overlay, out=-15, in=165] \\ \Ext(X', Y) \ar[r] & \Ext(X', X) \ar[r] & \Ext(X', C)
 		\end{tikzcd}
 		\end{center}
-		Since $X \to C$ is an approximation we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext(X', X) \to \Ext(X', C)$ is mono we would have that $\Ext(X', Y)=0$. Assume we have an element of $\Ext(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
+		Since $X \to C$ is an approximation, we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext(X', X) \to \Ext(X', C)$ is mono we would have that $\Ext(X', Y)=0$. Assume we have an element of $\Ext(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
 		\begin{center}
 			\begin{tikzcd}
 			0 \ar[r] & X \ar[r] \ar[d] & E \ar[r] \ar[d] & X' \ar[d, equal] \ar[r] & 0\\
@@ -64,7 +66,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 	\begin{proof}
 		The first part of the proof is to show by induction on length that any module $C$ is in an exact sequence $0 \to Y \to X \to C \to 0$ with $X$ $X_i$-filtered and $\Ext^1(\mathcal X, Y)=0$.
 		
-		For the base case if $C=S_i$ is simple then by \cref{lem:exact_sequence_from_approximation} we have an exact sequence $0 \to Y \to X_i \to C \to 0$. 
+		For the base case if $C=S_i$ is simple then by \cref{lem:exact_sequence_from_approximation} we have an exact sequence $0 \to Y \to X_i \to C \to 0$ with the desired properties stated above. 
 		
 		For the induction step, assume it holds for all modules of length less than $n$, and let $C$ be a module of length $n$. Then by Jordan-Hölder $C$ is the extension of two modules of length less than $n$. Say
 		\begin{center}
@@ -90,7 +92,13 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 			&0&0&0&
 			\end{tikzcd}
 		\end{center}
-		Since $Y'$ satisfies $\Ext^1(\mathcal X, Y') = 0$ by \cref{lem:coresolving_ext_vanish} it also satisfies $\Ext^2(\mathcal X, Y')=0$. In particular from the long exact sequence we get that $X' \to C'$ induces an isomorphism $\Ext(X'', X') \to \Ext(X'', C)$. Thus $0 \to C' \to E \to X'' \to 0$ comes from a sequence $0 \to X' \to X \to X'' \to 0$. In other words we have a diagram
+		Since $Y'$ satisfies $\Ext^1(\mathcal X, Y') = 0$ by \cref{lem:resolving_ext_vanish} it also satisfies $\Ext^2(\mathcal X, Y')=0$. In particular from the long exact sequence
+		\begin{center}
+			\begin{tikzcd}[column sep=10pt]
+				 0=\Ext^1(X'', Y) \ar[r] & \Ext^1(X'', X') \ar[r] & \Ext^1(X'', C) \ar[r] & \Ext^2(X'', Y)=0
+			\end{tikzcd}
+		\end{center}
+		 we get that $X' \to C'$ induces an isomorphism $\Ext^1(X'', X') \to \Ext^1(X'', C)$. Thus the short exact sequence $0 \to C' \to E \to X'' \to 0$  must come from a sequence $0 \to X' \to X \to X'' \to 0$. This gives us a diagram
 		\begin{center}
 			\begin{tikzcd}
 			& 0 \ar[d] &&0 \ar[d] &\\
@@ -100,7 +108,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 			& 0 &&0 &
 			\end{tikzcd}
 		\end{center}
-		Applying the snake lemma we can fill out the diagram:
+		Applying the Snake Lemma we can fill out the diagram:
 		\begin{center}
 			\begin{tikzcd}
 			& 0 \ar[d] & 0\ar[d] &0 \ar[d] &\\
@@ -112,7 +120,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 		\end{center}
 		Since $X$ is an extension of $X_i$-filtered modules, it is also $X_i$-filtered. Since $Y$ is the extension of $Y''$ and $Y'$ it follows from \cref{prop:complement_closed_under_extension} that $\Ext(\mathcal X, Y)=0$.
 		
-		Hence any $C$ fits into a sequence $0 \to Y \to X \to C \to 0$ with $X$ being $X_i$-filtered and $\Ext(\mathcal X, Y)=0$.
+		Hence any $C$ fits into a sequence $0 \to Y \to X \to C \to 0$ with $X$ being $X_i$-filtered and $\Ext^{\geq 1}(\mathcal X, Y)=0$.
 		
 		Now suppose that $C$ is in $\mathcal X$, and let $0 \to Y \to X \to C \to 0$ be as before. Then we get that
 		\begin{center}
@@ -129,99 +137,122 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 \end{cor}
 
 \begin{example}\cite[Proposition~2.3]{IST90}\label{exam:not_contravariantly_finite}
-	Let $\Lambda$ be the pathalgebra of 
+	Let $\Lambda$ be the path algebra of 
 	\begin{center}
 	\begin{tikzcd}[column sep = 50pt]
 		1 \ar[r, "\alpha", bend left=45] \ar[r, "\beta"] & 2 \ar[l, "\gamma", bend left = 45]
 	\end{tikzcd}
 	\end{center}
-	with relations $\alpha \gamma$, $\beta\gamma$, and $\gamma\alpha$ over an algebraically closed field $k$\todo{not sure if this assumption is necassary}. Then $\findim(\Lambda) = 1$, but the subcategory of modules with finite projective dimension is not contravariantly finite.
+	with relations $\alpha \gamma$, $\beta\gamma$, and $\gamma\alpha$ over an algebraically closed field $k$. Then $\findim(\Lambda) = 1$, but the subcategory of modules with finite projective dimension is not contravariantly finite.
 	
 	\begin{proof}
-		Firstly note that both the indecomposable projectives have even dimension, so any projective module will have even dimension. Then if $X$ is a module with finite projective dimension, since $\dim X = \sum (-1)^i \dim P_X^i$ the dimension of $X$ is also even. In particular the two simple modules have infinite projective dimension.
+		The indecomposable projective $\Lambda$-modules are given by the following quivers
+		\begin{center}
+			\begin{tikzcd}[column sep=7pt]
+				&1 \ar[dl, swap, "\alpha"] \ar[dr, "\beta"]&\\
+				2&&2 \ar[d, "\gamma"]\\
+				&&1
+			\end{tikzcd}
+			\hspace{2cm}
+			\begin{tikzcd}
+				2\ar[d, "\gamma"]\\
+				1
+			\end{tikzcd}
+		\end{center}
+		Note that both the indecomposable projectives have even dimension, so any projective module has even dimension. Then if $X$ is a module with finite projective dimension, since $\dim X = \sum (-1)^i \dim P_X^i$ the dimension of $X$ is also even. In particular the two simple modules have infinite projective dimension.
 		
 		The radical of $P_1$ is $P_2$ and the radical of $P_2$ is $S_1$, so the radical of an arbitrary projective looks like $P_2^n \oplus S_1^m$. Let $P \to X$ be the projective cover of a module with finite projective dimension. Then $\Omega X$ is a submodule of $JP = P_2^n \oplus S_1^m$. Let $M$ be an indecomposable summand of $\Omega X$, and consider the composition $M \to JP \to P_2$ for any possible projection to $P_2$. If this is epi then we must have $M = P_2$. If none of these are epi then $M$ is contained in $JP_2^n \oplus S_1^m = S_1^{m+n}$. This would mean $M=S_1$, but $S_1$ has infinite projective dimension. Thus we must have $\Omega X$ projective, and so $\pd X \leq 1$.
 		
-		Nextly we want to show that $S_1$ has no minimal approximation by modules with finite projective dimension. Assume for the sake of contradiction that $X \to S_1$ is such a minimal approximation. Then we claim that $P_2$ is not a submodule of $X$. Since $\Hom(P_2, S_1) = 0$ if this were the case then $X' = X/P_2$ with give an approximation of shorter length, because $X'$ would also have finite projective dimension. Which can be seen in the following diagram
+		Nextly we want to show that $S_1$ has no minimal approximation by modules with finite projective dimension. Assume for the sake of contradiction that $X \to S_1$ is such a minimal approximation. Then we claim that $P_2$ is not a submodule of $X$. Since $\Hom(P_2, S_1) = 0$ if this were the case then $X' = X/P_2$ would give an approximation of shorter length, because $X'$ would also have finite projective dimension. Which can be seen in the diagram below.
 		\begin{center}
 		\begin{tikzcd}
 			&& 0 \ar[d] & 0 \ar[d] &\\
 			0\ar[r]& P^1_X \ar[d, equal]\ar[r] & P^1_X \oplus P_1 \arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] \ar[d]\ar[r] & P_1\ar[d]\ar[r] & 0\\
 			0 \ar[r] & P^1_X \ar[r] & P^0_X \ar[d]\ar[r] & X\ar[d]\ar[r] & 0\\
 			&& X' \ar[d]\ar[r, equal] & X' \ar[d] \\
-			&&0&0.
-		\end{tikzcd}
+			&&0&0
+		\end{tikzcd}\todo{make a notation chapter setting notation for projective cover / resolution}
 		\end{center}
-		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$ then $X$ would have $P_2$ as a submodule. \todo{more details?}. So $X$ is a $\Lambda/(\gamma)$ module. 
+		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$, then $X$ would have $P_2$ as a submodule.\todo{more details} So $X$ is a $\Lambda/(\gamma)$ module. 
 		
-		$\Lambda/(\gamma)$ is the pathalgebra of the 2-Kronecker quiver, whose representation theory is well understood. The indecomposable modules are as follows:
-		
-		\begin{figure}[!htb]
-		\minipage{0.32\textwidth}
+		The algebra $\Lambda/(\gamma)$ is the path algebra of the 2-Kronecker quiver, whose representation theory is well understood. Specifically $\Lambda/(\gamma)$ can be associated with the subquiver highlighted below. 
 		\begin{center}
-		\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt]
-			k^n \ar[bend left=25, r, "\begin{bmatrix}
-		I_n\\ 0
-		\end{bmatrix}"pos=0.55] \ar[swap, bend right=25, r, "\begin{bmatrix}
-		0\\I_n
-		\end{bmatrix}"]\& k^{n+1}
-		\end{tikzcd}
-		\captionof*{figure}{preprojective}
-	\end{center}
-		\endminipage\hfill
-		\minipage{0.32\textwidth}
-		\begin{center}
-		\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt, row sep=40pt]
-		k^n \ar[bend left=25]{r}{J(n, \lambda)} \ar[swap, bend right=25]{r}{I_n} \& k^{n}\\
-		k^n \ar[bend left=25]{r}{I_n} \ar[swap, bend right=25]{r}{J(n, 0)} \& k^{n}\\
-		\end{tikzcd}
-		\captionof*{figure}{regular}
-	\end{center}
-		\endminipage\hfill
-		\minipage{0.32\textwidth}
-		\begin{center}
-		\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt]
-		k^{n+1} \ar[bend left=25, pos=0.45]{r}{\begin{bmatrix}
-			I_n & 0
-			\end{bmatrix}} \ar[swap, bend right=25]{r}{\begin{bmatrix}
-			0 & I_n
-			\end{bmatrix}} \& k^{n}
-		\end{tikzcd}
-		\captionof*{figure}{preinjective}
+			\begin{tikzcd}[column sep = 50pt]
+			1 \ar[r, "\alpha", bend left=45] \ar[r, "\beta"] & 2 \ar[l, opacity=0.3, "\gamma", bend left = 45]
+			\end{tikzcd}
 		\end{center}
-		\endminipage
-	\end{figure}
-	We see that the preprojective and preinjective modules both have odd dimension, so they will have infinite projective dimension as $\Lambda$-modules. We can easily verify that the modules 
+		The indecomposable modules are as given in the table below.
+		
+		\begin{center}
+		\begin{tabular}{ccc}
+			\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt]
+			k^n \ar[bend left=35, r, "\begin{bmatrix}
+			I_n\\ 0
+			\end{bmatrix}"pos=0.55] \ar[swap, r, "\begin{bmatrix}
+			0\\I_n
+			\end{bmatrix}"]\& k^{n+1}
+			\end{tikzcd}
+			&
+			\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt, row sep=40pt]
+			k^n \ar[bend left=35]{r}{J(n, \lambda)} \ar[swap, bend right=0]{r}{I_n} \& k^{n}\\
+			k^n \ar[bend left=35]{r}{I_n} \ar[swap, bend right=0]{r}{J(n, 0)} \& k^{n}\\
+			\end{tikzcd}
+			&
+			\begin{tikzcd}[ampersand replacement=\&, column sep = 45pt]
+			k^{n+1} \ar[bend left=35, pos=0.45]{r}{\begin{bmatrix}
+				I_n & 0
+				\end{bmatrix}} \ar[swap, bend right=0]{r}{\begin{bmatrix}
+				0 & I_n
+				\end{bmatrix}} \& k^{n}
+			\end{tikzcd}
+			\\
+			preprojective & regular & preinjective
+		\end{tabular}
+		\end{center}
+		
+	We see that the preprojective and preinjective modules both have odd dimension, so they will have infinite projective dimension as $\Lambda$-modules. We can easily verify that the $\Lambda/(\gamma)$-modules 
 	\begin{tikzcd}
-	k \ar[bend left=15]{r}{\lambda} \ar[swap, bend right=15]{r}{1} & k\\
+	k \ar[bend left=25]{r}{\lambda} \ar[swap, bend right=0]{r}{1} & k\\
 	\end{tikzcd}
-	all have finite projective dimension as $\Lambda$-modules and that they have a nonzero map onto $S_1$. So each of these modules would need to have a nonzero map to $X$. But the homset between the regular modules is nonzero only if they have the same value of $\lambda$. So for this to be possible $X$ would need an infinite amount of direct summands.Hence $S_1$ has no approximation, and the subcategory is not contravariantly finite.
+	all have finite projective dimension as $\Lambda$-modules and that they have a nonzero map onto $S_1$. So each of these modules would need to have a nonzero map to $X$. But it is easy to verify that there is a nonzero homomorphism between the regular modules only if they have the same value of $\lambda$. So for it to be possible for $X$ to factorize all these maps we would need $X$ to have an infinite amount of direct summands. Since we are working with finitely generated modules this is impossible, hence $S_1$ has no approximation, and the subcategory is not contravariantly finite.
 	\end{proof}
 \end{example}
 
-In the next example we look at the opposite algebra of $\Lambda$ to show that there is not necessarily any link between the contravariant finiteness for $\Lambda$ and for $\Lambda^{op}$. 
+In the next example we look at the opposite algebra of $\Lambda$ to show that there is not necessarily any link between the contravariant finiteness for $\Lambda$ and for $\Lambda^{\operatorname{op}}$. 
 
 \begin{example}
 	Let $\Gamma$ be the opposite algebra of the one in \cref{exam:not_contravariantly_finite}. That is, $\Gamma$ is the path algebra of 
 	\begin{center}
 		\begin{tikzcd}[column sep = 50pt]
-		2 \ar[r, "\delta", bend left=45] \ar[r, "\epsilon"] & 1 \ar[l, "\zeta", bend left = 45]
+		2 \ar[r, "\hat{\alpha}", bend left=45] \ar[r, "\hat{\beta}"] & 1 \ar[l, "\hat{\gamma}", bend left = 45]
 		\end{tikzcd}
 	\end{center}
-	with relations $\zeta\delta$, $\zeta\epsilon$, and $\delta\zeta$. Then the subcategory of modules with finite projective dimension is contravariantly finite. In other words the subcategory of $\Lambda$-modules with finite injective dimension is covariantly finite.
+	with relations $\hat{\gamma}\hat{\alpha}$, $\hat{\gamma}\hat{\beta}$, and $\hat{\alpha}\hat{\gamma}$. Then the subcategory of modules with finite projective dimension is contravariantly finite. In other words the subcategory of $\Lambda$-modules with finite injective dimension is covariantly finite.
 	\begin{proof}
-		As before notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have a $k$-dimension that is a multiple of 3. So in particular the simple modules have infinite projective dimension. 
+		The indecomposable projective $\Gamma$-modules are given by the following quivers 
+		\begin{center}
+			\begin{tikzcd}
+				1 \ar[d, "\hat{\gamma}"]\\2 \ar[d, "\hat{\beta}"]\\1
+			\end{tikzcd}
+			\hspace{2cm}
+			\begin{tikzcd}[column sep=7pt]
+				&2 \ar[dl, swap, "\hat{\alpha}"] \ar[dr, "\hat{\beta}"]&\\
+				1&&1
+			\end{tikzcd}
+		\end{center}
 		
-		Let $X$ be a module with finite projective dimension, and let $P$ be its projective cover. We have that $\Omega X$ is a submodule of $JP$. Notice that $\delta J = \zeta J = 0$, so $\Omega X$ is a $\Gamma/(\delta, \zeta)$-module. But $\Gamma/(\delta, \zeta)$ is simply equal to 
+		Similar to before before, notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have a $k$-dimension that is a multiple of 3. So in particular the simple modules have infinite projective dimension. 
+		
+		Let $X$ be a module with finite projective dimension, and let $P$ be its projective cover. We have that $\Omega X$ is a submodule of $JP$. Notice that $\hat{\alpha} J = \hat{\gamma} J = 0$, so $\Omega X$ is a $\Gamma/(\hat{\alpha}, \hat{\gamma})$-module. But $\Gamma/(\hat{\alpha}, \hat{\gamma})$ is simply isomorphic to the path algebra of  
 		\begin{tikzcd}
 			2 \ar[r] & 1
-		\end{tikzcd}
-		over which there are just 3 indecomposable modules. We already know that the simples cannot be summands of $\Omega X$, because they have infinite projective dimension. The last module ¨
+		\end{tikzcd},
+		over which there are just 3 indecomposable modules. We already know that the simple modules cannot be summands of $\Omega X$, because they have infinite projective dimension. The non-simple module
 		\begin{tikzcd}
 		k \ar[r] & k
 		\end{tikzcd}
 		is 2-dimensional and thus also has infinite projective dimension over $\Gamma$. So we conclude that $\Omega X = 0$, so $X$ is projective.
 		
-		So there are only a finite number of indecomposable modules with finite projective dimension. So the subcategory is contravariantly finite. 
+		So the only modules with finite projective dimension are the projectives themselves. In particular there are only a finite number of indecomposable modules with finite projective dimension. So the subcategory is contravariantly finite. 
 	\end{proof}
 \end{example}
