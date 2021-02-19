@@ -2,14 +2,17 @@
 Many results based on the survey \cite{Opp09}.
 
 \begin{defn}[dominated dimension]
-	Let \begin{tikzcd}
-		\Lambda \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
-	\end{tikzcd}
-	be a minimal injective resolution of $\Lambda$. Then the dominated dimension of $\Lambda$ is $\inf\{n | I_n$ is not projective \}.
+	Let 
+	\begin{center}
+		\begin{tikzcd}
+			\Lambda \ar[r] & I^0 \ar[r] & I^1 \ar[r] & \cdots
+		\end{tikzcd}
+	\end{center}
+	be the minimal injective resolution of $\Lambda$. Then the \emph{dominated dimension} of $\Lambda$ is $\inf\{n \quad | \quad I^n$ is not projective \}.
 \end{defn}
 
 \begin{defn}[rep-dimesnion] \todo{can probably reformulate this in terms of projectives and left modules... is there any significance to the distinction?}
-	Let $A$ be defined by $$A = \{\Gamma | domdim\Gamma \geq 2, \Lambda \text{ morita eqquivalent to } \End_\Gamma(I_0(\Gamma))\}$$ where $I_0(\Gamma)$ is the injective envelope of $\Gamma$. Then the repdimesnion of $\Lambda$ is the minimal global dimension of $\Gamma \in A$.
+	Let $A$ be defined by $$A = \{\Gamma | domdim\Gamma \geq 2, \Lambda \text{ morita eqquivalent to } \End_\Gamma(I_0(\Gamma))\}$$ where $I_0(\Gamma)$ is the injective envelope of $\Gamma$. Then the \emph{representation dimension} of $\Lambda$ is the minimal global dimension of $\Gamma \in A$.
 \end{defn}
 
 \begin{prop}\label{prop:repdim_auslander_generator} \todo{I guess this is Auslanders original definition}
@@ -26,7 +29,7 @@ Many results based on the survey \cite{Opp09}.
 		\end{center}
 		with $I_i$ in $\add I_0(\Gamma)$. In particular $\Gamma$ is in $\mathcal S$, because $domdim\Gamma \geq 2$.
 		
-		The Yoneda embedding gives an equivalence $$\Hom_\Gamma(-,I_0(\Gamma)):\add I_0(\Gamma) \to \proj\End_\Gamma(I_0(\Gamma))^{op}$$, and thus we get an equivalence $$D\Hom_\Gamma(-,I_0(\Gamma)):\add I_0(\Gamma) \to \inj\End_\Gamma(I_0(\Gamma))$$
+		The Yoneda embedding gives an equivalence $$\Hom_\Gamma(-,I_0(\Gamma)):\add I_0(\Gamma) \to \proj\End_\Gamma(I_0(\Gamma))^{\operatorname{op}},$$ and thus we get an equivalence $$D\Hom_\Gamma(-,I_0(\Gamma)):\add I_0(\Gamma) \to \inj\End_\Gamma(I_0(\Gamma))$$
 		Since $I_0(\Gamma)$ is injective $D\Hom(-,I_0(\Gamma))$ is exact and preserves kernels, so extends to an equivalence
 		$$\Hom_\Gamma(-,I_0(\Gamma)):\mathcal S \to \mod \End_\Gamma(I_0(\Gamma))$$
 		
@@ -64,7 +67,7 @@ Many results based on the survey \cite{Opp09}.
 		&\Omega_M^3 X \ar[u, hook] & \Omega_M^2  \ar[u, hook] X & \Omega_M X  \ar[u, hook] & X
 	\end{tikzcd}
 	\end{center}
-	If $\twoheadrightarrow$ are minimal $M$-approximations (they need not be surjective), and $\hookrightarrow$ are their kernels, then this is an $M$-resolution of $X$. The $M$-res-dimesnion of $X$ is the length of the sequence of (nonzero) $M_i$'s, and the $M$-res-dimesnion of $\Lambda$ is the supremum of the dimension on its objects.
+	If $\twoheadrightarrow$ are minimal $M$-approximations (they need not be surjective), and $\hookrightarrow$ are their kernels, then this is a minimal \emph{$M$-resolution} of $X$. The \emph{$M$-res-dimension} of $X$ is the length of this sequence of (nonzero) $M_i$'s, and the $M$-res-dimension of $\Lambda$ is the supremum of the dimension on its objects.
 
 \end{defn}
 
@@ -100,8 +103,8 @@ Many results based on the survey \cite{Opp09}.
 \begin{theorem}
 	The repdimension of $\Lambda$ is less than or equal to 2 if and only if $\Lambda$ is representation finite.
 	\begin{proof}
-		Assume $\Lambda$ is representation finite and let $M$ be the direct sum of all indecomposable modules (up to iso). Then $M$ is a generator-cogenerator. Let $X$ be an $\End(M)^{op}$-module with projective presentation $$(M,M_1) \to (M, M_0) \to X \to 0.$$ Let $M_2$ be the kernel of $M_1 \to M_0$. Since $M$ is the sum of all indecomposables $M_2$ is in $\add M$, so $$0 \to (M, M_2) \to (M,M_1) \to (M, M_0) \to X \to 0$$ is a projective resolution of $X$. So $\Lambda$ has repdimension at most 2.
+		Assume $\Lambda$ is representation finite and let $M$ be the direct sum of all indecomposable modules (up to iso). Then $M$ is a generator-cogenerator. Let $X$ be an $\End(M)^{\operatorname{op}}$-module with projective presentation $$(M,M_1) \to (M, M_0) \to X \to 0.$$ Let $M_2$ be the kernel of $M_1 \to M_0$. Since $M$ is the sum of all indecomposables $M_2$ is in $\add M$, so $$0 \to (M, M_2) \to (M,M_1) \to (M, M_0) \to X \to 0$$ is a projective resolution of $X$. So $\Lambda$ has repdimension at most 2.
 		
-		Assume $\Lambda$ has repdimension at most 2, and let $M$ be an auslander generator. We want to show that $\add M = \mod\Lambda$. Let $X$ be any $\Lambda$-module, and let $$0 \to X \to I_0 \to I_1$$ be a minimal injective presentation. If $I_0 \to I_1$ is split then $X$ is injective and thus in $\add M$. Let $M_X$ be a minimal $M$-approximation of $X$, let $\Omega_M X$ be the kernel of the approximation, and let $Y$ be the cokernel of $(M, I_0) \to (M, I_1)$. Then $$(M,\Omega_M X) \to (M,M_X) \to (M, I_0) \to (M, I_1) \to Y \to 0$$ is a minimal exact sequence. Since the global dimension of $\End(M)^{op}$ is at most 2 this means that $(M, \Omega_M X)=0$. Consequently we have that $\Omega_M X = 0$ and that $X=M_X$, so $X$ is in $\add M$. Thus $\Lambda$ is representation finite.
+		Assume $\Lambda$ has repdimension at most 2, and let $M$ be an auslander generator. We want to show that $\add M = \mod\Lambda$. Let $X$ be any $\Lambda$-module, and let $$0 \to X \to I_0 \to I_1$$ be a minimal injective presentation. If $I_0 \to I_1$ is split then $X$ is injective and thus in $\add M$. Let $M_X$ be a minimal $M$-approximation of $X$, let $\Omega_M X$ be the kernel of the approximation, and let $Y$ be the cokernel of $(M, I_0) \to (M, I_1)$. Then $$(M,\Omega_M X) \to (M,M_X) \to (M, I_0) \to (M, I_1) \to Y \to 0$$ is a minimal exact sequence. Since the global dimension of $\End(M)^{\operatorname{op}}$ is at most 2 this means that $(M, \Omega_M X)=0$. Consequently we have that $\Omega_M X = 0$ and that $X=M_X$, so $X$ is in $\add M$. Thus $\Lambda$ is representation finite.
 	\end{proof}
 \end{theorem}

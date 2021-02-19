@@ -24,10 +24,10 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 		Let $0 \to Y \to E \to Y' \to 0$ be an extension of objects in $\mathcal Y$, and let $X$ be an object of $\mathcal X$. Then we get an exact sequence  
 		\begin{center}
 			\begin{tikzcd}
-			0=\Ext(X, Y) \ar[r] & \Ext(X, E) \ar[r] & \Ext(X, Y')=0
+			0=\Ext^i(X, Y) \ar[r] & \Ext^i(X, E) \ar[r] & \Ext^i(X, Y')=0
 			\end{tikzcd}
 		\end{center}
-		Thus $\Ext(X, E)=0$ and $E$ is in $\mathcal Y$.
+		Thus $\Ext^i(X, E)=0$ for all $i \geq 1$ and $E$ is in $\mathcal Y$.
 	\end{proof}
 \end{prop}
 
@@ -36,13 +36,13 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 	$$0 \to Y \to X \to C \to 0$$ 
 	with $X\to C$ minimal $\mathcal X$-approximation and $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ is contravariantly finite, $C$ has a minimal $\mathcal X$-approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence $0 \to Y \to X \to C \to 0$. Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
+		Since $\mathcal X$ is contravariantly finite, $C$ has a minimal $\mathcal X$-approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence $$0 \to Y \to X \to C \to 0.$$ Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
 		\begin{center}
 		\begin{tikzcd}
-			\Hom(X', Y) \ar[r]&\Hom(X', X) \ar[r] & \Hom(X', C) \ar[dll, overlay, out=-15, in=165] \\ \Ext(X', Y) \ar[r] & \Ext(X', X) \ar[r] & \Ext(X', C)
+			\Hom(X', Y) \ar[r]&\Hom(X', X) \ar[r] & \Hom(X', C) \ar[dll, overlay, out=-15, in=165] \\ \Ext^1(X', Y) \ar[r] & \Ext(X', X)^1 \ar[r] & \Ext^1(X', C)
 		\end{tikzcd}
 		\end{center}
-		Since $X \to C$ is an approximation, we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext(X', X) \to \Ext(X', C)$ is mono we would have that $\Ext(X', Y)=0$. Assume we have an element of $\Ext(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
+		Since $X \to C$ is an approximation, we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext^1(X', X) \to \Ext^1(X', C)$ is mono we would have that $\Ext^1(X', Y)=0$. Assume we have an element of $\Ext^1(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
 		\begin{center}
 			\begin{tikzcd}
 			0 \ar[r] & X \ar[r] \ar[d] & E \ar[r] \ar[d] & X' \ar[d, equal] \ar[r] & 0\\
@@ -56,7 +56,9 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 			 C 
 			\end{tikzcd}
 		\end{center}
-		since $X \to C$ is an approximation we get that $E \to C$ factors through $X$. The endomorphism $X \to E \to X$ leaves the approximation unchanged, so by minimality it must be an isomorphism. Hence $0 \to X \to E \to X' \to 0$ is split and $\Ext(X', X) \to \Ext(X', C)$ is injective. Thus $\Ext(X', Y)=0$.
+		since $X \to C$ is an approximation we get that $E \to C$ factors through $X$. The endomorphism $X \to E \to X$ leaves the approximation unchanged, so by minimality it must be an isomorphism. Hence 
+		$$0 \to X \to E \to X' \to 0$$
+		 is split and $\Ext(X', X) \to \Ext(X', C)$ is injective. Thus $\Ext(X', Y)=0$.
 	\end{proof}
 \end{lemma}
 
@@ -173,7 +175,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 			&&0&0
 		\end{tikzcd}\todo{make a notation chapter setting notation for projective cover / resolution}
 		\end{center}
-		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$, then $X$ would have $P_2$ as a submodule.\todo{more details} So $X$ is a $\Lambda/(\gamma)$ module. 
+		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$, then $(e_2 x)$ would be a submodule of $X$ isomorphic to $P_2$. So $X$ is a $\Lambda/(\gamma)$ module. 
 		
 		The algebra $\Lambda/(\gamma)$ is the path algebra of the 2-Kronecker quiver, whose representation theory is well understood. Specifically $\Lambda/(\gamma)$ can be associated with the subquiver highlighted below. 
 		\begin{center}
@@ -249,7 +251,7 @@ In the next example we look at the opposite algebra of $\Lambda$ to show that th
 		\end{tikzcd},
 		over which there are just 3 indecomposable modules. We already know that the simple modules cannot be summands of $\Omega X$, because they have infinite projective dimension. The non-simple module
 		\begin{tikzcd}
-		k \ar[r] & k
+		k \ar[r, "1"] & k
 		\end{tikzcd}
 		is 2-dimensional and thus also has infinite projective dimension over $\Gamma$. So we conclude that $\Omega X = 0$, so $X$ is projective.
 		

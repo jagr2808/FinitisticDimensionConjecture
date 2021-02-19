@@ -44,6 +44,7 @@
 \DeclareMathOperator{\add}{add}
 \DeclareMathOperator{\Mod}{Mod}
 \def\mod{\operatorname{mod}}
+\DeclareMathOperator{\rad}{rad}
 
 \newsavebox{\pullback}
 \sbox\pullback{%
@@ -150,7 +151,7 @@ FDC holds for the following classes of algebras
 	\begin{proof}
 		Local algebras are local artinian rings. So if $\Lambda$ is local then $\findim(\Lambda)=0$.
 	\end{proof}
-	\item \textbf{only small FDC is known:}
+	\item \textbf{only small FDC is known?:}
 	\item Stably hereditary algebras
 	\item Special biserial algebras
 	\item "half rep-finite" algebras, i.e. $\Lambda/J^l$ rep-finite $J^{2l+1}=0$.
@@ -174,21 +175,21 @@ Not sure where to put this, ill put it here for now
 
 Many of the cases are equivalent to their dual statements. Some are not.
 \begin{itemize}
-	\item Given a recollement of the bounded derived category you get one for $\Lambda^{op}$. \todo{Look at examples of reccolement to see how it translates.}
+	\item Given a recollement of the bounded derived category you get one for $\Lambda^{\operatorname{op}}$. \todo{Look at examples of reccolement to see how it translates.}
 	\item Just because the subcategory of modules with finite projective dimension is contravariantly finite does not mean the subcategory of modules with finite injective dimension has to be covariantly finite. See \cref{exam:not_contravariantly_finite}.
-	\item repdim of $\Lambda$ equals the repdim of $\Lambda^{op}$.
+	\item repdim of $\Lambda$ equals the repdim of $\Lambda^{\operatorname{op}}$.
 	\begin{proof}
-		If $M$ is an auslander generator for $\Lambda$ then $DM$ is an auslander generator for $\Lambda^{op}$.
+		If $M$ is an auslander generator for $\Lambda$ then $DM$ is an auslander generator for $\Lambda^{\operatorname{op}}$.
 	\end{proof}
-	\item If $J^{2l+1} = 0$ and $\Lambda/J^l$ is repfinite then the same is true for $\Lambda^{op}$.
-	\item If $\Lambda$ is monomial then so is $\Lambda^{op}$.
+	\item If $J^{2l+1} = 0$ and $\Lambda/J^l$ is repfinite then the same is true for $\Lambda^{\operatorname{op}}$.
+	\item If $\Lambda$ is monomial then so is $\Lambda^{\operatorname{op}}$.
 	\item Injective generates implies the weaker property that projective cogenerate for the opposite algebra. This is also sufficient to prove the algebra satisfies FDC.\cite[Section~5]{Rick19} 
 \end{itemize}
 
 Similarly for the weaker conjectures
 \begin{itemize}
-	\item GSC says the injective dimension of $\Lambda$ is finite if and only if the injective dimension of $\Lambda^{op}$ is finite. This statement is symmetric with respect to $\Lambda$ and $\Lambda^{op}$. So the dual is equivalent.
-	\item NC: Certainly $\Lambda$ is self injective if and only $\Lambda^{op}$ is. \todo{Can the dominant dimension of the opposite algebra be different? Arbitrary different?}
+	\item GSC says the injective dimension of $\Lambda$ is finite if and only if the injective dimension of $\Lambda^{\operatorname{op}}$ is finite. This statement is symmetric with respect to $\Lambda$ and $\Lambda^{\operatorname{op}}$. So the dual is equivalent.
+	\item NC: Certainly $\Lambda$ is self injective if and only $\Lambda^{\operatorname{op}}$ is. \todo{Can the dominant dimension of the opposite algebra be different? Arbitrary different?}
 	\item For all the others it seems just as difficult as solving the conjecture to connect it to it's dual.
 \end{itemize}
 
@@ -201,13 +202,13 @@ Similarly for the weaker conjectures
 	\end{proof}
 \end{theorem}
 
-$\findim(\Lambda)$ need not equal $\findim(\Lambda^{op}) = \sup\{ $injective dimension of $M | M$ has finite injective dimension$ \}$.
+$\findim(\Lambda)$ need not equal $\findim(\Lambda^{\operatorname{op}}) = \sup\{ $injective dimension of $M | M$ has finite injective dimension$ \}$.
 
 \begin{example} \cite{Gre20}
 	Let $\Lambda=k \left.
 	\left[\begin{tikzcd}
 	\ar[out=150,in=210, loop, swap, looseness=3, "a"] 1 \ar[r, bend left=15, "b"] & 2 \ar[l, bend left=15, "c"]
-	\end{tikzcd}\right] \middle/ (a^2, ac, ba, cbc) \right.$. Then $\findim(\Lambda) \geq 1$, but $\findim(\Lambda^{op})=0$.
+	\end{tikzcd}\right] \middle/ (a^2, ac, ba, cbc) \right.$. Then $\findim(\Lambda) \geq 1$, but $\findim(\Lambda^{\operatorname{op}})=0$.
 	\begin{proof}
 		The module $\mymatrix{1\\1} = P_1/P_2 $ ($k^2$ where $a$ acts by $\begin{bsmallmatrix}
 			0 & 1\\0&0
@@ -227,7 +228,7 @@ $\findim(\Lambda)$ need not equal $\findim(\Lambda^{op}) = \sup\{ $injective dim
 		},\quad I_2 = \mymatrix{
 			1\\2\\1\\2
 		} $$
-		If $\findim(\Lambda^{op})>0$ there would be a module with finite non-zero injective resolution. In particular it would end with a non-split epimorphism between injectives. I claim this would mean there is a non-split epimorphism $I \to I_i$ from an injective to an indecomposable injective. Obviously we get epimorphisms by composing with the projections onto summands, so we want to show that they are not split. Assume that they are, that is the map looks like
+		If $\findim(\Lambda^{\operatorname{op}})>0$ there would be a module with finite non-zero injective resolution. In particular it would end with a non-split epimorphism between injectives. I claim this would mean there is a non-split epimorphism $I \to I_i$ from an injective to an indecomposable injective. Obviously we get epimorphisms by composing with the projections onto summands, so we want to show that they are not split. Assume that they are, that is the map looks like
 		
 		\begin{center}
 		\begin{tikzcd}[ampersand replacement=\&]
