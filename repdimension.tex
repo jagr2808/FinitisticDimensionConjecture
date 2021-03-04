@@ -1,25 +1,24 @@
 
 Many results based on the survey \cite{Opp09}.
 
-\begin{defn}[dominated dimension]
+\begin{defn}[Dominant dimension]
 	Let 
 	\begin{center}
 		\begin{tikzcd}
 			\Lambda \ar[r] & I^0 \ar[r] & I^1 \ar[r] & \cdots
 		\end{tikzcd}
 	\end{center}
-	be the minimal injective resolution of $\Lambda$. Then the \emph{dominated dimension} of $\Lambda$ is $\inf\{n \quad | \quad I^n$ is not projective \}.
+	be the minimal injective resolution of $\Lambda$. Then the \emph{dominant dimension} of $\Lambda$, denoted $\domdim(\Lambda)$, is the infimum over $n$ such that $I^n$ is not projective. If all $I^n$ are projective we say the dominant dimension is $\infty$.
 \end{defn}
 
-\begin{defn}[rep-dimesnion] \todo{can probably reformulate this in terms of projectives and left modules... is there any significance to the distinction?}
-	Let $A$ be defined by $$A = \{\Gamma | domdim\Gamma \geq 2, \Lambda \text{ morita eqquivalent to } \End_\Gamma(I_0(\Gamma))\}$$ where $I_0(\Gamma)$ is the injective envelope of $\Gamma$. Then the \emph{representation dimension} of $\Lambda$ is the minimal global dimension of $\Gamma \in A$.
+\begin{defn}[Representation dimension]
+	Let $A$ be defined by $$A = \{\Gamma | \domdim(\Gamma) \geq 2, \Lambda \text{ Morita equivalent to } \End_\Gamma(I_0(\Gamma))^{\operatorname{op}}\}$$ where $I_0(\Gamma)$ is the injective envelope of $\Gamma$. Then the \emph{representation dimension} of $\Lambda$, denoted $\repdim(\Lambda)$, is the infimum of the global dimensions of $\Gamma \in A$.
 \end{defn}
 
-\begin{prop}\label{prop:repdim_auslander_generator} \todo{I guess this is Auslanders original definition}
-	(all modules ar right modules)
-	Repdim is the same as minimal global dimension of $\End(M)$ for $M$ being both a generator and cogenerator. 
+\begin{prop}\label{prop:repdim_auslander_generator} \todo{This is the only thing I use, maybe I should ditch the rest}
+	For a finite dimensional algebra $\Lambda$, the representation dimension of $\Lambda$ is the same as minimal global dimension of $\End(M)^{\operatorname{op}}$ for $M \in \mod\Lambda$ being both a generator and cogenerator. 
 	\begin{proof}
-		Consider $\Gamma \in A$. Since $domdim\Gamma \geq 1$, $I_0(\Gamma)$ is the sum of all projective-injective modules (some probably several times). 
+		Consider $\Gamma \in A$. Since $\domdim(\Gamma) \geq 1$, $I_0(\Gamma)$ is the sum of all projective-injective modules (some probably several times). 
 		
 		Let $\mathcal S$ be the set of all $\Gamma$-modules with a copresentation
 		\begin{center}
@@ -29,45 +28,48 @@ Many results based on the survey \cite{Opp09}.
 		\end{center}
 		with $I_i$ in $\add I_0(\Gamma)$. In particular $\Gamma$ is in $\mathcal S$, because $domdim\Gamma \geq 2$.
 		
-		The Yoneda embedding gives an equivalence $$\Hom_\Gamma(-,I_0(\Gamma))\colon\add I_0(\Gamma) \to \proj\End_\Gamma(I_0(\Gamma))^{\operatorname{op}},$$ and thus we get an equivalence $$D\Hom_\Gamma(-,I_0(\Gamma))\colon\add I_0(\Gamma) \to \inj\End_\Gamma(I_0(\Gamma))$$
+		The Yoneda embedding gives a duality 
+		$$\Hom_\Gamma(-,I_0(\Gamma))\colon\add I_0(\Gamma) \to \proj\End_\Gamma(I_0(\Gamma)),$$ 
+		and thus we get an equivalence 
+		$$D\Hom_\Gamma(-,I_0(\Gamma))\colon\add I_0(\Gamma) \to \inj\End_\Gamma(I_0(\Gamma))^{\operatorname{op}}$$
 		Since $I_0(\Gamma)$ is injective $D\Hom(-,I_0(\Gamma))$ is exact and preserves kernels, so extends to an equivalence
-		$$\Hom_\Gamma(-,I_0(\Gamma))\colon\mathcal S \to \mod \End_\Gamma(I_0(\Gamma))$$
+		$$D\Hom_\Gamma(-,I_0(\Gamma))\colon\mathcal S \to \mod \End_\Gamma(I_0(\Gamma))^{\operatorname{op}}$$
 		
-		Since $\End_\Gamma(I_0(\Gamma))$ is morita equivalent to $\Lambda$, $\mathcal S$ is equivalent to $\mod \Lambda$. $\Gamma \in \mathcal S$ is clearly a generator. To see that it is a cogenerator note that $\Gamma$ contains all the projective-injective indecomposable objects as direct summands, so there is an injection $I_0(\Gamma) \to \Gamma^n$, and since $I_0(\Gamma)$ is a cogenerator in $\mathcal S$, $\Gamma$ is aswell.
+		Since $\End_\Gamma(I_0(\Gamma))^{\operatorname{op}}$ is Morita equivalent to $\Lambda$, $\mathcal S$ is equivalent to $\mod \Lambda$. The module $\Gamma \in \mathcal S$ is clearly a generator. To see that it is a cogenerator note that $\Gamma$ contains all the projective-injective indecomposable objects as direct summands, so there is an injection $I_0(\Gamma) \to \Gamma^n$, and since $I_0(\Gamma)$ is a cogenerator in $\mathcal S$, $\Gamma$ is as well.
 		
-		Thus by the equivalence $\mathcal S \to \mod\Lambda$ there is a cogenerator-generator object $M$ such that $\End_\Lambda(M) = \End_\Gamma(\Gamma)=\Gamma$.
+		Thus by the equivalence $\mathcal S \to \mod\Lambda$ there is a generator-cogenerator module $M$ such that $\End_\Lambda(M)^{\operatorname{op}} = \End_\Gamma(\Gamma)^{\operatorname{op}}=\Gamma$.
 		
-		The last step of the proof is showing that $\End(M)$ is in $A$ whenever $M$ is a generator-cogenerator.
+		The last step of the proof is showing that $\End(M)^{\operatorname{op}}$ is in $A$ whenever $M$ is a generator-cogenerator.
 		
-		Let $0 \to M \to I_0(M) \to I_1(M)$ be a minimal injective copresentation of $M$. Since $M$ is a cogenerator $I_i(M)$ is in $\add M$, thus we get an exact sequence of projective $\End(M)$-modules
+		Let $0 \to M \to I_0(M) \to I_1(M)$ be a minimal injective copresentation of $M$. Since $M$ is a cogenerator $I_i(M)$ is in $\add M$, thus we get an exact sequence of projective $\End(M)^{\operatorname{op}}$-modules
 		\begin{align} \label{eq:injective_copres_of_endM}
 		0 \to \End(M) \to \Hom(M, I_0(M)) \to \Hom(M, I_1(M)).
 		\end{align}
-		Now we have the following isomorphisms of $\Lambda$-$\End(M)$-bimodules
+		Now we have the following isomorphisms of $\End(M)^{\op}-\Lambda$-bimodules
 		\begin{align*}
 		\Hom_\Lambda(M, D\Lambda) &=
-		\Hom_k(M\otimes\Lambda, k) \\&=
+		\Hom_k(\Lambda\otimes M, k) \\&=
 		\Hom_k(M, k) \\&=
 		DM \\&=
 		D\Hom_\Lambda(\Lambda, M)
 		\end{align*}
-		Since $\Lambda$ is in $\add M$, $\Hom(\Lambda, M)$ is projective, and thus $D\Hom(\Lambda, M) = \Hom(M, D\Lambda)$ is injective. This means that (\ref{eq:injective_copres_of_endM}) is an injective copresentation, and thus $domdim\End(M) \geq 2$.
+		Since $\Lambda$ is in $\add M$, $\Hom(\Lambda, M)$ is projective as a $\End(M)$-module, and thus $D\Hom(\Lambda, M) = \Hom(M, D\Lambda)$ is injective as a $\End(M)^{\op}$-module. This means that (\ref{eq:injective_copres_of_endM}) is an injective copresentation, and thus $\domdim(\End(M)^{\op}) \geq 2$.
 		
-		Since $\Hom(M, I_0(M))$ is the beginning of an injective resolution of $\End(M)$, $I_0(\End(M))$, must be a direct summand. Then $\Hom(M, I_0(M)) / I_0(\End(M))$ would map injectively into $\Hom(M, I_1(M))$, but that would mean theres a direct summand of $I_0(M)$ mapping injectively into $I_1(M)$, contradicting minimality. Thus $\Hom(M, I_0(M)) = I_0(\End(M))$.
+		Since $\Hom(M, I_0(M))$ is the beginning of an injective resolution of $\End(M)$, $I_0(\End(M))$, must be a direct summand. Then $\Hom(M, I_0(M)) / I_0(\End(M))$ would map injectively into $\Hom(M, I_1(M))$, but that would mean there is a direct summand of $I_0(M)$ mapping injectively into $I_1(M)$, contradicting minimality. Thus $\Hom(M, I_0(M)) = I_0(\End(M)^{\op})$.
 		
-		Let $I=I_0(M)$ and $\Gamma = \End_\Lambda(I)$, then $D\Hom(-,I)$ is an exact equivalence from $\add I$ to $\inj\Gamma$. Since $I$ is an injective cogenerator $\add I = \inj\Lambda$. Then because of exactness $D\Hom(-,I)$ becomes an equivalence between $K^{+,b}(\inj\Lambda)$ and $K^{+,b}(\inj\Gamma)$. Considering only those complexes with homology in degree 0, we see that $\mod\Lambda$ is equivalent to $\mod\Gamma$. So $\Lambda$ is morita equivalent to $\Gamma = \End(I_0(M)) = \End(I_0(\End(M)))$.
+		Let $I=I_0(M)$ and $\Gamma = \End_\Lambda(I)^{\op}$, then $D\Hom(-,I)$ is an exact equivalence from $\add I$ to $\inj\Gamma$. Since $I$ is an injective cogenerator $\add I = \inj\Lambda$. Then because $D\Hom(-,I)$ is exact it extends to an equivalence $\mod\Lambda \to \mod\Gamma$. So $\Lambda$ is Morita equivalent to $\Gamma = \End_{\Lambda}(I_0(M))^{\op} = \End_{R}(I_0(R))^{\op}$, where $R=\End(M)^{\op}$. Thus $\End(M)^{\op}$ is in $A$.
 	\end{proof}
 \end{prop}
 
 \begin{defn}
-	Let $X$ be an object of $\mod\Lambda$ and $M$ a contravariantaly finite subcategory.
+	Let $X$ be an object of $\mod\Lambda$ and $\mathcal M$ a contravariantaly finite subcategory.
 	\begin{center}
 	\begin{tikzcd}
 		\cdots \ar[rd, two heads] \ar[r] & M_2 \ar[rd, two heads] \ar[r] & M_1 \ar[rd, two heads] \ar[r] & M_0 \ar[rd, two heads]\\
 		&\Omega_M^3 X \ar[u, hook] & \Omega_M^2  \ar[u, hook] X & \Omega_M X  \ar[u, hook] & X
 	\end{tikzcd}
 	\end{center}
-	If $\twoheadrightarrow$ are minimal $M$-approximations (they need not be surjective), and $\hookrightarrow$ are their kernels, then this is a minimal \emph{$M$-resolution} of $X$. The \emph{$M$-res-dimension} of $X$ is the length of this sequence of (nonzero) $M_i$'s, and the $M$-res-dimension of $\Lambda$ is the supremum of the dimension on its objects.
+	If the maps $M_n \twoheadrightarrow \Omega_M^nX$ are minimal right $\mathcal M$-approximations for $n\geq 0$ (they need not be surjective), and $\Omega_M^{n+1} \hookrightarrow M_n$ are their kernels, then this is a minimal \emph{$M$-resolution} of $X$. The \emph{$\mathcal M$-res-dimension} of $X$ is the length of this sequence of (nonzero) $M_i$'s, and the $\mathcal M$-res-dimension of $\Lambda$ is the supremum of the dimension on its objects.
 
 \end{defn}
 
