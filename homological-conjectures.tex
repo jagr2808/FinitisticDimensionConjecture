@@ -93,6 +93,82 @@ The homological conjectures are related in the way presented in the diagram belo
 
 The remainder of this section is used to prove these implications.
 
+\todo{fdc -> wtc missing}
+
+\begin{theorem} \cite[Proposition~4.4]{MR04}
+	The finitistic dimension conjecture implies the Wakamatsu tilting conjecture.
+	\begin{proof}
+		Assume $\Lambda$ satisfies FDC, and let $T$ be a Wakamatsu tilting module with $\pd T < \infty$. By definition we have an exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			\eta\colon 0 \ar[r] & \Lambda \ar[r, "d_{-1}"] & T_0 \ar[r, "d_0"] & T_1 \ar[r, "d_1"] & \cdots
+			\end{tikzcd}
+		\end{center}
+		We want to show that $\eta$ can be replaced by a bounded sequence of the same form. 
+		
+		Let $K_i$ denote the kernel of $d_i$. First we prove by induction on $i$ that $\Ext^{>0}(K_i, T)=0$. For $i=0$ we have $K_0=\Lambda$, so we have $\Ext^{>0}(K_0, T)=0$. Now assume that $\Ext^{>0}(K_i, T)=0$ for some $i \geq 0$. We have a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0  \ar[r] & K_{i}  \ar[r] & T_{i}  \ar[r] & K_{i+1}  \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		Applying the long exact sequence in $\Ext(-, T)$ we get
+		\begin{center}
+			\begin{tikzcd}[column sep=18pt]
+			\Ext^{n+1}(T_{i}, T) \ar[r] & \Ext^{n+1}(K_{i}, T) \ar[r] & \Ext^n(K_{i+1}, T) \ar[r] & \Ext^n(T_{i}, T)
+			\end{tikzcd}
+		\end{center}
+		Since $T_{i}$ is in $\add T$ we have that $\Ext^n(T_{i})=0$ for all $n>0$. Then by exactness we have that $\Ext^n(K_{i+1}, T) \cong \Ext^{n+1}(K_i, T) = 0$ for all $n>0$. So by induction $\Ext^{>0}(K_i, T)=0$ for all $i\geq 0$.
+		
+		By a similar argument we now wish to show that $$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for all $i \leq m$. We proceed by induction on $i$. When $i=1$ the statement is evident. Now assume that $$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for some $i \geq 1$. Then it is sufficient to show that $$ \Ext^{i}(K_m, K_{m-i}) \cong  \Ext^{i+1}(K_m, K_{m-i-1}).$$
+		We have a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0  \ar[r] & K_{m-i-1}  \ar[r] & T_{m-i-1}  \ar[r] & K_{m-i}  \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		Taking the long exact sequence in $\Ext(K_m, -)$ we get the exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			\Ext^{i}(K_m, T_{m-i-1}) \ar[r] & \Ext^{i}(K_m, K_{m-i}) \ar[dl, out=-10, in=170, overlay]\\ 
+			\Ext^{i+1}(K_m, K_{m-i-1}) \ar[r] & \Ext^{i+1}(K_m, T_{m-i-1}).
+			\end{tikzcd}
+		\end{center}
+		Since we showed above that $\Ext^{>0}(K_m, T) = 0$ and $T_{m-i-1}$ is in $\add T$ we get that $\Ext^{>0}(K_m, T_{m-i-1}) = 0$. Thus $\Ext^{i}(K_m, K_{m-i}) \cong \Ext^{i+1}(K_m, T_{m-i-1})$, and by induction we have that 
+		$$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for all $i \leq m$.
+		
+		Next we show that $\pd K_i < \infty$ for all $i \geq 0$. We proceed by induction on $i$. The projective dimension of $K_0=\Lambda$ is 0, which is finite. For $i>0$ we have a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0  \ar[r] & K_{i-1}  \ar[r] & T_{i-1}  \ar[r] & K_{i}  \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		Therefor $\pd K_i \leq \sup\{\pd T_{i-1}, \pd L_{i-1} - 1\} < \infty$.
+		
+		Lastly let $n=\findim(\Lambda) < \infty$. Then we have that 
+		$$\Ext^1(K_{n+1}, K_{n}) \cong \Ext^{n+1}(K_{n+1}, K_{0}) = 0$$
+		where the last equality comes from $\pd K_{n+1} \leq n$. Now if we apply $\Hom(K_{n+1}, -)$ to the short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0  \ar[r] & K_{n}  \ar[r] & T_{n}  \ar[r] & K_{n+1}  \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		we get an exact sequence 
+		\begin{center}
+			\begin{tikzcd}
+			\Hom(K_{n+1}, T_n) \ar[r] & \Hom(K_{n+1}, K_{n+1}) \ar[r] & \Ext^1(K_{n+1, K_{n})=0.
+			\end{tikzcd}
+		\end{center}
+		This means that $K_{n+1}$ is a direct summand of $T_n$, and thus is in $\add T$. Then we get abounded version of $\eta$ by
+		\begin{center}
+			\begin{tikzcd}[column sep=23pt]
+			\eta'\colon 0 \ar[r] & \Lambda \ar[r, "d_{-1}"] & T_0 \ar[r, "d_0"] & T_1 \ar[r, "d_1"] & \cdots \ar[r, "d_{n-1}"] & T_n \ar[r, "d_n"] & K_{n+1} \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		Hence $T$ is a tilting module, and thus $\Lambda$ satisfies WTC.
+	\end{proof}
+\end{theorem}
+
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:FDC_implies_VC}
 	The finitistic dimension conjecture implies the vanishing conjecture.
 	\begin{proof}
@@ -217,6 +293,7 @@ Combining the implications above we see that the strong Nakayama conjecture impl
 \end{prop}
 
 \todo{Make a table of how the implications work}
+The proofs above do not necessarily work on the level of individual algebras. For example for the proof that WTC implies GSC we need to assume that WTC holds for both $\Lambda$ and $\Lambda^{\op}$ to prove that $\Lambda$ satisfies GSC.
 
 \subsection{Wedderburn correspondence}\label{sec:wedderburn_correspondence}
 
