@@ -93,8 +93,6 @@ The homological conjectures are related in the way presented in the diagram belo
 
 The remainder of this section is used to prove these implications.
 
-\todo{fdc -> wtc missing}
-
 \begin{theorem} \cite[Proposition~4.4]{MR04}
 	The finitistic dimension conjecture implies the Wakamatsu tilting conjecture.
 	\begin{proof}
@@ -169,6 +167,15 @@ The remainder of this section is used to prove these implications.
 	\end{proof}
 \end{theorem}
 
+\begin{theorem}
+	The Wakamatsu tilting conjecture implies the Gorenstein symmetry conjecture.
+	\begin{proof}
+		The left module $D(\Lambda_\Lambda)$ is Wakamatsu tilting. WTC then gives us that if $D(\Lambda_\Lambda)$ has finite projective dimension, then $_\Lambda\Lambda$ has a finite coresolution by modules in $\add D(\Lambda_\Lambda)$. In other words $_\Lambda\Lambda$ has finite injective dimension.
+		
+		For the other direction assume $_\Lambda\Lambda$ has finite injective dimension. Then the right module $D(_\Lambda\Lambda)$ has finite projective dimension, so WTC gives us that $\Lambda_\Lambda$ has finite injective dimension. Which means $D(\Lambda_\Lambda)$ has finite projective dimension.
+	\end{proof}
+\end{theorem}
+
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:FDC_implies_VC}
 	The finitistic dimension conjecture implies the vanishing conjecture.
 	\begin{proof}
@@ -195,15 +202,6 @@ The remainder of this section is used to prove these implications.
 		Assume there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. Proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$: If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$. This is 0 because $D\Lambda$ is the sum of the indecomposable injectives.
 		
 		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i \leq n-1$. Then $$I^{>0} \to I \to I^{0} \to I^{>0}[1]$$ is a triangle with $I^{>0}$ of width $n-1$ and $I^0$ of width 1. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$. 
-	\end{proof}
-\end{theorem}
-
-\begin{theorem}
-	The Wakamatsu tilting conjecture implies the Gorenstein symmetry conjecture.
-	\begin{proof}
-	The left module $D(\Lambda_\Lambda)$ is Wakamatsu tilting. WTC then gives us that if $D(\Lambda_\Lambda)$ has finite projective dimension, then $_\Lambda\Lambda$ has a finite coresolution by modules in $\add D(\Lambda_\Lambda)$. In other words $_\Lambda\Lambda$ has finite injective dimension.
-	
-	For the other direction assume $_\Lambda\Lambda$ has finite injective dimension. Then the right module $D(_\Lambda\Lambda)$ has finite projective dimension, so WTC gives us that $\Lambda_\Lambda$ has finite injective dimension. Which means $D(\Lambda_\Lambda)$ has finite projective dimension.
 	\end{proof}
 \end{theorem}
 
@@ -256,7 +254,7 @@ We now have the relevant tools to prove the remaining implications.
 		\end{center}
 		By \cref{thm:hom_generator_equivalence} this is an injective resolution of $\Gamma$.
 		
-		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma$ does not satisfy SNC.
+		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma^{\op}$ does not satisfy SNC.
 	\end{proof}
 \end{theorem}
 
@@ -293,7 +291,16 @@ Combining the implications above we see that the strong Nakayama conjecture impl
 \end{prop}
 
 \todo{Make a table of how the implications work}
-The proofs above do not necessarily work on the level of individual algebras. For example for the proof that WTC implies GSC we need to assume that WTC holds for both $\Lambda$ and $\Lambda^{\op}$ to prove that $\Lambda$ satisfies GSC.
+The proofs above do not necessarily work on the level of individual algebras. For example for the proof that WTC implies GSC we need to assume that WTC holds for both $\Lambda$ and $\Lambda^{\op}$ to prove that $\Lambda$ satisfies GSC. We list the relationships between the conjectures for individual algebras.
+
+\begin{enumerate}[i)]
+	\item If $\Lambda$ satisfies FDC, then $\Lambda$ also satisfies WTC.
+	\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
+	\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC $\Rightarrow$ SNC, all hold on the level of individual algebras.
+	\item If $\Gamma$ satisfies SNC whenever $\Gamma$ is the endomorphism ring of a generator in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
+	\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC.
+	\item If $\Lambda$ satisfies SNC, then $\Lambda^{\op}$ satisfies NC.
+\end{enumerate}
 
 \subsection{Wedderburn correspondence}\label{sec:wedderburn_correspondence}
 
