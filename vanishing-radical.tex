@@ -3,7 +3,7 @@ Throughout this section $\Lambda$ is a finite dimensional algebra, and $J$ is it
 \begin{theorem}
 	If $J^2=0$ then $\findim(\Lambda) < \infty$.
 	\begin{proof}
-		Let $d = \max\{\pd S_i | \pd S_i < \infty\}$ where $S_i$ ranges over the simple $\Lambda$-modules. Let $M$ be a module with $\pd M < \infty$. Let $P \to M$ be a projective cover. Then $\Omega M$ is contained in $JP$ and since $J^2P=0$, $\Omega M$ is annihilated by $J$ and is thus semisimple. This means $\pd \Omega M \leq d$, and thus $\pd M \leq d+1$. So $\findim(\Lambda) \leq d+1 < \infty$.
+		Let $d = \max\{\pd S_i \mid \pd S_i < \infty\}$ where $S_i$ ranges over the simple $\Lambda$-modules. Let $M$ be a module with $\pd M < \infty$. Let $P \to M$ be a projective cover. Then $\Omega M$ is contained in $JP$ and since $J^2P=0$, $\Omega M$ is annihilated by $J$ and is thus semisimple. This means $\pd \Omega M \leq d$, and thus $\pd M \leq d+1$. So $\findim(\Lambda) \leq d+1 < \infty$.
 	\end{proof}
 \end{theorem}
 
@@ -16,14 +16,14 @@ Throughout this section $\Lambda$ is a finite dimensional algebra, and $J$ is it
 			0 \ar[r] & (\Omega^2 M + J^2P) / J^2 P \ar[r] & P / J^2 P \ar[r] & \Omega M \ar[r] & 0
 		\end{tikzcd}
 		\end{center}
-		Let $\psi$ be the Igusa-Todorov function as introduced in \cref{sec:Igusa-Todorov}. Since $\Omega^2 M \subseteq JP$ we have that $(\Omega^2 M + J^2P) / J^2 P$ is semisimple. Then by \cref{lem:properties_of_psi} $\psi((\Omega^2 M + J^2P) / J^2 P) = \psi(\Lambda / J)$, and $\psi(P / J^2 P) = \psi(\Lambda / J^2)$.
+		Let $\psi$ be the Igusa-Todorov function as introduced in \cref{sec:Igusa-Todorov}. Since $\Omega^2 M \subseteq JP$ we have that $(\Omega^2 M + J^2P) / J^2 P$ is semisimple. Then by \cref{lem:properties_of_psi} $\psi((\Omega^2 M + J^2P) / J^2 P) \leq \psi(\Lambda / J)$, and $\psi(P / J^2 P) \leq \psi(\Lambda / J^2)$.
 		
 		Applying \cref{thm:projdim_bounded_by_psi} to the short exact sequence above we thus get $\pd \Omega M \leq \psi(\Lambda / J \oplus \Lambda / J^2) + 1$, and so $\pd M \leq \psi(\Lambda / J \oplus \Lambda / J^2) + 2$, and $\findim(\Lambda) < \infty$.
 	\end{proof}
 \end{theorem}
 
 \begin{theorem}\cite{Wang94}
-	If $J^{2l+1} = 0$ and $\Lambda / J^l$ is representation finite then $\findim(\Lambda) < \infty$.
+	If $J^{2l+1} = 0$ and $\Lambda / J^l$ is representation finite, then $\findim(\Lambda) < \infty$.
 	\begin{proof}
 		Let $M$ be a module with $\pd M < \infty$. We have a short exact sequence 
 		\begin{center}
@@ -31,11 +31,11 @@ Throughout this section $\Lambda$ is a finite dimensional algebra, and $J$ is it
 			0 \ar[r] & J^l\Omega M \ar[r] & \Omega M \ar[r] & \Omega M / J^l\Omega M \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
-		Since $\Omega M \subseteq JP^0_M$ we have $J^{2l}\Omega M = 0$. This means that $J^l\Omega M$ and $\Omega M / J^l\Omega M$ are $\Lambda / J^l$-modules. We will use this, the fact that $\Lambda / J^l$ is representation finite, and the Igusa-Todorov function to create a bound for $\pd M$.
+		Since $\Omega M \subseteq JP^0_M$ we have $J^{2l}\Omega M = 0$. This means that $J^l\Omega M$ and $\Omega M / J^l\Omega M$ are $\Lambda / J^l$-modules. We use this, the fact that $\Lambda / J^l$ is representation finite, and the Igusa-Todorov function to create a bound for $\pd M$.
 		
-		Applying \cref{cor:projdim_bounded_by_psi} we have that:
+		Applying \cref{cor:projdim_bounded_by_psi} (\ref{cor:projdim_bounded_by_psi_ii}) we have that:
 		$$ \pd \Omega M \leq \psi(\Omega (J^l\Omega M)\oplus\Omega^2(\Omega M / J^l\Omega M)) + 2.$$ 
-		Since $\Lambda / J^l$ is representation finite there are only finitely many indecomposable $\Lambda / J^l$-modules, up to isomorphism. Let $S$ be the sum of all of them. Then since $J^l\Omega M$ and $\Omega M / J^l\Omega M$ are in $\add S$, using \cref{lem:properties_of_psi} we have that 
+		Since $\Lambda / J^l$ is representation finite, there are only finitely many indecomposable $\Lambda / J^l$-modules, up to isomorphism. Let $S$ be the sum of all of them. Then since $J^l\Omega M$ and $\Omega M / J^l\Omega M$ are in $\add S$, using \cref{lem:properties_of_psi} we have that 
 		$$\psi(\Omega (J^l\Omega M)\oplus\Omega^2(\Omega M / J^l\Omega M)) \leq \psi(\Omega S \oplus \Omega^2 S).$$
 		So $\pd M \leq \psi(\Omega S \oplus \Omega^2 S) + 3$, and thus $\findim(\Lambda) < \infty$.
 	\end{proof}

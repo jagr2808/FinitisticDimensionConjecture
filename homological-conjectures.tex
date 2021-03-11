@@ -141,14 +141,14 @@ The remainder of this section is used to prove these implications.
 			0  \ar[r] & K_{i-1}  \ar[r] & T_{i-1}  \ar[r] & K_{i}  \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
-		Therefor $\pd K_i \leq \sup\{\pd T_{i-1}, \pd L_{i-1} - 1\} < \infty$.
+		Therefor $\pd K_i \leq \sup\{\pd T_{i-1}, \pd K_{i-1} - 1\} < \infty$.
 		
-		Lastly let $n=\findim(\Lambda) < \infty$. Then we have that 
+		Lastly, let $n=\findim(\Lambda) < \infty$. Then we have that 
 		$$\Ext^1(K_{n+1}, K_{n}) \cong \Ext^{n+1}(K_{n+1}, K_{0}) = 0$$
 		where the last equality comes from $\pd K_{n+1} \leq n$. Now if we apply $\Hom(K_{n+1}, -)$ to the short exact sequence
 		\begin{center}
 			\begin{tikzcd}
-			0  \ar[r] & K_{n}  \ar[r] & T_{n}  \ar[r] & K_{n+1}  \ar[r] & 0.
+			0  \ar[r] & K_{n}  \ar[r] & T_{n}  \ar[r] & K_{n+1}  \ar[r] & 0,
 			\end{tikzcd}
 		\end{center}
 		we get an exact sequence 
@@ -179,7 +179,7 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:FDC_implies_VC}
 	The finitistic dimension conjecture implies the vanishing conjecture.
 	\begin{proof}
-		Let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and without loss of generality we may assume it concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if its concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono then replacing $I^0$ by $0$, and $I^1$ be $I^1/I^0$ gives a homotopic complex.
+		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if its concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono then replacing $I^0$ by $0$, and $I^1$ be $I^1/I^0$ gives a homotopic complex.
 			
 		The module $\Hom(D\Lambda, I^i)$ is in $\add\Hom(D\Lambda, D\Lambda) = \add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives. We show that this complex is acyclic by considering the following diagram.
 		
@@ -199,9 +199,9 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:VC_implies_Nuc}
 	The vanishing conjecture implies the Nunke condition.
 	\begin{proof}
-		Assume there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. Proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$: If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$. This is 0 because $D\Lambda$ is the sum of the indecomposable injectives.
+		Assume $\Lambda$ doesn't satisfy NuC. That is, there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then we claim that $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. To show this we proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$. If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$, which is 0 because $I$ is in $\add D\Lambda$ and $\Ext^i(D\Lambda, X)=0$.
 		
-		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i \leq n-1$. Then $$I^{>0} \to I \to I^{0} \to I^{>0}[1]$$ is a triangle with $I^{>0}$ of width $n-1$ and $I^0$ of width 1. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$. 
+		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i \leq n-1$. Then $$I^{>0} \to I \to I^{0} \to I^{>0}[1]$$ is a triangle with $I^{>0}$ of width $n-1$ and $I^0$ of width 1. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$. Since $X \neq 0$ we have that $\Lambda$ does not satisfy VC.
 	\end{proof}
 \end{theorem}
 
