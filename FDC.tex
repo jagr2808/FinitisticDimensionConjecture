@@ -93,25 +93,48 @@ FDC yo! This is abstract!
 \section*{Notation}
 \addcontentsline{toc}{section}{\protect\numberline{}Notation}%
 \markboth{section}{Notation}
-$k$ a field $\Lambda$ findim alg, $J$ radical
+%$k$ a field $\Lambda$ findim alg, $J$ radical
 
-$\mod\Lambda$ finite dimensional (left-)modules, $\Mod\Lambda$ all (left-)modules.
+Throughout this thesis $k$ will be a field, and $\Lambda$ will be a finite dimensional algebra over $k$. We will use $J$ to refer to the Jacobson radical of $\Lambda$.
 
-$_\Gamma M_\Lambda$ is a $\Gamma-\Lambda$-bimodule. Left $\Gamma$-module, right $\Lambda$-module
+%$\mod\Lambda$ finite dimensional (left-)modules, $\Mod\Lambda$ all (left-)modules.
 
-Quiver/path algebra. Multiplication is written right to left
+We will use $\mod\Lambda$ to refer to the category of finite dimensional left $\Lambda$-modules, and $\Mod\Lambda$ to the category of all left $\Lambda$-modules. Any modules considered will be left modules if not specified otherwise. When there is ambiguity we may write $_\Lambda M$ to specify that we are considering $M$ as a left $\Lambda$-module, and $M_\Lambda$ to specify that we are considering $M$ as a right $\Lambda$-module. Similarly $_\Gamma M_\Lambda$ means we are considering $M$ as a $\Gamma$-$\Lambda$-bimodule.
 
-$\Hom_{\mathcal C}(M, N)$ can be written as $\mathcal C(M,N)$ or sometimes simply $(M,N)$
+%$_\Gamma M_\Lambda$ is a $\Gamma-\Lambda$-bimodule. Left $\Gamma$-module, right $\Lambda$-module
 
-$D: \mod \Lambda \to \mod\Lambda^{\operatorname{op}}$ is the duality $DM = \Hom(M, k)$
+Since right $\Lambda$-modules are the same as left $\Lambda^{\op}$-modules we use these interchangeably. We use the symbol $D$ to denote the duality functor $D: \mod \Lambda \to \mod\Lambda^{\operatorname{op}}$ where $DM = \Hom_k(M, k)$. Typically $D\Lambda$ will refer to the left module $D\Lambda_\Lambda$.
 
-$\D^b(\Lambda)$ bounded derived category, $K^b$, $K^{+,b}$, $K^{-, b}$, $\D$, etc. $X^{\geq n}$ hard truncation, $[i]$ shift
+%$D: \mod \Lambda \to \mod\Lambda^{\operatorname{op}}$ is the duality $DM = \Hom(M, k)$
 
-All functors are additive
+A quiver is a direct graph with a finite number of vertices. We write composition of paths right to left. That is, for paths $\alpha\colon i \to j$ and $\beta\colon k\to l$ the composition $\alpha\beta$ is defined if and only if $l=i$. For a quiver $Q$, the path algebra $kQ$ is the free vector space of all paths, including a trivial path for each vertex. Multiplication of paths is defined to be composition when it is defined and 0 otherwise. The multiplication extends linearly to make $kQ$ and algebra.
 
-$I(M)$ injective envelope, $P_M^0$ projective cover, $\cdots \to P_M^1 \to P_M^0$ projective resolution. $\Omega^n M$ syzygy.
+%If $Q$ is a quiver we denote by $Q_0$ the set of vertices and $Q_1$ the set of arrows. We have two maps $s,t:Q_1 \to Q_0$ which assign to an arrow $\alpha: i\to j$ its vertex of origin $s(\alpha) = i$, and its vertex of termination $t(\alpha) = j$.
 
-$\pd$ projective dimension
+%Quiver/path algebra. Multiplication is written right to left
+
+When working over a category $\mathcal C$ we will denote the set of morphisms either as $\Hom_{\mathcal C}(M, N)$ or as $\mathcal C(M,N)$. When the ambient category is clear we may also write simply $(M, N)$.
+
+Functors are always assumed to be additive.
+
+%$\Hom_{\mathcal C}(M, N)$ can be written as $\mathcal C(M,N)$ or sometimes simply $(M,N)$
+
+For an exact category $\mathcal A$ we write $\D(\mathcal A)$ to refer to the derived category, $\D^b(\mathcal A)$ to refer to the bounded derived category, $K^b(\mathcal A)$ to refer to the bounded homotopy category, $K^{+,b}(\mathcal A)$ (respectively $K^{-,b}(\mathcal A)$) to refer to the homotopy category of complexes bounded below (respectively above) and bounded in homology. We also write $\D^b(\Lambda)$ instead of $\D^b(\mod\Lambda)$ and $\D(\Lambda)$ instead of $\D(\Mod\Lambda)$. In all of these triangulated categories $X[i]$ will denote the complex $X$ shifted $i$ degrees down. That is, $(X[i])^n = X^{n+i}$. We denote the hard truncation of $X$ by $X^{\geq n}$. The hard truncation is the complex defined by $(X^{\geq n})m$ equals $X^m$ when $m \geq n$ and 0 otherwise. We define the hard truncation $X^{\leq n}$ similarly.
+
+%$\D^b(\Lambda)$ bounded derived category, $K^b$, $K^{+,b}$, $K^{-, b}$, $\D$, etc. $X^{\geq n}$ hard truncation, $[i]$ shift
+
+For a module $M$ we will write $I(M)$ for its injective envelope, and $P(M)$ for its projective cover. We may also write 
+\begin{center}
+	\begin{tikzcd}
+		\cdots \ar[r] & P_M^2 \ar[r, "d_M^2"] & P_M^1 \ar[r, "d_M^1"] & P_M^0 \ar[d, "d_M^0"] \ar[r] & 0\\
+		          &            &           &  M      
+	\end{tikzcd}
+\end{center} 
+for its minimal projective resolution. We will let the $n$th syzygies of $M$ be the kernel of $d_M^{n-1}$, denoted by $\Omega^n M$. We also define $\Omega^0 M$ to be $M$.
+
+The projective dimension of $M$ is the $i$ if $P_M^i$ is the last non-zero module in the minimal projective resolution, and $\infty$ if there is no such module. We denote the projective dimension by $\pd M$.
+
+%$I(M)$ injective envelope, $P_M^0$ projective cover, $\cdots \to P_M^1 \to P_M^0$ projective resolution. $\Omega^n M$ syzygy.
 
 \newpage
 
@@ -134,11 +157,14 @@ This is an introduction
 \section{Contravariant finiteness}
 \input{contravariant-finiteness}
 
-\section{Repdimension}
-\input{repdimension}
+%\section{Repdimension}
+%\input{repdimension}
 
-\subsection{The Igusa-Todorov function} \label{sec:Igusa-Todorov}
+\section{The Igusa-Todorov functions} \label{sec:Igusa-Todorov}
 \input{igusa-todorov-function}
+
+\subsection{Representation dimension}
+\input{repdimension}
 
 \subsection{Stably hereditary algebras}
 \input{stably-hereditary}
