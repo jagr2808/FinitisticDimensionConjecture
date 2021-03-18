@@ -373,6 +373,38 @@ $\findim(\Lambda)$ need not equal $\findim(\Lambda^{\operatorname{op}}) = \sup\{
 	\end{proof}
 \end{theorem}
 
+\begin{theorem}\label{thm:Proj_Inj_equivalence}
+	Let $\Lambda$ be an artin algebra. Then we have an equivalence of categories 
+	\begin{center}
+		\begin{tikzcd}[column sep = 50pt]
+			 \operatorname{Proj}\Lambda \ar[r, bend left=10, "D\Lambda \otimes -"] & \operatorname{Inj}\Lambda \ar[l, bend left=10]{}{\Hom(D\Lambda, -)}
+		\end{tikzcd}
+	\end{center}
+	where the tensor product is over $\Lambda$, and $\Hom(D\Lambda, X)$ is considered as a $\Lambda$-module by $\Lambda \cong \End(D\Lambda)^{\op}$.
+	\begin{proof}
+		First we note the following isomorphisms when evaluating the functors at $\Lambda$ and $D\Lambda$
+		\begin{align*}
+			\Hom(D\Lambda, D\Lambda \otimes \Lambda) &\cong \End(D\Lambda)\\
+			&\cong \End(\Lambda_\Lambda) \\
+			&\cong \Lambda
+		\end{align*} 
+		and
+		\begin{align*}
+			D\Lambda \otimes \Hom(D\Lambda, D\Lambda) &\cong D\Lambda \otimes \Lambda\\
+			&\cong D\Lambda.
+		\end{align*}
+		Since $D\Lambda$ is finitely presented $D\Lambda \otimes -$ and $\Hom(D\Lambda, -)$ preserve both products and coproducts. Then since $\operatorname{Proj}\Lambda = \operatorname{Add}\Lambda$ and $\operatorname{Inj}\Lambda = \operatorname{Prod}D\Lambda$ it follows from the equations above that $\Hom(D\Lambda, D\Lambda \otimes -)$ and $D\Lambda \otimes \Hom(D\Lambda, -)$ are isomorphic to the identity on $\operatorname{Proj}\Lambda$ and $\operatorname{Inj}\Lambda$ respectively. 
+		
+		Lastly we check well definedness. Since $\Lambda$ is noetherian the direct sum of injectives is injective so 
+		$$D\Lambda\otimes (\operatorname{Add}\Lambda) = \operatorname{Add} D\Lambda \subseteq \operatorname{Inj}\Lambda,$$
+		and thus the map $D\Lambda \otimes -$ is well defined. 
+		
+		Similarly since $\Lambda$ is artinian the product of projectives is projective, and so
+		$$\Hom(D\Lambda, \operatorname{Prod}D\Lambda) = \operatorname{Prod} \Lambda \subseteq \operatorname{Proj}\Lambda.$$
+		Thus we have an equivalence of categories.
+	\end{proof}
+\end{theorem}
+
 \clearpage
 
 \bibliography{mybib}
