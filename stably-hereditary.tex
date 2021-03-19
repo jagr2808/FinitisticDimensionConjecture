@@ -18,7 +18,7 @@ This generalizes the definition of hereditary algebra by also allowing simple mo
 \begin{prop}
 	If for an algebra $\Lambda$ there is a hereditary algebra $H$ such that $\underline{\mod}\Lambda \cong \underline{\mod}H$ then $\Lambda$ is stably hereditary.
 	\begin{proof}
-		\cite[Lemma~4.12]{AR91} \todo{+ a bit more...} \cite{AR73}
+		\todo{write} \cite[Chapter~IV, Theorem~1.5]{AR73}
 	\end{proof}
 \end{prop}
 
@@ -27,7 +27,7 @@ The converse of the above proposition does not hold without more assumptions, bu
 \begin{theorem}\cite[Theorem~3.5]{Xi02}
 	Stably hereditary algebras has repdimension at most 3.
 	\begin{proof}
-		Let $V$ be the direct sum of all the indecomposable projectives, all the indecomposable injectives, and all the simple modules. Then $V$ is a generator-cogenerator. So by \cref{prop:repdim_auslander_generator} if we can show that the global dimension of $\Gamma:=\End(V)^{op}$ is 3 or less, then we are done.
+		Let $V$ be the direct sum of all the indecomposable projectives, all the indecomposable injectives, and all the simple modules. Then $V$ is a generator-cogenerator. So if we show that the global dimension of $\Gamma:=\End(V)^{op}$ is 3 or less, then we are done.
 		
 		We will show that for any $\Lambda$-module $M$ there is a short exact sequence $0 \to V_3 \to V_3 \to M \to 0$ with $V_i$ in $\add V$, and such that $0 \to (V, V_3) \to (V, V_2) \to (V, M) \to 0$ is exact. We will use this to construct short projective resolutions for $\mod\Gamma$. To construct $V_3$ and $V_2$ let $M'$ be the sum of the maximal injective summand of $M$ and all simple submodules of $M$. Then let $P$ be the projective cover of $M/M'$. Taking the pullback of $M \to M/M' \leftarrow P$ gives us the diagram:
 		\begin{center}

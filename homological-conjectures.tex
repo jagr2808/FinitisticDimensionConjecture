@@ -1,9 +1,15 @@
 
+The finitistic dimension conjecture is part of a larger family of homological conjectures about finite dimensional algebras. In this section we outline some of these conjectures, and show which conjectures imply each other. Most of these implications can be proven only using the basic tools of representation theory and homological algebra, apart from the implications involving the Auslander--Reiten conjecture. For these we need some theorems from the theory of Wedderburn projectives, which is outlined in \cref{sec:wedderburn_correspondence}.
+
+All of the conjectures are formulated as a specific property conjectured to hold for all finite dimensional algebras. In \cref{prop:conj_on_individual_algebras} we summarize how these implications work on the level of individual algebras.
+
 \subsection*{Finitistic Dimension Conjecture (FDC)}
 \begin{defn}[Finitistic dimension]
 	For a finite dimensional algebra $\Lambda$ the \emph{finitistic dimension} of $\Lambda$, denoted $\findim(\Lambda)$ is defined by
 	$$\findim(\Lambda) = \{\pd M \mid M \in \mod\Lambda, \pd M < \infty\}.$$
 \end{defn}
+
+There is also the analogous definition for $\Mod\Lambda$, which is sometimes called the \emph{big finitistic dimension}, and is denoted $\Findim(\Lambda)$. A natural question to ask, which is sometimes also called the finitistic dimension conjecture is whether $\findim(\Lambda)$ always equals $\Findim(\Lambda)$. This was shown to be false by Zimmermann-Huisgen in 1992 \cite{ZH92}. The conjecture we consider is due to Rosenberg and Zelinsky \cite{Bass60}, and asks about when the finitistic dimension is finite.
 
 \begin{conj}[Finitistic dimension conjecture]
 	For a finite dimensional algebra the finitistic dimension is always finite.
@@ -11,6 +17,8 @@
 \end{conj}
 
 \subsection*{Wakamatsu Tilting Conjecture (WTC)}
+In 1988 Wakamatsu introduced a generalization of tilting modules, now known as Wakamatsu tilting modules \cite{Wak88}.
+
 \begin{defn}[Wakamatsu tilting]
 	Let $T$ be a module in $\mod\Lambda$ for a finite dimensional algebra $\Lambda$. Then $T$ is \emph{Wakamatsu tilting} if
 	\begin{enumerate}[i)]
@@ -26,7 +34,7 @@
 	\end{enumerate}
 \end{defn}
 
-Wakamatsu tilting generalizes the definition of a tilting module. A Wakamatsu tilting module is a tilting module if it has finite projective dimension and $\eta$ is bounded. The Wakamatsu tilting conjecture states that this last restriction is superfluous.
+The definition is distinct from the definition of a tilting module in two key ways: the projective dimension of $T$ is not assumed to be finite, and $\eta$ is not assumed to be bounded. The Wakamatsu tilting conjecture states that this last condition is unnecessary.
 
 \begin{conj}[Wakamatsu tilting conjecture] 
 	If $T$ is Wakamatsu tilting and has finite projective dimension, then $T$ is a tilting module. In other words we can choose $\eta$ to be bounded.
@@ -40,22 +48,30 @@ Wakamatsu tilting generalizes the definition of a tilting module. A Wakamatsu ti
 The conjecture describes a sort of symmetry between the projective and injective modules. Equivalently we could formulate the conjecture as $\Lambda$ having finite injective dimension as a left module if and only if it has finite injective dimension as a right module.
 
 \subsection*{Vanishing Conjecture (VC)}
-If $\Lambda$ is a finite dimensional algebra we denote by $K^b(\inj \Lambda)$ the homotopy category of bounded complexes of injectives. The category $K^{+,b}(\inj\Lambda)$ is the homotopy category of complexes of injectives that are bounded below, and bounded in homology. There is an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
+%If $\Lambda$ is a finite dimensional algebra we denote by $K^b(\inj \Lambda)$ the homotopy category of bounded complexes of injective modules. The category $K^{+,b}(\inj\Lambda)$ is the homotopy category of complexes of injectives that are bounded below, and bounded in homology. There is an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
+
+We remind the reader that when $\Lambda$ is a finite dimensional algebra, we have an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$ given by injective resolutions. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
+
 $$K^b(\inj\Lambda)^\perp = \{X \in \D^b(\Lambda) \mid \Hom(I, X)=0 \text{ for all } I \in K^b(\inj\Lambda)\}.$$
+
 The vanishing conjecture then states that this subcategory is 0.
 \begin{conj}[Vanishing conjecture] 
 	If $\Lambda$ is a finite dimensional algebra, then $K^b(\inj\Lambda)^\perp = 0$.
 \end{conj}
 
+In \cref{sec:Unbounded_derived_category} we investigate an analog of this conjecture for the unbounded derived category.
+
 \subsection*{Nunke Condition (NuC)}
+The Nunke condition is similar to the vanishing conjecture in that it considers modules which are ``perpendicular'' to the injective modules. Such a module is called a \emph{Nunke module}, and an algebra is said to satisfy the Nunke condition if the only Nunke module is the zero module.
+
 \begin{conj}[Nunke condition] 
 	If $X \neq 0$ is a non-zero module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(D\Lambda, X) \neq 0$. 
 \end{conj}
 
-\subsection*{Strong Nakayama Conjecture (SNC)}
-The strong Nakayama conjecture is a slight weakening of the Nunke condition.
+\subsection*{Generalized Nakayama Conjecture (GNC)}
+The generalized Nakayama conjecture is a slight weakening of the Nunke condition. It asserts that none of the simple modules are Nunke modules.
 
-\begin{conj}[Strong Nakayama conjecture] 
+\begin{conj}[generalized Nakayama conjecture] 
 	If $S$ is a simple module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(D\Lambda, S) \neq 0$. 
 \end{conj}
 
@@ -65,7 +81,7 @@ The strong Nakayama conjecture is a slight weakening of the Nunke condition.
 	Let $\Lambda$ be  finite dimensional algebra. If $M$ is a module over $\Lambda$ such that  $\Ext^n(M, M \oplus \Lambda) = 0$ for all $n > 0$, then $M$ is projective. 
 \end{conj}
 
-Note that if we replace $M$ by $M\oplus \Lambda$ then we get the equivalent formulation: If $M$ is a generator with $\Ext^n(M,M)=0$ for all $n>0$, then $M$ is projective.
+If we replace $M$ by $M\oplus\Lambda$ we can reformulate the conjecture in terms of generators in $\mod\Lambda$. Namely, If $M$ is a generator with $\Ext^n(M,M)=0$ for all $n>0$, then $M$ is projective. The details of this are written out in \cref{prop:ARC_reformulated}.
 
 \subsection*{Nakayama Conjecture (NC)}
 
@@ -88,7 +104,7 @@ The homological conjectures are related in the way presented in the diagram belo
 
 \begin{tikzcd}
 \text{FDC} \ar[r, Rightarrow]\ar[d, Rightarrow] & \text{WTC} \ar[r, Rightarrow] & \text{GSC}\\
-\text{VC}\ar[r, Rightarrow] & \text{NuC}\ar[r, Rightarrow] & \text{SNC}\ar[r, Rightarrow] & \text{ARC}\ar[r, Rightarrow] & \text{NC}
+\text{VC}\ar[r, Rightarrow] & \text{NuC}\ar[r, Rightarrow] & \text{GNC}\ar[r, Rightarrow] & \text{ARC}\ar[r, Rightarrow] & \text{NC}
 \end{tikzcd}
 
 The remainder of this section is used to prove these implications.
@@ -205,7 +221,7 @@ The remainder of this section is used to prove these implications.
 	\end{proof}
 \end{theorem}
 
-\begin{prop}
+\begin{prop}\label{prop:ARC_reformulated}
 	The Auslander--Reiten conjecture is equivalent to the statement that if $M$ is a generator with $\Ext^n(M, M) = 0$ for $n > 0$, then $M$ is projective.
 	\begin{proof}
 		Assume ARC and that $M$ satisfies the hypothesis. Then since $M$ is a generator $\Lambda$ is in $\add M$ and thus $\Ext^n(M, \Lambda)=0$. So $\Ext^n(M, M\oplus \Lambda)=0$ and $M$ is projective.
@@ -235,12 +251,12 @@ To prove the last two implications we need some results from the theory of Wedde
 
 We now have the relevant tools to prove the remaining implications.
 
-\begin{theorem}\label{thm:SNC_implies_ARC}
-	The strong Nakayama conjecture implies the Auslander--Reiten conjecture.
+\begin{theorem}\label{thm:GNC_implies_ARC}
+	The generalized Nakayama conjecture implies the Auslander--Reiten conjecture.
 	\begin{proof}
-		We have the equality $\Ext^i_{\Lambda^{\op}}(D{\Lambda^{\op}}, M) = \Ext^i_\Lambda(DM, \Lambda)$ for any ${\Lambda^{\op}}$-module $M$. So ${\Lambda^{\op}}$ satisfies SNC if and only if for every simple module $S$ there is an $i$ such that $\Ext^i(S, \Lambda) \neq 0$.
+		We have the equality $\Ext^i_{\Lambda^{\op}}(D{\Lambda^{\op}}, M) = \Ext^i_\Lambda(DM, \Lambda)$ for any ${\Lambda^{\op}}$-module $M$. So ${\Lambda^{\op}}$ satisfies GNC if and only if for every simple module $S$ there is an $i$ such that $\Ext^i(S, \Lambda) \neq 0$.
 		
-		The proof goes by contraposition. Assume $\Lambda$ does not satisfy ARC. Then we have a nonprojective generator $M$ such that $\Ext^n(M, M)=0$ for all $n>0$. We wish to show that $\Gamma := \End(M)^{\operatorname{op}}$ does not satisfy SNC. Let
+		The proof goes by contraposition. Assume $\Lambda$ does not satisfy ARC. Then we have a nonprojective generator $M$ such that $\Ext^n(M, M)=0$ for all $n>0$. We wish to show that $\Gamma := \End(M)^{\operatorname{op}}$ does not satisfy GNC. Let
 		\begin{center}
 		\begin{tikzcd}
 			0 \ar[r] & M \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
@@ -254,8 +270,12 @@ We now have the relevant tools to prove the remaining implications.
 		\end{center}
 		By \cref{thm:hom_generator_equivalence} this is an injective resolution of $\Gamma$.
 		
-		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma^{\op}$ does not satisfy SNC.
+		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma^{\op}$ does not satisfy GNC.
 	\end{proof}
+\end{theorem}
+
+\begin{theorem}
+	content...
 \end{theorem}
 
 \begin{theorem}
@@ -281,26 +301,29 @@ We now have the relevant tools to prove the remaining implications.
 	\end{proof}
 \end{theorem}
 
-Combining the implications above we see that the strong Nakayama conjecture implies the Nakayama conjecture. There is however a much simpler proof of this fact which we include below.
+Combining the implications above we see that the generalized Nakayama conjecture implies the Nakayama conjecture. There is however a much simpler proof of this fact which we include below.
 
 \begin{prop}\cite{AR75} 
-	The strong Nakayama conjecture implies the Nakayama conjecture
+	The generalized Nakayama conjecture implies the Nakayama conjecture
 	\begin{proof}
-		Assume $\Lambda^{\op}$ satisfies SNC and that the dominant dimension of $\Lambda$ is $\infty$. As noted in \cref{thm:SNC_implies_ARC} we have that $\Ext_\Lambda^\bullet(S, \Lambda) = \Ext_{\Lambda^{\op}}^\bullet(D\Lambda, DS) \neq 0 $. If $\Ext^\bullet(S, \Lambda)$ is nonzero that means the injective envelope $I(S)$ appears in the minimal injective resolution of $\Lambda$. If all injectives apear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective, and hence $\Lambda$ satisfies NC. 
+		Assume $\Lambda^{\op}$ satisfies GNC and that the dominant dimension of $\Lambda$ is $\infty$. As noted in \cref{thm:GNC_implies_ARC} we have that $\Ext_\Lambda^\bullet(S, \Lambda) = \Ext_{\Lambda^{\op}}^\bullet(D\Lambda, DS) \neq 0 $. If $\Ext^\bullet(S, \Lambda)$ is nonzero that means the injective envelope $I(S)$ appears in the minimal injective resolution of $\Lambda$. If all injectives apear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective, and hence $\Lambda$ satisfies NC. 
 	\end{proof}
 \end{prop}
 
-\todo{Make a table of how the implications work}
 The proofs above do not necessarily work on the level of individual algebras. For example for the proof that WTC implies GSC we need to assume that WTC holds for both $\Lambda$ and $\Lambda^{\op}$ to prove that $\Lambda$ satisfies GSC. We list the relationships between the conjectures for individual algebras.
 
-\begin{enumerate}[i)]
-	\item If $\Lambda$ satisfies FDC, then $\Lambda$ also satisfies WTC.
-	\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
-	\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC $\Rightarrow$ SNC, all hold on the level of individual algebras.
-	\item If $\Gamma$ satisfies SNC whenever $\Gamma$ is the endomorphism ring of a generator in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
-	\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC.
-	\item If $\Lambda$ satisfies SNC, then $\Lambda^{\op}$ satisfies NC.
-\end{enumerate}
+\begin{prop}\label{prop:conj_on_individual_algebras}
+	The implications between the conjectures on the level of individual algebras can be described as follows: 
+	\begin{enumerate}[i)]
+		\item If $\Lambda$ satisfies FDC, then $\Lambda$ also satisfies WTC.
+		\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
+		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC $\Rightarrow$ GNC, all hold on the level of individual algebras.
+		\item If $\Gamma$ satisfies GNC whenever $\Gamma$ is the endomorphism ring of a generator in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
+		\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC.
+		\item If $\Lambda$ satisfies GNC, then $\Lambda^{\op}$ satisfies NC.
+	\end{enumerate}
+\end{prop}
+
 
 \subsection{Wedderburn correspondence}\label{sec:wedderburn_correspondence}
 

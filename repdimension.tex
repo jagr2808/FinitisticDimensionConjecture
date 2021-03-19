@@ -1,10 +1,12 @@
 
+In this section we look at the representation dimension of an algebra. This is another useful homological invariant of the representation theory for a finite dimensional algebra. The representation dimension is less than or equal to 2 if and only if $\Lambda$ is representation finite, so it is natural to think that the representation dimension in some sense measures the \textit{complexity} of $\mod\Lambda$. In \cref{cor:repdim_less_than_3_implies FDC} we show that $\findim(\Lambda) < \infty$ when $\repdim(\Lambda) \leq 3$, and in section*\todo{href} we give examples of classes of algebras that satisfy this.
+
 \begin{defn}[Representation dimension]
 	Let $\Lambda$ be a finite dimensional algebra. The \emph{representation dimension} of $\Lambda$, denoted $\repdim(\Lambda)$, is the minimal global dimension of $\End(M)^{\operatorname{op}}$ for $M$ a generator-cogenerator in $\mod\Lambda$. We call a generator-cogenerator that achieves this minimum an \emph{Auslander-generator}.
 \end{defn}
 
 \begin{defn}[$\mathcal M$-resolutions]
-	Let $X$ be an object in $\mod\Lambda$ and $\mathcal M$ a contravariantly finite subcategory.
+	Let $X$ be an object in $\mod\Lambda$ and $\mathcal M$ a contravariantly finite subcategory. We consider a diagram as the one below.
 	\begin{center}
 	\begin{tikzcd}
 		\cdots \ar[rd, two heads] \ar[r] & M_2 \ar[rd, two heads] \ar[r] & M_1 \ar[rd, two heads] \ar[r] & M_0 \ar[rd, two heads]\\
@@ -87,7 +89,7 @@
 	\end{proof} 
 \end{theorem}
 
-\begin{cor}
+\begin{cor}\label{cor:repdim_less_than_3_implies FDC}
 	If $\repdim(\Lambda) \leq 3$ then $\findim(\Lambda) < \infty$.
 	\begin{proof}
 		If $\Lambda$ has rep-dimension less than or equal to 3 then by \cref{prop:repdim_auslander_generator} there is a generator-cogenerator $M$ in $\mod\Lambda$ such that $\Gamma := \End_\Lambda(M)$ has global dimension 3 or less. Then since $M$ is a generator $\Lambda$ is in $\add M$ and so $\Hom_\Lambda(M, \Lambda)$ is a projective $\Gamma$-module with $\End_\Gamma(\Hom_\Lambda(M, \Lambda)) = \End_\Lambda(\Lambda) = \Lambda$.
