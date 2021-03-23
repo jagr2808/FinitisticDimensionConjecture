@@ -104,7 +104,7 @@ The homological conjectures are related in the way presented in the diagram belo
 
 \begin{tikzcd}
 \text{FDC} \ar[r, Rightarrow]\ar[d, Rightarrow] & \text{WTC} \ar[r, Rightarrow] & \text{GSC}\\
-\text{VC}\ar[r, Rightarrow] & \text{NuC}\ar[r, Rightarrow] & \text{GNC}\ar[r, Rightarrow] & \text{ARC}\ar[r, Rightarrow] & \text{NC}
+\text{VC}\ar[r, Rightarrow] & \text{NuC}\ar[r, Rightarrow] & \text{GNC}\ar[r, Leftrightarrow, "?"] & \text{ARC}\ar[r, Rightarrow] & \text{NC}
 \end{tikzcd}
 
 The remainder of this section is used to prove these implications.
@@ -195,7 +195,7 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:FDC_implies_VC}
 	The finitistic dimension conjecture implies the vanishing conjecture.
 	\begin{proof}
-		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if its concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono then replacing $I^0$ by $0$, and $I^1$ be $I^1/I^0$ gives a homotopic complex.
+		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if it's concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono, then replacing $I^0$ by $0$ and $I^1$ by $I^1/I^0$ gives a homotopic complex.
 			
 		The module $\Hom(D\Lambda, I^i)$ is in $\add\Hom(D\Lambda, D\Lambda) = \add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives. We show that this complex is acyclic by considering the following diagram.
 		
@@ -206,7 +206,7 @@ The remainder of this section is used to prove these implications.
 			\end{tikzcd}
 		\end{center}
 		
-		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an acyclic complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ we have that $\Hom(D\Lambda, d^0)$ is not split mono.
+		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, we have that whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an acyclic complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ and $d^0$ is not split mono, we have that $\Hom(D\Lambda, d^0)$ is not split mono.
 		
 		The cokernel of $\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is the direct sum of its minimal resolution and an acyclic bounded complex of projectives. Since bounded acyclic complexes of projectives are split and $\Hom(D\Lambda, d^0)$ is not, we must have that the minimal resolution has length $i$, and so $\findim(\Lambda) = \infty$.
 	\end{proof}
@@ -217,9 +217,13 @@ The remainder of this section is used to prove these implications.
 	\begin{proof}
 		Assume $\Lambda$ doesn't satisfy NuC. That is, there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then we claim that $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. To show this we proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$. If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$, which is 0 because $I$ is in $\add D\Lambda$ and $\Ext^i(D\Lambda, X)=0$.
 		
-		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i \leq n-1$. Then $$I^{>0} \to I \to I^{0} \to I^{>0}[1]$$ is a triangle with $I^{>0}$ of width $n-1$ and $I^0$ of width 1. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$. Since $X \neq 0$ we have that $\Lambda$ does not satisfy VC.
+		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i < n$. Then 
+		$$I^{>0} \to I \to I^{0} \to I^{>0}[1]$$ 
+		is a triangle with $I^{>0}$ of width $n-1$ and $I^0$ of width 1. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$. So $X$ is a non-zero complex in $K^b(\inj\Lambda)^\perp$, and hence $\Lambda$ does not satisfy VC.
 	\end{proof}
 \end{theorem}
+
+Before we proceed we write out the details for the reformulation of the Auslander--Reiten conjecture, that was mentioned before. \todo{Maybe its cleaner to just use this as the conjecture directly...}
 
 \begin{prop}\label{prop:ARC_reformulated}
 	The Auslander--Reiten conjecture is equivalent to the statement that if $M$ is a generator with $\Ext^n(M, M) = 0$ for $n > 0$, then $M$ is projective.
@@ -230,14 +234,14 @@ The remainder of this section is used to prove these implications.
 	\end{proof}
 \end{prop}
 
-To prove the last two implications we need some results from the theory of Wedderburn projectives. The results we need are stated below, and are proved in \cref{sec:wedderburn_correspondence}.
+To prove the last two implications we need some results from the theory of Wedderburn projectives. The results we need are stated below, and are proved in \cref{sec:wedderburn_correspondence}. We remind the reader that we write $(-,-)$ to mean $\Hom(-,-)$.
 
 \begin{restatable}{restate-thm}{Wederburnequivalence} \label{thm:hom_generator_equivalence}
 	Let $\Lambda$ be an artin algebra and $M$ a generator. Let $\Gamma = \End(M)^{\operatorname{op}}$ and $P=(M, \Lambda)$. Then we have the following:
 	\begin{enumerate}[i)]
 		\item We have an isomorphism of rings $\End_\Gamma(P)^{\operatorname{op}} \cong \Lambda$ and an isomorphism of $\Lambda$-modules $(P_\Lambda, \Gamma) \cong M$.
 		\item The composition $(P,-)\circ (M,-)$ is the identity on $\mod\Lambda$.
-		\item The functor $(M,-)$ maps injectives $\Lambda$-modules to injective $\Gamma$-modules. 
+		\item The functor $(M,-)$ maps injective $\Lambda$-modules to injective $\Gamma$-modules. 
 	\end{enumerate}
 \end{restatable}
 
@@ -274,8 +278,28 @@ We now have the relevant tools to prove the remaining implications.
 	\end{proof}
 \end{theorem}
 
-\begin{theorem}
-	content...
+\begin{theorem} \cite{Yam96}
+	The Auslander--Reiten conjecture implies the generalized Nakayama conjecture.
+	\begin{proof}
+		Assume that ARC holds, and let $\Gamma$ be a finite dimensional algebra. We wish to show that $\Gamma$ satisfies GNC. Let 
+		\begin{center}
+		\begin{tikzcd}
+		0 \ar[r] & \Gamma \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
+		\end{tikzcd}
+		\end{center}
+		be the minimal injective resolution of $\Gamma$. Let $I$ be the sum of all non-isomorphic indecomposable modules that appear in the injective resolution, and let $P$ be the projective cover of the socle of $I$. Then by \cref{thm:wedderburn_criterion} we have that $P$ is Wedderburn projective.
+		
+		Let $\Lambda = \End(P)^{\operatorname{op}}$ and let $M = \Hom(P, \Gamma)$. It's clear that $M$ is a generator. We wish to use ARC to prove that $M$ is projective.
+		
+		Since $P$ contains the projective cover of all the simples that appear in the socles of $I_i$ we have that
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & M \ar[r] & (P,I_0) \ar[r] & (P,I_1) \ar[r] & \cdots
+			\end{tikzcd}
+		\end{center}
+		is an injective resolution of $M$. Further we know that $(P, -)$ is faithful on $I_i$.
+		\todo{Figure this out}
+	\end{proof}
 \end{theorem}
 
 \begin{theorem}
@@ -327,10 +351,14 @@ The proofs above do not necessarily work on the level of individual algebras. Fo
 
 \subsection{Wedderburn correspondence}\label{sec:wedderburn_correspondence}
 
+In this section we give the relevant theory needed to prove the implications between homological conjectures involving the Auslander--Reiten conjecture.
+
+The theory is about understanding the relationship between the functors $(P,-)\colon \mod \Gamma \to \mod\Lambda$ and $(M,-)\colon \mod\Lambda \to \mod\Gamma$, where $P$ is a projective $\Gamma$-module, $M=(P, \Gamma)$ and $\Lambda = \End(P)^{\op}$. First we show a general result about how the homfunctor interacts with injective modules.
+
 \begin{prop}\label{prop:hom_generator_preserves_injectives}
-	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is a direct summand of $M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module.
+	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module.
 	\begin{proof}
-		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} it is enough to show that $\psi$ factors through $\Gamma$. Assume $J$ is generated by $f_i$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization by 
+		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} \todo{[...] In the appendix} it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
 		\begin{tikzcd}
 			J \ar[r, hookrightarrow] & \Gamma \ar[r, "\gamma \circ -"] & (M, I).
 		\end{tikzcd} To construct such a $\gamma$ we consider the following diagram.
@@ -340,18 +368,18 @@ The proofs above do not necessarily work on the level of individual algebras. Fo
 			M \ar[r, swap, dashed, "\gamma"] & I
 			\end{tikzcd}
 		\end{center}
-		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is a direct summand of $M$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
+		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is in $\add M$, so there is a non-zero projective map $M \to Q$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
 		
 		Let $a_i$ be the composition 
-		\begin{tikzcd}
-		M \ar[r] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M
-		\end{tikzcd}.
+		\begin{tikzcd}[column sep=15pt]
+		M \ar[r] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M.
+		\end{tikzcd}
 		Then we get $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction since $a_i$ was explicitly constructed such that $\sum \psi(f_i)\circ a_i$ is non-zero. Thus $K'$ contains $K$.
 		
 		Using this we get the following commutative diagram:
 		\begin{center}
 			\begin{tikzcd}
-			\bigoplus M \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f)"] \\
+			\bigoplus M \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f_i)"] \\
 			\left(\bigoplus M\right)/ K \ar[r] \ar[d, hookrightarrow] & I\\
 			M \ar[ur, dashed, swap, "\exists\gamma"]
 			\end{tikzcd}
@@ -360,13 +388,18 @@ The proofs above do not necessarily work on the level of individual algebras. Fo
 	\end{proof}
 \end{prop}
 
-Now we will prove \cref{thm:hom_generator_equivalence}, restated here for the readers convenience.
+Combining the proposition we just proved with Yoneda's Lemma we have the necessary tools to prove \cref{thm:hom_generator_equivalence}. We restate it her for the convenience of the reader.
 \Wederburnequivalence*
 \begin{proof}
 	\begin{enumerate}[i)]
 		\item[]
-		\item By Yoneda's Lemma we have an equivalence $$(M,-)\colon\add M \to \add (M,M)=\proj\Gamma.$$ Since $M$ is a generator, $\Lambda$ is in $\add M$. So $$\End(P)=((M,\Lambda), (M,\Lambda)) = \End(\Lambda)=\Lambda^{\operatorname{op}}$$ {\centering and} $$(P,\Gamma)=((M,\Lambda),(M,M))=(\Lambda,M)=M.$$
-		\item Let $X$ be a $\Lambda$-module. Since $\add M$ has only a finite number of indecomposables it is functorially finite. So we can take an $M$-resolution of $X$.
+		\item By Yoneda's Lemma we have an equivalence $$(M,-)\colon\add M \to \add (M,M)=\proj\Gamma.$$ Since $M$ is a generator, $\Lambda$ is in $\add M$. So 
+		$$\End(P)=\End((M,\Lambda)) = \End(\Lambda)=\Lambda^{\operatorname{op}}$$ 
+		\begin{center}
+			and
+		\end{center}
+		$$(P,\Gamma)=((M,\Lambda),(M,M))=(\Lambda,M)=M.$$
+		\item Let $X$ be a $\Lambda$-module. Since $\add M$ has only a finite number of indecomposable modules it is functorially finite. \todo{Have not defined this yet...} So we can take an $M$-resolution of $X$.
 		$$\cdots \to M_1 \to M_0 \to X \to 0$$
 		Since $\add M$ contains the projectives this is exact. Applying $(M,-)$ we get a projective resolution of $(M,X)$. Since $(M, X)$ is determined by its projective resolution and $X$ is determined by its $M$-resolution we need only show that $(P,-)\circ (M,-)$ is the identity on $\add M$. Then again by Yoneda's Lemma $(P, (M, M')) = (\Lambda, M')=M'$.
 		\item Since $M$ is a generator it contains the projective cover of all simple modules. Then \cref{prop:hom_generator_preserves_injectives} gives us that $(M, -)$ maps injective modules to injective modules.
@@ -388,8 +421,8 @@ Now we will prove \cref{thm:hom_generator_equivalence}, restated here for the re
 		We wish to show that there is a map at ? completing the diagram. We first show that $K':=\ker \sum \psi(f_i)$ contains $K:=\ker \sum f_i$. Assume for the sake of contradiction that it does not. Then $Q := K / K' \cap K$ is mapped injectively into $I'$ by $\sum \psi(f_i)$. So the socle of $Q$ is in $\add P/JP$, and we have a non-zero map $P \to Q$.
 		
 		Since $P$ is projective this extends to a map $P \to K$. Let $a_i$ be the compositions 
-		\begin{tikzcd}
-			P \ar[r] & K \ar[r] & \bigoplus P \ar[r, "\pi_i"] & P
+		\begin{tikzcd}[column sep = 15pt]
+			P \ar[r] & K \ar[r] & \bigoplus P \ar[r, "\pi_i"] & P.
 		\end{tikzcd}
 		Then clearly $\sum f_i \circ a_i = 0$, but $\sum \psi(f_i) \circ a_i$ is non-zero. Since $\psi$ is $\Lambda$-linear this is a contradiction, so $K'$ contains $K$.
 		

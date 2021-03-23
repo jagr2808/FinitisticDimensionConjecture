@@ -1,3 +1,5 @@
+In this section we will discuss a reduction technique known as recollement. The idea of reduction techniques is to reduce the work of proving an algebra has finite finitistic dimension to proving the same for ``simpler'' algebras. In \cref{sec:Triangular_matrix_rings} we will consider a reduction technique of triangular matrix algebras. This turns out to be a special case of a recollement, but we give a different proof due to Fossum--Griffith--Reiten, that predate the introduction of recollements. This also gives a stricter bound on the finitistic dimension that is specific to triangular matrix algebras.
+
 \begin{defn}[Recollement]\label{def:recollement}
 	A \emph{recollement} between triangulated categories $\mathcal T'$, $\mathcal T$ and $\mathcal T''$ is a collection of six functors satisfying:
 \begin{center}
@@ -15,16 +17,18 @@
 \end{center}
 
 \begin{enumerate}[(i)]
-	\item All functors are exact/triangulated
-	\item $j^*i_*=0$
-	\item $i^*i_* \cong i^!i_! \cong \operatorname{id}_{\mathcal T'}$ (induced by unit/counit) \label{item:i_fully-faith}
-	\item $j^!j_! \cong j^*j_* \cong \operatorname{id}_{\mathcal T''}$ \label{item:j_fully-faith}
+	\item All functors are exact/triangulated.
+	\item The composition $j^*i_*=0$ vanishes.
+	\item \label{item:i_fully-faith} 
+	We have natural isomorphisms $i^*i_* \cong i^!i_! \cong \operatorname{id}_{\mathcal T'}$ induced by the units and counits of the adjunctions. 
+	\item \label{item:j_fully-faith}
+	We have similar isomorphisms $j^!j_! \cong j^*j_* \cong \operatorname{id}_{\mathcal T''}$, also induced by the units and counits. 
 	\item \label{recollement:triangles}
 	For every $X \in \mathcal T$ we have the following distinguished triangles:
 	\begin{center}
 	\begin{tikzcd}
 	j_!j^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & i_*i^* X \ar[r] & j_!j^!X[1]\\		
-	i_!i^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & j_*j^* X \ar[r] & i_!i^!X[1]\\
+	i_!i^!X \ar[r, "\varepsilon"] & X \ar[r, "\eta"] & j_*j^* X \ar[r] & i_!i^!X[1].
 	\end{tikzcd}
 	\end{center}
 \end{enumerate}
@@ -40,11 +44,11 @@ We are specifically interested in recollements when the triangulated categories 
 	\D^b(\Lambda)
 	\end{tikzcd} be exact functors with an adjoint pair $(i^*,i_*)$. Then $i^*$ preserves bounded projective complexes and $i_*$ preserves bounded injective complexes.
 	\begin{proof}
-		The bounded projective complexes can be characterized as the complexes $P$ such that for any complex $Y$ there is an integer $t_Y$ such that $\Hom(P, Y[t])=0$ for $t\geq t_Y$. \todo{cite or outline the proof?}
+		The bounded projective complexes can be characterized up to isomorphism as the complexes $P$ such that for any complex $Y$ there is an integer $t_Y$ with $\D^b(\Lambda) (P, Y[t])=0$ for $t\geq t_Y$. One can see this by using the equivalence $\D^b(\Lambda) \cong K^{-,b}(\proj\Lambda)$.
 		
-		Let $P$ be a bounded complex of projectives in $\D^b(\Lambda)$. Then we want to show that $i^*P$ is as well. Let $Y$ be any complex in $\D^b(\Lambda')$.\todo{Hom-set notation} Then $\D^b(\Lambda')(i^*P, Y[t]) = \D^b(\Lambda)(P, i_*Y[t])$, so since $P$ is a bounded complex of projectives there is $t_Y$ such that this vanishes for $t \geq t_Y$. 
+		Let $P$ be a bounded complex of projectives in $\D^b(\Lambda)$. Then we want to show that $i^*P$ is as well. Let $Y$ be any complex in $\D^b(\Lambda')$. Then $\D^b(\Lambda')(i^*P, Y[t]) = \D^b(\Lambda)(P, i_*Y[t])$, so since $P$ is a bounded complex of projectives there is $t_Y$ such that this vanishes for $t \geq t_Y$. 
 		
-		The statement for injectives is exactly dual. 
+		The statement for injectives is exactly dual, and so we do not write it out here, but leave it to the reader.
 	\end{proof}
 \end{lemma}
 
@@ -60,13 +64,15 @@ We are specifically interested in recollements when the triangulated categories 
 		
 		Thus there is an $r'$ such that $P^{-j}=0$ for $j \geq r'$. Then $$\D^b(\Lambda')(P, X[j]) = \D^b(\Lambda)(\Lambda, i_*X[j]) = H^{j}(i_*X)=0$$ for $j\geq r'$ and any $\Lambda'$-module $X$, when considered as a complex concentrated in degree 0.
 		
-		Next we prove that there is an $r''$ such that $H^{-j}(i_*X)=0$ for $j \geq r''$. The argument is completely dual. Let $I$ be $i^!D\Lambda \in \D^b(\Lambda')=K^{+,b}(\inj\Lambda')$. Then again by \cref{lem:adjoint_preserves_bounded_proj/inj} $I$ is a bounded complex of injectives.
+		Next we prove that there is an $r''$ such that $H^{-j}(i_*X)=0$ for $j \geq r''$. The argument is completely dual. Let $I$ be $i^!D\Lambda \in \D^b(\Lambda') \cong K^{+,b}(\inj\Lambda')$. Then again by \cref{lem:adjoint_preserves_bounded_proj/inj} $I$ is a bounded complex of injectives.
 		
 		Thus there is an $r''$ such that $I^{j}=0$ for $j \geq r''$. Then $$\D^b(\Lambda')(X, I[j]) = \D^b(\Lambda)(i_*X, D\Lambda[j]) = H^{-j}(i_*X)=0$$ for $j\geq r''$ and any $\Lambda'$-module $X$, when considered as a complex concentrated in degree 0.
 		
 		Letting $r$ be the maximum of $r'$ and $r''$ we get that $H^{j}(X)$ is zero outside of $(-r, r)$.
 	\end{proof}
 \end{lemma}
+
+Now that we have a good understanding of how the functors in a recollement interact with homology we can use this to say something about the projective dimension of modules, and thus about the finitistic dimension.
 
 \begin{theorem}\cite[3.3]{Hap93}
 	Given a recollement between bounded derived categories 
@@ -83,26 +89,31 @@ We are specifically interested in recollements when the triangulated categories 
 		\arrow[phantom, from=j, to=jr, "\dashv" rotate=-90]
 		\end{tikzcd}	
 	\end{center}
-	 then we have that $\findim(\Lambda) < \infty \iff \findim(\Lambda') < \infty$ and $\findim(\Lambda'') < \infty$.
+	 then we have that $\findim(\Lambda) < \infty$ if and only if we have that $\findim(\Lambda') < \infty$ and $\findim(\Lambda'') < \infty$.
 	\begin{proof}
 		Assume $\findim(\Lambda) < \infty$. We begin by showing that $\findim(\Lambda') < \infty$.
 		
-		Let $T = \Lambda' / \rad\Lambda'$. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. We consider $X$ as a complex concentrated in degree 0. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Say:
+		Let $T = \Lambda' / \rad\Lambda'$ be the sum of all simple $\Lambda'$-modules. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. We consider $X$ as a complex concentrated in degree 0. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Say:
 		$$i_*X = 0 \to P^{-s} \to \cdots \to P^{s'} \to 0$$
-		By \cref{lem:uniform_bound_on_homology} we know there is an $r$ independent of $X$ such that $H^{-j}(X)=0$ for $j \geq r$. Truncating $i_*X$ at $-r$ gives a projective resolution of $\ker d^{-r}_{i_*X}$. Since $\findim(\Lambda)<\infty$ this means that $s \leq r + \findim(\Lambda)$.
+		By \cref{lem:uniform_bound_on_homology} we know there is an $r$ independent of $X$ such that $H^{-j}(X)=0$ for $j \geq r$. Truncating $i_*X$ at $-r$ gives a projective resolution of $\ker d^{-r}_{i_*X}$. So $\ker d^{-r}_{i_*X}$ has projective dimension $-r-(-s) = s-r$. Since $\findim(\Lambda)<\infty$ this means that $s \leq r + \findim(\Lambda)$.
 		
 		Since $i_*T$ is in $\D^b(\Lambda)$ it is a bounded complex, in particular there is a $t_0$ such that $i_*T^{t}=0$ for $t \geq t_0$. Then by the bounds above $\D^b(\Lambda)(i_*X, i_*T[t]) = 0$ for $t \geq t_0 + s \geq t_0 + r + \findim(\Lambda)$. Since $i_*$ is fully faithful this equals $\D^b(\Lambda')(X, T[t])$, and so $\findim(\Lambda') \leq t_0 + r + \findim(\Lambda)$. In particular it is finite.
 		
-		The proof for $\findim(\Lambda'')$ is the same, just replacing $i_*$ with $j_!$.
+		The proof for $\findim(\Lambda'')$ is the same, just replacing $i_*$ with $j_!$. We leave writing out the details of this to the reader.
 		
-		For the converse assume $\Lambda'$ and $\Lambda''$ both have finite finitistic dimension. Let $T = \Lambda / \rad\Lambda$, and $X$ be a $\Lambda$-module with finite projective dimension, and consider both modules as a complex concentrated in degree 0. By \cref{def:recollement}\ref{recollement:triangles} we have distinguished triangles:
+		For the converse assume $\Lambda'$ and $\Lambda''$ both have finite finitistic dimension. Let $T = \Lambda / \rad\Lambda$, and $X$ be a $\Lambda$-module with finite projective dimension, and consider both modules as a complex concentrated in degree 0. By \cref{def:recollement}(\ref{recollement:triangles}) we have distinguished triangles:
 		\begin{center}
 			\begin{tikzcd}
 				j_!j^!X \ar[r] & X \ar[r] & i_*i^* X \ar[r] & j_!j^!X[1]\\		
-				i_!i^!T \ar[r] & T \ar[r] & j_*j^* T \ar[r] & i_!i^!T[1]\\
+				i_!i^!T \ar[r] & T \ar[r] & j_*j^* T \ar[r] & i_!i^!T[1].
 			\end{tikzcd}
 		\end{center}
-		Let $(-,-)_m := \D^b(\Lambda)(-,-[m])$, and $X_j := j_!j^!X$, $X_i := i_*i^* X$, $T_i := i_!i^!T$, $T_j = j_*j^* T$. Then we have long exact sequences:
+		We write $(-,-)_m$ instead of $\D^b(\Lambda)(-,-[m])$, and make the following abbreviation:
+		\begin{align*}
+			X_j &:= j_!j^!X & X_i &:= i_*i^* X \\
+			T_i &:= i_!i^!T & T_j &:= j_*j^* T.
+		\end{align*} 
+		Taking the long exact sequence in homfuntors we get the long exact sequences:
 		\begin{center}
 			\begin{tikzcd}[column sep=0.5cm]
 			\cdots \ar[r] & (X, T_i)_m \ar[r] & (X, T)_m \ar[r] & (X, T_j)_m \ar[r] & (X, T_i)_{m+1} \ar[r] & \cdots\\
@@ -110,12 +121,16 @@ We are specifically interested in recollements when the triangulated categories 
 			\cdots \ar[r] & (X_i, T_j)_m \ar[r] & (X, T_j)_m \ar[r] & (X_j, T_j)_m \ar[r] & (X_i, T_j)_{m+1} \ar[r] & \cdots\\
 			\end{tikzcd}
 		\end{center}
-		We have \begin{align*}
-			(X_i, T_j)_m = (i_*i^* X, j_*j^* T)_m &= (j^*i_*i^*X, j^*T)_m = 0\\
-			&\text{and}\\
-			(X_j, T_i)_m = (j_!j^!X, i_!i^!T)_m &= (j^!X, j^!i_!i^!T)_m = 0
-		\end{align*}
-		which combined with long exact sequences gives us that $(X_i, T_i)_m = (X, T_i)_m$ and $(X_j, T_j)_m = (X, T_j)_m$. If we can show that $(X_i, T_i)_m$ and $(X_j, T_j)_m$ are bounded, then $(X, T_i)_m$ and $(X, T_j)_m$, and consequently $(X, T)_m$ would be bounded. Which would give a bound on the projective dimension of $X$.
+		From this we conclude that
+		\[\arraycolsep=2pt\def\arraystretch{1.33}
+		\begin{array}{ccccccl}
+			(X_i, T_j)_m &=& (i_*i^* X, j_*j^* T)_m &=& (j^*i_*i^*X, j^*T)_m &=& 0\\
+			\span\span\span\text{and}&\\
+			(X_j, T_i)_m &=& (j_!j^!X, i_!i^!T)_m &=& (j^!X, j^!i_!i^!T)_m &=& 0.
+		\end{array}\]
+		Combining this with the long exact sequences gives us that 
+		$$(X_i, T_i)_m = (X, T_i)_m \text{ and } (X_j, T_j)_m = (X, T_j)_m.$$ 
+		If we can show that $(X_i, T_i)_m$ and $(X_j, T_j)_m$ are bounded, then $(X, T_i)_m$ and $(X, T_j)_m$ would be bounded as well. Consequently we would have that $(X, T)_m$ is bounded. This would give us a bound on the projective dimension of $X$.
 		
 		We start by bounding $(X, T_i)_m = (X_i, T_i)_m$. First note that 
 		\begin{align*}

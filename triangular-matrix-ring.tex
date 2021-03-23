@@ -1,4 +1,10 @@
-Something somethign triangular.
+In this section we will relate the finitistic dimension of the triangular matrix ring $\begin{pmatrix}
+R & 0\\
+M& S
+\end{pmatrix}$ to the finitistic dimension of $R$ and $S$. The finitistic dimension of $\begin{pmatrix}
+R & 0\\
+M& S
+\end{pmatrix}$ can be shown to be finite if and only if the finitistic dimensions of both $R$ and $S$ are finite, by constructing a recollement. In this section we use a different argument which gives an explicit bound on the finitistic dimension of the matrix ring.
 
 \begin{defn}[Comma category]
 	Let $\mathcal A$ and $\mathcal B$ be categories and let $F\colon\mathcal A \to \mathcal B$ be a functor. Then the \emph{comma category} $(F, \mathcal  B)$ has as objects triplets $(A, B, f)$ with $A \in \mathcal  A$, $B \in \mathcal  B$, and $f\colon FA \to B$ a morphism in $\mathcal  B$. The morphisms are pairs $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ with $\alpha\colon A \to A'$ and $\beta\colon B \to B'$ such that the following diagram commutes:
@@ -13,7 +19,7 @@ Something somethign triangular.
 \begin{prop}\label{prop:comma-cat_abelian}
 	If $\mathcal A$ and $\mathcal B$ are abelian categories and $F$ is right exact, then the comma category $(F, \mathcal  B)$ is abelian.
 	\begin{proof}
-		We need to show that $(F, \mathcal B)$ has kernels, has cokernels, and that image equals coimage. First we show that it contains kernels. Let $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ be a morphism in the comma category. Then we have a diagram:
+		We need to show that $(F, \mathcal B)$ has kernels, has cokernels, and that for any map the image equals the coimage. First we show that it contains kernels. Let $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ be a morphism in the comma category. Then we have a diagram:
 		\begin{center}
 		\begin{tikzcd}
 			& F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA \ar[r, "F\alpha"] \ar[d, "f"] & FA' \ar[d, "f'"]\\
@@ -29,22 +35,17 @@ Something somethign triangular.
 		\end{center}
 		The only thing left to verify is that the left square commutes. This follows from the outer rectangle commuting, and that $\iota_\beta$ is a monomorphism.
 		
-		Showing that cokernels exists is similar, but relies on $F$ being right exact. The construction is completely dual, but to verify commutativity at the end instead of using that $\iota_\beta$ is mono we must use that $F\pi_\alpha\colon FA' \to F\cok \alpha$ is an epimorphism. This follows from $F$ being right exact. I leave the details to the reader. \todo{or do I?}
+		Showing that cokernels exists is similar, but relies on $F$ being right exact. The construction is completely dual, but to verify commutativity at the end instead of using that $\iota_\beta$ is mono we must use that $F\pi_\alpha\colon FA' \to F\cok \alpha$ is an epimorphism. This follows from $F$ being right exact. We leave the details to the reader. 
 		
 		Now the image equaling the coimage follows from $\mathcal A$ and $\mathcal B$ being abelian, and the way we constructed the kernels and cokernels.
 	\end{proof}
 \end{prop}
 
-For the rest of this section we assume $F$ is a right exact functor between abelian catgeories so that the comma category is abelian. We also assume $\mathcal A$ and $\mathcal B$ has enough projectives, whenever we mention projective objects. In particular we are interested in the case when $\mathcal A$ and $\mathcal B$ are module categories over finite dimensional algebras.
+For the rest of this section we assume $F$ is a right exact functor between abelian catgeories so that the comma category is abelian. We also assume $\mathcal A$ and $\mathcal B$ has enough projectives. In particular we are interested in the case when $\mathcal A$ and $\mathcal B$ are module categories over finite dimensional algebras.
 
 \begin{defn}
 	For $\mathcal A$ and $\mathcal B$ abelian categories and $F$ right exact we define the following functors:
 		\begin{center}
-		 \begin{tikzcd}[row sep=3pt]
-			U\colon(F, \mathcal B) \ar[r]& \mathcal A \times \mathcal{B}\\
-			(A, B, f) \ar[r, mapsto]& (A, B)\\
-			(\alpha, \beta) \ar[r, mapsto]& (\alpha, \beta)
-		\end{tikzcd}
 		\begin{tikzcd}[row sep=3pt]
 		T\colon\mathcal A \times \mathcal{B} \ar[r]& (F, \mathcal B)\\
 		(A, B)  \ar[r, mapsto]& (A, B \oplus FA, FA \hookrightarrow FA \oplus B)\\
@@ -53,6 +54,12 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 		\end{center}
 		
 		\begin{center}
+			 \begin{tikzcd}[row sep=3pt]
+			U\colon(F, \mathcal B) \ar[r]& \mathcal A \times \mathcal{B}\\
+			(A, B, f) \ar[r, mapsto]& (A, B)\\
+			(\alpha, \beta) \ar[r, mapsto]& (\alpha, \beta)
+			\end{tikzcd}
+			\hspace{1cm}
 		\begin{tikzcd}[row sep=3pt]
 		C\colon(F, \mathcal B)\ar[r]& \mathcal A \times \mathcal B\\
 		(A, B, f)  \ar[r, mapsto]& (A, \cok f)\\
@@ -104,7 +111,7 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 		\& B \oplus FA \ar{d}{\begin{bmatrix}
 			\beta & \gamma
 			\end{bmatrix}} \\
-			FA' \ar[r, "f"] \& B'
+			FA' \ar[r, "f"] \& B'.
 		\end{tikzcd}
 		\end{center}
 		The isomorphism is then given by sending this to $(\alpha, \beta)$. This is clearly surjective. 
@@ -116,7 +123,10 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 		\end{bmatrix} = fF\alpha= 0$. So the map is injective, and $(T, U)$ is an adjoint pair.
 		
 		Next we consider $(C, Z)$. We want an isomorphism 
-		$$\Hom(C(A, B, f), (A', B')) = \Hom((A, \cok f), (A', B')) \cong \Hom((A, B, f), (A', B', 0)).$$ 
+		\begin{align*}
+			\Hom(C(A, B, f), (A', B')) &= \Hom((A, \cok f), (A', B')) \\
+			&\cong \Hom((A, B, f), (A', B', 0)).
+		\end{align*} 
 		A morphism in $\Hom((A, B, f), (A', B', 0))$ is a commutative diagram
 		\begin{center}
 			\begin{tikzcd}
@@ -143,15 +153,15 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 		\begin{tikzcd}
 			FA \ar[d, equal] \ar[r, "f"] & B \ar[d, two heads]\\
 			FA \ar[r, "0"] & \cok f\\
-			FA \ar[u, equal] \ar[r, hookrightarrow]  & \cok f \oplus FA \ar[u, swap,  two heads]
+			FA \ar[u, equal] \ar[r, hookrightarrow]  & \cok f \oplus FA. \ar[u, swap,  two heads]
 		\end{tikzcd}
 		\end{center}
-		By the projective property of $P$ there is some morphism $\beta$ factorizing the map $P \to ZC(P)$ giving us the diagram:
+		By the projective property of $P$ there is some morphism $\beta$ factorizing the map $P \to ZC(P)$, which gives us the diagram:
 		\begin{center}
 			\begin{tikzcd}
 			FA \ar[d, equal] \ar[r, "f"] & B \ar[d, "\beta"]\\
 			FA \ar[d, equal] \ar[r, hookrightarrow]  & \cok f \oplus FA \ar[d,  two heads]\\
-			FA \ar[r, "0"] & \cok f
+			FA \ar[r, "0"] & \cok f.
 			\end{tikzcd}
 		\end{center}
 		Since $FA \hookrightarrow \cok f \oplus FA$ is split mono, $f$ is split mono, and consequently $\beta$ is an isomorphism. So we have $P \cong TC(P)$.
@@ -161,16 +171,16 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 \begin{prop}\cite[Lemma~4.16]{FGR75}\label{prop:pd_in_commacat}
 	Let $X = (A, B, f)$ be an object in the comma category. Then $\pd X \geq \pd A$, and if $A=0$ then $\pd X = \pd B$.
 	\begin{proof}
-		We first show that $\pd X \geq \pd A$. Note that $\pd C(X) = \max\{ \pd A, \pd \cok f \}$ so we always have $\pd C(X) \geq \pd A$. If $\pd X = \infty$ then the statement holds so let us assume $\pd X = n < \infty$. We proceed by induction on $n$. If $n=0$ then $C(X)$ is projective so $\pd X = \pd C(X) = \pd A = 0$. Next assume the statement holds for whenever the projective dimension is less than $n$. Let $P \to A$ and $P' \to \cok f$ be epimorphisms from projectives. Then we have an epimorphism $T(P, P') \to X$. If we let $\Omega A$ be the kernel of $P \to A$ and $X' = (\Omega A, K, \theta)$ be the kernel of $T(P, P') \to X$ as shown in the following diagram
+		We first show that $\pd X \geq \pd A$. Note that $\pd C(X) = \max\{ \pd A, \pd \cok f \}$ so we always have $\pd C(X) \geq \pd A$. If $\pd X = \infty$ then the statement holds so let us assume $\pd X = n < \infty$. We proceed by induction on $n$. If $n=0$ then $C(X)$ is projective so $\pd X = \pd C(X) = \pd A = 0$. Next assume the statement holds whenever the projective dimension is less than $n$. Let $P \to A$ and $P' \to \cok f$ be epimorphisms from projectives. Then we have an epimorphism $T(P, P') \to X$. If we let $\Omega A$ be the kernel of $P \to A$ and $X' = (\Omega A, K, \theta)$ be the kernel of $T(P, P') \to X$ as shown in the following diagram,
 		\begin{center}
 		\begin{tikzcd}
 			& F\Omega A \ar[r] \ar[d, "\theta", swap] & FP \ar[r] \ar[d, hookrightarrow] & FA \ar[r] \ar[d, "f"] & 0\\
 			0 \ar[r] & K \ar[r] & P' \oplus FP \ar[r] & B \ar[r] & 0
 		\end{tikzcd}
 		\end{center}
-		Then we have $\pd A \leq \pd \Omega A + 1$ and $\pd X = \pd X' + 1$. By induction we have that $\pd X' \geq \pd \Omega A$ and so $\pd X \geq \pd \Omega A +1 \geq \pd A$. 
+		then we have $\pd A \leq \pd \Omega A + 1$ and $\pd X = \pd X' + 1$. By induction we have that $\pd X' \geq \pd \Omega A$ and so $\pd X \geq \pd \Omega A +1 \geq \pd A$. 
 		
-		If $A=0$ then we can associate $C(X)=(0, B)$ with $B$. Any projective resolution $P_B^\bullet$ of $B$ gives a resolution of $X$ by $T(0, P_B^\bullet)$, and any resolution $P_X^\bullet$ of $X$ gives a resolution of $(0, B)$ by $C(P_X^\bullet)$. 
+		If $A=0$ then we can associate $C(X)=(0, B)$ with $B$. Any projective resolution $P_B^\bullet$ of $B$ gives a resolution of $X$ by $T(0, P_B^\bullet)$, and any resolution $P_X^\bullet$ of $X$ gives a resolution of $(0, B)$ by $C(P_X^\bullet)$. Thus $\pd X = \pd B$.
 	\end{proof}
 \end{prop}
 
@@ -181,7 +191,7 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 		\begin{tikzcd}
 			F\Omega A \ar[r, "\theta^0"] & K^0.
 		\end{tikzcd}
-		We continue inductively defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Then by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So $\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1$.
+		We continue inductively defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Then by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So $$\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1.$$
 	\end{proof}
 \end{theorem}
 
@@ -190,7 +200,7 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 \end{example}
 
 \begin{defn}[Triangular matrix ring]
-	Let $R$ and $S$ be rings, and let $M$ be an $S-R$-bimodule. Then the \emph{triangular matrix ring} $\begin{pmatrix}
+	Let $R$ and $S$ be rings, and let $M$ be an $S$-$R$-bimodule. Then the \emph{triangular matrix ring} $\begin{pmatrix}
 	R & 0\\
 	M & S
 	\end{pmatrix}$ is the ring of all matricies $\begin{bmatrix}
@@ -213,7 +223,7 @@ Notice, if $N$ is a module over the matrix ring $\begin{pmatrix}
 R & 0\\
 M & S
 \end{pmatrix}$, then as an abelian group $N$ splits as a direct sum into
-$$N=
+$$N= N_R \oplus N_S :=
 \begin{bmatrix}
 1 & 0\\
 0 & 0
@@ -223,21 +233,15 @@ $$N=
 0 & 1
 \end{bmatrix}N.$$
 
-By restriction of scalars we can think of $N_R:=\begin{bmatrix}
-	1 & 0\\
-	0 & 0
-\end{bmatrix}N$ as an $R$-module and $N_S:=\begin{bmatrix}
-0 & 0\\
-0 & 1
-\end{bmatrix}N$ as an $S$-module. Further multiplication by $\begin{bmatrix}
+By restriction of scalars we can think of $N_R$ as an $R$-module and $N_S$ as an $S$-module. Further multiplication by $\begin{bmatrix}
 0 & 0\\
 m & 0
-\end{bmatrix}$ is 0 on $N_S$ and maps $N_R$ into $N_S$. So $N$ consists of an $R$-module $N_R$, an $S$-module $N_S$ and a $S-R$-linear map $M \to \Hom_\mathbb{Z}(N_R, N_S)$, or equivalently a $S$-linear map $M \otimes_R N_R \to N_S$. This means that $\mod \begin{pmatrix}
+\end{bmatrix}$ is 0 on $N_S$ and maps $N_R$ into $N_S$. So $N$ consists of an $R$-module $N_R$, an $S$-module $N_S$ and a $S$-$R$-linear map $M \to \Hom_\mathbb{Z}(N_R, N_S)$, or equivalently a $S$-linear map $M \otimes_R N_R \to N_S$. This means that $\mod \begin{pmatrix}
 R & 0\\
 M & S
 \end{pmatrix}$ is equivalent to the comma category $(\mod R, \mod S, M \otimes_R -)$. So we have that $$\findim\begin{pmatrix}
 R & 0\\
 M & S
-\end{pmatrix} \leq \findim(R) + \findim(S)+1$$.
+\end{pmatrix} \leq \findim(R) + \findim(S)+1.$$
 
 \todo{Example}
