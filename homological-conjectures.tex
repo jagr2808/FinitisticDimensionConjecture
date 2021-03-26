@@ -41,15 +41,20 @@ The definition is distinct from the definition of a tilting module in two key wa
 \end{conj}
 
 \subsection*{Gorenstein Symmetry Conjecture (GSC)}
+
+\begin{defn}[Gorenstein algebra]
+	A finite dimensional algebra is said to be Gorenstein if all projective modules have finite injective dimension and all injective modules have finite projective dimension.
+\end{defn}
+
+The Gorenstein symmetry conjecture says that we only need one of the two conditions for our algebra to be Gorenstein.
+
 \begin{conj}[Gorenstein symmetry conjecture] 
 	If $\Lambda$ is a finite dimensional algebra the injective dimension of $\Lambda$ as a left module is finite if and only if the projective dimension of $D\Lambda_\Lambda$ is finite.
 \end{conj}
 
-The conjecture describes a sort of symmetry between the projective and injective modules. Equivalently we could formulate the conjecture as $\Lambda$ having finite injective dimension as a left module if and only if it has finite injective dimension as a right module.
+The conjecture describes a sort of symmetry between $\Lambda$ and $\Lambda^{\op}$. An equivalent formulation would be that $\Lambda$ has finite injective dimension as a left module if and only if it has finite injective dimension as a right module.
 
-\todo{finite projdim iff finite injdim}
-
-$X \to I_0 \to \cdots I_n$ implies $\pd X \leq \max \pd I_i$
+%$X \to I_0 \to \cdots I_n$ implies $\pd X \leq \max \pd I_i$
 
 \subsection*{Vanishing Conjecture (VC)}
 %If $\Lambda$ is a finite dimensional algebra we denote by $K^b(\inj \Lambda)$ the homotopy category of bounded complexes of injective modules. The category $K^{+,b}(\inj\Lambda)$ is the homotopy category of complexes of injectives that are bounded below, and bounded in homology. There is an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
@@ -73,8 +78,9 @@ The Nunke condition is similar to the vanishing conjecture in that it considers 
 \end{conj}
 
 \subsection*{Strong Nakayama Conjecture (SNC)}
+The strong Nakayama conjecture is simply the dual of the Nunke condition. We include both in this summary for completeness sake.
 
-\begin{conj}[Nunke condition] 
+\begin{conj}[strong Nakayama Conjecture] 
 	If $X \neq 0$ is a non-zero module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(X,\Lambda) \neq 0$. 
 \end{conj}
 
@@ -85,15 +91,26 @@ The generalized Nakayama conjecture is a slight weakening of the Strong Nakayama
 	If $S$ is a simple module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(S, \Lambda) \neq 0$. 
 \end{conj}
 
+We can also formulate the conjecture as all indecomposable injectives appearing in the minimal injective resolution of $\Lambda$. We give a short proof that this is an equivalent formulation here.
+
+\begin{prop}\label{prop:GNC_reformulated}
+	A finite dimensional algebra $\Lambda$ satisfies GNC if and only if every indecomposable injective appears in the minimal injective resolution of $\Lambda$.
+	\begin{proof}
+		Let the minimal injective resolution of $\Lambda$ is given by 
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & \Lambda \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
+			\end{tikzcd}
+		\end{center}
+		Since the resolution is minimal, we have that $\Ext^n(S, \Lambda) = \Hom(S, I_n)$. This is non-zero if and only if the socle of $S$ is a summand of $I_n$. Thus $\Ext^n(S, \Lambda)$ is non-zero for some $n$ if the injective envelope of $S$ appears in the minimal resolution, and $I$ is a summand of $I_n$ if $\Ext^n(\operatorname{soc}I, \Lambda) \neq 0$.
+	\end{proof}
+\end{prop}
+
 \subsection*{Auslander--Reiten Conjecture (ARC)}
 
 \begin{conj}[Auslander--Reiten conjecture] 
-	Let $\Lambda$ be  finite dimensional algebra. If $M$ is a module over $\Lambda$ such that  $\Ext^n(M, M \oplus \Lambda) = 0$ for all $n > 0$, then $M$ is projective. 
+	Let $\Lambda$ be  finite dimensional algebra. If $M$ is a generator in $\mod\Lambda$ such that  $\Ext^n(M, M) = 0$ for all $n > 0$, then $M$ is projective. 
 \end{conj}
-
-If we replace $M$ by $M\oplus\Lambda$ we can reformulate the conjecture in terms of generators in $\mod\Lambda$. Namely, If $M$ is a generator with $\Ext^n(M,M)=0$ for all $n>0$, then $M$ is projective. The details of this are written out in \cref{prop:ARC_reformulated}.
-
-\todo{replace with reformulation}
 
 \subsection*{Nakayama Conjecture (NC)}
 
@@ -116,7 +133,7 @@ The homological conjectures are related in the way presented in the diagram belo
 
 \begin{tikzcd}
 \text{FDC} \ar[r, Rightarrow]\ar[d, Rightarrow] & \text{WTC} \ar[r, Rightarrow] & \text{GSC}\\
-\text{VC}\ar[r, Rightarrow] & \text{NuC}\ar[r, Leftrightarrow, "?"] & \text{SNC}\ar[r, Rightarrow] & \text{GNC}\ar[r, Leftrightarrow, "?"] & \text{ARC}\ar[r, Rightarrow] & \text{NC}
+\text{VC}\ar[r, Rightarrow] & \text{NuC}\ar[r, Leftrightarrow] & \text{SNC}\ar[r, Rightarrow] & \text{GNC}\ar[r, Leftrightarrow] & \text{ARC}\ar[r, Rightarrow] & \text{NC}
 \end{tikzcd}
 
 The remainder of this section is used to prove these implications.
@@ -235,43 +252,74 @@ The remainder of this section is used to prove these implications.
 	\end{proof}
 \end{theorem}
 
-Before we proceed we write out the details for the reformulation of the Auslander--Reiten conjecture, that was mentioned before. \todo{Maybe its cleaner to just use this as the conjecture directly...}
+%Before we proceed we write out the details for the reformulation of the Auslander--Reiten conjecture, that was mentioned before. \todo{Maybe its cleaner to just use this as the conjecture directly...}
+%
+%\begin{prop}\label{prop:ARC_reformulated}
+%	The Auslander--Reiten conjecture is equivalent to the statement that if $M$ is a generator with $\Ext^n(M, M) = 0$ for $n > 0$, then $M$ is projective.
+%	\begin{proof}
+%		Assume ARC and that $M$ satisfies the hypothesis. Then since $M$ is a generator $\Lambda$ is in $\add M$ and thus $\Ext^n(M, \Lambda)=0$. So $\Ext^n(M, M\oplus \Lambda)=0$ and $M$ is projective.
+%		
+%		For the other direction Assume $M$ satisfies $\Ext^n(M, M \oplus \Lambda)=0$. Then $\Ext^n(M \oplus \Lambda, M\oplus \Lambda) = 0$, so $M \oplus \Lambda$ is projective, which means that $M$ is projective. 
+%	\end{proof}
+%\end{prop}
 
-\begin{prop}\label{prop:ARC_reformulated}
-	The Auslander--Reiten conjecture is equivalent to the statement that if $M$ is a generator with $\Ext^n(M, M) = 0$ for $n > 0$, then $M$ is projective.
+%To prove the last two implications we need some results from the theory of Wedderburn projectives. The results we need are stated below, and are proved in \cref{sec:wedderburn_correspondence}. We remind the reader that we write $(-,-)$ to mean $\Hom(-,-)$.
+%
+%\begin{restatable}{restate-thm}{Wederburnequivalence} \label{thm:hom_generator_equivalence}
+%	Let $\Lambda$ be an artin algebra and $M$ a generator. Let $\Gamma = \End(M)^{\operatorname{op}}$ and $P=(M, \Lambda)$. Then we have the following:
+%	\begin{enumerate}[i)]
+%		\item We have an isomorphism of rings $\End_\Gamma(P)^{\operatorname{op}} \cong \Lambda$ and an isomorphism of $\Lambda$-modules $(P_\Lambda, \Gamma) \cong M$.
+%		\item The composition $(P,-)\circ (M,-)$ is the identity on $\mod\Lambda$.
+%		\item The functor $(M,-)$ maps injective $\Lambda$-modules to injective $\Gamma$-modules. 
+%	\end{enumerate}
+%\end{restatable}
+%
+%\begin{defn}[Wedderburn projective]
+%	Let $\Gamma$ be an artin algebra and let $P$ be a finitely generated projective $\Gamma$-module. Let $\Lambda = \End(P)^{\operatorname{op}}$ and $M=(P, \Gamma)$. The module $P$ is said to be \emph{Wedderburn projective} if $\End(M)^{\operatorname{op}}=\Gamma$.
+%\end{defn}
+%
+%\begin{restatable}{restate-thm}{Wederburncriterion}\label{thm:wedderburn_criterion}
+%	Let $\Gamma$ be an artin algebra and $P$ a projective $\Gamma$-module. If $P$ contains the projective cover of all simple modules that appear in the socle of an injective copresentation of $\Gamma$, then $P$ is Wedderburn projective.
+%\end{restatable}
+
+Before we can prove the equivalence between the generalized Nakayama conjecture and the Auslander--Reiten Conjecture we will need the following proposition.
+
+\begin{prop}\label{prop:hom_generator_preserves_injectives}
+	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module. In particular if $M$ is a generator then $(M,-)$ preserves injectives.
 	\begin{proof}
-		Assume ARC and that $M$ satisfies the hypothesis. Then since $M$ is a generator $\Lambda$ is in $\add M$ and thus $\Ext^n(M, \Lambda)=0$. So $\Ext^n(M, M\oplus \Lambda)=0$ and $M$ is projective.
+		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} \todo{[...] In the appendix} it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
+		\begin{tikzcd}
+		J \ar[r, hookrightarrow] & \Gamma \ar[r, "\gamma \circ -"] & (M, I).
+		\end{tikzcd} To construct such a $\gamma$ we consider the following diagram.
+		\begin{center}
+			\begin{tikzcd}
+			\bigoplus M \ar[dr, "\sum \psi(f_i)"] \ar[d, swap, "\sum f_i"]\\
+			M \ar[r, swap, dashed, "\gamma"] & I
+			\end{tikzcd}
+		\end{center}
+		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is in $\add M$, so there is a non-zero projective map $M \to Q$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
 		
-		For the other direction Assume $M$ satisfies $\Ext^n(M, M \oplus \Lambda)=0$. Then $\Ext^n(M \oplus \Lambda, M\oplus \Lambda) = 0$, so $M \oplus \Lambda$ is projective, which means that $M$ is projective. 
+		Let $a_i$ be the composition 
+		\begin{tikzcd}[column sep=15pt]
+		M \ar[r] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M.
+		\end{tikzcd}
+		Then we get $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction since $a_i$ was explicitly constructed such that $\sum \psi(f_i)\circ a_i$ is non-zero. Thus $K'$ contains $K$.
+		
+		Using this we get the following commutative diagram:
+		\begin{center}
+			\begin{tikzcd}
+			\bigoplus M \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f_i)"] \\
+			\left(\bigoplus M\right)/ K \ar[r] \ar[d, hookrightarrow] & I\\
+			M \ar[ur, dashed, swap, "\exists\gamma"]
+			\end{tikzcd}
+		\end{center}
+		Since $I$ is injective it lifts monomorphisms so we know that $\gamma$ exists. Thus $(M, I)$ is an injective $\Gamma$-module.
 	\end{proof}
 \end{prop}
-
-To prove the last two implications we need some results from the theory of Wedderburn projectives. The results we need are stated below, and are proved in \cref{sec:wedderburn_correspondence}. We remind the reader that we write $(-,-)$ to mean $\Hom(-,-)$.
-
-\begin{restatable}{restate-thm}{Wederburnequivalence} \label{thm:hom_generator_equivalence}
-	Let $\Lambda$ be an artin algebra and $M$ a generator. Let $\Gamma = \End(M)^{\operatorname{op}}$ and $P=(M, \Lambda)$. Then we have the following:
-	\begin{enumerate}[i)]
-		\item We have an isomorphism of rings $\End_\Gamma(P)^{\operatorname{op}} \cong \Lambda$ and an isomorphism of $\Lambda$-modules $(P_\Lambda, \Gamma) \cong M$.
-		\item The composition $(P,-)\circ (M,-)$ is the identity on $\mod\Lambda$.
-		\item The functor $(M,-)$ maps injective $\Lambda$-modules to injective $\Gamma$-modules. 
-	\end{enumerate}
-\end{restatable}
-
-\begin{defn}[Wedderburn projective]
-	Let $\Gamma$ be an artin algebra and let $P$ be a finitely generated projective $\Gamma$-module. Let $\Lambda = \End(P)^{\operatorname{op}}$ and $M=(P, \Gamma)$. The module $P$ is said to be \emph{Wedderburn projective} if $\End(M)^{\operatorname{op}}=\Gamma$.
-\end{defn}
-
-\begin{restatable}{restate-thm}{Wederburncriterion}\label{thm:wedderburn_criterion}
-	Let $\Gamma$ be an artin algebra and $P$ a projective $\Gamma$-module. If $P$ contains the projective cover of all simple modules that appear in the socle of an injective copresentation of $\Gamma$, then $P$ is Wedderburn projective.
-\end{restatable}
-
-We now have the relevant tools to prove the remaining implications.
 
 \begin{theorem}\label{thm:GNC_implies_ARC}
 	The generalized Nakayama conjecture implies the Auslander--Reiten conjecture.
 	\begin{proof}
-		We have the equality $\Ext^i_{\Lambda^{\op}}(D{\Lambda^{\op}}, M) = \Ext^i_\Lambda(DM, \Lambda)$ for any ${\Lambda^{\op}}$-module $M$. So ${\Lambda^{\op}}$ satisfies GNC if and only if for every simple module $S$ there is an $i$ such that $\Ext^i(S, \Lambda) \neq 0$.
-		
 		The proof goes by contraposition. Assume $\Lambda$ does not satisfy ARC. Then we have a nonprojective generator $M$ such that $\Ext^n(M, M)=0$ for all $n>0$. We wish to show that $\Gamma := \End(M)^{\operatorname{op}}$ does not satisfy GNC. Let
 		\begin{center}
 		\begin{tikzcd}
@@ -286,7 +334,7 @@ We now have the relevant tools to prove the remaining implications.
 		\end{center}
 		By \cref{thm:hom_generator_equivalence} this is an injective resolution of $\Gamma$.
 		
-		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Let $Q$ be such an injective and let $S$ be its socle. Then $\Hom_\Gamma(S, (M, I_i)) = 0$ for all $i$, so $\Ext^i(S, \Gamma) = 0$ for all $i$. Thus $\Gamma^{\op}$ does not satisfy GNC.
+		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Since all modules that appear in the injective resolution of $\Gamma$ are on the form $(M, I)$, not all indecomposable injectives appear in the resolution. Therefore by \cref{prop:GNC_reformulated} we have that $\Gamma$ does not satisfy GNC.
 	\end{proof}
 \end{theorem}
 
@@ -378,305 +426,11 @@ The proofs above do not necessarily work on the level of individual algebras. Fo
 		\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
 		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC, all hold on the level of individual algebras.
 		\item An algebra $\Lambda$ satisfies Nuc if and only if $\Lambda^{\op}$ satisfies SNC.
-		\todo{Check if table is correct}
-		\item If $\Gamma$ satisfies GNC whenever $\Gamma$ is the endomorphism ring of a generator in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
+		\item If $\Gamma$ satisfies GNC whenever $\Gamma = \End_\Lambda(M)$ for a generator $M$ in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
+		\item If $\End(I)^{\op}$ satisfies ARC, where $\add I$ contains every injective in the minimal resolution of $\Lambda$, then $\Lambda$ satisfies GNC.
 		\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC.
-		\item If $\Lambda$ satisfies GNC, then $\Lambda^{\op}$ satisfies NC.
+		\item If $\Lambda$ satisfies GNC, then $\Lambda$ satisfies NC.
 	\end{enumerate}
 \end{prop}
 
-
-\subsection{Wedderburn correspondence}\label{sec:wedderburn_correspondence}
-
-In this section we give the relevant theory needed to prove the implications between homological conjectures involving the Auslander--Reiten conjecture.
-
-The theory is about understanding the relationship between the functors $(P,-)\colon \mod \Gamma \to \mod\Lambda$ and $(M,-)\colon \mod\Lambda \to \mod\Gamma$, where $P$ is a projective $\Gamma$-module, $M=(P, \Gamma)$ and $\Lambda = \End(P)^{\op}$. First we show a general result about how the homfunctor interacts with injective modules.
-
-\begin{prop}\label{prop:hom_generator_preserves_injectives}
-	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module. In particular if $M$ is a generator then $(M,-)$ preserves injectives.
-	\begin{proof}
-		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} \todo{[...] In the appendix} it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
-		\begin{tikzcd}
-			J \ar[r, hookrightarrow] & \Gamma \ar[r, "\gamma \circ -"] & (M, I).
-		\end{tikzcd} To construct such a $\gamma$ we consider the following diagram.
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus M \ar[dr, "\sum \psi(f_i)"] \ar[d, swap, "\sum f_i"]\\
-			M \ar[r, swap, dashed, "\gamma"] & I
-			\end{tikzcd}
-		\end{center}
-		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is in $\add M$, so there is a non-zero projective map $M \to Q$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
-		
-		Let $a_i$ be the composition 
-		\begin{tikzcd}[column sep=15pt]
-		M \ar[r] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M.
-		\end{tikzcd}
-		Then we get $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction since $a_i$ was explicitly constructed such that $\sum \psi(f_i)\circ a_i$ is non-zero. Thus $K'$ contains $K$.
-		
-		Using this we get the following commutative diagram:
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus M \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f_i)"] \\
-			\left(\bigoplus M\right)/ K \ar[r] \ar[d, hookrightarrow] & I\\
-			M \ar[ur, dashed, swap, "\exists\gamma"]
-			\end{tikzcd}
-		\end{center}
-		Since $I$ is injective it lifts monomorphisms so we know that $\gamma$ exists. Thus $(M, I)$ is an injective $\Gamma$-module.
-	\end{proof}
-\end{prop}
-
-Combining the proposition we just proved with Yoneda's Lemma we have the necessary tools to prove \cref{thm:hom_generator_equivalence}. We restate it her for the convenience of the reader.
-\Wederburnequivalence*
-\begin{proof}
-	\begin{enumerate}[i)]
-		\item[]
-		\item By Yoneda's Lemma we have an equivalence $$(M,-)\colon\add M \to \add (M,M)=\proj\Gamma.$$ Since $M$ is a generator, $\Lambda$ is in $\add M$. So 
-		$$\End(P)=\End((M,\Lambda)) = \End(\Lambda)=\Lambda^{\operatorname{op}}$$ 
-		\begin{center}
-			and
-		\end{center}
-		$$(P,\Gamma)=((M,\Lambda),(M,M))=(\Lambda,M)=M.$$
-		\item Let $X$ be a $\Lambda$-module. Since $\add M$ has only a finite number of indecomposable modules it is functorially finite. \todo{Have not defined this yet...} So we can take an $M$-resolution of $X$.
-		$$\cdots \to M_1 \to M_0 \to X \to 0$$
-		Since $\add M$ contains the projectives this is exact. Applying $(M,-)$ we get a projective resolution of $(M,X)$. Since $(M, X)$ is determined by its projective resolution and $X$ is determined by its $M$-resolution we need only show that $(P,-)\circ (M,-)$ is the identity on $\add M$. Then again by Yoneda's Lemma $(P, (M, M')) = (\Lambda, M')=M'$.
-		\item Since $M$ is a generator it contains the projective cover of all simple modules. Then \cref{prop:hom_generator_preserves_injectives} gives us that $(M, -)$ maps injective modules to injective modules.
-	\end{enumerate}
-\end{proof}
-
-\begin{prop}
-	Let $P$ be a projective $\Gamma$-module, and let $\Lambda = \End(P)^{\operatorname{op}}$. Then $(P, -)\colon\mod \Gamma \to \mod \Lambda$ is fully faithful on $\add I(P/JP)$, where $P/JP$ denotes the top of $P$, and $I(P/JP)$ its injective envelope.
-	\begin{proof}
-		Let $I$ and $I'$ be in $\add I(P/JP)$. We want to show that the map $\Hom_\Gamma(I, I') \to \Hom_\Lambda((P,I), (P, I'))$ is an isomorphism. First we show injectivity. Let $f\colon I\to I'$ be a non-zero map. Then the socle of $\Image f$ is a semisimple submodule of $I'$, so it is in $\add P/JP$. Then there exists a nonzero map from $P$ to $\Image f$. Since $P$ is projective this lifts to a map $\hat{f}\colon P\to I$. Then $f \circ \hat{f}$ is non-zero, so $\Hom_\Gamma(I, I') \to \Hom_\Lambda((P,I), (P, I'))$ is injective.
-		
-		The argument for surjectivity is similar to that for \cref{prop:hom_generator_preserves_injectives}. Let $\psi\colon(P,I)\to (P, I')$ be a $\Lambda$-linear map. Let $f_i\colon P\to I$ generate $(P,I)$ as a $\Lambda$-module. Consider the following diagram:
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus P \ar[dr, "\sum \psi(f_i)"] \ar[d, swap, "\sum f_i"]\\
-			I \ar[r, swap, dashed, "?"] & I'
-			\end{tikzcd}
-		\end{center}
-		We wish to show that there is a map at ? completing the diagram. We first show that $K':=\ker \sum \psi(f_i)$ contains $K:=\ker \sum f_i$. Assume for the sake of contradiction that it does not. Then $Q := K / K' \cap K$ is mapped injectively into $I'$ by $\sum \psi(f_i)$. So the socle of $Q$ is in $\add P/JP$, and we have a non-zero map $P \to Q$.
-		
-		Since $P$ is projective this extends to a map $P \to K$. Let $a_i$ be the compositions 
-		\begin{tikzcd}[column sep = 15pt]
-			P \ar[r] & K \ar[r] & \bigoplus P \ar[r, "\pi_i"] & P.
-		\end{tikzcd}
-		Then clearly $\sum f_i \circ a_i = 0$, but $\sum \psi(f_i) \circ a_i$ is non-zero. Since $\psi$ is $\Lambda$-linear this is a contradiction, so $K'$ contains $K$.
-		
-		Then we get an induced commutative diagram:
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus P \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f)"] \\
-			\left(\bigoplus P\right)/ K \ar[r] \ar[d, hookrightarrow] & I'\\
-			I \ar[ur, dashed, swap, "\exists"]
-			\end{tikzcd}
-		\end{center}
-		Now because $I'$ is injective we know that there is a lift, and so the map $\Hom_\Gamma(I, I') \to \Hom_\Lambda((P,I), (P, I'))$ is surjective, and thus an isomorphism.
-	\end{proof} 
-\end{prop}
-
-We conclude this section by giving a proof of \cref{thm:wedderburn_criterion}.
-
-\Wederburncriterion*
-\begin{proof}
-	Let $\Gamma \to I_0 \to I_1$ be a minimal injective presentation of $\Gamma$. Then by \cref{prop:hom_generator_preserves_injectives} we have that $(P, I_0) \to (P,I_1)$ is an injective presentation of $(P,\Gamma)$. The proposition gives us that $(P,-)$ is fully faithful on $I_0$ and $I_1$. Since the endomorphisms of $\Gamma$ are exactly endomorphisms of $I_0 \to I_1$ up to homotopy this means that $$\Gamma=\End_\Gamma(\Gamma)^{\op} = \End_\Lambda((P, \Gamma))^{\op}$$
-	So $P$ is Wedderburn projective.
-\end{proof}
-
-\subsection{Redoing this wedderburn thing}
-
-\begin{prop}%\label{prop:hom_generator_preserves_injectives}
-	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module. In particular if $M$ is a generator then $(M,-)$ preserves injectives.
-	\begin{proof}
-		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} \todo{[...] In the appendix} it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
-		\begin{tikzcd}
-		J \ar[r, hookrightarrow] & \Gamma \ar[r, "\gamma \circ -"] & (M, I).
-		\end{tikzcd} To construct such a $\gamma$ we consider the following diagram.
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus M \ar[dr, "\sum \psi(f_i)"] \ar[d, swap, "\sum f_i"]\\
-			M \ar[r, swap, dashed, "\gamma"] & I
-			\end{tikzcd}
-		\end{center}
-		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is in $\add M$, so there is a non-zero projective map $M \to Q$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
-		
-		Let $a_i$ be the composition 
-		\begin{tikzcd}[column sep=15pt]
-		M \ar[r] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M.
-		\end{tikzcd}
-		Then we get $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction since $a_i$ was explicitly constructed such that $\sum \psi(f_i)\circ a_i$ is non-zero. Thus $K'$ contains $K$.
-		
-		Using this we get the following commutative diagram:
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus M \ar[d] \ar[dd, bend right=60, swap, "\sum f_i"] \ar[dr, "\sum \psi(f_i)"] \\
-			\left(\bigoplus M\right)/ K \ar[r] \ar[d, hookrightarrow] & I\\
-			M \ar[ur, dashed, swap, "\exists\gamma"]
-			\end{tikzcd}
-		\end{center}
-		Since $I$ is injective it lifts monomorphisms so we know that $\gamma$ exists. Thus $(M, I)$ is an injective $\Gamma$-module.
-	\end{proof}
-\end{prop}
-
-$M$ a generator for $\mod\Lambda$ and $\Gamma = \End(M)^{\op}$, and $P = (M, \Lambda)$.
-
-$\End(P)^{\op} = \Lambda$
-
-$(M, -)$ fully faithful with adjoin right $(P, -)$, also $(M,-) = P\otimes -$.
-
-$(M,-)$ and $(P,-)$ preserve injective objects
-
-$M \to I_0 \to I_1 \to \cdots$ injective resolution
-
-$\Gamma \to Q_0 \to Q_1$
-
-
-\begin{theorem}\label{thm:wedderburn_equiv}
-	Let $\Lambda$ be an artin algebra and $M$ a generator in $\mod\Lambda$. Let $\Gamma = \End(M)^{\op}$ and $P$ be the projective $\Gamma$-module $\Hom(M, \Lambda)$. Then we have the following:
-	\begin{itemize}
-		\item There is an isomorphism of rings $\End_\Gamma(P)^{\op} \cong \Lambda$ and an ismorphism of $\Lambda$-modules $(P, \Gamma) \cong M$.
-		\item The functor $(M, -)$ is fully faithful and left adjoint to $(P,-)$. In particular $(P,-)\circ (M, -)$ is naturally isomorphic to the identity on $\mod\Lambda$.
-		\item The functor $(M, -)$ preserves injectives, and $(P,I)$ is injective if the projective cover of the socle of $I$ is in $\add P$.
-		\item For a $\Gamma$-module $X$ we have that $X \cong (M, (P, X))$ if and only if $X$ is in the image of $(M,-)$.
-	\end{itemize} 
-\end{theorem}
-
-\begin{theorem}
-	ARC -> GNC
-	\begin{proof}
-		Assume ARC holds, and let $\Gamma$ be a finite dimensional algebra we wish to show that $\Gamma^{\op}$ satisfies GNC. First note that $\Ext^\bullet_{\Gamma^{\op}}(D\Gamma^{\op}, S) \neq 0$ is equivalent to the projective cover of $S$ appearing in the minimal projective resolution of $D\Gamma^{\op}$ which is equivalent to the injective envelope of $DS$ appearing in the minimal injective resolution of $\Gamma$. Thus to prove that $\Gamma^{\op}$ satisfies GNC it is enough to show that every indecomposable injective appears in the minimal injective resolution of $\Gamma$. This is what we will prove.
-		
-		Let the minimal injective resolution of $\Gamma$ be given by 
-		\begin{center}
-			\begin{tikzcd}
-				0 & \Gamma & I_0 & I_1 &
-			\end{tikzcd}
-		\end{center}
-		Now let $I$ be the sum of all indecomposable inejctives that appear in the resolution, and let $P$ be the projective cover of its socle. Then by \cref{thm:wedderburn_criterion} we have that $P$ is a Wedderburn projective, and we may use the results of \cref{thm:wedderburn_equiv}.
-		
-		Let $\Lambda = \End(P)^{\op}$ and let $M = \Hom(P, \Gamma)$. We now wish to use ARC to prove that $M$ is projective which in turn would imply that $P$ is a generator and thus that $I$ is a cogenerator.
-		
-		Since $P$ contains the projective cover of each simple module in the socle of $I_i$, we have that $(P,I_i)$ is injective. This means that we get an inejctive resolution of $M$ by applying $(P,-)$ to the resolution of $\Gamma$.
-		\begin{center}
-			\begin{tikzcd}
-			0 & M & (P,I_0) & (P,I_1) &
-			\end{tikzcd}
-		\end{center}
-		Since $(M,-)$ preserves injectives and is left exact, if we apply $(M,-)$ to the beginning of this sequence we get a copresentation of $\Gamma$.
-		\begin{center}
-			\begin{tikzcd}
-			0 & \Gamma & (M,(P,I_0)) & (M,(P,I_1))
-			\end{tikzcd}
-		\end{center}
-		This means that $(M, (P,I_0))$ contains $I_0$ as a summand. Since $(M,-)$ is fully faithful and idempotents split it must be that $I_0$ is in the image of $(M,-)$. Therefore by \cref{thm:wedderburn_equiv} we have that $(M, (P,I_0)) \cong I_0$.
-		
-		From here we continue by induction. Assume $(M,(P,I_i)) \cong I_i$ for all $i < n$. Then we wish to show that $(M, (P, I_n)) \cong I_n$. We consider the diagram
-		\begin{center}
-			\begin{tikzcd}
-				I_{n-1} \ar[rd, two heads] & I_n\\
-				\mho^{n-1}\Gamma \ar[u, hookrightarrow]& \mho^n \Gamma \ar[u, hookrightarrow]
-			\end{tikzcd}
-		\end{center}
-		If we now apply the functor $(M, (P, -))$, and use that $I_{n-1} \cong (M,(P,I_{n-1}))$ and $\mho^{n-1}\Gamma \cong (M,(P,\mho^{n-1}\Gamma))$ we get
-		\begin{center}
-			\begin{tikzcd}
-			I_{n-1} \ar[rd, two heads] & (M,(P,I_n)\\
-			\mho^{n-1}\Gamma \ar[u, hookrightarrow]& (M,(P,\mho^n \Gamma) \ar[u, hookrightarrow]
-			\end{tikzcd}
-		\end{center}
-		
-		Since $(M,(P,-))$ is left exact, we have that the sequence 
-		\begin{center}
-		\begin{tikzcd}
-		0\ar[r]&\mho^{n-1}\Gamma \ar[r]& I_{n-1} \ar[r]& (M,(P,\mho^n \Gamma) 
-		\end{tikzcd}
-		\end{center}
-		is exact. From this we get a monomorphism from the cokernel of the inclusion \begin{tikzcd}
-		\mho^{n-1}\Gamma \ar[r, hookrightarrow]& I_{n-1},
-		\end{tikzcd}
-		Which of course is just $\mho^n\Gamma$. This fits into the following diagram:
-		\begin{center}
-			\begin{tikzcd}
-			I_n \ar[r, dashed] & (M,(P, I_n))\\
-			\mho^n\Gamma\ar[r, hookrightarrow] \ar[u, hookrightarrow] & (M,(P,\mho^n\Gamma))\ar[u, hookrightarrow]
-			\end{tikzcd}
-		\end{center}
-		
-		Then since $(M, (P, I_n))$ is injective we get a lift as indicated by the dashed arrow. Since 
-		\begin{tikzcd}
-		\mho^{n}\Gamma \ar[r, hookrightarrow]& I_{n}.
-		\end{tikzcd} 
-		is minimal the induced map is a monomorphism. So $I_n$ is a direct summand of $(M, (P, I_n))$. Then by the same argument as above $(M,(P,I_n))\cong I_n$.
-		
-		From here extM = 0 gives M projective gives P generator \todo{finish}
-	\end{proof}
-\end{theorem}
-
-\begin{theorem}
-	\begin{proof}
-		\begin{align*}
-			\Hom_B(_BP_A, _BP_A\otimes DP) = \Hom_B(D(P\otimes DP), DP)\\
-			= \Hom_B(\Hom_A(P, P), DP)\\
-			= \Hom_B(B, DP) = DP
-		\end{align*}
-		
-		$I$ is the injective $\Gamma$ module such that coresolution is $\add I$, let $P = DI$, and let $\Lambda = \End(P)$. Then $P$ is a $\Lambda$-$\Gamma$-module. We have 
-		\begin{align*}
-			\Hom_\Lambda(P, P\otimes DP) = DP
-		\end{align*}
-		So $\Ext_\Lambda(P, P\otimes \Gamma) = 0$. 
-		
-		$\Hom_\Gamma(P, -\otimes_\Lambda P)$ right exact and $\Lambda = \End(P)$ means that $\Hom_\Gamma(P, -\otimes_\Lambda P)$ is the identity on $\mod\Lambda$. Which means that $X\otimes P$ is nonvanishing. Which means that $\Hom(X \otimes P, D\Gamma) \neq 0$. Which means that $\Hom(P, DX) \neq 0$ which implies $P$ is a generator in $\mod\Lambda$.
-		
-		ARC then gives us that $P$ is a projective $\Lambda$-module.
-		
-		$\Hom_\Lambda(P, -)$ is exact, $\Gamma = \End_\Lambda(P)$. So $\Hom(P, P\otimes -)$ right exact gives $\Hom(P, P\otimes)$ identity on $\mod\Gamma$ gives $P\otimes -$ nonvanishing, means $D(P\otimes -) \neq 0$ means $\Hom_\Gamma(P, D-) \neq 0$ means $P$ generator in $\mod\Lambda$.
-	\end{proof}
-\end{theorem}
-
-\begin{theorem}
-	ARC -> GNC
-	\begin{proof}
-		Assume that ARC holds, and let $\Gamma$ be a finite dimensional algebra. We wish to show that $\Gamma$ satisfies GNC. Let the minimal injective resolution of $\Gamma$ be given by
-		\begin{center}
-			\begin{tikzcd}
-			0 \ar[r] & \Gamma \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
-			\end{tikzcd}
-		\end{center}
-		Let $I$ be the minimal injective module such that each $I_i$ is in $\add I$. If we can show that $I$ is a cogenerator, then it will follow that $\Gamma$ satisfies GNC. Let $P=DI$ be the projective right $\Gamma$-module dual to $I$, and let $\Lambda = \End_\Gamma(P)$ be its endomorphism ring. 
-		
-		Using the Hom-Tensor adjunction we see that 
-		\begin{align*}
-			D(P \otimes_\Gamma X) &= \Hom_k(P \otimes_\Gamma X, k)\\
-			&= \Hom_\Gamma(P, \Hom_k(X, k))\\
-			&= \Hom_\Gamma(P, D X)
-		\end{align*}
-		In particular we have that $D(P\otimes_\Gamma I) = \End_\Gamma(P) = \Lambda$ as right $\Lambda$-modules, and so $P\otimes_\Gamma I = D\Lambda$. 
-		
-		Now let $\mathcal S$ be the subcategory of $\mod \Gamma$ of modules that have a copresentation of modules in $\add I$. Then we claim there is an equivalence of categories
-		
-		\begin{center}
-			\begin{tikzcd}[column sep = 50pt]
-				\mathcal S \ar[r, bend left=10]{}{P\otimes_\Gamma-} & \mod\Lambda \ar[l, bend left=10]{}{\Hom_\Lambda(P,-)}
-			\end{tikzcd}
-		\end{center}
-		
-		To see this we first note the following identities
-		\begin{align*}
-			\Hom_\Lambda(P, P\otimes_\Gamma I) &= \Hom_\Lambda(P, D\Lambda)\\
-			&= \Hom_k(\Lambda \otimes_\Lambda P, k) \\
-			&= DP = I\\
-			\\
-			P \otimes_\Gamma \Hom_\Lambda(P, D\Lambda) &= P \otimes_\Gamma DP\\
-			&= D\Lambda
-		\end{align*}
-		
-		Since $P_\Gamma$ is projective $P_\Gamma -$ is exact, so both functors are left exact. This means they induce equivalences between the subcategories with copresentations in $\add I$ and $\add D\Lambda$. Thus we get our wanted equivalence.
-		
-		Now if we apply $P\otimes_\Gamma -$ to the injective resolution $I_\bullet$, we get an injective resolution of $P\otimes_\Gamma\Gamma = P$ as a $\Lambda$-module. Applying $\Hom_\Lambda(P, -)$ gives us back the complex $I_\bullet$ and thus we have that $\Ext_\Lambda^n(P, P)=0$ for all $n>0$. 
-		
-		Since $\Hom_\Lambda(P, -)$ is non-vanishing, $P$ is a generator in $\mod\Lambda$. Since by assumption ARC holds, we get that $P$ is projective as a $\Lambda$-module. Thus $\Hom_\Lambda(P, -)$ is right exact. Since $\Hom_\Lambda(P, P) = \Hom_\Lambda(P, P\otimes \Gamma) = \Gamma$ we get that $\Hom_\Lambda(P,-)$ induces an equivalence between modules with a presentation in $\add P$ and modules with a presentation in $\add \Gamma$. We conclude that $\mathcal S = \mod\Gamma$, and thus that $I$ is a cogenerator.
-		
-		Since $I$ is a cogenerator all indecomposable injective modules appear in the resolution of $\Gamma$, an thus $\Gamma$ satisfies GNC.
-	\end{proof}
-\end{theorem}
+%\input{wedderburn}
