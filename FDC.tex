@@ -11,6 +11,7 @@
 \usepackage{cite}
 \usepackage{hyperref}
 \usepackage[capitalise]{cleveref}
+\usepackage[toc,page]{appendix}
 
 \usepackage[toc,page]{appendix}
 \usepackage{fancyhdr}
@@ -258,6 +259,10 @@ Similarly for the weaker conjectures
 	\item For all the others it seems just as difficult as solving the conjecture to connect it to it's dual.
 \end{itemize}
 
+\begin{appendices}
+\section{Appendix: Homological algebra}\label{sec:appendix}
+\input{appendix}
+\end{appendices}
 
 \section{Personal appendix}
 \begin{theorem}
@@ -315,103 +320,11 @@ $\findim(\Lambda)$ need not equal $\findim(\Lambda^{\operatorname{op}}) = \sup\{
 		\end{center}
 		We see that by changing basis in the domain we get the matrix $\begin{bmatrix}
 		1&0\\0&g
-		\end{bmatrix}$. Thus $I_i$ is mapped isomorphically to itself, which doesnt happen in a minimal resolution.
+		\end{bmatrix}$. Thus $I_i$ is mapped isomorphically to itself, which doesn't happen in a minimal resolution.
 		
 		The only thing left to show is that there are no non-split epimorphisms from injective modules to $I_1$ and $I_2$.
 	\end{proof}
 \end{example}
-
-\begin{lemma}\cite[Chapter I, theorem 3.2]{CE56} \label{lem:injectives_for_noetherian_ring}
-	Let $R$ be a noetherian ring. Then an $R$-module $Q$ is injective if and only if it has the injective lifting property for inclusions of ideals into $R$.
-	\begin{proof}
-		If $Q$ is injective then $Q$ has the lifting property for all monomorphisms, so one direction is clear. Assume we have a diagram
-		\begin{center}
-		\begin{tikzcd}
-			Q\\
-			M \ar[u, "f"] \ar[r, hook] & N \ar[ul, dashed]
-		\end{tikzcd}
-		\end{center}
-		We want to show that the dashed arrow exists. Let $S$ be the partially ordered set $\{(M', f'): M \leq M', f'|_M = f\}$. By Zorn's lemma this has a maximal element $(M', f')$. Assume $M' \neq N$, then there is an element $x \in N - M'$. The set of $r$ such that $rx \in M'$ forms an ideal $I$. Define the map $g: I \to Q$ by $I(r) = f'(rx)$. By hypothesis $g$ lifts to a map $\tilde{g}:R \to Q$. Let $q$ be $\tilde{g}(1)$. Then $\tilde{f}: M' + Rx \to Q$ defined by $\tilde{f}(m + rx) = f'(m) + rq$ gives us a bigger element of $S$, contradicting maximality. Thus $M'=N$ and $Q$ is injective.
-	\end{proof}
-\end{lemma}
-
-\begin{theorem}
-	Let $R$ be a noetherian ring. Then an arbitrary coproduct of injectives is injective.
-	\begin{proof}
-		By the lemma above it is enough to show the lifting property on ideals of $R$. Let $I$ be an ideal and $f:I \to \bigoplus_i Q_i$ be a map to a coproduct of injectives. Since $R$ is notherian $I$ is finitely generated so $f$ factors through a finite sum $I \to \bigoplus_{i=0}^n Q_i \to \bigoplus Q_i$. Since finite coproducts of injectives are injective we are done.
-		\begin{center}
-			\begin{tikzcd}
-			\bigoplus Q_i\\
-			\bigoplus\limits_{i=0}^n Q_i \ar[u]\\
-			I \ar[u] \ar[r, hook] & R \ar[ul, dashed]
-			\end{tikzcd}
-		\end{center}
-	\end{proof}
-\end{theorem}
-
-\begin{theorem}\cite[Chapter I, Exercise 8]{CE56}
-	Let $R$ be a noetherian ring. Then direct limits of injectives is injective.
-	\begin{proof}
-		By the lemma above it is enough to show the lifting property on ideals of $R$. Let $I$ be an ideal and let $Q = \lim\limits_{\rightarrow} Q_i$ be a direct limit of injectives.
-		
-		Since $R$ is noetherian $I$ is finitely presented, say $R^n \to R^m \to I \to 0$. Applying $\Hom(-,Q)$ we get an exact sequence 
-		\begin{center}
-			\begin{tikzcd}
-			0 \ar[r] & \Hom(I, Q) \ar[r] & \Hom(R^m, Q) \ar[r] & \Hom(R^n, Q)
-			\end{tikzcd}
-		\end{center}
-		Since direct limits are exact we also have an exact sequence
-		\begin{center}
-			\begin{tikzcd}
-			0 \ar[r] & \lim\limits_{\rightarrow}\Hom(I, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(R^m, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(R^n, Q_i)
-			\end{tikzcd}
-		\end{center}
-		We also have a natural map $\lim\limits_{\rightarrow}\Hom(-, Q_i) \to \Hom(-, Q)$. $\Hom(R^n, Q_i)$ just equals $Q_i^n$, so this map is an isomorphism at $R^n$. Then by the five lemma applied to the two sequences above we get that $\Hom(I, Q) \cong \lim\limits_{\rightarrow}\Hom(I, Q_i)$ for all ideals $I$. So since 
-		\begin{center}
-			\begin{tikzcd}
-			\lim\limits_{\rightarrow}\Hom(R, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(I, Q_i) \ar[r] & 0
-			\end{tikzcd}
-		\end{center}
-		is exact, we get that
-		\begin{center}
-			\begin{tikzcd}
-			\Hom(R, Q) \ar[r] & \Hom(I, Q) \ar[r] & 0
-			\end{tikzcd}
-		\end{center}
-	is exact. Hence $Q$ is injective.
-	\end{proof}
-\end{theorem}
-
-\begin{theorem}\label{thm:Proj_Inj_equivalence}
-	Let $\Lambda$ be an artin algebra. Then we have an equivalence of categories 
-	\begin{center}
-		\begin{tikzcd}[column sep = 50pt]
-			 \operatorname{Proj}\Lambda \ar[r, bend left=10, "D\Lambda \otimes -"] & \operatorname{Inj}\Lambda \ar[l, bend left=10]{}{\Hom(D\Lambda, -)}
-		\end{tikzcd}
-	\end{center}
-	where the tensor product is over $\Lambda$, and $\Hom(D\Lambda, X)$ is considered as a $\Lambda$-module by $\Lambda \cong \End(D\Lambda)^{\op}$.
-	\begin{proof}
-		First we note the following isomorphisms when evaluating the functors at $\Lambda$ and $D\Lambda$
-		\begin{align*}
-			\Hom(D\Lambda, D\Lambda \otimes \Lambda) &\cong \End(D\Lambda)\\
-			&\cong \End(\Lambda_\Lambda) \\
-			&\cong \Lambda
-		\end{align*} 
-		and
-		\begin{align*}
-			D\Lambda \otimes \Hom(D\Lambda, D\Lambda) &\cong D\Lambda \otimes \Lambda\\
-			&\cong D\Lambda.
-		\end{align*}
-		Since $D\Lambda$ is finitely presented $D\Lambda \otimes -$ and $\Hom(D\Lambda, -)$ preserve both products and coproducts. Then since $\operatorname{Proj}\Lambda = \operatorname{Add}\Lambda$ and $\operatorname{Inj}\Lambda = \operatorname{Prod}D\Lambda$ it follows from the equations above that $\Hom(D\Lambda, D\Lambda \otimes -)$ and $D\Lambda \otimes \Hom(D\Lambda, -)$ are isomorphic to the identity on $\operatorname{Proj}\Lambda$ and $\operatorname{Inj}\Lambda$ respectively. 
-		
-		Lastly we verify that the maps are well defined. Since $\Lambda$ is an artin algebra each injective module is the injective envelope of its socle. Since the socle is semisimple it is the direct sum of simple modules. Thus each injective is the sum of indecomposable injective modules, and hence we have that $\operatorname{Add}D\Lambda = \operatorname{Inj}\Lambda$. It is true for any ring that $\operatorname{Add}\Lambda = \operatorname{Proj}\Lambda$, and so we have the following:
-		
-		$$D\Lambda\otimes (\operatorname{Proj}\Lambda) = D\Lambda\otimes (\operatorname{Add}\Lambda) = \operatorname{Add} D\Lambda = \operatorname{Inj}\Lambda,$$
-		and
-		$$\Hom(D\Lambda, \operatorname{Inj}\Lambda) =\Hom(D\Lambda, \operatorname{Add}D\Lambda) = \operatorname{Add} \Lambda = \operatorname{Proj}\Lambda.$$
-		So the maps induce an equivalence of categories.
-	\end{proof}
-\end{theorem}
 
 \clearpage
 

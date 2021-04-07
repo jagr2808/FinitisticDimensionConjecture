@@ -1,5 +1,5 @@
 
-The finitistic dimension conjecture is part of a larger family of homological conjectures about finite dimensional algebras. In this section we outline some of these conjectures, and show which conjectures imply each other. Most of these implications can be proven only using the basic tools of representation theory and homological algebra, apart from the implications involving the Auslander--Reiten conjecture. For these we need some theorems from the theory of Wedderburn projectives, which is outlined in \cref{sec:wedderburn_correspondence}.
+The finitistic dimension conjecture is part of a larger family of homological conjectures about finite dimensional algebras. In this section we outline some of these conjectures, and show which conjectures imply each other. Most of these implications can be proven only using the basic tools of representation theory and homological algebra, apart from the implications involving the Auslander--Reiten conjecture. For these we need some theorems from the theory of Wedderburn projectives, which is outlined in \cref{sec:wedderburn_correspondence}. \todo{fix}
 
 All of the conjectures are formulated as a specific property conjectured to hold for all finite dimensional algebras. In \cref{prop:conj_on_individual_algebras} we summarize how these implications work on the level of individual algebras.
 
@@ -332,7 +332,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 			0 \ar[r] & \Gamma \ar[r] & (M,I_0) \ar[r] & (M,I_1) \ar[r] & \cdots
 		\end{tikzcd}
 		\end{center}
-		By \cref{thm:hom_generator_equivalence} this is an injective resolution of $\Gamma$.
+		By \cref{prop:hom_generator_preserves_injectives} this is an injective resolution of $\Gamma$.
 		
 		Since $M$ is a non-projective generator it has every indecomposable projective as a summand and a nonprojective summand. So $M$ has more indecomposable summands than $\Lambda$ which means that $\Gamma$ has more indecomposable projectives than $\Lambda$. It follows that $\Gamma$ also has more injectives and thus has an injective not on the form $(M, I)$. Since all modules that appear in the injective resolution of $\Gamma$ are on the form $(M, I)$, not all indecomposable injectives appear in the resolution. Therefore by \cref{prop:GNC_reformulated} we have that $\Gamma$ does not satisfy GNC.
 	\end{proof}
@@ -375,7 +375,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 		&= D\Lambda
 		\end{align*}
 		
-		Since $P_\Gamma$ is projective $P\otimes_\Gamma -$ is exact, so both functors are left exact. This means they induce equivalences between the subcategories with copresentations in $\add I$ and $\add D\Lambda$. Thus we get our wanted equivalence.
+		Since $P_\Gamma$ is projective $P\otimes_\Gamma -$ is exact, so both functors are left exact. This means they induce equivalences between the subcategories with copresentations in $\add I$ and $\add D\Lambda$ respectively. Thus we get our wanted equivalence.
 		
 		Now if we apply $P\otimes_\Gamma -$ to the injective resolution $I_\bullet$, we get an injective resolution of $P\otimes_\Gamma\Gamma = P$ as a $\Lambda$-module. Applying $\Hom_\Lambda(P, -)$ gives us back the complex $I_\bullet$ and thus we have that $\Ext_\Lambda^n(P, P)=0$ for all $n>0$. 
 		
@@ -413,7 +413,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 \begin{prop}\cite{AR75} 
 	The generalized Nakayama conjecture implies the Nakayama conjecture
 	\begin{proof}
-		Assume $\Lambda^{\op}$ satisfies GNC and that the dominant dimension of $\Lambda$ is $\infty$. As noted in \cref{thm:GNC_implies_ARC} we have that $\Ext_\Lambda^\bullet(S, \Lambda) = \Ext_{\Lambda^{\op}}^\bullet(D\Lambda, DS) \neq 0 $. If $\Ext^\bullet(S, \Lambda)$ is nonzero that means the injective envelope $I(S)$ appears in the minimal injective resolution of $\Lambda$. If all injectives apear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective, and hence $\Lambda$ satisfies NC. 
+		Assume $\Lambda$ satisfies GNC and that the dominant dimension of $\Lambda$ is $\infty$. As shown in \cref{prop:GNC_reformulated} if $\Ext^\bullet(S, \Lambda)$ is nonzero that means the injective envelope $I(S)$ appears in the minimal injective resolution of $\Lambda$. If all injectives appear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective, and hence $\Lambda$ satisfies NC. 
 	\end{proof}
 \end{prop}
 
@@ -424,12 +424,12 @@ The proofs above do not necessarily work on the level of individual algebras. Fo
 	\begin{enumerate}[i)]
 		\item If $\Lambda$ satisfies FDC, then $\Lambda$ also satisfies WTC.
 		\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
-		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC, all hold on the level of individual algebras.
+		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC, both hold on the level of individual algebras.
 		\item An algebra $\Lambda$ satisfies Nuc if and only if $\Lambda^{\op}$ satisfies SNC.
-		\item If $\Gamma$ satisfies GNC whenever $\Gamma = \End_\Lambda(M)$ for a generator $M$ in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
+		\item The implications SNC $\Rightarrow$ GNC $\Rightarrow$ NC, both gold on the level of individual algebras.
+		\item If $\Gamma$ satisfies GNC whenever $\Gamma = \End_\Lambda(M)^{\op}$ for a generator $M$ in $\mod\Lambda$, then $\Lambda$ satisfies ARC.x
 		\item If $\End(I)^{\op}$ satisfies ARC, where $\add I$ contains every injective in the minimal resolution of $\Lambda$, then $\Lambda$ satisfies GNC.
 		\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC.
-		\item If $\Lambda$ satisfies GNC, then $\Lambda$ satisfies NC.
 	\end{enumerate}
 \end{prop}
 

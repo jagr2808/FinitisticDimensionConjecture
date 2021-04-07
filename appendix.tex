@@ -1,0 +1,125 @@
+In this section we collect relevant theorems from homological algebra that would be distracting within the text itself.
+
+\begin{lemma}\cite[Chapter I, theorem 3.2]{CE56} \label{lem:injectives_for_noetherian_ring}
+	Let $R$ be a noetherian ring. Then an $R$-module $Q$ is injective if and only if it has the injective lifting property for inclusions of ideals into $R$.
+	\begin{proof}
+		If $Q$ is injective then $Q$ has the lifting property for all monomorphisms, so one direction is clear. Assume we have a diagram
+		\begin{center}
+			\begin{tikzcd}
+			Q\\
+			M \ar[u, "f"] \ar[r, hook] & N \ar[ul, dashed]
+			\end{tikzcd}
+		\end{center}
+		We want to show that the dashed arrow exists. Let $S$ be the partially ordered set $\{(M', f'): M \leq M', f'|_M = f\}$. By Zorn's lemma this has a maximal element $(M', f')$. Assume $M' \neq N$, then there is an element $x \in N - M'$. The set of $r$ such that $rx \in M'$ forms an ideal $I$. Define the map $g: I \to Q$ by $I(r) = f'(rx)$. By hypothesis $g$ lifts to a map $\tilde{g}:R \to Q$. Let $q$ be $\tilde{g}(1)$. Then $\tilde{f}: M' + Rx \to Q$ defined by $\tilde{f}(m + rx) = f'(m) + rq$ gives us a bigger element of $S$, contradicting maximality. Thus $M'=N$ and $Q$ is injective.
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}
+	Let $R$ be a noetherian ring. Then an arbitrary coproduct of injectives is injective.
+	\begin{proof}
+		By the lemma above it is enough to show the lifting property on ideals of $R$. Let $I$ be an ideal and $f:I \to \bigoplus_i Q_i$ be a map to a coproduct of injectives. Since $R$ is notherian $I$ is finitely generated so $f$ factors through a finite sum $I \to \bigoplus_{i=0}^n Q_i \to \bigoplus Q_i$. Since finite coproducts of injectives are injective we are done.
+		\begin{center}
+			\begin{tikzcd}
+			\bigoplus Q_i\\
+			\bigoplus\limits_{i=0}^n Q_i \ar[u]\\
+			I \ar[u] \ar[r, hook] & R \ar[ul, dashed]
+			\end{tikzcd}
+		\end{center}
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}\cite[Chapter I, Exercise 8]{CE56}
+	Let $R$ be a noetherian ring. Then direct limits of injectives is injective.
+	\begin{proof}
+		By the lemma above it is enough to show the lifting property on ideals of $R$. Let $I$ be an ideal and let $Q = \lim\limits_{\rightarrow} Q_i$ be a direct limit of injectives.
+		
+		Since $R$ is noetherian $I$ is finitely presented, say $R^n \to R^m \to I \to 0$. Applying $\Hom(-,Q)$ we get an exact sequence 
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & \Hom(I, Q) \ar[r] & \Hom(R^m, Q) \ar[r] & \Hom(R^n, Q)
+			\end{tikzcd}
+		\end{center}
+		Since direct limits are exact we also have an exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & \lim\limits_{\rightarrow}\Hom(I, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(R^m, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(R^n, Q_i)
+			\end{tikzcd}
+		\end{center}
+		We also have a natural map $\lim\limits_{\rightarrow}\Hom(-, Q_i) \to \Hom(-, Q)$. $\Hom(R^n, Q_i)$ just equals $Q_i^n$, so this map is an isomorphism at $R^n$. Then by the five lemma applied to the two sequences above we get that $\Hom(I, Q) \cong \lim\limits_{\rightarrow}\Hom(I, Q_i)$ for all ideals $I$. So since 
+		\begin{center}
+			\begin{tikzcd}
+			\lim\limits_{\rightarrow}\Hom(R, Q_i) \ar[r] & \lim\limits_{\rightarrow}\Hom(I, Q_i) \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is exact, we get that
+		\begin{center}
+			\begin{tikzcd}
+			\Hom(R, Q) \ar[r] & \Hom(I, Q) \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is exact. Hence $Q$ is injective.
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{thm:Proj_Inj_equivalence}
+	Let $\Lambda$ be an artin algebra. Then we have an equivalence of categories 
+	\begin{center}
+		\begin{tikzcd}[column sep = 50pt]
+		\operatorname{Proj}\Lambda \ar[r, bend left=10, "D\Lambda \otimes -"] & \operatorname{Inj}\Lambda \ar[l, bend left=10]{}{\Hom(D\Lambda, -)}
+		\end{tikzcd}
+	\end{center}
+	where the tensor product is over $\Lambda$, and $\Hom(D\Lambda, X)$ is considered as a $\Lambda$-module by $\Lambda \cong \End(D\Lambda)^{\op}$.
+	\begin{proof}
+		First we note the following isomorphisms when evaluating the functors at $\Lambda$ and $D\Lambda$
+		\begin{align*}
+		\Hom(D\Lambda, D\Lambda \otimes \Lambda) &\cong \End(D\Lambda)\\
+		&\cong \End(\Lambda_\Lambda) \\
+		&\cong \Lambda
+		\end{align*} 
+		and
+		\begin{align*}
+		D\Lambda \otimes \Hom(D\Lambda, D\Lambda) &\cong D\Lambda \otimes \Lambda\\
+		&\cong D\Lambda.
+		\end{align*}
+		Since $D\Lambda$ is finitely presented $D\Lambda \otimes -$ and $\Hom(D\Lambda, -)$ preserve both products and coproducts. Then since $\operatorname{Proj}\Lambda = \operatorname{Add}\Lambda$ and $\operatorname{Inj}\Lambda = \operatorname{Prod}D\Lambda$ it follows from the equations above that $\Hom(D\Lambda, D\Lambda \otimes -)$ and $D\Lambda \otimes \Hom(D\Lambda, -)$ are isomorphic to the identity on $\operatorname{Proj}\Lambda$ and $\operatorname{Inj}\Lambda$ respectively. 
+		
+		Lastly we verify that the maps are well defined. Since $\Lambda$ is an artin algebra each injective module is the injective envelope of its socle. Since the socle is semisimple it is the direct sum of simple modules. Thus each injective is the sum of indecomposable injective modules, and hence we have that $\operatorname{Add}D\Lambda = \operatorname{Inj}\Lambda$. It is true for any ring that $\operatorname{Add}\Lambda = \operatorname{Proj}\Lambda$, and so we have the following:
+		
+		$$D\Lambda\otimes (\operatorname{Proj}\Lambda) = D\Lambda\otimes (\operatorname{Add}\Lambda) = \operatorname{Add} D\Lambda = \operatorname{Inj}\Lambda,$$
+		and
+		$$\Hom(D\Lambda, \operatorname{Inj}\Lambda) =\Hom(D\Lambda, \operatorname{Add}D\Lambda) = \operatorname{Add} \Lambda = \operatorname{Proj}\Lambda.$$
+		So the maps induce an equivalence of categories.
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}[Fitting's Lemma]
+	Let $R$ be a ring, $M$ an $R$-module, and $L\colon M \to M$ an endomorphism. If $X$ is a noetherian submodule of $M$, then there exists a positive integer $\eta_X$ such that $L|_{L^n(X)}\colon L^n(X) \to M$ is injective for all $n \geq \eta_X$.
+	\begin{proof}
+		We have an increasing sequence of submodules of $X$ given by:
+		$$\ker L \cap X \subseteq \ker L^2 \cap X \subseteq \ker L^3 \cap X \subseteq \cdots$$
+		Since $X$ is noetherian this sequence stabilizes, i.e. there is an integer $\eta_X$ such that $\ker L^n \cap X = \ker L^{n+1} \cap X$ for all $n \geq \eta_X$. We know that $L^n(X) \cong X / \ker L^n \cap X$, and that through this isomorphism the map $L \colon L^n(X) \to M$ is induced by $L^{n+1} \colon X / \ker L^n \cap X \to L^{n+1}(X) \subseteq M$. Since for $n \geq \eta_X$ we have that $\ker L^n \cap X = \ker L^{n+1}\cap X$ this map is injective, and so the theorem holds.
+	\end{proof}
+\end{theorem}
+
+Interesting examples of Fitting's Lemma comes from $R$ being a noetherian ring and $X$ being a finitely generated modules. In particular the case when $R = \mathbb Z$ appears in \cref{sec:Igusa-Todorov}. An important special case of Fitting's Lemma that comes up when working with artinian rings is when $X=M$ and $X$ has finite length. Remember that over an artin ring all finitely generated modules have finite length.
+
+\begin{cor}
+	Let $X$ be a module of finite length, and let $L\colon X\to X$ be an endomorphism. Then $L$ splits as a direct sum $L_1 \oplus L_2 \colon X_1 \oplus X_2 \to X_1 \oplus X_2$ such that $L_1$ is nilpotent and $L_2$ is an isomorphism.
+	\begin{proof}
+		Since $X$ has finite length it is noetherian, thus we can apply Fitting's Lemma. Let $n$ be the positive integer we get from Fitting's Lemma, and let $K$ be $\ker L^{n}$. We wish to show that $X$ is the direct sum of $K$ and $L^n(X)$. Note that since $L$ is inejctive when restricted to $L^n(X)$ we have that $K \cap L^n(X)=0$, so all we have to show is that $X = K + L^n(X)$.
+	
+		We have a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & K\ar[r] & X\ar[r] & L^{n}(X)\ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		From this we conclude that the length of $L^{n}(X)$ is equal to the length of $X$ minus the length of $K$. Since $\ker L^n = \ker L^{2n}$ we also have that the length of $L^n(X)$ and $L^{2n}(X)$ are equal. Since $L^{2n}(X)$ is a submodule of $L^n(X)$ this means that $L^n(X)=L^{2n}(X)$. Thus $L$ restricts to an automorphism on $L^n(X)$. Let $\psi$ be its inverse. Then for any $x \in X$ we have $x = \psi L^n(x) + x - \psi L^n(x)$. Clearly $\psi L^n(x)$ is in $L^n(X)$. Applying $L^n$ to $x-\psi L^n(x)$ we get
+		\begin{align*}
+			L^n(x-\psi L^n(x)) &= L^n(x) - L^n \psi L^n (x)\\
+			&= L^n(x) - L^n(x)\\
+			&= 0
+		\end{align*}
+		Thus $ x - \psi L^n(x)$ is in the kernel and so $X = K \oplus L^n(X)$. Then we see that $L$ breaks down as a direct sum $L = L_1 \oplus L_2$ with $L_1\colon K \to K$ nilpotent and $L_2 \colon L^n(X) \to L^n(X)$ an isomorphism.
+	\end{proof}
+\end{cor}
