@@ -1,22 +1,36 @@
 
 Results are generalized in \cite{Trl01}
 
+In this section we will study the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{cor:contravariant_finite_implies_FDC} we show that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite, and in \cref{exam:not_contravariantly_finite} we give an example due to Igusa--Smalø--Todorov of a relatively simple algebra for which $\mathcal P^\infty$ fails to be contravariantly finite.
+
+It is known that $\mathcal P^\infty$ is contravariantly finite when the algebra is stably equivalent to a hereditary algebra. This was shown by Auslander--Reiten in their original paper \cite{AR91}. We will consider a generalization of this class in \cref{sec:stable_hereditary_algebras} through the perspective of the Igusa--Todorov-function.
+
+Throughout this section we, as usual, assume $\Lambda$ is a finite dimensional algebra, though it should be noted that all the results still hold if we assume $\Lambda$ to be an artin algebra.
+
 \begin{defn}[Resolving]
 	A full subcategory of an abelian category is called \emph{resolving} if 
 	\begin{enumerate}[i)]
 		\item It is closed under extensions.
 		\item It contains the projectives.
-		\item It is contains the kernels of its epimorphisms.
+		\item It contains the kernel of any epimorphism between two of its objects.
 	\end{enumerate}
 \end{defn}
 
-Note that the subcategory of modules with finite projective dimension is resolving.
+Note that $\mathcal P^\infty$ is a resolving subcategory.
 
+The main theorem of this section will hold for resolving subcategories in general. In the next few propositions we will consider a resolving subcategory $\mathcal X$, and its $\Ext$-orthogonal complement
+\begin{align*}
+	\mathcal Y := \ker \Ext^{\geq 1}(\mathcal X, -) = \{Y \in \mathcal C \mid \Ext^i(X, Y)=0, \forall X \in \mathcal X, \forall i \geq 1\},
+\end{align*}
+which we now show is equal to 
+\begin{align*}
+\ker \Ext^1(\mathcal X, -) = \{Y \in \mathcal C \mid \Ext^1(X, Y)=0, \forall X \in \mathcal X\}.
+\end{align*}
 
 \begin{lemma}\label{lem:resolving_ext_vanish}
-	Let $\mathcal X$ be resolving. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
+	Let $\mathcal X$ be a resolving subcategory. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism in $\mathcal X$. Thus $\mathcal X$ contains all syzygies. $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
+		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism between objects in $\mathcal X$. Thus $\mathcal X$ contains all syzygies. $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
 	\end{proof}
 \end{lemma}
 
@@ -44,7 +58,9 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 			\Hom(X', Y) \ar[r]&\Hom(X', X) \ar[r] & \Hom(X', C) \ar[dll, overlay, out=-15, in=165] \\ \Ext^1(X', Y) \ar[r] & \Ext(X', X)^1 \ar[r] & \Ext^1(X', C)
 		\end{tikzcd}
 		\end{center}
-		Since $X \to C$ is an approximation, we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext^1(X', X) \to \Ext^1(X', C)$ is mono we would have that $\Ext^1(X', Y)=0$. Assume we have an element of $\Ext^1(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
+		Since $X \to C$ is an approximation, we know that $\Hom(X', X) \to \Hom(X', C)$ is epi. Thus if we can prove that $\Ext^1(X', X) \to \Ext^1(X', C)$ is mono we would have that $\Ext^1(X', Y)=0$. 
+		
+		Assume we have an element of $\Ext^1(X', X)$ that is mapped to 0, i.e. we have a commutative diagram
 		\begin{center}
 			\begin{tikzcd}
 			0 \ar[r] & X \ar[r] \ar[d] & E \ar[r] \ar[d] & X' \ar[d, equal] \ar[r] & 0\\
@@ -60,10 +76,11 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 		\end{center}
 		since $X \to C$ is an approximation we get that $E \to C$ factors through $X$. The endomorphism $X \to E \to X$ leaves the approximation unchanged, so by minimality it must be an isomorphism. Hence 
 		$$0 \to X \to E \to X' \to 0$$
-		 is split and $\Ext(X', X) \to \Ext(X', C)$ is injective. Thus $\Ext(X', Y)=0$.
+		 is split and $\Ext^1(X', X) \to \Ext^1(X', C)$ is injective. Thus $\Ext^1(X', Y)=0$, and by \cref{lem:resolving_ext_vanish} we have $\Ext^i(X', Y)=0$ for all $i\geq 1$.
 	\end{proof}
 \end{lemma}
 
+We now prove the main theorem of this section, about the structure of approximations for a resolving subcategory.
 
 \begin{theorem} \cite[3.8]{AR91}
 	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Let $X_i$ be the minimal approximation of $S_i$. Then any $X \in \mathcal X$ is a direct summand of an $X_i$-filtered module.
@@ -136,9 +153,13 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 	\end{proof}
 \end{theorem}
 
-\begin{cor}
-	If the subcategory of modules with finite projective dimension is contravariantly finite, then the finitistic dimension is the supremum of the projective dimension of $X_i$. In particular it is finite.
+Applying this to $\mathcal P^\infty$ we get our wanted result about the finitistic dimension.
+
+\begin{cor}\label{cor:contravariant_finite_implies_FDC}
+	If $\mathcal P^\infty$ is contravariantly finite, then the finitistic dimension is the supremum of the projective dimension of $X_i$. In particular it is finite.
 \end{cor}
+
+To finish this section of we give two examples. The first example is due to Igusa--Smalø--Todorov, which shows that $\mathcal P^\infty$ need not be contravariantly finite even for monomial algebras with $J^3 = 0$.
 
 \begin{example}\cite[Proposition~2.3]{IST90}\label{exam:not_contravariantly_finite}
 	Let $\Lambda$ be the path algebra of 
@@ -147,7 +168,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 		1 \ar[r, "\alpha", bend left=45] \ar[r, "\beta"] & 2 \ar[l, "\gamma", bend left = 45]
 	\end{tikzcd}
 	\end{center}
-	with relations $\alpha \gamma$, $\beta\gamma$, and $\gamma\alpha$ over an algebraically closed field $k$. Then $\findim(\Lambda) = 1$, but the subcategory of modules with finite projective dimension is not contravariantly finite.
+	with relations $\alpha \gamma$, $\beta\gamma$, and $\gamma\alpha$ over an algebraically closed field $k$. Then $\findim(\Lambda) = 1$, but $\mathcal P^\infty$ is not contravariantly finite.
 	
 	\begin{proof}
 		The indecomposable projective $\Lambda$-modules are given by the following quivers
@@ -175,7 +196,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 			0 \ar[r] & P^1_X \ar[r] & P^0_X \ar[d]\ar[r] & X\ar[d]\ar[r] & 0\\
 			&& X' \ar[d]\ar[r, equal] & X' \ar[d] \\
 			&&0&0
-		\end{tikzcd}\todo{make a notation chapter setting notation for projective cover / resolution}
+		\end{tikzcd}
 		\end{center}
 		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$, then $(e_2 x)$ would be a submodule of $X$ isomorphic to $P_2$. So $X$ is a $\Lambda/(\gamma)$ module. 
 		
@@ -222,7 +243,7 @@ Note that the subcategory of modules with finite projective dimension is resolvi
 	\end{proof}
 \end{example}
 
-In the next example we look at the opposite algebra of $\Lambda$ to show that there is not necessarily any link between the contravariant finiteness for $\Lambda$ and for $\Lambda^{\operatorname{op}}$. 
+In the next example we look at the opposite algebra of $\Lambda$, for which $\mathcal P^\infty$ is contravariantly finite. This shows that there is no immediate relationship between $\mathcal P^\infty$ being contravariantly finite for $\Lambda$ and for $\Lambda^{\op}$.
 
 \begin{example}
 	Let $\Gamma$ be the opposite algebra of the one in \cref{exam:not_contravariantly_finite}. That is, $\Gamma$ is the path algebra of 
@@ -231,7 +252,7 @@ In the next example we look at the opposite algebra of $\Lambda$ to show that th
 		2 \ar[r, "\hat{\alpha}", bend left=45] \ar[r, "\hat{\beta}"] & 1 \ar[l, "\hat{\gamma}", bend left = 45]
 		\end{tikzcd}
 	\end{center}
-	with relations $\hat{\gamma}\hat{\alpha}$, $\hat{\gamma}\hat{\beta}$, and $\hat{\alpha}\hat{\gamma}$. Then the subcategory of modules with finite projective dimension is contravariantly finite. In other words the subcategory of $\Lambda$-modules with finite injective dimension is covariantly finite.
+	with relations $\hat{\gamma}\hat{\alpha}$, $\hat{\gamma}\hat{\beta}$, and $\hat{\alpha}\hat{\gamma}$. Then $\mathcal P^\infty$ is contravariantly finite. In other words the subcategory of $\Lambda$-modules with finite injective dimension is covariantly finite.
 	\begin{proof}
 		The indecomposable projective $\Gamma$-modules are given by the following quivers 
 		\begin{center}

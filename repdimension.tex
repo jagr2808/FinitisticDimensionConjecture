@@ -1,9 +1,11 @@
 
-In this section we look at the representation dimension of an algebra. This is another useful homological invariant of the representation theory for a finite dimensional algebra. The representation dimension is less than or equal to 2 if and only if $\Lambda$ is representation finite, so it is natural to think that the representation dimension in some sense measures the \textit{complexity} of $\mod\Lambda$. In \cref{cor:repdim_less_than_3_implies FDC} we show that $\findim(\Lambda) < \infty$ when $\repdim(\Lambda) \leq 3$, and in section*\todo{href} we give examples of classes of algebras that satisfy this.
+In this section we look at the representation dimension of an algebra. This is another useful homological invariant of the representation theory for a finite dimensional algebra. The representation dimension is less than or equal to 2 if and only if $\Lambda$ is representation finite, so it is natural to think that the representation dimension in some sense measures the \textit{complexity} of $\mod\Lambda$. In \cref{cor:repdim_less_than_3_implies FDC} we show that $\findim(\Lambda) < \infty$ when $\repdim(\Lambda) \leq 3$, and in \cref{sec:stable_hereditary_algebras} we give an example of a family of algebras that satisfy this.
 
 \begin{defn}[Representation dimension]
 	Let $\Lambda$ be a finite dimensional algebra. The \emph{representation dimension} of $\Lambda$, denoted $\repdim(\Lambda)$, is the minimal global dimension of $\End(M)^{\operatorname{op}}$ for $M$ a generator-cogenerator in $\mod\Lambda$. We call a generator-cogenerator that achieves this minimum an \emph{Auslander-generator}.
 \end{defn}
+
+The representation dimension can also be defined using $\mathcal M$-resolutions, which we define here.
 
 \begin{defn}[$\mathcal M$-resolutions]
 	Let $X$ be an object in $\mod\Lambda$ and $\mathcal M$ a contravariantly finite subcategory. We consider a diagram as the one below.
@@ -15,6 +17,8 @@ In this section we look at the representation dimension of an algebra. This is a
 	\end{center}
 	If the maps $M_n \twoheadrightarrow \Omega_M^nX$ are minimal right $\mathcal M$-approximations for $n\geq 0$ (they need not be surjective), and $\Omega_M^{n+1} \hookrightarrow M_n$ are their kernels, then this is a minimal \emph{$\mathcal M$-resolution} of $X$. The \emph{$\mathcal M$-res-dimension} of $X$ is the length of this sequence of (nonzero) $M_i$'s, and the $\mathcal M$-res-dimension of $\Lambda$ is the supremum of the dimension on its objects.
 \end{defn}
+
+An $\mathcal M$-resolution of $X$ should be thought of as a projective resolution of $\Hom(-, X)|_{\mathcal M}$ in the category of coherent functors on $\mathcal M$. When $\mathcal M = \add M$ the category of coherent functors is isomorphic to $\mod \End(M)^{\op}$, where $\Hom(-, X)|_{\mathcal M}$ corresponds to $\Hom(M, X)$. In the proof of the next proposition we use this correspondence, and we write $M$-$\operatorname{res-dim}$ instead of $(\add M)$-$\operatorname{res-dim}$. 
 
 \begin{prop}
 	If the representation dimension of $\Lambda$ is at least $2$, then $\repdim(\Lambda) - 2$ equals the minimum of $M$-$\operatorname{res-dim}(\mod \Lambda)$ for $M$ both generator and cogenerator. In fact, for any generator-cogenerator, $M$-$\operatorname{res-dim}(\mod \Lambda)$ is two less than the global dimension of $\End(M)^{\op}$.
@@ -45,14 +49,19 @@ In this section we look at the representation dimension of an algebra. This is a
 	\end{proof}
 \end{prop}
 
-\begin{prop}
-	The representation dimension of an artin algebra is always finite. \cite{Iya02}
-\end{prop}
+The next two results paint an important picture of the representation dimension as an invariant, but are not relevant for the other results in this thesis.
 
 \begin{theorem}
+	The representation dimension of an artin algebra is always finite.
+	\begin{proof}
+		The proof is omitted here, but can be found in \cite{Iya02}. \todo{I should go over the proof}.
+	\end{proof}
+\end{theorem}
+
+\begin{prop}
 	The representation dimension of $\Lambda$ is less than or equal to 2 if and only if $\Lambda$ is representation finite.
 	\begin{proof}
-		Assume $\Lambda$ is representation finite and let $M$ be the direct sum of all indecomposable modules (up to iso). Then $M$ is a generator-cogenerator. Let $X$ be an $\End(M)^{\operatorname{op}}$-module with projective presentation 
+		Assume $\Lambda$ is representation finite and let $M$ be the direct sum of all indecomposable modules up to isomorphism. Then $M$ is a generator-cogenerator. Let $X$ be an $\End(M)^{\operatorname{op}}$-module with projective presentation 
 		$$(M,M_1) \to (M, M_0) \to X \to 0.$$ 
 		Let $M_2$ be the kernel of $M_1 \to M_0$. Since $M$ is the sum of all indecomposables $M_2$ is in $\add M$, so 
 		$$0 \to (M, M_2) \to (M,M_1) \to (M, M_0) \to X \to 0$$ 
@@ -60,7 +69,9 @@ In this section we look at the representation dimension of an algebra. This is a
 		
 		Assume $\Lambda$ has representation dimension at most 2, and let $M$ be an Auslander-generator. We want to show that $\add M = \mod\Lambda$. Let $X$ be any $\Lambda$-module, and let $$0 \to X \to I_0 \to I_1$$ be a minimal injective presentation. If $I_0 \to I_1$ is split then $X$ is injective and thus in $\add M$. Let $M_X$ be a minimal $M$-approximation of $X$, let $\Omega_M X$ be the kernel of the approximation, and let $Y$ be the cokernel of $(M, I_0) \to (M, I_1)$. Then $$(M,\Omega_M X) \to (M,M_X) \to (M, I_0) \to (M, I_1) \to Y \to 0$$ is a minimal exact sequence. Since the global dimension of $\End(M)^{\operatorname{op}}$ is at most 2 this means that $(M, \Omega_M X)=0$. Consequently we have that $\Omega_M X = 0$ and that $X=M_X$, so $X$ is in $\add M$. Thus $\Lambda$ is representation finite.
 	\end{proof}
-\end{theorem}
+\end{prop}
+
+We conclude this subsection by proving that $\findim(\Lambda)$ is finite when $\Lambda$ has representation dimension at most 3. To do this we first prove a slight generalization of this.
 
 \begin{theorem}\cite[Corollary~8]{IgTo05}
 	If $\Lambda = \End_\Gamma(P)^{\op}$ for an algebra $\Gamma$ with global dimension at most 3, and $P$ projective, then $\findim(\Lambda) < \infty$.
@@ -92,6 +103,7 @@ In this section we look at the representation dimension of an algebra. This is a
 \begin{cor}\label{cor:repdim_less_than_3_implies FDC}
 	If $\repdim(\Lambda) \leq 3$ then $\findim(\Lambda) < \infty$.
 	\begin{proof}
-		If $\Lambda$ has rep-dimension less than or equal to 3 then by \cref{prop:repdim_auslander_generator} there is a generator-cogenerator $M$ in $\mod\Lambda$ such that $\Gamma := \End_\Lambda(M)$ has global dimension 3 or less. Then since $M$ is a generator $\Lambda$ is in $\add M$ and so $\Hom_\Lambda(M, \Lambda)$ is a projective $\Gamma$-module with $\End_\Gamma(\Hom_\Lambda(M, \Lambda)) = \End_\Lambda(\Lambda) = \Lambda$.
+		If $\Lambda$ has rep-dimension less than or equal to 3, then there is a generator-cogenerator $M$ in $\mod\Lambda$ such that $\Gamma := \End_\Lambda(M)^{\op}$ has global dimension 3 or less. Then since $M$ is a generator $\Lambda$ is in $\add M$ and so $\Hom_\Lambda(M, \Lambda)$ is a projective $\Gamma$-module with 
+		$$\End_\Gamma(\Hom_\Lambda(M, \Lambda))^{\op} = \End_\Lambda(\Lambda)^{\op} = \Lambda.$$
 	\end{proof}
 \end{cor}

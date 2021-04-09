@@ -17,12 +17,12 @@ In this section we will discuss a reduction technique known as recollement. The 
 \end{center}
 
 \begin{enumerate}[(i)]
-	\item All functors are exact/triangulated.
-	\item The composition $j^*i_*=0$ vanishes.
+	\item All functors are exact, and we have adjoint pairs $(i^*, i_*)$, $(i_!, i^!)$, $(j_!, j^!)$, $(j^*, j_*)$. 
+	\item \label{recollement:vanishing_composition}The composition $j^*i_*=0$ vanishes.
 	\item \label{item:i_fully-faith} 
 	We have natural isomorphisms $i^*i_* \cong i^!i_! \cong \operatorname{id}_{\mathcal T'}$ induced by the units and counits of the adjunctions. 
 	\item \label{item:j_fully-faith}
-	We have similar isomorphisms $j^!j_! \cong j^*j_* \cong \operatorname{id}_{\mathcal T''}$, also induced by the units and counits. 
+	We have natural isomorphisms $j^!j_! \cong j^*j_* \cong \operatorname{id}_{\mathcal T''}$, also induced by the units and counits. 
 	\item \label{recollement:triangles}
 	For every $X \in \mathcal T$ we have the following distinguished triangles:
 	\begin{center}
@@ -99,7 +99,7 @@ Now that we have a good understanding of how the functors in a recollement inter
 		
 		Since $i_*T$ is in $\D^b(\Lambda)$ it is a bounded complex, in particular there is a $t_0$ such that $i_*T^{t}=0$ for $t \geq t_0$. Then by the bounds above $\D^b(\Lambda)(i_*X, i_*T[t]) = 0$ for $t \geq t_0 + s \geq t_0 + r + \findim(\Lambda)$. Since $i_*$ is fully faithful this equals $\D^b(\Lambda')(X, T[t])$, and so $\findim(\Lambda') \leq t_0 + r + \findim(\Lambda)$. In particular it is finite.
 		
-		The proof for $\findim(\Lambda'')$ is the same, just replacing $i_*$ with $j_!$. We leave writing out the details of this to the reader.
+		The proof for $\findim(\Lambda'')$ is the same, just replacing $i_*$ with $j_!$. We leave writing out the details to the reader.
 		
 		For the converse assume $\Lambda'$ and $\Lambda''$ both have finite finitistic dimension. Let $T = \Lambda / \rad\Lambda$, and $X$ be a $\Lambda$-module with finite projective dimension, and consider both modules as a complex concentrated in degree 0. By \cref{def:recollement}(\ref{recollement:triangles}) we have distinguished triangles:
 		\begin{center}
@@ -121,7 +121,7 @@ Now that we have a good understanding of how the functors in a recollement inter
 			\cdots \ar[r] & (X_i, T_j)_m \ar[r] & (X, T_j)_m \ar[r] & (X_j, T_j)_m \ar[r] & (X_i, T_j)_{m+1} \ar[r] & \cdots\\
 			\end{tikzcd}
 		\end{center}
-		From this we conclude that
+		Using the fact that $j^*i_* = j^!i_! = 0$ from \cref{def:recollement}(\ref{recollement:vanishing_composition} we deduce that
 		\[\arraycolsep=2pt\def\arraystretch{1.33}
 		\begin{array}{ccccccl}
 			(X_i, T_j)_m &=& (i_*i^* X, j_*j^* T)_m &=& (j^*i_*i^*X, j^*T)_m &=& 0\\
