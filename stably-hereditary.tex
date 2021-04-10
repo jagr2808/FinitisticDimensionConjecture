@@ -1,14 +1,18 @@
-In this section we will show that the class of stably hereditary algebras has repdimension at most 3, and thus that they have finite finitistic dimension.
+In this section we introduce the class of stably hereditary algebras, and show that they have representation dimension at most 3. Then from what we showed earlier in this section it follows that they have finite finitistic dimension.
+
+Hereditary algebras are those where all torsionfree modules are projective. This corresponds exactly to the algebra having global dimension 1 or less. Stably hereditary algebras are a generalization of these where we also allow simple modules to be torsionfree without being projective. This turns out to include the class of algebras that are stably equivalent to a hereditary algebra, hence the name. We now remind the reader of the definition of torsionfree. 
 
 \begin{defn}[(co)torsionfree]
 	A module is called \emph{torsionfree} if it is a submodule of a projective module. Dually, a module is called \emph{cotorsionfree} if it is a factormodule of an injective.
 \end{defn}
 
+Defining hereditary algebras to be those where cotorsionfree modules are injective would give an equivalent definition. When we generalize to stably hereditary algebras, the dual condition is no longer equivalent, so we include both.
+
 \begin{defn}[Stably hereditary algebra]
 	An algebra is called \emph{stably hereditary} if any indecomposable torsionfree module is projective or simple, and any indecomposable cotorsionfree moule is injective or simple. 
 \end{defn}
 
-This generalizes the definition of hereditary algebra by also allowing simple modules to be (co)torsionfree.
+Like we said above, the archetypal example of a stably hereditary algebra is one whose stably equivalent to a hereditary algebra. Two algebras being stably equivalent means they have the same stable category. We now remind the reader of the definition.
 
 \begin{defn}[The stable category]
 	For an algebra $\Lambda$, \emph{the stable category} $\underline{\mod}\Lambda$ has the same objects as $\mod\Lambda$, but the sets of homomorphisms are given by $$\Hom_{\underline{\mod}\Lambda}(M, N) = \Hom_\Lambda(M,N)/\mathcal{P}(M,N)$$
@@ -22,14 +26,28 @@ This generalizes the definition of hereditary algebra by also allowing simple mo
 	\end{proof}
 \end{prop}
 
-The converse of the above proposition does not hold without more assumptions, but stably hereditary algebras generalize the idea of algebras stably equivalent to hereditary algebras.
+There exists stably hereditary algebras that are not stably equivalent to a hereditary algebra, but the simple defining property of stably hereditary algebras together with the Igusa--Todorov function is all we need to prove our main theorem.
 
 \begin{theorem}\cite[Theorem~3.5]{Xi02}
-	Stably hereditary algebras has repdimension at most 3.
+	If $\Lambda$ is stably hereditary, then it has representation dimension at most 3.
 	\begin{proof}
-		Let $V$ be the direct sum of all the indecomposable projectives, all the indecomposable injectives, and all the simple modules. Then $V$ is a generator-cogenerator. So if we show that the global dimension of $\Gamma:=\End(V)^{op}$ is 3 or less, then we are done.
+		Let $V$ be the direct sum of all the indecomposable projectives, all the indecomposable injectives, and all the simple modules. Then $V$ is a generator-cogenerator. So if we show that the global dimension of $\Gamma:=\End(V)^{\op}$ is 3 or less, then we are done.
 		
-		We will show that for any $\Lambda$-module $M$ there is a short exact sequence $0 \to V_3 \to V_3 \to M \to 0$ with $V_i$ in $\add V$, and such that $0 \to (V, V_3) \to (V, V_2) \to (V, M) \to 0$ is exact. We will use this to construct short projective resolutions for $\mod\Gamma$. To construct $V_3$ and $V_2$ let $M'$ be the sum of the maximal injective summand of $M$ and all simple submodules of $M$. Then let $P$ be the projective cover of $M/M'$. Taking the pullback of $M \to M/M' \leftarrow P$ gives us the diagram:
+		We will show that for any $\Lambda$-module $M$ there is a short exact sequence 
+		\begin{center}
+		\begin{tikzcd}
+			0 \ar[r] & V_3 \ar[r] & V_2 \ar[r] & M \ar[r] & 0
+		\end{tikzcd}
+		\end{center}
+		with $V_i$ in $\add V$, and such that 
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & (V,V_3) \ar[r] & (V,V_2) \ar[r] & (V,M) \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is exact. We will use this to construct sufficiently short projective resolutions in $\mod\Gamma$. 
+		
+		To construct $V_3$ and $V_2$ let $M'$ be the sum of the maximal injective summand of $M$ and all simple submodules of $M$. Then let $P$ be the projective cover of $M/M'$. Taking the pullback of $M \to M/M' \leftarrow P$ gives us the diagram:
 		\begin{center}
 		\begin{tikzcd}[column sep = 15pt, row sep = 25pt]
 			   && 0 \ar[d] & 0 \ar[d]\\
@@ -39,9 +57,15 @@ The converse of the above proposition does not hold without more assumptions, bu
 			&&0&0 
 		\end{tikzcd}
 		\end{center}
-		I claim that $0 \to K \to M'\oplus P \to M \to 0$ is the desired sequence. Firstly $M'\oplus P$ is clearly in $\add V$ since it is the sum of an injective, a semisimple, and a projective module. Further $K$ is a submodule of $P$, hence torsionfree. So since $\Lambda$ is stably hereditary $K$ is the sum of a projective and a semisimple module, so $K$ is also in $\add V$.
+		We claim that $0 \to K \to M'\oplus P \to M \to 0$ is the desired sequence. Firstly $M'\oplus P$ is in $\add V$ since it is the sum of an injective, a semisimple, and a projective module. Further $K$ is a submodule of $P$, hence torsionfree. So since $\Lambda$ is stably hereditary $K$ is the sum of a projective and a semisimple module, so $K$ is also in $\add V$.
 		
-		Next we need to show that $0 \to (V, K) \to (V, M'\oplus P) \to (V, M) \to 0$ is exact. The only thing needed to show here is that $(V, M'\oplus P) \to (V, M)$ is surjective. We do this by showing that $(W, M'\oplus P) \to (W, M)$ is surjective for any indecomposable summand of $V$. If $W$ is projective this holds by definition. If $W$ is simple then any map from $W$ to $M$ factors through the socle and hence through $M'$, so it's surjective. Lastly if $W$ is injective then the image of $W$ in $M$ is a cotorsionfree module, so it is the sum of simple modules and an injective module. Hence the map from $W$ to $M$ factors through $M'$.
+		Next we need to show that 
+		\begin{center}
+			\begin{tikzcd}
+			0 \ar[r] & (V,K) \ar[r] & (V,M'\oplus P) \ar[r] & (V,M) \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is exact. The only thing needed to show here is that the map $(V, M'\oplus P) \to (V, M)$ is surjective. We do this by showing that $(W, M'\oplus P) \to (W, M)$ is surjective for any indecomposable summand of $V$. If $W$ is projective this holds by definition. If $W$ is simple then any map from $W$ to $M$ factors through the socle and hence through $M'$, so it's surjective. Lastly if $W$ is injective then the image of $W$ in $M$ is a cotorsionfree module, so it is the sum of simple modules and an injective module. Hence the map from $W$ to $M$ factors through $M'$.
 		
 		Now we use this to show that the global dimension of $\Gamma$ is at most 3. Let $N$ be any $\Gamma$-module. Then it has a projective presentation
 		\begin{center}
@@ -55,6 +79,8 @@ The converse of the above proposition does not hold without more assumptions, bu
 			0\ar[r] & (V,V_3) \ar[r] & (V,V_2) \ar[r] & (V,V_1) \ar[r] & (V,V_0) \ar[r] & N \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
-		This shows that the projective dimension of $N$ is at most 3, and since $N$ was arbitrary the global dimension of $\Gamma$ is at most 3. So the repdimension of $\Lambda$ is at most 3.
+		This shows that the projective dimension of $N$ is at most 3, and since $N$ was arbitrary the global dimension of $\Gamma$ is at most 3. So the representation dimension of $\Lambda$ is at most 3.
 	\end{proof}
 \end{theorem}
+
+Now because of \cref{cor:repdim_less_than_3_implies FDC} this means that $\findim(\Lambda) < \infty$ whenever $\Lambda$ is stably hereditary.
