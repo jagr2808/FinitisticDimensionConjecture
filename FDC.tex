@@ -52,6 +52,7 @@
 \DeclareMathOperator{\Mod}{Mod}
 \def\mod{\operatorname{mod}}
 \DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\socle}{soc}
 \DeclareMathOperator{\D}{\mathscr{D}}
 
 \newsavebox{\pullback}
@@ -79,16 +80,30 @@
 \begin{document}
 \title{Finitistic dimension conjecture}
 \author{Jacob Fjeld Grevstad}
-\date{2020}
-\maketitle
+\date{2021}
+%\maketitle
 \pagenumbering{roman}
 
 \begin{abstract}
 FDC yo! This is abstract!
 \end{abstract}
+
+\begin{abstract}
+	Dette er en abtrakt på norsk!
+\end{abstract}
+\clearpage
+
+\section*{Preface}
+\addcontentsline{toc}{section}{\protect\numberline{}Preface}%
+Add text here when thesis mainmatter is done. 
+\begin{flushright}
+	Jacob Fjeld Grevstad\\ 
+	Trondheim, 2021
+\end{flushright}
 \clearpage
 
 \tableofcontents
+\addcontentsline{toc}{section}{\protect\numberline{}Contents}%
 \clearpage
 
 \section*{Notation}
@@ -161,7 +176,7 @@ This is an introduction
 \section{Recollement}
 \input{recollement}
 
-\subsection{Triangular matrix rings and vertex removal}\label{sec:Triangular_matrix_rings}
+\subsection{Triangular matrix rings}\label{sec:Triangular_matrix_rings}
 \input{triangular-matrix-ring}
 
 \section{Contravariant finiteness}
@@ -180,7 +195,7 @@ This is an introduction
 \input{stably-hereditary}
 
 \subsection{Special biserial algebras}
-\cite{EHIS04}
+\input{special_biserial}
 
 \section{Vanishing radical powers}
 \input{vanishing-radical}

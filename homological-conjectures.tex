@@ -1,5 +1,5 @@
 
-The finitistic dimension conjecture is part of a larger family of homological conjectures about finite dimensional algebras. In this section we outline some of these conjectures, and show which conjectures imply each other.
+The finitistic dimension conjecture is part of a larger family of homological conjectures about finite dimensional algebras. In this section we outline some of these conjectures, and show how they are related.
 
 All of the conjectures are formulated as a specific property conjectured to hold for all finite dimensional algebras. In \cref{prop:conj_on_individual_algebras} we summarize how these implications work on the level of individual algebras.
 
@@ -43,7 +43,7 @@ The definition is distinct from the definition of a tilting module in two key wa
 \subsection*{Gorenstein Symmetry Conjecture (GSC)}
 
 \begin{defn}[Gorenstein algebra]
-	A finite dimensional algebra is said to be Gorenstein if all projective modules have finite injective dimension and all injective modules have finite projective dimension.
+	A finite dimensional algebra is said to be \emph{Gorenstein} if all projective modules have finite injective dimension and all injective modules have finite projective dimension.
 \end{defn}
 
 The Gorenstein symmetry conjecture says that we only need one of the two conditions for our algebra to be Gorenstein.
@@ -61,7 +61,7 @@ The conjecture describes a sort of symmetry between $\Lambda$ and $\Lambda^{\op}
 
 We remind the reader that when $\Lambda$ is a finite dimensional algebra, we have an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$ given by injective resolutions. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
 
-$$K^b(\inj\Lambda)^\perp = \{X \in \D^b(\Lambda) \mid \Hom(I, X)=0 \text{ for all } I \in K^b(\inj\Lambda)\}.$$
+$$K^b(\inj\Lambda)^\perp = \{X \in \D^b(\Lambda) \mid \Hom_{\D^b(\Lambda)}(I, X)=0 \text{ for all } I \in K^b(\inj\Lambda)\}.$$
 
 The vanishing conjecture then states that this subcategory is 0.
 \begin{conj}[Vanishing conjecture] 
@@ -78,7 +78,7 @@ The Nunke condition is similar to the vanishing conjecture in that it considers 
 \end{conj}
 
 \subsection*{Strong Nakayama Conjecture (SNC)}
-The strong Nakayama conjecture is simply the dual of the Nunke condition. We include both in this summary for completeness sake.
+The strong Nakayama conjecture is simply the dual of the Nunke condition. For the sake of completeness we include both in this summary.
 
 \begin{conj}[strong Nakayama Conjecture] 
 	If $X \neq 0$ is a non-zero module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(X,\Lambda) \neq 0$. 
@@ -96,13 +96,13 @@ We can also formulate the conjecture as all indecomposable injectives appearing 
 \begin{prop}\label{prop:GNC_reformulated}
 	A finite dimensional algebra $\Lambda$ satisfies GNC if and only if every indecomposable injective appears in the minimal injective resolution of $\Lambda$.
 	\begin{proof}
-		Let the minimal injective resolution of $\Lambda$ is given by 
+		Let the minimal injective resolution of $\Lambda$ be given by 
 		\begin{center}
 			\begin{tikzcd}
 				0 \ar[r] & \Lambda \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
 			\end{tikzcd}
 		\end{center}
-		Since the resolution is minimal, we have that $\Ext^n(S, \Lambda) = \Hom(S, I_n)$. This is non-zero if and only if the socle of $S$ is a summand of $I_n$. Thus $\Ext^n(S, \Lambda)$ is non-zero for some $n$ if the injective envelope of $S$ appears in the minimal resolution, and $I$ is a summand of $I_n$ if $\Ext^n(\operatorname{soc}I, \Lambda) \neq 0$.
+		Since the resolution is minimal, we have that $\Ext^n(S, \Lambda) = \Hom(S, I_n)$ for any simple module $S$. This is non-zero if and only if $S$ is in the socle of $I_n$. Thus $\Ext^n(S, \Lambda)$ is non-zero if and only if the injective envelope of $S$ is a direct summand of $I_n$. Since every indecomposable injective module is the injective envelope of a simple module, we have that $\Lambda$ satisfies GNC if and only if every indecomposable injective appears in the resolution.
 	\end{proof}
 \end{prop}
 
@@ -186,7 +186,7 @@ The remainder of this section is used to prove these implications.
 			0  \ar[r] & K_{i-1}  \ar[r] & T_{i-1}  \ar[r] & K_{i}  \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
-		Therefore $\pd K_i \leq \sup\{\pd T_{i-1}, \pd K_{i-1} - 1\} < \infty$.
+		Therefore $\pd K_i \leq \sup\{\pd T_{i-1}, \pd K_{i-1} + 1\} < \infty$.
 		
 		Lastly, let $n=\findim(\Lambda) < \infty$. Then we have that 
 		$$\Ext^1(K_{n+1}, K_{n}) \cong \Ext^{n+1}(K_{n+1}, K_{0}) = 0$$
@@ -202,7 +202,7 @@ The remainder of this section is used to prove these implications.
 			\Hom(K_{n+1}, T_n) \ar[r] & \Hom(K_{n+1}, K_{n+1}) \ar[r] & \Ext^1(K_{n+1}, K_{n})=0.
 			\end{tikzcd}
 		\end{center}
-		This means that $K_{n+1}$ is a direct summand of $T_n$, and thus is in $\add T$. Then we get abounded version of $\eta$ by
+		This means that $K_{n+1}$ is a direct summand of $T_n$, and thus is in $\add T$. Then we get a bounded version of $\eta$ by
 		\begin{center}
 			\begin{tikzcd}[column sep=23pt]
 			\eta'\colon 0 \ar[r] & \Lambda \ar[r, "d_{-1}"] & T_0 \ar[r, "d_0"] & T_1 \ar[r, "d_1"] & \cdots \ar[r, "d_{n-1}"] & T_n \ar[r, "d_n"] & K_{n+1} \ar[r] & 0.
@@ -235,7 +235,7 @@ The remainder of this section is used to prove these implications.
 			\end{tikzcd}
 		\end{center}
 		
-		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, we have that whenever $d^if=0$, $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an acyclic complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ and $d^0$ is not split mono, we have that $\Hom(D\Lambda, d^0)$ is not split mono.
+		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, we have that whenever $d^if=0$, the morphism $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an acyclic complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ and $d^0$ is not split mono, we have that $\Hom(D\Lambda, d^0)$ is not split mono.
 		
 		The cokernel of $\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is the direct sum of its minimal resolution and an acyclic bounded complex of projectives. Since bounded acyclic complexes of projectives are split and $\Hom(D\Lambda, d^0)$ is not, we must have that the minimal resolution has length $i$, and so $\findim(\Lambda) = \infty$.
 	\end{proof}
@@ -287,7 +287,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 \begin{prop}\label{prop:hom_generator_preserves_injectives}
 	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module. In particular if $M$ is a generator then $(M,-)$ preserves injectives.
 	\begin{proof}
-		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} in in the appendix it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
+		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} in the appendix it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
 		\begin{tikzcd}
 		J \ar[r, hookrightarrow] & \Gamma \ar[r, "\gamma \circ -"] & (M, I).
 		\end{tikzcd} To construct such a $\gamma$ we consider the following diagram.
@@ -297,13 +297,13 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 			M \ar[r, swap, dashed, "\gamma"] & I
 			\end{tikzcd}
 		\end{center}
-		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is in $\add M$, so there is a non-zero projective map $M \to Q$. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
+		We want to show that the kernel of $\sum \psi(f_i)$ contains the kernel of $\sum f_i$, so that we can use the injective property of $I$. To see this let $K$ be the kernel of $\sum f_i$ and let $K'$ be the kernel of $\sum \psi(f_i)$. If $K'$ does not contain $K$, then $Q:= K/K'\cap K$ is a nonzero module that is mapped injectively into $I$. So the socle of $Q$ is a summand of the socle of $I$. Then by assumption the projective cover of the socle of $Q$ is in $\add M$, so there is a non-zero map $M \to Q$ that factors through a projective. By the lifting property of projectives we get a map $M \to K$ such that the composition with $\sum \psi(f_i)$ is non-zero.
 		
 		Let $a_i$ be the composition 
 		\begin{tikzcd}[column sep=15pt]
 		M \ar[r] & K \ar[r, hookrightarrow] & \bigoplus M \ar[r, "\pi_i"] & M.
 		\end{tikzcd}
-		Then we get $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction since $a_i$ was explicitly constructed such that $\sum \psi(f_i)\circ a_i$ is non-zero. Thus $K'$ contains $K$.
+		Then we get that $\sum f_i \circ a_i = 0$. Applying $\psi$ we get $\sum \psi(f_i)\circ a_i = 0$, which gives a contradiction since $a_i$ was explicitly constructed such that $\sum \psi(f_i)\circ a_i$ is non-zero. Thus $K'$ contains $K$.
 		
 		Using this we get the following commutative diagram:
 		\begin{center}
@@ -357,7 +357,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 		\end{align*}
 		In particular we have that $D(P\otimes_\Gamma I) = \End_\Gamma(P) = \Lambda$ as right $\Lambda$-modules, and so $P\otimes_\Gamma I = D\Lambda$. 
 		
-		Now let $\mathcal S$ be the subcategory of $\mod \Gamma$ of modules that have a copresentation of modules in $\add I$. Then we claim there is an equivalence of categories
+		Now let $\mathcal S \subseteq \mod\Gamma$ be the full subcategory of $\Gamma$-modules that have a copresentation in $\add I$. Then we claim there is an equivalence of categories
 		
 		\begin{center}
 			\begin{tikzcd}[column sep = 50pt]
@@ -379,7 +379,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 		
 		Now if we apply $P\otimes_\Gamma -$ to the injective resolution $I_\bullet$, we get an injective resolution of $P\otimes_\Gamma\Gamma = P$ as a $\Lambda$-module. Applying $\Hom_\Lambda(P, -)$ gives us back the complex $I_\bullet$ and thus we have that $\Ext_\Lambda^n(P, P)=0$ for all $n>0$. 
 		
-		Since $\Hom_\Lambda(P, -)$ is non-vanishing, $P$ is a generator in $\mod\Lambda$. Since by assumption ARC holds, we get that $P$ is projective as a $\Lambda$-module. Thus $\Hom_\Lambda(P, -)$ is right exact. Since $\Hom_\Lambda(P, P) = \Hom_\Lambda(P, P\otimes \Gamma) = \Gamma$ we get that $\Hom_\Lambda(P,-)$ induces an equivalence between modules with a presentation in $\add P$ and modules with a presentation in $\add \Gamma$. We conclude that $\mathcal S = \mod\Gamma$, and thus that $I$ is a cogenerator.
+		Since $\Hom_\Lambda(P, -)$ is an equivalence, it is non-vanishing. This says exactly that $P$ is a generator in $\mod\Lambda$. Since by assumption ARC holds, we get that $P$ is projective as a $\Lambda$-module. Thus $\Hom_\Lambda(P, -)$ is right exact. Since $\Gamma$ is in $\mathcal S$, the equivalence give us $\Hom_\Lambda(P, P) = \Hom_\Lambda(P, P\otimes \Gamma) = \Gamma$. Combining these two facts we get that $\Hom_\Lambda(P,-)$ induces an equivalence between modules with a presentation in $\add P$ and modules with a presentation in $\add \Gamma$. We conclude that $\mathcal S = \mod\Gamma$, and thus that $I$ is a cogenerator.
 		
 		Since $I$ is a cogenerator all indecomposable injective modules appear in the resolution of $\Gamma$, an thus $\Gamma$ satisfies GNC.
 	\end{proof}
@@ -426,7 +426,7 @@ The proofs above do not necessarily work on the level of individual algebras. Fo
 		\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
 		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC, both hold on the level of individual algebras.
 		\item An algebra $\Lambda$ satisfies Nuc if and only if $\Lambda^{\op}$ satisfies SNC.
-		\item The implications SNC $\Rightarrow$ GNC $\Rightarrow$ NC, both gold on the level of individual algebras.
+		\item The implications SNC $\Rightarrow$ GNC $\Rightarrow$ NC, both hold on the level of individual algebras.
 		\item If $\Gamma$ satisfies GNC whenever $\Gamma = \End_\Lambda(M)^{\op}$ for a generator $M$ in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
 		\item If $\End(I)^{\op}$ satisfies ARC, where $I$ is an injective module such that $\add I$ contains every injective in the minimal resolution of $\Lambda$, then $\Lambda$ satisfies GNC.
 		\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC. \todo{I removed the proof for this, since it factors through ARC implies GNC, but it gives a different condition on individual algebras}
