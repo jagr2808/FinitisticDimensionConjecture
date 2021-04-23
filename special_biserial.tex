@@ -97,16 +97,87 @@ In this section we shall consider two finite dimensional algebras, where one is 
 \end{theorem}
 
 \begin{theorem}
-	Let $\Lambda$ be finite dimensional algebra and let $P$ be a projective $\Lambda$-module such that $\socle P$ is a two-sided ideal \todo{In particual if P is injective. Why?}. If we define $\Gamma$ to be $\Lambda / \socle P$, then we have $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
+	Let $\Lambda$ be a basic finite dimensional algebra and let $P$ be a basic projective-injective $\Lambda$-module. Then the socle of $P$ is a two-sided ideal, which allows us to define the ring $\Gamma := \Lambda / \socle P$. Then we have that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\begin{proof}
-		By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator because $\Gamma$ is a summand of $N$, and $\Lambda$ is a summand of $\Gamma \oplus P$.
+		First we show that the socle of $P$ is a two-sided ideal. Multiplication on the right defines a homomorphism $-\cdot \lambda\colon \Lambda \to \Lambda$. Any homomorphism maps the socle to the socle, so $(\socle P) \cdot \lambda \subseteq \socle \Lambda$. Now let $s \in \socle P$ be some element such that $s\lambda$ is non-zero. Then the injective envelope $I(s)$ is a direct summand of $P$ and thus projective-injective. Further since $-\cdot \lambda\colon (s) \to (s\lambda)$ is an injective map, $I(s)$ is mapped injectively into $\Lambda$ by $-\cdot \lambda$, which means $-\cdot\lambda\colon I(s) \to \Lambda$ splits. Since $\Lambda$ is basic this means that $I(s)\lambda \subseteq P$, and thus $s\lambda \in \socle P$, so the socle of $P$ is a two-sided ideal.
 		
-		To show that $V$ is a cogenerator we show that $\Hom_\Lambda(-, V)$ is faithful. First note that $\Hom_\Lambda(-, N) = \Hom_\Lambda(-, \Hom_\Gamma(\Gamma, N)) = \Hom_\Gamma(\Gamma \otimes_\Lambda -, N)$. Since $\Hom_\Gamma(-, N)$ is faithful, we focus on $\Gamma \otimes_\Lambda -$. We have that $\Gamma\otimes_\Lambda X = X/\socle (P)X$. For any morphism $f\colon X \to Y$ we have that $\Gamma \otimes f$ is zero if and only if the image of $f$ is contained in $\socle (P)Y$. Since the tensor product is right exact, this means we need only consider 
+		Next we note that any indecomposable $\Lambda$-module is either a $\Gamma$-module, or a direct summand of $P$. To see this, let $M$ be any indecomposable $\Lambda$-module and consider $(\socle P)M$. If this is zero, then $M$ is a $\Gamma$-module. If on the other hand there is some $s \in \socle P$ and $m \in M$ such that $sm \neq 0$, then let $I(s)$ be the injective envelope of $s$ and let $e$ be the idempotent such that $I(s) = \Lambda e$. Then we get a map $I(s) \to M$ which maps $\lambda e$ to $\lambda e m$. Since $sm \neq 0$ this maps the socle of $I(s)$ inejctively. Now, since $I(s)$ is inejctive this mean that $I(s)$ is a direct summand of $M$. Since $M$ is indecomposable we have that $M \cong I(s)$, and thus $M$ is a direct summand of $P$.
 		
-		$\socle PY \to Y$, $\socle P Y \in \add \socle P$. If $P$ is injective then $\Hom(-, P)$ faithful on maps from $\add\socle P$. So $\Hom(-, V)$ is faithful.
+		Now we show that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator-cogenerator because any indecomposable projective or injective module that is not a summand of $P$ will be  a summand of $N$, since all $\Lambda$-modules that are not summands of $P$ are $\Gamma$-modules.
 		
-		All $\Lambda$-modules are $\Gamma$-modules except $P$ when $P$ is injective\todo{!}
+		To show that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ we explicitly construct the resolutions. Let $M$ be an indecomposable $\Lambda$-module. Then we wish to construct an exact sequence
+		\begin{center}
+		\begin{tikzcd}
+			0 & V_n & \cdots & V_1 & V_0 & M & 0
+		\end{tikzcd}
+		\end{center} 
+		such that $V_i$ is in $\add V$, $n\leq \max\{0, \repdim(\Gamma)-2\}$, and $\Hom(V, -)$ is exact on the sequence. If $M$ is a summand of $P$ we may choose $V_0=M$ and $V_i=0$ for $i>0$.
+		
+		If $M$ is not a summand of $P$ then $M$ is a $\Gamma$-module. Then we already have an exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0 & N_n & \cdots & N_1 & N_0 & M & 0
+			\end{tikzcd}
+		\end{center} 
+		with $N_i \in \add N$. Since all the modules in the sequence are $\Gamma$-modules and $\Lambda \to \Gamma$ is surjective we get the same whether we apply $\Hom_\Lambda(N, -)$ or $\Hom_\Gamma(N,-)$. Lastly since $\Hom(V,-) = \Hom(N, -) \oplus \Hom(P, -)$ and $\Hom(P, -)$ is an exact functor, we get that applying $\Hom(V, -)$ to the sequences gives us something exact. Thus $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ and $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\end{proof}
 \end{theorem}
 
-Moding out by the socle of proj-inj modules in special biserial alg gives monomial (string) algebras \todo{why???}
+\begin{defn}[Special biserial algebra]
+	A finite dimensional algebra $\Lambda$ is called \emph{special biserial} if it is isomorphic to a path algebra $kQ/I$ such that
+	\begin{itemize}
+		\item Each vertex in $Q$ is the initial vertex for at most two arrows, and the terminal vertex for at most two arrows.
+		\item For any arrow $\beta$ in $Q$ there is at most on arrow $\alpha$ such that $\alpha\beta \not\in I$ and at most one arrow $\gamma$ such that $\beta\gamma \not\in I$.
+	\end{itemize}
+	A special biserial algebra is called a \emph{string algebra} if it is also monomial. I.e. $I$ is generated by paths. 
+\end{defn}
+
+\begin{prop}
+	If $\Lambda = kQ/I$ is special biserial, then $I$ is generated by monomial and binomial relations. Further if $\gamma + t\gamma'$ is a binomial relation such that $\gamma \not\in I$, then $(\gamma)$ is the socle of a projective-injective module.
+	\begin{proof}
+		Let $\rho$ be a relation. Then we may assume $\rho$ is some linear combinations of paths which start in the same vertex and end in the same vertex. Assume by induction that $\rho$ is a combination of $n$ distinct paths for some $n\geq 3$, and let $\gamma^1$, $\gamma^2$, and $\gamma^3$ be three of those paths. Write each path as a composition of arrows $\gamma^1 = \alpha^1_{t_1} \cdots \alpha^1_1\alpha^1_0$,  $\gamma^2 = \alpha^2_{t_2} \cdots \alpha^2_1\alpha^2_0$, and  $\gamma^3 = \alpha^3_{t_3} \cdots \alpha^3_1\alpha^3_0$.
+		
+		Since there can be at most two arrows out of any vertex, it cannot be the case that $\alpha^1_0$, $\alpha^2_0$, and $\alpha^3_0$ are all distinct. Let us assume $\alpha^1_0 = \alpha^2_0$. Since we assume $\gamma^1$ and $\gamma^2$ are distinct there must be a smallest $k$ such that $\alpha^1_k \neq \alpha^2_k$. But then it must be the case that either $\alpha^1_k\alpha^1_{k-1}$ or $\alpha^2_k\alpha^1_{k-1}$ is a relation. That means that either $\gamma^1$ or $\gamma^2$ is a relation. Thus $\rho$ is the sum of a monomial relation and a relation that is the linear combination of $(n-1)$ paths. Then by induction each relation in $I$ is the sum of binomial relations.
+		
+		Now let $\gamma + t\gamma'$ be a binomial relation such that $\gamma \not\in I$. Let $i$ be the origin vertex of $\gamma$, let $j$ be the terminal vertex, and let $e_i$ and $e_j$ be the corresponding idempotents. Then we claim that $\Lambda e_i$ is projective-injective, and that $(\gamma)$ is its socle.
+		
+		As above decompose the two paths into a product of arrows $\gamma = \alpha_{t}\cdots \alpha_1\alpha_0$ and $\gamma' = \alpha'_{t'}\cdots \alpha_1\alpha_0$, and let $k$ be the smallest integer such that $\alpha_k \neq \alpha'_k$. If $k$ is bigger than 0, then as before we get that either $\alpha_k\alpha_{k-1}$ or $\alpha'_k\alpha_{k-1}$ is a relation. Consequently both $\gamma$ and $\gamma'$ would be relations contradicting our assumption. Similarly if we let $k$ be the smallest integer such that $\alpha_{t-k} \neq \alpha'_{t'-k}$ we get that $k$ cannot be bigger than 0. \todo{blabla}
+		
+		$(\gamma)$ simple because $\alpha(\gamma + t\gamma')$ relation + $\alpha\gamma'$ relation gives $\alpha\gamma$ relation
+		
+		 
+	\end{proof} 
+\end{prop}
+
+This explains where the name \emph{special biserial} comes from; the radical of each indecomposable projective of a special biserial algebra is biserial. That is, it is the sum of two uniserial modules. In fact for an indecomposable projective $P$, either $P$ is uniserial or $JP/\socle P$ is the direct sum of two uniserial modules.
+
+\begin{center}
+\setlength{\tabcolsep}{30pt}
+\begin{tabular}{ccc}
+	\begin{tikzcd}
+	\bullet\ar[d]\\
+	\bullet\ar[d]\\
+	\vdots\ar[d]\\
+	\bullet\ar[d]\\
+	\bullet
+	\end{tikzcd}
+	&
+	\begin{tikzcd}[ampersand replacement=\&, column sep = 10pt]
+	\&\bullet\ar[dl]\ar[dr]\\
+	\bullet\ar[d] \&\& \bullet\ar[d]\\
+	\vdots\ar[d] \&\& \vdots\ar[d]\\
+	\bullet \&\& \bullet\ar[d]\\
+	\&\&\bullet
+	\end{tikzcd}
+	&
+	\begin{tikzcd}[ampersand replacement=\&, column sep = 10pt]
+	\&\bullet\ar[dl]\ar[dr]\\
+	\bullet\ar[d] \&\& \bullet\ar[d]\\
+	\vdots\ar[d] \&\& \vdots\ar[d]\\
+	\bullet\ar[dr] \&\& \bullet\ar[dl]\\
+	\&\bullet
+	\end{tikzcd}
+\end{tabular}
+
+Possible shapes for indecomposable projectives
+\end{center}
