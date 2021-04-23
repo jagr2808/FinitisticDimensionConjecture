@@ -1,5 +1,7 @@
 In this section we will discuss a reduction technique known as recollement. The idea of reduction techniques is to reduce the work of proving an algebra has finite finitistic dimension to proving the same for ``simpler'' algebras. In \cref{sec:Triangular_matrix_rings} we will consider a reduction technique of triangular matrix algebras. The triangular matrix rings are closely related to recollements, and we discuss their relationship more closely in \todo{ref}
 
+OVERGANG?
+
 \begin{defn}[Recollement]\label{def:recollement}
 	A \emph{recollement} between triangulated categories $\mathcal T'$, $\mathcal T$ and $\mathcal T''$ is a collection of six functors satisfying:
 \begin{center}
@@ -37,6 +39,8 @@ Note that (\ref{item:i_fully-faith}) and (\ref{item:j_fully-faith}) are equivale
 
 We are specifically interested in recollements where the triangulated categories in question are (bounded) derived categories of finite dimensional algebras.
 
+OVERGANG?
+
 \begin{lemma} \label{lem:adjoint_preserves_bounded_proj/inj}
 	Let \begin{tikzcd}
 	\D^b(\Lambda') \ar[r, "i_*"{name=i}, bend right=20] & 
@@ -51,6 +55,8 @@ We are specifically interested in recollements where the triangulated categories
 		The statement for injectives is exactly dual, and so we do not write it out here, but leave it to the reader.
 	\end{proof}
 \end{lemma}
+
+FILLER
 
 \begin{lemma} \label{lem:uniform_bound_on_homology}
 	Let \begin{tikzcd}
@@ -72,7 +78,7 @@ We are specifically interested in recollements where the triangulated categories
 	\end{proof}
 \end{lemma}
 
-Now that we have a good understanding of how the functors in a recollement interact with homology we can use this to say something about the projective dimension of modules, and thus about the finitistic dimension.
+Now that we have a good understanding of how the functors in a recollement interact with homology, we can use this to say something about the projective dimension of modules, and thus about the finitistic dimension.
 
 \begin{theorem}\cite[3.3]{Hap93}
 	Given a recollement between bounded derived categories 
@@ -95,7 +101,7 @@ Now that we have a good understanding of how the functors in a recollement inter
 		
 		Let $T = \Lambda' / \rad\Lambda'$ be the sum of all simple $\Lambda'$-modules. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. We consider $X$ as a complex concentrated in degree 0. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Say:
 		$$i_*X = 0 \to P^{-s} \to \cdots \to P^{s'} \to 0$$
-		By \cref{lem:uniform_bound_on_homology} we know there is an $r$ independent of $X$ such that $H^{-j}(X)=0$ for $j \geq r$. Truncating $i_*X$ at $-r$ gives a projective resolution of $\ker d^{-r}_{i_*X}$. So $\ker d^{-r}_{i_*X}$ has projective dimension $-r-(-s) = s-r$. Since $\findim(\Lambda)<\infty$ this means that $s \leq r + \findim(\Lambda)$.
+		By \cref{lem:uniform_bound_on_homology} we know there is an $r$ independent of $X$ such that $H^{-j}(i_*X)=0$ for $j \geq r$. Truncating $i_*X$ at $-r$ gives a projective resolution of $\ker d^{-r}_{i_*X}$. So $\ker d^{-r}_{i_*X}$ has projective dimension $-r-(-s) = s-r$. Since $\findim(\Lambda)<\infty$ this means that $s \leq r + \findim(\Lambda)$.
 		
 		Since $i_*T$ is in $\D^b(\Lambda)$ it is a bounded complex, in particular there is a $t_0$ such that $i_*T^{t}=0$ for $t \geq t_0$. Then by the bounds above $\D^b(\Lambda)(i_*X, i_*T[t]) = 0$ for $t \geq t_0 + s \geq t_0 + r + \findim(\Lambda)$. Since $i_*$ is fully faithful this equals $\D^b(\Lambda')(X, T[t])$, and so $\findim(\Lambda') \leq t_0 + r + \findim(\Lambda)$. In particular it is finite.
 		
@@ -121,7 +127,7 @@ Now that we have a good understanding of how the functors in a recollement inter
 			\cdots \ar[r] & (X_i, T_j)_m \ar[r] & (X, T_j)_m \ar[r] & (X_j, T_j)_m \ar[r] & (X_i, T_j)_{m+1} \ar[r] & \cdots\\
 			\end{tikzcd}
 		\end{center}
-		Using the fact that $j^*i_* = j^!i_! = 0$ from \cref{def:recollement}(\ref{recollement:vanishing_composition} we deduce that
+		Using the fact that $j^*i_* = j^!i_! = 0$ from \cref{def:recollement}(\ref{recollement:vanishing_composition}) we deduce that
 		\[\arraycolsep=2pt\def\arraystretch{1.33}
 		\begin{array}{ccccccl}
 			(X_i, T_j)_m &=& (i_*i^* X, j_*j^* T)_m &=& (j^*i_*i^*X, j^*T)_m &=& 0\\
@@ -132,7 +138,7 @@ Now that we have a good understanding of how the functors in a recollement inter
 		$$(X_i, T_i)_m = (X, T_i)_m \text{ and } (X_j, T_j)_m = (X, T_j)_m.$$ 
 		If we can show that $(X_i, T_i)_m$ and $(X_j, T_j)_m$ are bounded, then $(X, T_i)_m$ and $(X, T_j)_m$ would be bounded as well. Consequently we would have that $(X, T)_m$ is bounded. This would give us a bound on the projective dimension of $X$.
 		
-		We start by bounding $(X, T_i)_m = (X_i, T_i)_m$. First note that 
+		We start by bounding $(X, T_i)_m = (X_i, T_i)_m$. First note that since  $i^*i_* \cong \operatorname{id}$ we have that
 		\begin{align*}
 			(X_i, T_i)_m = (i_*i^* X, i_!i^!T)_m = (i^*i_*i^* X, i^!T)_m = (i^* X, i^!T)_m
 		\end{align*}

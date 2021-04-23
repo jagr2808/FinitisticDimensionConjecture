@@ -15,30 +15,43 @@ We will first define the concept of a comma category and describe some of its ho
 			FA' \ar[r, "f'"] & B'.
 		\end{tikzcd}
 	\end{center}
+	The composition is what one would expect. Namely, $(\alpha, \beta) \circ (\alpha', \beta') = (\alpha \circ \alpha ', \beta \circ \beta')$.
 \end{defn}
 
 \begin{prop}\label{prop:comma-cat_abelian}
-	If $\mathcal A$ and $\mathcal B$ are abelian categories and $F$ is right exact, then the comma category $(F, \mathcal  B)$ is abelian.
+	If $\mathcal A$ and $\mathcal B$ are abelian categories and $F$ is right exact, then the comma category $(F, \mathcal  B)$ is abelian. Further a sequence
+	\begin{center}
+	\begin{tikzcd}
+		(A'', B'', f'') \ar[r]{}{(\alpha', \beta')} & (A, B, f)\ar[r]{}{(\alpha, \beta)}  & (A', B', f')
+	\end{tikzcd}
+	\end{center}
+	is exact if and only if the two related sequences in $\mathcal A$ and $\mathcal B$ are exact.
+	\begin{center}
+		\begin{tikzcd}
+			A'' \ar[r, "\alpha'"] & A\ar[r, "\alpha"]  & A'\\
+			B'' \ar[r, "\beta'"] & B\ar[r, "\beta"]  & B'
+		\end{tikzcd}
+	\end{center}
 	\begin{proof}
-		We need to show that $(F, \mathcal B)$ has kernels, has cokernels, and that for any map the image equals the coimage. First we show that it contains kernels. Let $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ be a morphism in the comma category. Then we have a diagram:
+		We need to show that $(F, \mathcal B)$ has kernels and cokernels, and that for any map the image equals the coimage. First we show that it contains kernels. Let $(\alpha, \beta)\colon(A, B, f) \to (C, D, g)$ be a morphism in the comma category. Then we have a diagram:
 		\begin{center}
 		\begin{tikzcd}
-			& F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA \ar[r, "F\alpha"] \ar[d, "f"] & FA' \ar[d, "f'"]\\
-			0 \ar[r] & \ker \beta \ar[r, "\iota_\beta"] & B \ar[r, "\beta"] & B'
+			& F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA \ar[r, "F\alpha"] \ar[d, "f"] & FC \ar[d, "g"]\\
+			0 \ar[r] & \ker \beta \ar[r, "\iota_\beta"] & B \ar[r, "\beta"] & D
 		\end{tikzcd}
 		\end{center}
-		Since $\beta f F\iota_\alpha = f' F\alpha F \iota_\alpha = 0$ there is a unique $\theta$ making the diagram commute. I claim the kernel of $(\alpha, \beta)$ is $(\ker \alpha, \ker \beta, \theta)$. Indeed if $(\alpha', \beta')$ is any map such that $(\alpha, \beta) \circ (\alpha', \beta') = 0$ then $\alpha\alpha'=0$ and $\beta\beta'=0$ so both $\alpha'$ and $\beta'$ factor uniquely through $\iota_\alpha$ and $\iota_\beta$.
+		Since $\beta f F\iota_\alpha = f' F\alpha F \iota_\alpha = 0$ there is a unique $\theta$ making the diagram commute. I claim the kernel of $(\alpha, \beta)$ is $(\ker \alpha, \ker \beta, \theta)$. Indeed if $(\alpha', \beta')\colon (A', B', f') \to (A, B, f)$ is any map such that $(\alpha, \beta) \circ (\alpha', \beta') = 0$, then $\alpha\alpha'=0$ and $\beta\beta'=0$. This means both $\alpha'$ and $\beta'$ factor uniquely through $\iota_\alpha$ and $\iota_\beta$. Let $\alpha''$ and $\beta''$ be the morphisms such that $\alpha' = \iota_\alpha \circ \alpha''$ and $\beta' = \iota_\beta \circ \beta''$. Then we claim $(\alpha', \beta')$ factors through $(\iota_\alpha, \iota_\beta)$ as indicated in the diagram below.
 		\begin{center}
 			\begin{tikzcd}
-			FA'' \ar[d, "f''"] \ar[r, "\alpha''"] & F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA  \ar[d, "f"] \\
-			B'' \ar[r, "\beta''"] & \ker \beta \ar[r, "\iota_\beta"] & B 
+			FA' \ar[d, "f'"] \ar[r, "F\alpha''"] & F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, "\theta"]& FA  \ar[d, "f"] \\
+			B' \ar[r, "\beta''"] & \ker \beta \ar[r, "\iota_\beta"] & B 
 			\end{tikzcd}
 		\end{center}
 		The only thing left to verify is that the left square commutes. This follows from the outer rectangle commuting, and that $\iota_\beta$ is a monomorphism.
 		
 		Showing that cokernels exists is similar, but relies on $F$ being right exact. The construction is completely dual, but to verify commutativity at the end instead of using that $\iota_\beta$ is mono we must use that $F\pi_\alpha\colon FA' \to F\cok \alpha$ is an epimorphism. This follows from $F$ being right exact. We leave the details to the reader. 
 		
-		Now the image equaling the coimage follows from $\mathcal A$ and $\mathcal B$ being abelian, and the way we constructed the kernels and cokernels.
+		Since kernels and cokernels are directly induced by the kernels and cokernels in $\mathcal A$ and $\mathcal B$ it is clear that a sequence in $(F, \mathcal B)$ is exact if and only if the two related sequences are exact. Similarly that the image equals the coimage follows from this being true in $\mathcal A$ and $\mathcal B$.
 	\end{proof}
 \end{prop}
 
@@ -104,18 +117,28 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 	The pairs of functors $(T, U)$ and $(C, Z)$ form adjoint pairs.
 	\begin{proof}
 		We want to establish an isomorphism
-		$$\Hom(T(A, B), (A', B', FA' \to B')) \cong \Hom((A, B), (A', B')).$$ 
-		A morphism in $\Hom(T(A, B), (A', B', FA' \to B'))$  is given by a commutative diagram
+		$$\Hom(T(A, B), (A', B', f)) \cong \Hom((A, B), (A', B')).$$ 
+		A morphism $\left(\alpha, 
+		\begin{bmatrix}
+		\beta & \gamma
+		\end{bmatrix}\right) \colon 
+		T(A, B) \to (A', B', f)$  is given by a commutative diagram
 		\begin{center}
-		\begin{tikzcd}[ampersand replacement=\&]
-			FA \ar{r}{\begin{bmatrix}
+		\begin{tikzcd}[ampersand replacement=\&, row sep = 25pt]
+			T(A, B) \colon
+			\ar[d, swap]{}{\left(\alpha, \begin{bmatrix}
+					\beta & \gamma
+			\end{bmatrix}\right)} 
+		\& FA 
+			\ar{r}{\begin{bmatrix}
 			0 \\ 1
 			\end{bmatrix}} 
 			\ar[d, swap, "F\alpha"]
-		\& B \oplus FA \ar{d}{\begin{bmatrix}
+		\& B \oplus FA 
+			\ar{d}{\begin{bmatrix}
 			\beta & \gamma
 			\end{bmatrix}} \\
-			FA' \ar[r, "f"] \& B'.
+			(A', B', f)\colon \& FA' \ar[r, "f"] \& B'.
 		\end{tikzcd}
 		\end{center}
 		The isomorphism is then given by sending this to $(\alpha, \beta)$. This is clearly surjective. 
@@ -170,7 +193,7 @@ We will now use these four functors to understand the structure of projective ob
 			FA \ar[r, "0"] & \cok f.
 			\end{tikzcd}
 		\end{center}
-		Since $FA \hookrightarrow \cok f \oplus FA$ is split mono, $f$ is split mono, and consequently $\beta$ is an isomorphism. So we have $P \cong TC(P)$.
+		Since $FA \hookrightarrow \cok f \oplus FA$ is split mono, $f$ is split mono. This means that $B$ splits as a direct sum of the image and cokernel of $f$, i.e. $B$ is isomorphic to $\cok f \oplus \Image f \cong \cok f \oplus FA$. From the diagram we see that $\beta$ induces an isomorphism on each component, and thus $\beta$ is an isomorphism. So we have $P \cong TC(P)$.
 	\end{proof}
 \end{prop}
 

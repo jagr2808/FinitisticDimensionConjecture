@@ -95,3 +95,18 @@ In this section we shall consider two finite dimensional algebras, where one is 
 		This shows that the global dimension of $\End(V)^{\op}$ is at most 3, and likewise the representation dimension of $\Lambda$ is at most 3.
 	\end{proof}
 \end{theorem}
+
+\begin{theorem}
+	Let $\Lambda$ be finite dimensional algebra and let $P$ be a projective $\Lambda$-module such that $\socle P$ is a two-sided ideal \todo{In particual if P is injective. Why?}. If we define $\Gamma$ to be $\Lambda / \socle P$, then we have $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
+	\begin{proof}
+		By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator because $\Gamma$ is a summand of $N$, and $\Lambda$ is a summand of $\Gamma \oplus P$.
+		
+		To show that $V$ is a cogenerator we show that $\Hom_\Lambda(-, V)$ is faithful. First note that $\Hom_\Lambda(-, N) = \Hom_\Lambda(-, \Hom_\Gamma(\Gamma, N)) = \Hom_\Gamma(\Gamma \otimes_\Lambda -, N)$. Since $\Hom_\Gamma(-, N)$ is faithful, we focus on $\Gamma \otimes_\Lambda -$. We have that $\Gamma\otimes_\Lambda X = X/\socle (P)X$. For any morphism $f\colon X \to Y$ we have that $\Gamma \otimes f$ is zero if and only if the image of $f$ is contained in $\socle (P)Y$. Since the tensor product is right exact, this means we need only consider 
+		
+		$\socle PY \to Y$, $\socle P Y \in \add \socle P$. If $P$ is injective then $\Hom(-, P)$ faithful on maps from $\add\socle P$. So $\Hom(-, V)$ is faithful.
+		
+		All $\Lambda$-modules are $\Gamma$-modules except $P$ when $P$ is injective\todo{!}
+	\end{proof}
+\end{theorem}
+
+Moding out by the socle of proj-inj modules in special biserial alg gives monomial (string) algebras \todo{why???}
