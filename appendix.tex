@@ -61,6 +61,19 @@ In this section we collect relevant theorems from homological algebra that would
 	\end{proof}
 \end{theorem}
 
+\begin{theorem}\label{thm:local_artin_ring_Findim_0}
+	If $R$ is a local artinian ring, then all modules with finite projective dimensions are projective. In other words we have that $\Findim(R) = 0$.
+	\begin{proof}
+		Assume there is a non-projective module with finite projective dimension. Then in particular we have one with projective dimension equal to 1. Since all projective modules are free this means we have a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+			0 & R^{(I')} & R^{(I)} & M & 0
+			\end{tikzcd}
+		\end{center}
+		where $R^{(I')}$ maps into $JR^{(I)}$. Let $k$ be the minimal integer such that $J^k=0$. Let $a$ be a generator in $R^{(I')} $ and let $r$ be a non-zero element of $J^{k-1}$. Then $ra$ is non-zero, but is mapped to something in $J^{k-1}JR^m=0$, thus the map is not injective which gives a contradiction. 
+	\end{proof}
+\end{theorem}
+
 \begin{theorem}\label{thm:Proj_Inj_equivalence}
 	Let $\Lambda$ be an artin algebra. Then we have an equivalence of categories 
 	\begin{center}
@@ -68,15 +81,17 @@ In this section we collect relevant theorems from homological algebra that would
 		\operatorname{Proj}\Lambda \ar[r, bend left=10, "D\Lambda \otimes -"] & \operatorname{Inj}\Lambda \ar[l, bend left=10]{}{\Hom(D\Lambda, -)}
 		\end{tikzcd}
 	\end{center}
-	where the tensor product is over $\Lambda$, and $\Hom(D\Lambda, X)$ is considered as a $\Lambda$-module by $\Lambda \cong \End(D\Lambda)^{\op}$.
+	where the tensor product is over $\Lambda$, and $\Hom(D\Lambda, X)$ is considered as a $\Lambda$-module by considering $D\Lambda$ as a bimodule.
 	\begin{proof}
-		First we note the following isomorphisms when evaluating the functors at $\Lambda$ and $D\Lambda$
+		First we note the following isomorphisms of $\Lambda$-modules when evaluating the functors at $\Lambda$ and $D\Lambda$
 		\begin{align*}
 		\Hom(D\Lambda, D\Lambda \otimes \Lambda) &\cong \End(D\Lambda)\\
 		&\cong \End(\Lambda_\Lambda) \\
 		&\cong \Lambda
 		\end{align*} 
-		and
+		\begin{center}
+			and
+		\end{center}
 		\begin{align*}
 		D\Lambda \otimes \Hom(D\Lambda, D\Lambda) &\cong D\Lambda \otimes \Lambda\\
 		&\cong D\Lambda.
@@ -86,7 +101,9 @@ In this section we collect relevant theorems from homological algebra that would
 		Lastly we verify that the maps are well defined. Since $\Lambda$ is an artin algebra each injective module is the injective envelope of its socle. Since the socle is semisimple it is the direct sum of simple modules. Thus each injective is the sum of indecomposable injective modules, and hence we have that $\operatorname{Add}D\Lambda = \operatorname{Inj}\Lambda$. It is true for any ring that $\operatorname{Add}\Lambda = \operatorname{Proj}\Lambda$, and so we have the following:
 		
 		$$D\Lambda\otimes (\operatorname{Proj}\Lambda) = D\Lambda\otimes (\operatorname{Add}\Lambda) = \operatorname{Add} D\Lambda = \operatorname{Inj}\Lambda,$$
-		and
+		\begin{center}
+			and
+		\end{center}
 		$$\Hom(D\Lambda, \operatorname{Inj}\Lambda) =\Hom(D\Lambda, \operatorname{Add}D\Lambda) = \operatorname{Add} \Lambda = \operatorname{Proj}\Lambda.$$
 		So the maps induce an equivalence of categories.
 	\end{proof}

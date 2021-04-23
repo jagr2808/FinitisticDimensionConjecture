@@ -1,0 +1,87 @@
+\subsection{Classes of algebras}
+
+We conclude the thesis by summarizing for which families of algebras the finitistic dimension conjecture has been shown to hold.
+
+\begin{theorem}
+	The following classes of algebras satisfies the finitistic dimension conjecture:
+	\begin{enumerate}[a)]
+		\item Representation-finite algebras
+		\item Monomial algebras
+		\item Gorenstein algebras
+		\item Algebras with finite global dimension
+		\item Self-injective algebras
+		\item Algebras where the radical squares to 0
+		%\item Any algebra derived equivalent to any of the above
+		\item Local artin algebras
+		\item Stably hereditary algebras
+		\item Special biserial algebras
+		\item ``Half representation-finite'' algebras, i.e. algebras such that $\Lambda/J^l$ is representation-finite and $J^{2l+1}=0$.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[a)]
+			\item The supremum over a finite set is finite so $\findim(\Lambda) < \infty$ for a representation finite algebra.
+			\item This is the content of \cref{sec:monomial_algebras}.
+			\item Is there a direct argument predating Rickards\todo{?}
+			\item If an algebra $\Lambda$ has finite global dimension, then $\findim(\Lambda) = \operatorname{gl.dim}(\Lambda)$, which is finite.
+			\item If $\Lambda$ is self-injective, then all projective modules are injective. Thus any monomorphism from a projective module is split. It follows that the only modules with finite projective dimension are the projectives themselves, and so $\findim(\Lambda)=0$.
+			\item This was shown in \cref{thm:J2_equals_0_implies_FDC}.
+			%\item only include in Findim section?
+			\item Local artin algebras have finitistic dimension 0. A proof of this is included in the appendix, \cref{thm:local_artin_ring_Findim_0}.
+			\item Stably hereditary algebras are considered in \cref{sec:stable_hereditary_algebras}.
+			\item Special biseral algebras are considered in \cref{sec:special_biserial_algebras}.
+			\item Half representation-finite algebras are considered \cref{sec:vanishing_radical}.
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+
+In this thesis our main focus has been on the small finitistic dimension. We now summarize for which algebras it is known that the big finitistic dimension is finite.
+
+\begin{theorem}
+	For the following classes of algebras we have that $\Findim(\Lambda) < \infty$, for every algebra $\Lambda$ in the class.
+	\begin{enumerate}[a)]
+		\item Representation-finite algebras
+		\item Monomial algebras
+		\item Gorenstein algebras
+		\item Algebras with finite global dimension
+		\item Self-injective algebras
+		\item Algebras where the radical squares to 0
+		\item Any algebra derived equivalent to any of the above
+		\item Local artin algebras
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[(a)]
+			\item It was shown by Auslander and Ringel--Tachikawa that if an artin ring is representation finite, then any module is the direct sum of finitely generated modules\cite{Aus74, RT74}. This implies that $\Findim(\Lambda) = \findim(\Lambda) < \infty$ for a representation finite algebra.
+			\item Although \cref{sec:monomial_algebras} is formulated in terms of finitely generated modules, all the same arguments hold if we consider infinitely generated modules. 
+			\item \label{item:Findim_gorenstein} Rickard showed that injectives generates the derived category for a Gorenstein algebra\cite{Rick19}, so by \cref{thm:injectives_generate_implies_FDC} we have that $\Findim(\Lambda) < \infty$. 
+			\item Algebras with finite global dimension are Gorenstein, so this is a special case of (\ref{item:Findim_gorenstein}).
+			\item Similarly self-injective algebras are also Gorenstein, so this is also a special case of (\ref{item:Findim_gorenstein}).
+			\item \cref{thm:J2_equals_0_implies_FDC} does not depend on the module being finitely generated, so the same proof works equally well to prove that $\Findim(\Lambda) < \infty$ when $J^2 = 0$.
+			\item Rickard showed that injectives generates the derived category for all the classes of algebras above\cite[Corrolary~7.(4-6)]{Rick19}. Combining this with the fact that whether injectives generate is preserved under derived equivalence\cite[Theorem3.4]{Rick19}, we get that any algebra derived equivalent to any of the above mentioned satisfies $\Findim(\Lambda) < \infty$.
+			\item Like before, \cref{thm:local_artin_ring_Findim_0} gives us that $\Findim(\Lambda)=0$ for a local artin algebra.
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+
+As far as the author is aware it is not known whether stably hereditary algebras, special biserial algebras or half representation-finite algebras are known to satisfy $\Findim(\Lambda) < \infty$ in general.
+
+\subsection{The opposite algebra}
+
+Many of the cases are equivalent to their dual statements. Some are not.
+\begin{itemize}
+	\item Given a recollement of the bounded derived category you get one for $\Lambda^{\operatorname{op}}$. \todo{Look at examples of reccolement to see how it translates.}
+	\item Just because the subcategory of modules with finite projective dimension is contravariantly finite does not mean the subcategory of modules with finite injective dimension has to be covariantly finite. See \cref{exam:not_contravariantly_finite}.
+	\item repdim of $\Lambda$ equals the repdim of $\Lambda^{\operatorname{op}}$.
+	\begin{proof}
+		If $M$ is an auslander generator for $\Lambda$ then $DM$ is an auslander generator for $\Lambda^{\operatorname{op}}$.
+	\end{proof}
+	\item If $J^{2l+1} = 0$ and $\Lambda/J^l$ is repfinite then the same is true for $\Lambda^{\operatorname{op}}$.
+	\item If $\Lambda$ is monomial then so is $\Lambda^{\operatorname{op}}$.
+	\item Injective generates implies the weaker property that projective cogenerate for the opposite algebra. This is also sufficient to prove the algebra satisfies FDC.\cite[Section~5]{Rick19} 
+\end{itemize}
+
+Similarly for the weaker conjectures
+\begin{itemize}
+	\item GSC says the injective dimension of $\Lambda$ is finite if and only if the injective dimension of $\Lambda^{\operatorname{op}}$ is finite. This statement is symmetric with respect to $\Lambda$ and $\Lambda^{\operatorname{op}}$. So the dual is equivalent.
+	\item NC: Certainly $\Lambda$ is self injective if and only $\Lambda^{\operatorname{op}}$ is. \todo{Can the dominant dimension of the opposite algebra be different? Arbitrary different?}
+	\item For all the others it seems just as difficult as solving the conjecture to connect it to it's dual.
+\end{itemize}
