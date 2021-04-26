@@ -16,67 +16,67 @@ In this section we shall consider two finite dimensional algebras, where one is 
 \begin{theorem}
 	If $\Gamma$ is representation finite and $\Lambda \subseteq \Gamma$ is a radical embedding, then the representation dimension of $\Lambda$ is at most 3.
 	\begin{proof}
-		Since $\Gamma$ is representation finite there is a finite set of indecomposable $\Gamma$-modules up to isomorphism. Let $X$ be the direct sum of all of these. Since $\Lambda$ is a subalgebra of $\Gamma$ we can consider $X$ as a $\Lambda$-module. Now define $V$ to be $\Lambda \oplus D\Lambda \oplus X$, i.e. $V$ is the sum of all projective $\Lambda$, all injective $\Lambda$ modules, and all $\Gamma$-modules. We claim $\End_\Lambda(V)^{\op}$ has global dimension at most 3.
+		Since $\Gamma$ is representation finite there is a finite set of indecomposable $\Gamma$-modules up to isomorphism. Let $X$ be the direct sum of all of these. Since $\Lambda$ is a subalgebra of $\Gamma$ we can consider $X$ as a $\Lambda$-module. Now define $V$ to be $\Lambda \oplus D\Lambda \oplus X$, i.e. $V$ is the sum of all projective $\Lambda$-modules, all injective $\Lambda$-modules, and all $\Gamma$-modules. We claim that $V-\operatorname{res-dim}(\Lambda) \leq 1$, which by \cref{prop:repdim_resdim+2} would imply that $\repdim(\Lambda) \leq 3$.
 		
 		As in \cref{thm:stably_hereditary_repdim_3} we do this by showing that for any  $\Lambda$-module $M$ there is a short exact sequence
 		\begin{center}
 			\begin{tikzcd}
-			0 \ar[r] & V_3 \ar[r] & V_2 \ar[r] & M \ar[r] & 0
+			0 \ar[r] & V_1 \ar[r] & V_0 \ar[r] & M \ar[r] & 0
 			\end{tikzcd}
 		\end{center}
 		with $V_i$ in $\add V$, such that 
 		\begin{center}
 			\begin{tikzcd}
-			0 \ar[r] & (V,V_3) \ar[r] & (V,V_2) \ar[r] & (V,M) \ar[r] & 0
+			0 \ar[r] & (V,V_1) \ar[r] & (V,V_0) \ar[r] & (V,M) \ar[r] & 0
 			\end{tikzcd}
 		\end{center}
 		is exact. 
 		
-		Now let $M$ be any $\Lambda$-module. If $M$ is injective, then $M$ is in $\add V$, and so we may simply choose $V_2 = M$ and $V_3=0$. From here on out assume that $M$ has no injective summands. 
+		Now let $M$ be any $\Lambda$-module. If $M$ is injective, then $M$ is in $\add V$, and so we may simply choose $V_2 = M$ and $V_1=0$. From here on out assume that $M$ has no injective summands. 
 		
-		By considering $\Gamma$ as a $\Lambda$-module, we define the $\Gamma$-module $M' := \Hom_\Lambda(\Gamma, M)$. Evaluation at 1 gives us a $\Lambda$-linear map $\varepsilon_M \colon M' \to M$, introduced in \cref{lem:epsilon_semisimple_(co)kernel}. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$ then we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_2$.
+		By considering $\Gamma$ as a $\Lambda$-module, we define the $\Gamma$-module $M' := \Hom_\Lambda(\Gamma, M)$. Evaluation at 1 gives us the $\Lambda$-linear map $\varepsilon_M \colon M' \to M$, introduced in \cref{lem:epsilon_semisimple_(co)kernel}. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$ then we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_0$.
 		
-		Next, we let $V_3$ be the kernel of the map $V_2 \to M$, and we wish to show that this is in $\add V$. Since $M \to \cok\varepsilon_M$ is an epimorphism and $P \to \cok\varepsilon_M$ is a projective cover, we can lift this to a morphism $P \to M$. Taking the pullback along $\Image \varepsilon_M \to M$ we get a commutative diagram:
+		Next, we let $V_1$ be the kernel of the map $V_0 \to M$. Then we wish to show that this is in $\add V$. Since $M \to \cok\varepsilon_M$ is an epimorphism and $P \to \cok\varepsilon_M$ is a projective cover, we can lift this to a morphism $P \to M$. Taking the pullback along $\Image \varepsilon_M \to M$ we get a commutative diagram:
 		\begin{center}
 		\begin{tikzcd}
-			0 & K & P & \cok\varepsilon_M & 0\\
-			0 & \Image \varepsilon_M & M & \cok\varepsilon_M & 0
+			0 \ar[r] & K \ar[r]\ar[d]\arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] & P \ar[r]\ar[d] & \cok\varepsilon_M \ar[r] \ar[d] & 0\\
+			0 \ar[r] & \Image \varepsilon_M \ar[r] & M \ar[r] & \cok\varepsilon_M \ar[r] & 0
 		\end{tikzcd}
 		\end{center} 
-		By \cref{lem:epsilon_semisimple_(co)kernel} we have that $ \cok\varepsilon_M $ is semisimple, and thus $K = J_\Lambda P$. Since $J_\Lambda=J_\Gamma$ this means that $J_\Lambda P$ is a $\Gamma$-module, and thus is in $\add V$. Next we take the pullback again, this time along $M^- \to \Image \varepsilon_M$. 
+		By \cref{lem:epsilon_semisimple_(co)kernel} we have that $ \cok\varepsilon_M $ is semisimple, and thus $K = J_\Lambda P$. Since $J_\Lambda=J_\Gamma$ this means that $J_\Lambda P$ is a $\Gamma$-module, and thus is in $\add V$. Next we take the pullback again, this time along $M' \to \Image \varepsilon_M$. 
 		\begin{center}
 			\begin{tikzcd}
-			0& \ker\varepsilon_M \ar[d, equal] & M^-\prod\limits_M P & J_\Lambda P & 0\\
-			0& \ker\varepsilon_M & M^- & \Image \varepsilon_M &  0
+			0\ar[r]& \ker\varepsilon_M \ar[d, equal]\ar[r] & M'\prod\limits_M J_\Lambda P\arrow[dr, phantom, "\usebox\pullback" , very near start, color=black]\ar[r]\ar[d] & J_\Lambda P\ar[r]\ar[d] & 0\\
+			0\ar[r]& \ker\varepsilon_M \ar[r]& M'\ar[r] & \Image \varepsilon_M\ar[r] &  0
 			\end{tikzcd}
 		\end{center} 
-		Notice that $M^-\prod\limits_M P$ is exactly what we defined to be $V_3$.
+		Notice that $M'\prod\limits_M J_\Lambda P = M'\prod\limits_M P$, which is the kernel of $V_0 \to M$. In other words it is equal to $V_1$.
 		
 		Since $J_\Lambda P$ is a $\Gamma$-module we get a map of abelian groups by postcomposing with $\varepsilon_M$:
 		\begin{center}
 			\begin{tikzcd}
-			\Hom_\Gamma(J_\Lambda P, M^-) \ar[r, "\varepsilon_M \circ -"] & \Hom_\Lambda(J_\Lambda P, M)\\
+			\Hom_\Gamma(J_\Lambda P, M') \ar[r, "\varepsilon_M \circ -"] & \Hom_\Lambda(J_\Lambda P, M)\\
 			f \ar[r, mapsto]& (p \mapsto f(p)(1))
 			\end{tikzcd}
 		\end{center} 
-		Remember that $M^-$ is defined as $\Hom_\Lambda(B, M)$. This map is exactly the same as the isomorphism coming from the Hom-Tensor adjunction, thus it is an isomorphism.
+		Remember that $M'$ is defined as $\Hom_\Lambda(B, M)$, so this map is exactly the same as the isomorphism coming from the Hom-Tensor adjunction, thus it is an isomorphism.
 		\begin{center}
 			\begin{tikzcd}
-			\Hom_\Gamma(J_\Lambda P, M^-) \ar[r, "\cong"] & \Hom_\Lambda(\Gamma \otimes_\Gamma J_\Lambda P, M)\\
+			\Hom_\Gamma(J_\Lambda P, M') \ar[r, "\cong"] & \Hom_\Lambda(\Gamma \otimes_\Gamma J_\Lambda P, M)\\
 			f \ar[r, mapsto]& (b\otimes p \mapsto f(p)(b))
 			\end{tikzcd}
 		\end{center} 
-		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M^-$. Then using the pullback property, we get that the map $V_3 \to J_\Lambda P$ splits, and so $V_3 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module, the same is true of $\ker\varepsilon_M$. To see this simply note that $\ker\varepsilon_M = \Hom_\Lambda(\Gamma/\Lambda, M)$ and that $\Gamma/\Lambda$ is a $\Lambda$-$\Gamma$-bimodule. Thus $V_3$ is a $\Gamma$-module, and so it is in $\add V$.
+		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. Thus $V_1$ is in $\add V$.
 		
 		Lastly we show that we get an exact sequence
 		\begin{center}
 			\begin{tikzcd}
-			0 & (V, V_3) & (V, V_2) & (V, M) & 0.
+			0\ar[r] & (V, V_1) \ar[r] & (V, V_2) \ar[r] & (V, M) \ar[r] & 0.
 			\end{tikzcd}
 		\end{center} 
-		The only thing we need to show is that the last map is an epimorphism. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M^-) \oplus \Hom_\Lambda(W, P)$ \todo{blabla}
+		The only thing we need to show is that the last map is surjective. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M') \oplus \Hom_\Lambda(W, P)$ \todo{blabla}
 		
-		If $W$ is surjective, then $\Hom_\Lambda(W, -)$ is exact, and there is nothing we need to show.
+		If $W$ is projective, then $\Hom_\Lambda(W, -)$ is exact, and there is nothing we need to show.
 		
 		If $W$ is an indecomposable injective, since we assumed $M$ had no injective summands, a map $W \to M$ cannot be injective. This means that it factors through $W/\socle(W)$. Since $D(W/\socle(W)) = (DW)J_\Lambda = (DW)J_\Gamma$ this means that $W/\socle(W)$ is a $\Gamma$-module. Then from the argument above it follows that the map is surjective.
 		
@@ -86,10 +86,10 @@ In this section we shall consider two finite dimensional algebras, where one is 
 			(V,V_1) \ar[r, "f\circ-"] & (V,V_0) \ar[r] & N \ar[r] & 0
 			\end{tikzcd}
 		\end{center}
-		If we let $M$ denote the kernel of $f$ and we choose $V_3$ and $V_2$ as above, then we get a projective resolution of $N$ by
+		If we let $M$ denote the kernel of $f$ and we choose $V_1$ and $V_2$ as above, then we get a projective resolution of $N$ by
 		\begin{center}
 			\begin{tikzcd}[column sep=20pt]
-			0\ar[r] & (V,V_3) \ar[r] & (V,V_2) \ar[r] & (V,V_1) \ar[r] & (V,V_0) \ar[r] & N \ar[r] & 0.
+			0\ar[r] & (V,V_1) \ar[r] & (V,V_2) \ar[r] & (V,V_1) \ar[r] & (V,V_0) \ar[r] & N \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
 		This shows that the global dimension of $\End(V)^{\op}$ is at most 3, and likewise the representation dimension of $\Lambda$ is at most 3.
