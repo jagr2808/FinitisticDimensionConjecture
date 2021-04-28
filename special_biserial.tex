@@ -1,22 +1,57 @@
+\subsection{Special biserial algebras}\label{sec:special_biserial_algebras}
 \cite{EHIS04}
 
-In this section we shall consider two finite dimensional algebras, where one is the subalgebra of another. We will denote these by $\Lambda$ and $\Gamma$, and we will denote their radicals by $J_\Lambda$ and $J_\Gamma$ respectively.
+In this section we shall consider two finite dimensional algebras, with a homomorphism between them. We denote these by $\Lambda$ and $\Gamma$, and we denote their radicals by $J_\Lambda$ and $J_\Gamma$ respectively.
+
+\begin{defn}[Coinduced module]
+	Given a homomorphism of algebras $\psi\colon\Lambda \to \Gamma$ we can consider every $\Gamma$-module as a $\Lambda$-module, where multiplication by $\lambda$ is given by $\psi(\lambda)\cdot -$. This defines a functor $\mod\Gamma \to \mod\Lambda$ known as \emph{restriction of scalars}. The right adjoint to this functor is called the \emph{coinduction functor}. For a $\Lambda$-module $M$ the coinduced module is defined to be
+	$$M' := \Hom_\Lambda(\Gamma, M)$$
+	where we consider $\Gamma$ as a $\Lambda$-$\Gamma$-bimodule through restriction of scalars. If we identify $M$ with $\Hom_\Lambda(\Lambda, M)$ then the counit of the adjunction is given by precomposing with $\psi$. Specifically we get the map
+	\begin{center}
+		\begin{tikzcd}
+			M'\ar[r, "\varepsilon_M"] & M\\
+			f \ar[r, mapsto] & f(\psi(1)) = f(1).
+		\end{tikzcd}
+	\end{center}
+\end{defn}
+
+\begin{prop}\cite[Lemma~2.2]{EHIS04}\label{prop:coinduction_right_adjoint}
+	The coinduced functor as defined above is the right adjoint to restriction of scalars, and $\varepsilon$ is the counit.
+	\begin{proof}
+		Let $M$ be a $\Lambda$-module and let $N$ $\Gamma$-module. Then we have a Hom-Tensor adjunction
+		$$\Hom_\Gamma(N, \Hom_\Lambda(\Gamma, M)) \cong \Hom_\Lambda(\Gamma\otimes_\Gamma N, M).$$
+		Notice that $_\Lambda\Gamma\otimes_\Gamma N \cong _\Lambda N$ is exactly restriction of scalars. Further the counit $\Gamma\otimes_\Gamma M' = M' \to M$ is given by $f\mapsto f(1)$, which is exactly how we defined $\varepsilon$ above.
+	\end{proof}
+\end{prop}
+
+Next, in preperation for \cref{thm:radical_embedding_repdim_3}, we restrict to the case where $\psi$ is the inclusion of a radical embbeding.
 
 \begin{defn}[Radical embedding]
 	A subalgebra $\Lambda \subseteq \Gamma$ is called a \emph{radical embedding} if the two radicals coincide, $J_\Lambda = J_\Gamma$.
 \end{defn}
 
 \begin{lemma}\cite[Lemma~2.3]{EHIS04}\label{lem:epsilon_semisimple_(co)kernel}
-	A homomorphism of algebras $\Lambda \to \Gamma$ induces a homomorphism of $\Lambda$-modules $\varepsilon_M\colon \Hom_\Lambda(\Gamma, M) \to \Hom_\Lambda(\Lambda, M)=M$, by considering $\Gamma$ as a $\Lambda$ module. If $\Lambda \subseteq \Gamma$ is a radical embedding, then $\ker \varepsilon_M$ and $\Image \varepsilon_M$ are both semisimple for any $\Lambda$-module $M$.
+	If $\Lambda \subseteq \Gamma$ is a radical embedding, then $\ker \varepsilon_M$ and $\cok\varepsilon_M$ are both semisimple for any $\Lambda$-module $M$.
 	\begin{proof}
-		content...
+		If we apply $\Hom_\Lambda(-, M)$ to the short exact sequence coming from $\psi$, $0 \to \Lambda \to \Gamma \to \Gamma/\Lambda \to 0$, we get 
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & \Hom(\Gamma/\Lambda, M) \ar[r] & M' \ar[r, "\varepsilon_M"] & M \ar[dr, two heads] \ar[r] & \Ext^1(\Gamma/\Lambda, M)\\
+				  &&    && \cok\varepsilon_M \ar[u, hookrightarrow]
+			\end{tikzcd}
+		\end{center}
+		Thus $\Hom(\Gamma/\Lambda, M)$ is the kernel of $\varepsilon_M$ and the cokernel is a submodule of $\Ext^1(\Gamma/\Lambda, M)$. Since $J_\Gamma = J_\Lambda \subseteq \Lambda$ we have that $(\Gamma/\Lambda)J_\Lambda = 0$. Thus $J_\Lambda\Hom(\Gamma/\Lambda, M)$ and $J_\Lambda\Ext^1(\Gamma/\Lambda, M)$ are both 0, which means they are both semisimple. Since $\cok\varepsilon_M$ is a submodule of $\Ext^1(\Gamma/\Lambda, M)$, it is also semisimple.
 	\end{proof}
 \end{lemma}
 
-\begin{theorem}
+We now use the radical embedding to say somethign about the representation dimension of $\Lambda$.
+
+INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinite with repdim of $\Gamma= n-1$. Same proof should give repdim $\Lambda=n$ except there might be problem with the exactness of the sequence since there are more $\Lambda$-linear maps. Find counterexample\todo{?} 
+
+\begin{theorem}\label{thm:radical_embedding_repdim_3}
 	If $\Gamma$ is representation finite and $\Lambda \subseteq \Gamma$ is a radical embedding, then the representation dimension of $\Lambda$ is at most 3.
 	\begin{proof}
-		Since $\Gamma$ is representation finite there is a finite set of indecomposable $\Gamma$-modules up to isomorphism. Let $X$ be the direct sum of all of these. Since $\Lambda$ is a subalgebra of $\Gamma$ we can consider $X$ as a $\Lambda$-module. Now define $V$ to be $\Lambda \oplus D\Lambda \oplus X$, i.e. $V$ is the sum of all projective $\Lambda$-modules, all injective $\Lambda$-modules, and all $\Gamma$-modules. We claim that $V-\operatorname{res-dim}(\Lambda) \leq 1$, which by \cref{prop:repdim_resdim+2} would imply that $\repdim(\Lambda) \leq 3$.
+		Since $\Gamma$ is representation finite there is a finite set of indecomposable $\Gamma$-modules up to isomorphism. Let $X$ be the direct sum of all of these. Since $\Lambda$ is a subalgebra of $\Gamma$ we can consider $X$ as a $\Lambda$-module. Now define $V$ to be $\Lambda \oplus D\Lambda \oplus X$, i.e. $V$ is the sum of all projective $\Lambda$-modules, all injective $\Lambda$-modules, and all $\Gamma$-modules. We claim that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$, which by \cref{prop:repdim_resdim+2} would imply that $\repdim(\Lambda) \leq 3$.
 		
 		As in \cref{thm:stably_hereditary_repdim_3} we do this by showing that for any  $\Lambda$-module $M$ there is a short exact sequence
 		\begin{center}
@@ -34,12 +69,12 @@ In this section we shall consider two finite dimensional algebras, where one is 
 		
 		Now let $M$ be any $\Lambda$-module. If $M$ is injective, then $M$ is in $\add V$, and so we may simply choose $V_2 = M$ and $V_1=0$. From here on out assume that $M$ has no injective summands. 
 		
-		By considering $\Gamma$ as a $\Lambda$-module, we define the $\Gamma$-module $M' := \Hom_\Lambda(\Gamma, M)$. Evaluation at 1 gives us the $\Lambda$-linear map $\varepsilon_M \colon M' \to M$, introduced in \cref{lem:epsilon_semisimple_(co)kernel}. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$ then we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_0$.
+		Let $M'$ be the coinduced module of $M$, and $\varepsilon_M\colon M' \to M$ be the map coming from the counit. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$ then we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_0$.
 		
 		Next, we let $V_1$ be the kernel of the map $V_0 \to M$. Then we wish to show that this is in $\add V$. Since $M \to \cok\varepsilon_M$ is an epimorphism and $P \to \cok\varepsilon_M$ is a projective cover, we can lift this to a morphism $P \to M$. Taking the pullback along $\Image \varepsilon_M \to M$ we get a commutative diagram:
 		\begin{center}
 		\begin{tikzcd}
-			0 \ar[r] & K \ar[r]\ar[d]\arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] & P \ar[r]\ar[d] & \cok\varepsilon_M \ar[r] \ar[d] & 0\\
+			0 \ar[r] & K \ar[r]\ar[d]\arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] & P \ar[r]\ar[d] & \cok\varepsilon_M \ar[r] \ar[d, equal] & 0\\
 			0 \ar[r] & \Image \varepsilon_M \ar[r] & M \ar[r] & \cok\varepsilon_M \ar[r] & 0
 		\end{tikzcd}
 		\end{center} 
@@ -59,14 +94,9 @@ In this section we shall consider two finite dimensional algebras, where one is 
 			f \ar[r, mapsto]& (p \mapsto f(p)(1))
 			\end{tikzcd}
 		\end{center} 
-		Remember that $M'$ is defined as $\Hom_\Lambda(B, M)$, so this map is exactly the same as the isomorphism coming from the Hom-Tensor adjunction, thus it is an isomorphism.
-		\begin{center}
-			\begin{tikzcd}
-			\Hom_\Gamma(J_\Lambda P, M') \ar[r, "\cong"] & \Hom_\Lambda(\Gamma \otimes_\Gamma J_\Lambda P, M)\\
-			f \ar[r, mapsto]& (b\otimes p \mapsto f(p)(b))
-			\end{tikzcd}
-		\end{center} 
-		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. Thus $V_1$ is in $\add V$.
+		This is excatly the isomoprhism of the adjuntion between restriction of scalars and the coinduction functor in \cref{prop:coinduction_right_adjoint}.
+
+		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. Thus $V_1$ is in $\add V$. \todo{kernel is not $Gamma$-module..?}
 		
 		Lastly we show that we get an exact sequence
 		\begin{center}
@@ -74,41 +104,35 @@ In this section we shall consider two finite dimensional algebras, where one is 
 			0\ar[r] & (V, V_1) \ar[r] & (V, V_2) \ar[r] & (V, M) \ar[r] & 0.
 			\end{tikzcd}
 		\end{center} 
-		The only thing we need to show is that the last map is surjective. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M') \oplus \Hom_\Lambda(W, P)$ \todo{blabla}
+		The only thing we need to show is that the last map is surjective. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M') \oplus \Hom_\Lambda(W, P)$. We saw in \cref{prop:coinduction_right_adjoint} that the composition
+		\begin{tikzcd}
+			\Hom_\Gamma(W, M') \ar[r, "\subseteq"] & \Hom_\Lambda(W, M') \ar[r] & \Hom_\Lambda(W, M)
+		\end{tikzcd}
+		is an isomorphism. Thus the map $\Hom_\Lambda(W, M') \to \Hom_\Lambda(W, M)$ is surjective.
 		
 		If $W$ is projective, then $\Hom_\Lambda(W, -)$ is exact, and there is nothing we need to show.
 		
 		If $W$ is an indecomposable injective, since we assumed $M$ had no injective summands, a map $W \to M$ cannot be injective. This means that it factors through $W/\socle(W)$. Since $D(W/\socle(W)) = (DW)J_\Lambda = (DW)J_\Gamma$ this means that $W/\socle(W)$ is a $\Gamma$-module. Then from the argument above it follows that the map is surjective.
 		
-		Now just as in \cref{thm:stably_hereditary_repdim_3} if we let $N$ be any module over $\End(V)^{\op}$ then it has a projective presentation
-		\begin{center}
-			\begin{tikzcd}
-			(V,V_1) \ar[r, "f\circ-"] & (V,V_0) \ar[r] & N \ar[r] & 0
-			\end{tikzcd}
-		\end{center}
-		If we let $M$ denote the kernel of $f$ and we choose $V_1$ and $V_2$ as above, then we get a projective resolution of $N$ by
-		\begin{center}
-			\begin{tikzcd}[column sep=20pt]
-			0\ar[r] & (V,V_1) \ar[r] & (V,V_2) \ar[r] & (V,V_1) \ar[r] & (V,V_0) \ar[r] & N \ar[r] & 0.
-			\end{tikzcd}
-		\end{center}
-		This shows that the global dimension of $\End(V)^{\op}$ is at most 3, and likewise the representation dimension of $\Lambda$ is at most 3.
+		This shows that the global $V$-$\operatorname{res-dim}(\Lambda) \leq 1$, and thus the representation dimension of $\Lambda$ is at most 3.
 	\end{proof}
 \end{theorem}
 
-\begin{theorem}
+Now we move away from the case where $\psi$ is a radical embedding, and instead look at a specific quotient map.
+
+\begin{theorem}\label{thm:mod_out_socle}
 	Let $\Lambda$ be a basic finite dimensional algebra and let $P$ be a basic projective-injective $\Lambda$-module. Then the socle of $P$ is a two-sided ideal, which allows us to define the ring $\Gamma := \Lambda / \socle P$. Then we have that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\begin{proof}
 		First we show that the socle of $P$ is a two-sided ideal. Multiplication on the right defines a homomorphism $-\cdot \lambda\colon \Lambda \to \Lambda$. Any homomorphism maps the socle to the socle, so $(\socle P) \cdot \lambda \subseteq \socle \Lambda$. Now let $s \in \socle P$ be some element such that $s\lambda$ is non-zero. Then the injective envelope $I(s)$ is a direct summand of $P$ and thus projective-injective. Further since $-\cdot \lambda\colon (s) \to (s\lambda)$ is an injective map, $I(s)$ is mapped injectively into $\Lambda$ by $-\cdot \lambda$, which means $-\cdot\lambda\colon I(s) \to \Lambda$ splits. Since $\Lambda$ is basic this means that $I(s)\lambda \subseteq P$, and thus $s\lambda \in \socle P$, so the socle of $P$ is a two-sided ideal.
 		
-		Next we note that any indecomposable $\Lambda$-module is either a $\Gamma$-module, or a direct summand of $P$. To see this, let $M$ be any indecomposable $\Lambda$-module and consider $(\socle P)M$. If this is zero, then $M$ is a $\Gamma$-module. If on the other hand there is some $s \in \socle P$ and $m \in M$ such that $sm \neq 0$, then let $I(s)$ be the injective envelope of $s$ and let $e$ be the idempotent such that $I(s) = \Lambda e$. Then we get a map $I(s) \to M$ which maps $\lambda e$ to $\lambda e m$. Since $sm \neq 0$ this maps the socle of $I(s)$ inejctively. Now, since $I(s)$ is inejctive this mean that $I(s)$ is a direct summand of $M$. Since $M$ is indecomposable we have that $M \cong I(s)$, and thus $M$ is a direct summand of $P$.
+		Next we note that any indecomposable $\Lambda$-module is either a $\Gamma$-module, or a direct summand of $P$. To see this, let $M$ be any indecomposable $\Lambda$-module and consider $(\socle P)M$. If this is zero, then $M$ is a $\Gamma$-module. If on the other hand there is some $s \in \socle P$ and $m \in M$ such that $sm \neq 0$, then let $I(s)$ be the injective envelope of $s$ and let $e$ be the idempotent such that $I(s) = \Lambda e$. Then we get a map $I(s) \to M$ which maps $\lambda e$ to $\lambda e m$. Since $sm \neq 0$ this maps the socle of $I(s)$ injectively. Now, since $I(s)$ is injective this mean that $I(s)$ is a direct summand of $M$. Since $M$ is indecomposable we have that $M \cong I(s)$, and thus $M$ is a direct summand of $P$.
 		
 		Now we show that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator-cogenerator because any indecomposable projective or injective module that is not a summand of $P$ will be  a summand of $N$, since all $\Lambda$-modules that are not summands of $P$ are $\Gamma$-modules.
 		
 		To show that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ we explicitly construct the resolutions. Let $M$ be an indecomposable $\Lambda$-module. Then we wish to construct an exact sequence
 		\begin{center}
 		\begin{tikzcd}
-			0 & V_n & \cdots & V_1 & V_0 & M & 0
+			0 \ar[r] & V_n \ar[r] & \cdots \ar[r] & V_1 \ar[r] & V_0 \ar[r] & M \ar[r] & 0
 		\end{tikzcd}
 		\end{center} 
 		such that $V_i$ is in $\add V$, $n\leq \max\{0, \repdim(\Gamma)-2\}$, and $\Hom(V, -)$ is exact on the sequence. If $M$ is a summand of $P$ we may choose $V_0=M$ and $V_i=0$ for $i>0$.
@@ -116,10 +140,10 @@ In this section we shall consider two finite dimensional algebras, where one is 
 		If $M$ is not a summand of $P$ then $M$ is a $\Gamma$-module. Then we already have an exact sequence
 		\begin{center}
 			\begin{tikzcd}
-			0 & N_n & \cdots & N_1 & N_0 & M & 0
+				0 \ar[r] & N_n \ar[r] & \cdots \ar[r] & N_1 \ar[r] & N_0 \ar[r] & M \ar[r] & 0
 			\end{tikzcd}
 		\end{center} 
-		with $N_i \in \add N$. Since all the modules in the sequence are $\Gamma$-modules and $\Lambda \to \Gamma$ is surjective we get the same whether we apply $\Hom_\Lambda(N, -)$ or $\Hom_\Gamma(N,-)$. Lastly since $\Hom(V,-) = \Hom(N, -) \oplus \Hom(P, -)$ and $\Hom(P, -)$ is an exact functor, we get that applying $\Hom(V, -)$ to the sequences gives us something exact. Thus $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ and $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
+		with $N_i \in \add N$. Since $\Lambda \to \Gamma$ is surjective we get that $\Hom_\Lambda(N, -)=\Hom_\Gamma(N,-)$ on $\Gamma$-modules. So if we apply $\Hom_\Lambda(N, -)$ to the sequence it remains exact. Lastly since $\Hom(V,-) = \Hom(N, -) \oplus \Hom(P, -)$ and $\Hom(P, -)$ is an exact functor, if we apply $\Hom(V, -)$ to the sequences it still remains exact. Thus $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ and $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\end{proof}
 \end{theorem}
 
@@ -132,7 +156,7 @@ In this section we shall consider two finite dimensional algebras, where one is 
 	A special biserial algebra is called a \emph{string algebra} if it is also monomial. I.e. $I$ is generated by paths. 
 \end{defn}
 
-\begin{prop}
+\begin{prop}\label{prop:special_biserail_algerbas_are_binomial}
 	If $\Lambda = kQ/I$ is special biserial, then $I$ is generated by monomial and binomial relations. Further if $\gamma + t\gamma'$ is a binomial relation such that $\gamma \not\in I$, then $(\gamma)$ is the socle of a projective-injective module.
 	\begin{proof}
 		Let $\rho$ be a relation. Then we may assume $\rho$ is some linear combinations of paths which start in the same vertex and end in the same vertex. Assume by induction that $\rho$ is a combination of $n$ distinct paths for some $n\geq 3$, and let $\gamma^1$, $\gamma^2$, and $\gamma^3$ be three of those paths. Write each path as a composition of arrows $\gamma^1 = \alpha^1_{t_1} \cdots \alpha^1_1\alpha^1_0$,  $\gamma^2 = \alpha^2_{t_2} \cdots \alpha^2_1\alpha^2_0$, and  $\gamma^3 = \alpha^3_{t_3} \cdots \alpha^3_1\alpha^3_0$.
@@ -141,15 +165,18 @@ In this section we shall consider two finite dimensional algebras, where one is 
 		
 		Now let $\gamma + t\gamma'$ be a binomial relation such that $\gamma \not\in I$. Let $i$ be the origin vertex of $\gamma$, let $j$ be the terminal vertex, and let $e_i$ and $e_j$ be the corresponding idempotents. Then we claim that $\Lambda e_i$ is projective-injective, and that $(\gamma)$ is its socle.
 		
-		As above decompose the two paths into a product of arrows $\gamma = \alpha_{t}\cdots \alpha_1\alpha_0$ and $\gamma' = \alpha'_{t'}\cdots \alpha_1\alpha_0$, and let $k$ be the smallest integer such that $\alpha_k \neq \alpha'_k$. If $k$ is bigger than 0, then as before we get that either $\alpha_k\alpha_{k-1}$ or $\alpha'_k\alpha_{k-1}$ is a relation. Consequently both $\gamma$ and $\gamma'$ would be relations contradicting our assumption. Similarly if we let $k$ be the smallest integer such that $\alpha_{t-k} \neq \alpha'_{t'-k}$ we get that $k$ cannot be bigger than 0. \todo{blabla}
+		As above decompose the two paths into a product of arrows $\gamma = \alpha_{t}\cdots \alpha_1\alpha_0$ and $\gamma' = \alpha'_{t'}\cdots \alpha_1\alpha_0$, and let $k$ be the smallest integer such that $\alpha_k \neq \alpha'_k$. If $k$ is bigger than 0, then as before we get that either $\alpha_k\alpha_{k-1}$ or $\alpha'_k\alpha_{k-1}$ is a relation. Consequently both $\gamma$ and $\gamma'$ would be relations contradicting our assumption. Similarly if we let $k$ be the smallest integer such that $\alpha_{t-k} \neq \alpha'_{t'-k}$ we get that $k$ cannot be bigger than 0, by exactly the same argument. This means that $\alpha_0 \neq \alpha'_0$ and that $\alpha_t \neq \alpha'_{t'}$, which will be important later.
+
+		We show that $(\gamma)$ is simple, by showing that $\alpha\gamma$ is a relation for every arrow $\alpha$. We have that $\alpha(\gamma + t\gamma')$ is a relation. Since $\alpha_t \neq \alpha'_{t'}$ we have that either $\alpha\alpha_t = 0$ or $\alpha\alpha'_{t'} = 0$. If $\alpha\alpha_t=0$, then $\alpha\gamma=0$ and we are done. If $\alpha\alpha'_{t'} = 0$, then $\alpha\gamma'=0$ which means that $\alpha\gamma = \alpha(\gamma + t\gamma') - t\alpha\gamma'$ is as well. So $(\gamma)$ is simple and hence in the socle of $\Lambda e_i$.
 		
-		$(\gamma)$ simple because $\alpha(\gamma + t\gamma')$ relation + $\alpha\gamma'$ relation gives $\alpha\gamma$ relation
-		
+		\todo{blabla}
+
+		$\Lambda e_i \cong D e_j \Lambda$, $e_i \mapsto \gamma^*$
 		 
 	\end{proof} 
 \end{prop}
 
-This explains where the name \emph{special biserial} comes from; the radical of each indecomposable projective of a special biserial algebra is biserial. That is, it is the sum of two uniserial modules. In fact for an indecomposable projective $P$, either $P$ is uniserial or $JP/\socle P$ is the direct sum of two uniserial modules.
+This explains where the name \emph{special biserial} comes from; the radical of each indecomposable projective of a special biserial algebra is biserial. I.e. it is the sum of two uniserial modules. In fact for an indecomposable projective $P$, either $P$ is uniserial or $JP/\socle P$ is the direct sum of two uniserial modules.
 
 \begin{center}
 \setlength{\tabcolsep}{30pt}
@@ -179,5 +206,50 @@ This explains where the name \emph{special biserial} comes from; the radical of 
 	\end{tikzcd}
 \end{tabular}
 
-Possible shapes for indecomposable projectives
+The possible shapes for an indecomposable projective module.
 \end{center}
+
+Combining \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we can reduce the problem of computing the representation dimension of a special biserial algebra to monomial algebras, by modding out all binomial relations. 
+
+Special biserial algebras that are monomial are called string algebras. Well known examples of these are gentle algebras. We now combine everything we have proved so far.
+
+\begin{theorem}\cite[Corollary~1.3]{EHIS04}
+	If $\Lambda = kQ/I$ is a special biserial algebra, then $\repdim(\Lambda) \leq 3$, and thus $\findim(\Lambda) < \infty$.
+	\begin{proof}
+		By \cref{thm:mod_out_socle} we may assume $\Lambda$ is a string algebra. If we can construct a radical embedding of $\Lambda$ into a representation finite algebra, then by \cref{thm:radical_embedding_repdim_3} our result would follow.
+
+		For any vertex $l \in Q$ define $E(l)$ to be the set of arrows ending in $l$ and $S(l)$ the set of arrows starting in $l$. Define $c(\Lambda)$ to be the sum of the number of vertices with $|E(l)| \geq 2$ and the number of vertices with $|S(l)| \geq 2$. The proof goes by induction on $c(\Lambda)$.
+
+		If $c(\Lambda)=0$, then $Q$ is the disjoint union of linearly oriented quivers of type $\mathbb{A}$ and cyclically oriented quivers of type $\tilde{\mathbb{A}}$. Finite dimensional algebras arising from such quivers are well known to be representation finite, \todo{refference} and so the identity map on $\Lambda$ is a radical embedding into an algebra of finite representation type.
+		\begin{center}
+			\setlength{\tabcolsep}{30pt}
+			\begin{tabular}{cc}
+				\begin{tikzcd}[ampersand replacement=\&]
+					1\ar[r] \& {} \ar[r, dashed, no head] \& {} \ar[r] \& n
+				\end{tikzcd}
+				&
+				\begin{tikzcd}[ampersand replacement=\&, row sep= 15pt, column sep = 15pt]
+					\&0 \ar[r] \& 1 \ar[dr]\\
+					n \ar[ur] \&\&\& 2 \ar[dl]\\
+					\& \phantom{3} \ar[ul] \&  \phantom{3} \ar[l, dashed, no head]
+				\end{tikzcd}\\
+				&\\
+				Linearly oriented 
+				&
+				Cyclically oriented\\
+				quiver of type $\mathbb{A}_n$
+				&
+				quiver of type $\tilde{\mathbb{A}}_n$
+			\end{tabular}
+		\end{center}
+		If $c(\Lambda) = n \leq 1$, then there is a vertex $l$ with either $E(l)=2$ or $S(l)=2$. We now construct a new string algebra $\Gamma$ and a radical embedding $\Lambda \to \Gamma$ such that $c(\Gamma) \leq n-1$.
+
+		The two cases are completely symmetric, so we only show the case $E(l)=2$ here. Let $\alpha_1$ and $\alpha_2$ be the two arrows ending in $l$. Define the quiver $Q'$ to have the same vertices as $Q$, except we replace $l$ by two vertices $l_1$ and $l_2$. The arrows of $Q'$ are exactly the same, except now $\alpha_1$ ends in $l_1$ and $\alpha_2$ ends in $l_2$. For any arrow $\beta \in Q$ that starts in $l$, the corresponding arrow in $Q'$ starts in $l_1$ if and only if $\beta\alpha_1$ is not a relation.
+
+		We may consider $I$ as an ideal in $kQ'$ simply by setting paths to 0 if they are no longer defined in $Q'$. Then $\Gamma := kQ'/I$ is a string algebra, and the map $\Lambda \to \Gamma$ that sends $e_l$ to $e_{l_1}+e_{l_2}$ and all other paths to themselves is a radical embedding.
+
+		For each vertex $k \neq l$, we have $E_\Lambda(k) = E_\Gamma(k)$ and $S_\Lambda(k) = S_\Gamma(k)$, $E_\Lambda(l) = 2$,  $E_\Gamma(l_1) = E_\Gamma(l_2) = 1$, and $S_\Lambda(l) = S_\Gamma(l_1)+S_\Gamma(l_2)$. Since $S_\Lambda(l) \leq 2$ it follows that $c(\Gamma) \leq n-1$.
+
+		By induction there is a radical embedding of $\Lambda$ into an algebra $\Gamma$ with $c(\Gamma)=0$, which is representation finite. Then by \cref{thm:radical_embedding_repdim_3} we get that $\repdim(\Lambda) \leq 3$, and by \cref{cor:repdim_less_than_3_implies FDC} we have $\findim(\Lambda) < \infty$.
+	\end{proof}
+\end{theorem}

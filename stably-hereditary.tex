@@ -1,3 +1,5 @@
+\subsection{Stably hereditary algebras}\label{sec:stable_hereditary_algebras}
+
 In this section we introduce the class of stably hereditary algebras, and show that they have representation dimension at most 3. Then from what we showed earlier in this section it follows that they have finite finitistic dimension.
 
 Hereditary algebras are those where all torsionfree modules are projective. This corresponds exactly to the algebra having global dimension 1 or less. Stably hereditary algebras are a generalization of these where we also allow simple modules to be torsionfree without being projective. This turns out to include the class of algebras that are stably equivalent to a hereditary algebra, hence the name. We now remind the reader of the definition of torsionfree. 
@@ -31,9 +33,9 @@ There exists stably hereditary algebras that are not stably equivalent to a here
 \begin{theorem}\cite[Theorem~3.5]{Xi02}\label{thm:stably_hereditary_repdim_3}
 	If $\Lambda$ is stably hereditary, then it has representation dimension at most 3.
 	\begin{proof}
-		By \cref{prop:repdim_resdim+2} it is enough to find a generator-cogenerator $V$ such that $V-\operatorname{res-dim}(\Lambda) \leq 1$.
+		By \cref{prop:repdim_resdim+2} it is enough to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$.
 		
-		Let $V$ be the direct sum of all the indecomposable projective, all the indecomposable injective, and all the simple modules. Then $V$ is a generator-cogenerator. So we just need to show that  $V-\operatorname{res-dim}(\Lambda) \leq 1$.
+		Let $V$ be the direct sum of all the indecomposable projective, all the indecomposable injective, and all the simple modules. Then $V$ is a generator-cogenerator. So we just need to show that  $V$-$\operatorname{res-dim}(\Lambda) \leq 1$.
 		
 		In other words we need to show that for any $\Lambda$-module $M$ there is a short exact sequence 
 		\begin{center}
@@ -69,7 +71,7 @@ There exists stably hereditary algebras that are not stably equivalent to a here
 		\end{center}
 		is exact. The only thing needed to show here is that the map $(V, M'\oplus P) \to (V, M)$ is surjective. We do this by showing that $(W, M'\oplus P) \to (W, M)$ is surjective for any indecomposable summand of $V$. If $W$ is projective this holds by definition. If $W$ is simple then any map from $W$ to $M$ factors through the socle and hence through $M'$, so it's surjective. Lastly if $W$ is injective then the image of $W$ in $M$ is a cotorsionfree module, so it is the sum of simple modules and an injective module. Hence the map from $W$ to $M$ factors through $M'$.
 		
-		This shows that $V-\operatorname{res-dim}(\Lambda) \leq 1$ and thus that $\repdim(\Lambda) \leq 3$.
+		This shows that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$ and thus that $\repdim(\Lambda) \leq 3$.
 	\end{proof}
 \end{theorem}
 %\begin{theorem}\cite[Theorem~3.5]{Xi02}\label{thm:stably_hereditary_repdim_3}
