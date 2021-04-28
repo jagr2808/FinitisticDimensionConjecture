@@ -2,11 +2,34 @@
 \addcontentsline{toc}{section}{\protect\numberline{}Introduction}%
 \markboth{section}{Introduction}
 
-In representation theory of finite dimensional algebras, there are several related conjectures known as the ``homological conejctures''. The strongest of these conjectures is the Finitistic Fimension Conjecture, which states that the finitistic dimension of a finite dimensional algebra is always finite.
+In representation theory of finite dimensional algebras, there are several related conjectures known as the ``homological conejctures''. The strongest of these conjectures is the Finitistic Fimension Conjecture. It concerns the homological invariant called the finitistic dimension. For a noetherian ring we define
+\begin{align*}
+  \findim(R) &:= \{\pd M \mid M \in \mod R, \pd M < \infty\}\\
+  \Findim(R) &:= \{\pd M \mid M \in \Mod R, \pd M < \infty\}.
+\end{align*}
+The finitistic dimension conjecture states that $\findim(\Lambda) < \infty$, whenever $\Lambda$ is a finite dimensional algebra. Note that $\findim(R) \leq \Findim(R)$, and so a stronger conjecture is whether $\Findim(\Lambda) < \infty$, but in this thesis we are mainly interested in the small finitistic dimension.
+
+\subsection*{History}
 
 The finitistic dimension was introduced by Auslander--Buchsbaum in the late 1950s to study commutative noetherian rings. They proved that for a local noetherian commutative ring the finitistic dimension equals the depth\cite{AB57}. Later it was shown by Bass and Gruson--Raynaud that for any commutative noetherian ring the (big) finitistic dimension equals the Krull dimension\cite{Bass62,RG71}.
 
-The non-commutative case turned out to be more difficult. In 1960 Bass published to important questions about the finitistic dimension\cite{Bass60}, which he credits to Rosenberg and Zelinsky. Their first question asks whether the small finitistic dimension equals the big finitistic dimension. \todo{text}
+The non-commutative case turned out to be more difficult. In 1960 Bass published to important questions about the finitistic dimension\cite{Bass60}, which he credits to Rosenberg and Zelinsky. Their first question asks whether the small finitistic dimension equals the big finitistic dimension. This was shown to be false even for monomial algebras by Zimmerman-Huisgen in 1992\cite{ZH92}.
 
-- Zimmermann-Huisgen proved false \cite{ZH92}
+Their second question is what we here call the finitistic dimension conjecture. Much progress have been done on the problem over the last 50 years. Zimmerman-Huisgen has a great paper summarizing most of the results\cite{ZH95}. Here we try to do something similar to said paper, with the focus on establishing which classes of algebras the conjecture is known to hold for. We try to keep the thesis self contained by writing out all the proofs, and in addition we include some results not covered in Zimmermann-Huisgen's\todo{Ive seen Zimmermann Huisgen, Zimmermann-Huisgen, and Huisgen-Zimmermann, whixh is it??} paper.
+
+\subsection*{Structure of thesis}
+the sections of this thesis are self contained, and can be read independently of one another, except for \cref{sec:vanishing_radical} which relies on results from \cref{sec:Igusa-Todorov}. In \cref{sec:summary} we summarize for which algebras the conjecture is known to hold. This relies only on \cref{sec:contravariantly_finite,sec:Igusa-Todorov,sec:vanishing_radical,sec:monomial_algebras,sec:Unbounded_derived_category}, and not on \cref{sec:homological_conjectures,sec:recollement}.
+
+In \cref{sec:homological_conjectures} we discuss the homological conjectures, and show the implications between them. All the conjectures concerns a specific property of an algebra that is conjectured to hold for all algebras. In \cref{prop:conj_on_individual_algebras} we give an overview of how the conjectures are related on the level of individual algebras.
+
+In \cref{sec:recollement} we introduce a sort of ``short exact sequence'' of triangulated categories, known as a recollement. We show that if the derived category of $\Lambda$ is a recollement of the derived categories of $\Lambda'$ and $\Lambda''$, then finitistic dimension of $\Lambda$ is finite if and only if the finitistic dimension of both $\Lambda'$ and $\Lambda''$ are. The idea of using recollements to study the finitistic dimension is due to Happel, and most of the section is based on their paper\cite{Hap93}. We also consider a related technique concerning triangular matrix rings, due to Fossum-Griffith-Reiten\cite{FGR75}, and discuss the similarities.
+
+In \cref{sec:contravariantly_finite} we show that if the subcategory of modules with finite projective dimension is contravariantly finite, then the algebra has finite finitistic dimension. This is a result due to Auslander--Reiten\cite{AR91}. In \cref{exam:not_contravariantly_finite}, due to Igusa--Smalø--Todorov\cite{IST90}, we show that this subcategory can fail to be contravariantly finite even for monomial algebras with radical cubed equal to 0. 
+
+In \cref{sec:Igusa-Todorov} we introduce the Igusa--Todorov function, and use it to show that algebras with representation dimension less than or equal to 3 satisfies the finitistic dimension conjecture. We also give examples of two classes of algebras that are known to have representation dimension at most 3, due to Xi and Erdmann--Holm--Iyama--Schröer respectively\cite{Xi02,EHIS04}. Preprints of Igusa--Todorov's paper\cite{IgTo05} was circulated in the mid 90s, but it was not published until later, when several corollaries could be included.
+
+In \cref{sec:vanishing_radical} we discuss restriction one can impose on the radical for the algebra to satisfy the finitistic dimension conjecture.
+
+
+\todo{text}
 

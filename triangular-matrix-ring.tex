@@ -5,7 +5,7 @@ R & 0\\
 M& S
 \end{pmatrix}$ to the finitistic dimension of $R$ and $S$. Specifically the finitistic dimension of $\Lambda$ will be finite if the finitistic dimensions of both $R$ and $S$ are finite. 
 
-In \todo{ref} we give some further conditions on $M$ for which we get a recollement between the bounded derived categories of $S$, $R$ and $\Lambda$.
+In \cref{sec:recollemt_of_triangular_rings} we give some further conditions on $M$ for which we get a recollement between the bounded derived categories of $S$, $R$ and $\Lambda$.
 
 We will first define the concept of a comma category and describe some of its homological properties. In \cref{thm:findim_of_comma_cat} we give a bound on the finitistic dimension of the comma category. Then in \cref{prop:triangular_matrix_is_comma_cat} we show that for $\Lambda$ a triangular matrix ring as above, we have that $\mod \Lambda$ is isomorphic to the comma category of $M\otimes_R - \colon \mod R \to \mod S$, which means we get a bound on $\findim(\Lambda)$.
 
@@ -292,20 +292,13 @@ k & k
 	$$\findim(\Lambda) \leq \findim(R) + \findim(S)+1.$$
 \end{cor}
 
-\subsection{Recollements for triangular matrix rings}
+\subsection{Recollements for triangular matrix rings}\label{sec:recollemt_of_triangular_rings}
 
-\todo{Connection to recollement?}
-\cite[Corollary~15]{Ko91}
-
-Does the same idea of recollement works if we consider $\D^-$ instead of $\D^b$? Clearly not since Happell restricts to $\D^b$, where is does it break? ANSWER: In $\D^-$ we cannot characterize bounded complexes of injectives in the same way, so we cannot bound $H^i(X)$ from below. 
-
-Note $R = e_R\Lambda e_R$ and $S=\Lambda/\Lambda e_R \Lambda$.
-
-This gives a recollement of abelian categories. Under what conditions does this extend to one for derived categories?? When $M$ is projective as $S$ and $R$ module then the top functors are exact. The other functors are always exact. If $M$ has finite projective dimension then the derived functors should be well defined on the bounded derived category. Can we say something meaningful in the unbounded case \todo{?}
+There is an analogues definition of recollement between abelian categories. If $\Lambda$ is a triangulated matrix algebra as above then we do get a recollement of abelian categories
 
 \begin{center}
 	\begin{tikzcd}[column sep=4cm]
-		\mod S \ar[r, ""{name=i}]{}{inc} & 
+		\mod S \ar[r, ""{name=i}]{}{\operatorname{inc}} & 
 		\ar[l, swap, ""{name=il}, bend right=30]{}{\Lambda / \Lambda e_R \Lambda \otimes_\Lambda -} \ar[l, ""{name=ir}, bend left=30]{}{\Hom(\Lambda e_S, -)}
 		\mod \Lambda \ar[r, ""{name=j}]{}{\Hom(\Lambda e_R, -)=e_R\Lambda \otimes-} & 
 		\ar[l, swap, ""{name=jl}, bend right=30]{}{\Lambda e_R \otimes -} \ar[l, ""{name=jr}, bend left=30]{}{\Hom(e_R\Lambda, -)}
@@ -316,3 +309,16 @@ This gives a recollement of abelian categories. Under what conditions does this 
 		\arrow[phantom, from=j, to=jr, "\dashv" rotate=-90]
 	\end{tikzcd}	
 \end{center}
+
+\todo{something about recoll of abcats}
+
+By taking derived functors we get a recollement of unbounded derived categories, which also restricts to a recollement between $D^-(S)$, $D^-(\Lambda)$ and $D^-(R)$\cite[Corollary~15]{Ko91}.
+
+This does not in general restrict to a recollement of bounded derived categories, but if $M$ has finite projective dimension both as an $R$-module and an $S$-module then it does. 
+
+
+% Does the same idea of recollement works if we consider $\D^-$ instead of $\D^b$? Clearly not since Happell restricts to $\D^b$, where is does it break? ANSWER: In $\D^-$ we cannot characterize bounded complexes of injectives in the same way, so we cannot bound $H^i(X)$ from below. 
+
+% Note $R = e_R\Lambda e_R$ and $S=\Lambda/\Lambda e_R \Lambda$.
+
+% This gives a recollement of abelian categories. Under what conditions does this extend to one for derived categories?? When $M$ is projective as $S$ and $R$ module then the top functors are exact. The other functors are always exact. If $M$ has finite projective dimension then the derived functors should be well defined on the bounded derived category. Can we say something meaningful in the unbounded case \todo{?}
