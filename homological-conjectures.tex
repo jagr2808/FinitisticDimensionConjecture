@@ -55,6 +55,24 @@ The Gorenstein symmetry conjecture says that we only need one of the two conditi
 
 The conjecture describes a sort of symmetry between $\Lambda$ and $\Lambda^{\op}$. An equivalent formulation would be that $\Lambda$ has finite injective dimension as a left module if and only if it has finite injective dimension as a right module.
 
+Another noteworthy property of Gorenstein algebras is that a module has finite projective dimension if and only if it has finite injective dimension.
+
+\begin{prop}\label{prop:Gorenstein_projdim_iff_injdim}
+	If $\Lambda$ is Gorenstein and $M$ is a $\Lambda$-module, then $\pd M < \infty$ if and only if $\operatorname{id} M < \infty$.
+	\begin{proof}
+		From the projective and injective resolution of $M$ we get short exact sequences:
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & \Omega M \ar[r] & P \ar[r] & M \ar[r] & 0\\
+				0 \ar[r] & M \ar[r] & I \ar[r] & \mho M \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
+		From the long exact sequences in $\Ext(\Lambda/J, -)$ and $\Ext(-, \Lambda/J)$ it follows that $\operatorname{id} M \leq \max\{\id P, \id \Omega M\}$ and $\pd M \leq \max\{\pd I, \pd \mho M\}$. Iterating this construction it follows that for all $n$ we have $\id M \leq \max\{ \id \Lambda, \id \Omega^n M  \}$ and $\pd \leq \max\{\pd D\Lambda, \pd\mho^n M\}$.
+
+		If $M$ has finite projective dimension then there is an $n$ such that $\Omega^n M = 0$, which implies $\id M \leq \id \Lambda < \infty$. Conversely if $M$ has finite injective dimension, then there is an $n$ such that $\mho^n M = 0$, and so $\pd M \leq \pd D\Lambda < \infty$.
+	\end{proof}
+\end{prop}
+
 %$X \to I_0 \to \cdots I_n$ implies $\pd X \leq \max \pd I_i$
 
 \subsection*{Vanishing Conjecture (VC)}
@@ -62,9 +80,11 @@ The conjecture describes a sort of symmetry between $\Lambda$ and $\Lambda^{\op}
 
 We remind the reader that when $\Lambda$ is a finite dimensional algebra, we have an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$ given by injective resolutions. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
 
-$$K^b(\inj\Lambda)^\perp = \{X \in \D^b(\Lambda) \mid \Hom_{\D^b(\Lambda)}(I, X)=0 \text{ for all } I \in K^b(\inj\Lambda)\}.$$
+\begin{align*}
+	K^b(\inj\Lambda)^\perp = \{X \in \D^b(\Lambda) \mid \Hom_{\D^b(\Lambda)}(I, X)=0 \text{ for all } I \in K^b(\inj\Lambda)\}.
+\end{align*}
 
-The vanishing conjecture then states that this subcategory is 0.
+The vanishing conjecture then states that this subcategory is trivial.
 \begin{conj}[Vanishing conjecture] 
 	If $\Lambda$ is a finite dimensional algebra, then $K^b(\inj\Lambda)^\perp = 0$.
 \end{conj}
@@ -75,21 +95,21 @@ In \cref{sec:Unbounded_derived_category} we investigate an analog of this conjec
 The Nunke condition is similar to the vanishing conjecture in that it considers modules which are ``perpendicular'' to the injective modules. Such a module is called a \emph{Nunke module}, and an algebra is said to satisfy the Nunke condition if the only Nunke module is the zero module.
 
 \begin{conj}[Nunke condition] 
-	If $X \neq 0$ is a non-zero module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(D\Lambda, X) \neq 0$. 
+	If $X \neq 0$ is a module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(D\Lambda, X) \neq 0$. 
 \end{conj}
 
 \subsection*{Strong Nakayama Conjecture (SNC)}
 The strong Nakayama conjecture is simply the dual of the Nunke condition. For the sake of completeness we include both in this summary.
 
-\begin{conj}[strong Nakayama Conjecture] 
-	If $X \neq 0$ is a non-zero module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(X,\Lambda) \neq 0$. 
+\begin{conj}[Strong Nakayama conjecture] 
+	If $X \neq 0$ is a module over a finite dimensional algebra $\Lambda$, then there is an integer $n \geq 0$ such that $\Ext^n(X,\Lambda) \neq 0$. 
 \end{conj}
 
 \subsection*{Generalized Nakayama Conjecture (GNC)}
 The generalized Nakayama conjecture is a slight weakening of the Strong Nakayama conjecture.
 
-\begin{conj}[generalized Nakayama conjecture] 
-	If $S$ is a simple module over a finite dimensional algebra $\Lambda$, then there is an $n \geq 0$ such that $\Ext^n(S, \Lambda) \neq 0$. 
+\begin{conj}[Generalized Nakayama conjecture] 
+	If $S$ is a simple module over a finite dimensional algebra $\Lambda$, then there is an integer $n \geq 0$ such that $\Ext^n(S, \Lambda) \neq 0$. 
 \end{conj}
 
 We can also formulate the conjecture as all indecomposable injectives appearing in the minimal injective resolution of $\Lambda$. We give a short proof that this is an equivalent formulation here.
@@ -178,10 +198,12 @@ The remainder of this section is used to prove these implications.
 			\Ext^{i+1}(K_m, K_{m-i-1}) \ar[r] & \Ext^{i+1}(K_m, T_{m-i-1}).
 			\end{tikzcd}
 		\end{center}
-		Since we showed above that $\Ext^{>0}(K_m, T) = 0$ and $T_{m-i-1}$ is in $\add T$ we get that $\Ext^{>0}(K_m, T_{m-i-1}) = 0$. Thus $\Ext^{i}(K_m, K_{m-i}) \cong \Ext^{i+1}(K_m, K_{m-i-1})$, and by induction we have that 
+		Since we showed above that $\Ext^{>0}(K_m, T) = 0$ and $T_{m-i-1}$ is in $\add T$ we get that $\Ext^{>0}(K_m, T_{m-i-1}) = 0$. Thus 
+		$$\Ext^{i}(K_m, K_{m-i}) \cong \Ext^{i+1}(K_m, K_{m-i-1}),$$ 
+		and by induction we have that 
 		$$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for all $i \leq m$.
 		
-		Next we show that $\pd K_i < \infty$ for all $i \geq 0$. We proceed by induction on $i$. The projective dimension of $K_0=\Lambda$ is 0, which is finite. For $i>0$ we have a short exact sequence
+		Next we show that $\pd K_i < \infty$ for all $i \geq 0$. We again proceed by induction on $i$. The projective dimension of $K_0=\Lambda$ is 0, which is finite. For $i>0$ we have a short exact sequence
 		\begin{center}
 			\begin{tikzcd}
 			0  \ar[r] & K_{i-1}  \ar[r] & T_{i-1}  \ar[r] & K_{i}  \ar[r] & 0.
@@ -225,7 +247,7 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:FDC_implies_VC}
 	The finitistic dimension conjecture implies the vanishing conjecture.
 	\begin{proof}
-		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may assume $I^\bullet$ is a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if it's concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono, then replacing $I^0$ by $0$ and $I^1$ by $I^1/I^0$ gives a homotopic complex.
+		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we can consider $I^\bullet$ as a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if it's concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono, then replacing $I^0$ by $0$ and $I^1$ by $I^1/I^0$ gives a homotopic complex.
 			
 		The module $\Hom(D\Lambda, I^i)$ is in $\add\Hom(D\Lambda, D\Lambda) = \add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives. We show that this complex is acyclic by considering the following diagram.
 		
@@ -236,7 +258,7 @@ The remainder of this section is used to prove these implications.
 			\end{tikzcd}
 		\end{center}
 		
-		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, we have that whenever $d^if=0$, the morphism $f^\bullet$ is homotopic to 0. Meaning $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an acyclic complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ and $d^0$ is not split mono, we have that $\Hom(D\Lambda, d^0)$ is not split mono.
+		Since $I^\bullet$ is in $K^b(\inj\Lambda)^\perp$ and $D\Lambda$ is in $K^b(\inj\Lambda)$, we have that whenever $d^if=0$, the morphism $f^\bullet$ is nullhomotopic. In other words, $f$ factors through $d^{i-1}$. This means that $\Hom(D\Lambda, I^\bullet)$ is an acyclic complex. Further since $\Hom(D\Lambda, -)$ is an equivalence between $\inj\Lambda$ and $\proj\Lambda$ (c.f. \cref{thm:Proj_Inj_equivalence}) and $d^0$ is not split mono, we have that $\Hom(D\Lambda, d^0)$ is not split mono.
 		
 		The cokernel of $\Hom(D\Lambda, d^i)$ has a projective resolution of length $i$. This resolution is the direct sum of its minimal resolution and an acyclic bounded complex of projectives. Since bounded acyclic complexes of projectives are split and $\Hom(D\Lambda, d^0)$ is not, we must have that the minimal resolution has length $i$, and so $\findim(\Lambda) = \infty$.
 	\end{proof}
@@ -248,7 +270,11 @@ The remainder of this section is used to prove these implications.
 		Assume $\Lambda$ doesn't satisfy NuC. That is, there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then we claim that $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. To show this we proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$. If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$, which is 0 because $I$ is in $\add D\Lambda$ and $\Ext^i(D\Lambda, X)=0$.
 		
 		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i < n$. Then 
-		$$I^{>0} \to I \to I^{0} \to I^{>0}[1]$$ 
+		\begin{center}
+			\begin{tikzcd}
+				I^{>0} \ar[r] & I \ar[r] & I^{0} \ar[r] & I^{>0}[1]
+			\end{tikzcd}
+		\end{center}
 		is a triangle with $I^{>0}$ of width $n-1$ and $I^0$ of width 1. Taking the long exact sequence in $\D^b(-,X)$ it follows that $\D^b(I, X)=0$. So $X$ is a non-zero complex in $K^b(\inj\Lambda)^\perp$, and hence $\Lambda$ does not satisfy VC.
 	\end{proof}
 \end{theorem}
@@ -382,7 +408,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 		
 		Since $\Hom_\Lambda(P, -)$ is an equivalence, it is faithful. This says exactly that $P$ is a generator in $\mod\Lambda$. Since by assumption ARC holds, we get that $P$ is projective as a $\Lambda$-module. Thus $\Hom_\Lambda(P, -)$ is right exact. Since $\Gamma$ is in $\mathcal S$, the equivalence give us $\Hom_\Lambda(P, P) = \Hom_\Lambda(P, P\otimes \Gamma) = \Gamma$. Combining these two facts we get that $\Hom_\Lambda(P,-)$ induces an equivalence between modules with a presentation in $\add P$ and modules with a presentation in $\add \Gamma$. We conclude that $\mathcal S = \mod\Gamma$, and thus that $I$ is a cogenerator.
 		
-		Since $I$ is a cogenerator all indecomposable injective modules appear in the resolution of $\Gamma$, an thus $\Gamma$ satisfies GNC.
+		Since $I$ is a cogenerator all indecomposable injective modules appear in the resolution of $\Gamma$, and thus $\Gamma$ satisfies GNC.
 	\end{proof}
 \end{theorem}
 %
@@ -418,16 +444,16 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 	\end{proof}
 \end{prop}
 
-The proofs above do not necessarily work on the level of individual algebras. For example for the proof that WTC implies GSC we need to assume that WTC holds for both $\Lambda$ and $\Lambda^{\op}$ to prove that $\Lambda$ satisfies GSC. We list the relationships between the conjectures for individual algebras.
+The proofs above do not necessarily work on the level of individual algebras. For example, for the proof that WTC implies GSC we need to assume that WTC holds for both $\Lambda$ and $\Lambda^{\op}$ to prove that $\Lambda$ satisfies GSC. Although it is implicit in the proofs, for the convenience of the reader, we list the relationships between the conjectures for individual algebras here.
 
 \begin{prop}\label{prop:conj_on_individual_algebras}
 	The implications between the conjectures on the level of individual algebras can be described as follows: 
-	\begin{enumerate}[i)]
+	\begin{enumerate}[a)]
 		\item If $\Lambda$ satisfies FDC, then $\Lambda$ also satisfies WTC.
-		\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ also satisfy GSC.
-		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC, both hold on the level of individual algebras.
+		\item If both $\Lambda$ and $\Lambda^{\op}$ satisfy WTC, then both $\Lambda$ and $\Lambda^{\op}$ satisfy GSC.
+		\item The implications FDC $\Rightarrow$ VC $\Rightarrow$ NuC hold on the level of individual algebras.
 		\item An algebra $\Lambda$ satisfies Nuc if and only if $\Lambda^{\op}$ satisfies SNC.
-		\item The implications SNC $\Rightarrow$ GNC $\Rightarrow$ NC, both hold on the level of individual algebras.
+		\item The implications SNC $\Rightarrow$ GNC $\Rightarrow$ NC hold on the level of individual algebras.
 		\item If $\Gamma$ satisfies GNC whenever $\Gamma = \End_\Lambda(M)^{\op}$ for a generator $M$ in $\mod\Lambda$, then $\Lambda$ satisfies ARC.
 		\item If $\End(I)^{\op}$ satisfies ARC, where $I$ is an injective module such that $\add I$ contains every injective in the minimal resolution of $\Lambda$, then $\Lambda$ satisfies GNC.
 		\item If $\End(P)^{\op}$ satisfies ARC, where $P$ is the projective cover of $\operatorname{soc}I$ where $I$ is the sum of all indecomposable projective-injective $\Lambda$-modules, then $\Lambda$ satisfies NC. \todo{I removed the proof for this, since it factors through ARC implies GNC, but it gives a different condition on individual algebras}

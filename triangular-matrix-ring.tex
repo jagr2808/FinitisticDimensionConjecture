@@ -220,21 +220,17 @@ Now we are ready for the main theorem of this section, where we give an upper bo
 \begin{theorem}\cite[Theorem~4.20]{FGR75}\label{thm:findim_of_comma_cat}
 	The finitistic dimension of the comma category $(F, \mathcal B)$ is bounded above by $\findim(\mathcal A) + \findim(\mathcal B) + 1$.
 	\begin{proof}
-		Let $X=(A, B, f)$ be an element of the comma category with finite projective dimension. Let $P_A^\bullet$ be a projective resolution of $A$ shorter than $\findim(\mathcal A)$. Similar to what we did in \cref{prop:pd_in_commacat} define $P_X^0$ to be $T(P_A^0, P(\cok f))$ where $P(\cok f)$ is a projective module with an epimorphism onto $\cok f$. Then we have that the kernel of $P_X^0 \to X$ is 
-		\begin{tikzcd}
-			F\Omega A \ar[r, "\theta^0"] & K^0.
-		\end{tikzcd}
-		We continue inductively defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Then by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So $$\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1.$$
+		Let $X=(A, B, f)$ be an element of the comma category with finite projective dimension. Let $P_A^\bullet$ be a projective resolution of $A$ shorter than $\findim(\mathcal A)$. Similar to what we did in \cref{prop:pd_in_commacat} define $P_X^0$ to be $T(P_A^0, P(\cok f))$ where $P(\cok f)$ is a projective module with an epimorphism onto $\cok f$. Then let the kernel of $P_X^0 \to X$ be $(\Omega A, K^0, \theta^0)$. We continue inductively, defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Then by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So $$\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1.$$
 	\end{proof}
 \end{theorem}
 
 Before applying this to triangular matrix rings, let us have a look at a simple example.
 
 \begin{example}\label{ex:triangular_matrix_ring}
-	If $k$ is a field, $\mathcal A = \mathcal B = \mod k$, and $F$ is the identity, then the comma category $(F, \mathcal B)$ is equivalent to the category of finite dimensional representations of $A_2$ over $k$. 
+	If $k$ is a field, $\mathcal A = \mathcal B = \mod k$, and $F$ is the identity, then the comma category $(F, \mathcal B)$ is equivalent to the category of finite dimensional representations of $\mathbb A_2$ over $k$. 
 \end{example}
 
-In this example $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0 while $(F, \mathcal B)$ has finitistic dimension 1. So the bound shown above is tight. 
+In this example $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0, while $(F, \mathcal B)$ has finitistic dimension 1. So the bound shown above is tight. 
 
 \begin{defn}[Triangular matrix ring]
 	Let $R$ and $S$ be rings, and let $M$ be an $S$-$R$-bimodule. Then the \emph{triangular matrix ring} $\begin{pmatrix}
@@ -256,16 +252,16 @@ In this example $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0 w
 	\end{bmatrix}.$$
 \end{defn}
 
-We have already hinted at an example of this in \cref{ex:triangular_matrix_ring}. The algebra $kA_2$ is isomorphic to the matrix ring $\begin{pmatrix}
+We have already hinted at an example of this in \cref{ex:triangular_matrix_ring}. The algebra $k\mathbb A_2$ is isomorphic to the matrix ring $\begin{pmatrix}
 k & 0\\
 k & k
-\end{pmatrix}$, and we saw how $\mod kA_2$ becomes the comma category for a functor between $\mod k$ and $\mod k$. In fact whenever $\Lambda$ is a triangular matrix ring, the module category $\mod \Lambda$ will be the comma category for some functor.
+\end{pmatrix}$, and we saw how $\mod k\mathbb A_2$ becomes the comma category for a functor between $\mod k$ and $\mod k$. In fact whenever $\Lambda$ is a triangular matrix ring, the module category $\mod \Lambda$ will be the comma category for a specific functor.
 
 \begin{prop}\label{prop:triangular_matrix_is_comma_cat}
 	If $\Lambda = \begin{pmatrix}
 	R & 0\\
 	M & S
-	\end{pmatrix}$ is a triangular matrix ring, then $\mod \Lambda$ is isomorphic to the comma category $(M \otimes_R -, \mod S)$.
+	\end{pmatrix}$ is a triangular matrix ring and $M$ is finitely generated as an $S$-module, then $\mod \Lambda$ is isomorphic to the comma category $(M \otimes_R -, \mod S)$. In particular this holds if $\Lambda$ is also a finite dimensional algebra.
 	\begin{proof}
 		Notice, if $N$ is a $\Lambda$-module, then as an abelian group $N$ splits as a direct sum into
 		$$N= N_R \oplus N_S :=
@@ -281,7 +277,7 @@ k & k
 		By restriction of scalars we can think of $N_R$ as an $R$-module and $N_S$ as an $S$-module. Further multiplication by $\begin{bmatrix}
 		0 & 0\\
 		m & 0
-		\end{bmatrix}$ is 0 on $N_S$ and maps $N_R$ into $N_S$. So $N$ consists of an $R$-module $N_R$, an $S$-module $N_S$ and a $S$-$R$-linear map $M \to \Hom_\mathbb{Z}(N_R, N_S)$, or equivalently a $S$-linear map $M \otimes_R N_R \to N_S$.
+		\end{bmatrix}$ is 0 on $N_S$ and maps $N_R$ into $N_S$. So $N$ consists of an $R$-module $N_R$, an $S$-module $N_S$ and a $S$-$R$-linear map $M \to \Hom_\mathbb{Z}(N_R, N_S)$, or equivalently an $S$-linear map $M \otimes_R N_R \to N_S$.
 		
 		This gives us the equivalence between $\mod \Lambda$ and $(M \otimes_R -, \mod S)$.
 	\end{proof}

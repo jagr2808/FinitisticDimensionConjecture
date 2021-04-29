@@ -26,12 +26,17 @@ An $\mathcal M$-resolution of $X$ should be thought of as a projective resolutio
 	\begin{proof}
 		Let $M$ be a generator-cogenerator. We first show that the global dimension of $\End(M)^{\op}$ is less than or equal to $M$-$\operatorname{res-dim}(\mod \Lambda) + 2$. 
 		
-		The functor $\Hom(M, -)$ is an equivalence from $\add M$ to $\proj\End(M)^{\op}$, which maps minimal $M$-approximations to projective covers. Let $X$ be any module in $\mod\End(M)^{\op}$ with projective dimension at least 2. Then it has a projective presentation $$\Omega^2X \to (M,M_1) \to (M,M_0) \to X.$$
-		Because of the equivalence this is induced by a map $f\colon M_1\to M_0$. Since $\Hom(M,-)$ is left exact we have that $\Omega^2X \cong \Hom(M, \ker f)$, and so the projective dimension of $X$ is $2$ plus the $M$-res-dimension of $\ker f$. Hence the global dimension $\End(M)^{\op}$ is less than or equal to $M$-$\operatorname{res-dim}(\mod \Lambda) + 2$. 
+		The functor $\Hom(M, -)$ is an equivalence from $\add M$ to $\proj\End(M)^{\op}$, which maps minimal $M$-approximations to projective covers. Let $X$ be any module in $\mod\End(M)^{\op}$ with projective dimension at least 2. Then it has a projective presentation 
+		\begin{center}
+			\begin{tikzcd}
+				\Omega^2X \ar[r] & (M,M_1) \ar[r] & (M,M_0) \ar[r] & X.
+			\end{tikzcd}
+		\end{center}
+		Because of the equivalence this is induced by a map $f\colon M_1\to M_0$. Since $\Hom(M,-)$ is left exact we have that $\Omega^2X \cong \Hom(M, \ker f)$, and so the projective dimension of $X$ is $2$ more than the resolution dimension of $\ker f$ with respect to $M$. Hence  we have that $$\operatorname{gl.dim}\End(M)^{\op} \leq M\operatorname{-res-dim}(\mod \Lambda) + 2.$$
 		
 		Next we prove the other inequality.
 		
-		Since $M$ is a cogenerator any module $Y$ in $\mod\Lambda$ has a copresentation 
+		Since $M$ is a cogenerator, any module $Y$ in $\mod\Lambda$ has a copresentation 
 		\begin{center}
 		\begin{tikzcd}
 			0 \ar[r] & Y \ar[r] & M_0 \ar[r, "f"] & M_1.
@@ -43,9 +48,9 @@ An $\mathcal M$-resolution of $X$ should be thought of as a projective resolutio
 		0 \ar[r] & (M,Y) \ar[r] & (M,M_0) \ar[r]{}{(M,f)} & (M,M_1) \ar[r] & \cok(M,f) \ar[r] & 0.
 		\end{tikzcd}
 		\end{center}
-		If the projective dimension of $\cok(M,f)$ is less than 2, then $(M, Y)$ is a direct summand of $(M, M_0)$. This means that $(M,Y) \cong (M, M')$, so the minimal $M$-approximation of $Y$ is $M'$, and $(M, \Omega_M Y) = 0$. Since $M$ is a generator this means $\Omega_M Y = 0$ and thus the $M$-res-dimension of $Y$ is 0.
+		If the projective dimension of $\cok(M,f)$ is less than 2, then $(M, Y)$ is a direct summand of $(M, M_0)$. This means that $(M,Y) \cong (M, M')$, so the minimal $M$-approximation of $Y$ is $M'$, and $(M, \Omega_M Y) = 0$. Since $M$ is a generator this means $\Omega_M Y = 0$ and thus $M\operatorname{-res-dim}(Y)=0$.
 		
-		So provided the projective dimension of $\cok(M,f)$ is larger than or equal to 2, it equals the $M$-res-dimension of $Y$ plus 2. In particular the global dimension of $\End(M)^{\op}$ is larger than or equal to $M$-$\operatorname{res-dim}(\mod \Lambda) + 2$. Hence they are equal.
+		So provided the projective dimension of $\cok(M,f)$ is larger than or equal to 2, it equals $M\operatorname{-res-dim}(Y)+2$. In particular the global dimension of $\End(M)^{\op}$ is larger than or equal to $M$-$\operatorname{res-dim}(\mod \Lambda) + 2$. Hence they are equal.
 	\end{proof}
 \end{prop}
 

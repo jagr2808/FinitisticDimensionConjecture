@@ -56,7 +56,7 @@ There exists stably hereditary algebras that are not stably equivalent to a here
 			\begin{tikzcd}[column sep = 15pt, row sep = 25pt]
 			&& 0 \ar[d] & 0 \ar[d]\\
 			&& K \ar[d] \ar[r, equal] & K \ar[d]\\
-			0 \ar[r] & M' \ar[r] \ar[d, equal] & M'\oplus P \ar[r]\ar[d] & P\ar[r]\ar[d] & 0\\
+			0 \ar[r] & M' \ar[r] \ar[d, equal] & M'\oplus P\arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] \ar[r]\ar[d] & P\ar[r]\ar[d] & 0\\
 			0 \ar[r] & M' \ar[r] & M \ar[r]\ar[d] & M/M' \ar[r]\ar[d] & 0\\
 			&&0&0 
 			\end{tikzcd}
@@ -69,7 +69,7 @@ There exists stably hereditary algebras that are not stably equivalent to a here
 			0 \ar[r] & (V,K) \ar[r] & (V,M'\oplus P) \ar[r] & (V,M) \ar[r] & 0
 			\end{tikzcd}
 		\end{center}
-		is exact. The only thing needed to show here is that the map $(V, M'\oplus P) \to (V, M)$ is surjective. We do this by showing that $(W, M'\oplus P) \to (W, M)$ is surjective for any indecomposable summand of $V$. If $W$ is projective this holds by definition. If $W$ is simple then any map from $W$ to $M$ factors through the socle and hence through $M'$, so it's surjective. Lastly if $W$ is injective then the image of $W$ in $M$ is a cotorsionfree module, so it is the sum of simple modules and an injective module. Hence the map from $W$ to $M$ factors through $M'$.
+		is exact. The only thing needed to show here is that the map $(V, M'\oplus P) \to (V, M)$ is surjective. We do this by showing that $(W, M'\oplus P) \to (W, M)$ is surjective for any indecomposable summand $W$ of $V$. If $W$ is projective, this holds by definition. If $W$ is simple, then any map from $W$ to $M$ factors through the socle and hence through $M'$, so it's surjective. Lastly if $W$ is injective, then the image of $W$ in $M$ is a cotorsionfree module, so it is the sum of simple modules and an injective module. Hence the map from $W$ to $M$ factors through $M'$.
 		
 		This shows that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$ and thus that $\repdim(\Lambda) \leq 3$.
 	\end{proof}

@@ -1,4 +1,4 @@
-\section{Appendix: Homological algebra}\label{sec:appendix}
+\section{Homological algebra}\label{sec:appendix}
 
 In this section we collect relevant theorems from homological algebra that would be distracting within the text itself.
 
@@ -122,7 +122,7 @@ In this section we collect relevant theorems from homological algebra that would
 
 Interesting examples of Fitting's Lemma comes from $R$ being a noetherian ring and $X$ being a finitely generated modules. In particular the case when $R = \mathbb Z$ appears in \cref{sec:Igusa-Todorov}. An important special case of Fitting's Lemma that comes up when working with artinian rings is when $X=M$ and $X$ has finite length. Remember that over an artin ring all finitely generated modules have finite length.
 
-\begin{cor}
+\begin{cor}\label{cor:fittings_lemma_artin}
 	Let $X$ be a module of finite length, and let $L\colon X\to X$ be an endomorphism. Then $L$ splits as a direct sum $L_1 \oplus L_2 \colon X_1 \oplus X_2 \to X_1 \oplus X_2$ such that $L_1$ is nilpotent and $L_2$ is an isomorphism.
 	\begin{proof}
 		Since $X$ has finite length it is noetherian, thus we can apply Fitting's Lemma. Let $n$ be the positive integer we get from Fitting's Lemma, and let $K$ be $\ker L^{n}$. We wish to show that $X$ is the direct sum of $K$ and $L^n(X)$. Note that since $L$ is inejctive when restricted to $L^n(X)$ we have that $K \cap L^n(X)=0$, so all we have to show is that $X = K + L^n(X)$.
