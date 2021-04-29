@@ -2,9 +2,9 @@
 
 Results are generalized in \cite{Trl01}
 
-In this section we will study the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{cor:contravariant_finite_implies_FDC} we show that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite, and in \cref{exam:not_contravariantly_finite} we give an example due to Igusa--Smalø--Todorov of a relatively simple algebra for which $\mathcal P^\infty$ fails to be contravariantly finite.
+In this section we will study the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{cor:contravariant_finite_implies_FDC} we show that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite. \cref{exam:not_contravariantly_finite}, discovered by Igusa--Smalø--Todorov, shows that $\mathcal P^\infty$ can fail to be contravariantly finite even for monomial algebras with radical cubed equal to 0.
 
-It is known that $\mathcal P^\infty$ is contravariantly finite when the algebra is stably equivalent to a hereditary algebra. This was shown by Auslander--Reiten in their original paper \cite{AR91}. We will consider a generalization of this class in \cref{sec:stable_hereditary_algebras} through the perspective of the Igusa--Todorov-function.
+It is known that $\mathcal P^\infty$ is contravariantly finite when the algebra is stably equivalent to a hereditary algebra. This was shown by Auslander--Reiten in their original paper \cite{AR91}. We consider a generalization of this class in \cref{sec:stable_hereditary_algebras} through the perspective of the Igusa--Todorov-function.
 
 Throughout this section we, as usual, assume $\Lambda$ is a finite dimensional algebra, though it should be noted that all the results still hold if we assume $\Lambda$ to be an artin algebra.
 
@@ -31,7 +31,7 @@ which we now show is equal to
 \begin{lemma}\label{lem:resolving_ext_vanish}
 	Let $\mathcal X$ be a resolving subcategory. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism between objects in $\mathcal X$. Thus $\mathcal X$ contains all syzygies. $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
+		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism between objects in $\mathcal X$. Thus $\mathcal X$ contains all syzygies, and we have $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
 	\end{proof}
 \end{lemma}
 
@@ -187,21 +187,26 @@ To finish this section of we give two examples. The first example is due to Igus
 		\end{center}
 		Note that both the indecomposable projectives have even dimension, so any projective module has even dimension. Then if $X$ is a module with finite projective dimension, since $\dim X = \sum (-1)^i \dim P_X^i$ the dimension of $X$ is also even. In particular the two simple modules have infinite projective dimension.
 		
-		The radical of $P_1$ is $P_2$ and the radical of $P_2$ is $S_1$, so the radical of an arbitrary projective looks like $P_2^n \oplus S_1^m$. Let $P \to X$ be the projective cover of a module with finite projective dimension. Then $\Omega X$ is a submodule of $JP = P_2^n \oplus S_1^m$. Let $M$ be an indecomposable summand of $\Omega X$, and consider the composition $M \to JP \to P_2$ for any possible projection to $P_2$. If this is epi then we must have $M = P_2$. If none of these are epi then $M$ is contained in $JP_2^n \oplus S_1^m = S_1^{m+n}$. This would mean $M=S_1$, but $S_1$ has infinite projective dimension. Thus we must have $\Omega X$ projective, and so $\pd X \leq 1$.
+		The radical of $P_1$ is $P_2\oplus S_2$ and the radical of $P_2$ is $S_1$, so the radical of an arbitrary projective looks like $P_2^n \oplus S_1^m \oplus S_2^n$. Let $P \to X$ be the projective cover of a module with finite projective dimension. Then $\Omega X$ is a submodule of $JP = P_2^n \oplus S_1^m \oplus S_2^n$. Let $M$ be an indecomposable summand of $\Omega X$, and consider the composition $M \to JP \to P_2$ for any possible projection to $P_2$. If this is epi then we must have $M = P_2$. If none of these are epi then $M$ is contained in $JP_2^n \oplus S_1^m \oplus S_2^n = S_1^{m+n} \oplus S_2^n$. This would mean $M=S_1$ or $M=S_2$, but $S_1$ and $S_2$ both have infinite projective dimension. Thus we must have $\Omega X$ projective, and so $\pd X \leq 1$.
 		
-		Nextly we want to show that $S_1$ has no minimal approximation by modules with finite projective dimension. Assume for the sake of contradiction that $X \to S_1$ is such a minimal approximation. Then we claim that $P_2$ is not a submodule of $X$. Since $\Hom(P_2, S_1) = 0$ if this were the case then $X' = X/P_2$ would give an approximation of shorter length, because $X'$ would also have finite projective dimension. Which can be seen in the diagram below.
-		\begin{center}
-		\begin{tikzcd}
-			&& 0 \ar[d] & 0 \ar[d] &\\
-			0\ar[r]& P^1_X \ar[d, equal]\ar[r] & P^1_X \oplus P_1 \arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] \ar[d]\ar[r] & P_1\ar[d]\ar[r] & 0\\
-			0 \ar[r] & P^1_X \ar[r] & P^0_X \ar[d]\ar[r] & X\ar[d]\ar[r] & 0\\
-			&& X' \ar[d]\ar[r, equal] & X' \ar[d] \\
-			&&0&0
-		\end{tikzcd}
-		\end{center}
+		Next we want to show that $S_1$ has no minimal approximation by modules with finite projective dimension. Assume for the sake of contradiction that $X \to S_1$ is such a minimal approximation. Then we claim that $P_2$ is not a submodule of $X$. If $X$ had $P_2$ as a submodule, then since $\Hom(P_2, S_1) = 0$ the approximation would factor through $X'=X/P_2$. From the short exact sequence $0 \to P_2 \to X \to X' \to 0$ it follows that 
+		$$\pd X' \leq \max\{\pd P_2 + 1, \pd X\} < \infty$$ 
+		and so $X'$ would give an approximation of shorter length, contradicting the minimality of $X$.
+		
+		% because $X'$ would also have finite projective dimension. Which can be seen in the diagram below.
+		% \begin{center}
+		% \begin{tikzcd}
+		% 	&& 0 \ar[d] & 0 \ar[d] &\\
+		% 	0\ar[r]& P^1_X \ar[d, equal]\ar[r] & P^1_X \oplus P_1 \arrow[dr, phantom, "\usebox\pullback" , very near start, color=black] \ar[d]\ar[r] & P_1\ar[d]\ar[r] & 0\\
+		% 	0 \ar[r] & P^1_X \ar[r] & P^0_X \ar[d]\ar[r] & X\ar[d]\ar[r] & 0\\
+		% 	&& X' \ar[d]\ar[r, equal] & X' \ar[d] \\
+		% 	&&0&0
+		% \end{tikzcd}
+		% \end{center}
+
 		This means that $\gamma X = 0$, because if there was an element $x \in X$ with $\gamma x \neq 0$, then $(e_2 x)$ would be a submodule of $X$ isomorphic to $P_2$. So $X$ is a $\Lambda/(\gamma)$ module. 
 		
-		The algebra $\Lambda/(\gamma)$ is the path algebra of the 2-Kronecker quiver, whose representation theory is well understood. Specifically $\Lambda/(\gamma)$ can be associated with the subquiver highlighted below. 
+		The algebra $\Lambda/(\gamma)$ is the path algebra of the 2-Kronecker quiver, whose representation theory is well understood (c.f. \cite[Chapter~VIII.7]{ARS97} or \cite[Chapter~3.2]{Ring84}). Specifically $\Lambda/(\gamma)$ can be associated with the subquiver highlighted below. 
 		\begin{center}
 			\begin{tikzcd}[column sep = 50pt]
 			1 \ar[r, "\alpha", bend left=45] \ar[r, "\beta"] & 2 \ar[l, opacity=0.3, "\gamma", bend left = 45]
@@ -240,7 +245,7 @@ To finish this section of we give two examples. The first example is due to Igus
 	\begin{tikzcd}
 	k \ar[bend left=25]{r}{\lambda} \ar[swap, bend right=0]{r}{1} & k\\
 	\end{tikzcd}
-	all have finite projective dimension as $\Lambda$-modules and that they have a nonzero map onto $S_1$. So each of these modules would need to have a nonzero map to $X$. But it is easy to verify that there is a nonzero homomorphism between the regular modules only if they have the same value of $\lambda$. So for it to be possible for $X$ to factorize all these maps we would need $X$ to have an infinite amount of direct summands. Since we are working with finitely generated modules this is impossible, hence $S_1$ has no approximation, and the subcategory is not contravariantly finite.
+	all have finite projective dimension as $\Lambda$-modules and that they have a nonzero map onto $S_1$. So each of these modules would need to have a nonzero map to $X$. But it is easy to verify that there is a nonzero homomorphism between the regular modules only if they have the same value of $\lambda$. So for it to be possible for $X$ to factorize all these maps we would need $X$ to have infinitely many direct summands. Since we are working with finitely generated modules this is impossible, hence $S_1$ has no approximation, and the subcategory is not contravariantly finite.
 	\end{proof}
 \end{example}
 
@@ -267,7 +272,7 @@ In the next example we look at the opposite algebra of $\Lambda$, for which $\ma
 			\end{tikzcd}
 		\end{center}
 		
-		Similar to before before, notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have a $k$-dimension that is a multiple of 3. So in particular the simple modules have infinite projective dimension. 
+		Similar to before, notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have a $k$-dimension that is a multiple of 3. So in particular the simple modules have infinite projective dimension. 
 		
 		Let $X$ be a module with finite projective dimension, and let $P$ be its projective cover. We have that $\Omega X$ is a submodule of $JP$. Notice that $\hat{\alpha} J = \hat{\gamma} J = 0$, so $\Omega X$ is a $\Gamma/(\hat{\alpha}, \hat{\gamma})$-module. But $\Gamma/(\hat{\alpha}, \hat{\gamma})$ is simply isomorphic to the path algebra of  
 		\begin{tikzcd}

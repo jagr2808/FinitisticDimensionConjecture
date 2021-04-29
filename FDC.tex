@@ -1,5 +1,13 @@
-\documentclass[11pt, a4paper, english]{article}
+\documentclass[11pt, english, twoside]{article}
+\usepackage[
+    b5paper%,
+    %inner=30mm,
+    %outer=25mm,
+    %tmargin=27mm,
+    %bmargin=30mm
+    ]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage{lipsum}
 \usepackage{babel, amsmath, amsthm, amssymb, amsfonts, mathtools, centernot, enumerate, mathrsfs}
 \usepackage{thmtools, thm-restate}
 \usepackage{tikz-cd}
@@ -72,7 +80,7 @@
 \fancyhead{}
 %\fancyhead[LO, LE]{\small\emph{McKay correspondence}}
 \fancyhead[LO, LE]{\small\nouppercase\rightmark}
-\fancyfoot[CO, CE]{\thepage}
+%\fancyfoot[CO, CE]{\thepage}
 %\fancyfoot[RO, RE]{\thepage}
 \renewcommand{\sectionmark}[1]{\markboth{}{\emph{\thesection~#1}}}
 %\renewcommand{\subsectionmark}[1]{}% Remove \subsection from header
@@ -84,13 +92,12 @@
 %\maketitle
 \pagenumbering{roman}
 
-\begin{abstract}
-FDC yo! This is abstract!
-\end{abstract}
+\addcontentsline{toc}{section}{\protect\numberline{}Abstract}%
+\noindent \scshape\mdseries Abstract. \normalfont
+Write abstract here. \lipsum[1] 
 
-\begin{abstract}
-	Dette er en abtrakt på norsk!
-\end{abstract}
+\noindent \scshape\mdseries Abstrakt. \normalfont
+Skriv abstrakt her. \lipsum[2] 
 \clearpage
 
 \section*{Preface}
