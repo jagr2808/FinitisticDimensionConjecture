@@ -11,7 +11,42 @@ The may theorem of this section is \cref{thm:half_rep_finite} in which we prove 
 	\end{proof}
 \end{theorem}
 
-The proof for the case of $J^3=0$ uses the Igusa--Todorov function from \cref{sec:Igusa-Todorov}.
+The proof of the above theorem is relatively elementary, but it first appeared as a corollary to a more general result by Mochizuki\cite{Moc65}. We outline the proof of this as well.
+
+\begin{theorem}\cite[Theorem~3.1]{Moc65}
+	Let $\Lambda$ be a finite dimensional algebra such that $J^i/J^{i+1}$ has finite projective dimension for all $i \geq 2$. Then $\findim(\Lambda) < \infty$.
+	\begin{proof}
+		As before let $d = \max\{\pd S_i \mid \pd S_i < \infty\}$ where $S_i$ ranges over the simple $\Lambda$-modules. We want to show that $\findim(\Lambda) \leq d+1$.
+
+		First note that since $J^i/J^{i+1}$ is semisimple and of finite projective dimension, we have $\pd J^i/J^{i+1} \leq d$. Now let $M$ be a $\Lambda$-module of finite projective dimension. We see that $J^iM/J^{i+1}M$ is in $\add J^i/J^{i+1}$, because it is semisimple and for each nonzero simple summand $(\lambda m)$, we have that $(\lambda m) \cong (\lambda) \subseteq J^i/J^{i+1}$.
+
+		So $\pd J^iM/J^{i+1}M \leq d$ for all $i\geq 2$. For each $i$ we have a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & J^{i+1}M \ar[r] & J^iM \ar[r] & J^iM/J^{i+1}M \ar[r] & 0,
+			\end{tikzcd}
+		\end{center}
+		which gives us that $\pd J^i M \leq \max\{ \pd J^{i+1}M, J^iM/J^{i+1}M \}$. Since there is an $n$ such that $J^n M = 0$ it follows by induction that $\pd J^2M \leq d$.
+
+		If we consider the short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & J^{2}M \ar[r] & M \ar[r] & M/J^{2}M \ar[r] & 0,
+			\end{tikzcd}
+		\end{center}
+		we get that $\pd M/J^2M \leq \max\{\pd J^2M+1, \pd M\}$. In particular if $M=\Lambda$, then we get $\pd \Lambda/J^2 \leq d+1$. If we let $P \to M$ be the projective cover of $M$, we get a short exact sequence
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & K \ar[r] & P/J^2P \ar[r] & M/J^{2}M \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		for some module $K \subseteq JP/J^2P$. Since we assumed $M$ had finite projective dimension, and $\pd M/J^2M \leq \max\{\pd J^2M+1, \pd M\}$, both $M/J^2M$ and $P/J^2P$ has finite projective dimension. Thus $K$ is a semisimple module with finite projective dimension, and we have $\pd K \leq d$. Thus $\pd M/J^2M \leq \max\{\pd K + 1, \pd P/J^2P\} \leq d+1$.
+
+		Lastly since $\pd M \leq \max\{\pd J^2M, M/J^2M\}$ we get that $\pd M \leq d+1$, and consequently $\findim(\Lambda) \leq d+1 < \infty$.
+	\end{proof}
+\end{theorem}
+
+The case for $J^3=0$ was first proved by Green--Zimmerman-Huisgen\cite[Theorem~16]{GZH91}. Here we give a simplified proof, due to Igusa--Todorov, using the $\psi$-function from \cref{sec:Igusa-Todorov}.
 
 \begin{theorem}\cite[Corollary~6]{IgTo05}\label{thm:J3_equals_0_implies_FDC}
 	If $J^3=0$ then $\findim(\Lambda) < \infty$.
@@ -28,7 +63,7 @@ The proof for the case of $J^3=0$ uses the Igusa--Todorov function from \cref{se
 	\end{proof}
 \end{theorem}
 
-The main theorem of this section is just a very slight generalization of the proof of the $J^3=0$ case. 
+The main theorem of this section is just a very slight generalization of the proof of the $J^3=0$ case, and is due to Wang. 
 
 \begin{theorem}\cite{Wang94}\label{thm:half_rep_finite}
 	If $J^{2l+1} = 0$ and $\Lambda / J^l$ is representation-finite, then $\findim(\Lambda) < \infty$.

@@ -96,7 +96,9 @@ INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinit
 		\end{center} 
 		This is excatly the isomoprhism of the adjuntion between restriction of scalars and the coinduction functor in \cref{prop:coinduction_right_adjoint}.
 
-		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. Thus $V_1$ is in $\add V$. \todo{kernel is not $Gamma$-module..?}
+		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. We now show that $\ker\varepsilon_M$ is in $\add V$, by showing that all simple modules are.
+		
+		Let $S$ be a simple $\Lambda$-module, and let $e$ be an idempotent such that $S \cong \Lambda e / J_\Lambda e$. We have a semisimple $\Gamma$-module $\hat{S}:=\Gamma e / J_\Gamma e$ that contains $S$. Since $J_\Gamma = J_\Lambda$ we have that $\hat{S}$ is also semisimple as a $\Lambda$-module. Thus $S$ is a direct summand of $\hat{S}$. Since $\hat{S}$ is in $\add V$, we get that $S$ is as well. Thus $V_1$ is in $\add V$.
 		
 		Lastly we show that we get an exact sequence
 		\begin{center}
@@ -169,9 +171,11 @@ Now we move away from the case where $\psi$ is a radical embedding, and instead 
 
 		We show that $(\gamma)$ is simple, by showing that $\alpha\gamma$ is a relation for every arrow $\alpha$. We have that $\alpha(\gamma + t\gamma')$ is a relation. Since $\alpha_t \neq \alpha'_{t'}$ we have that either $\alpha\alpha_t = 0$ or $\alpha\alpha'_{t'} = 0$. If $\alpha\alpha_t=0$, then $\alpha\gamma=0$ and we are done. If $\alpha\alpha'_{t'} = 0$, then $\alpha\gamma'=0$ which means that $\alpha\gamma = \alpha(\gamma + t\gamma') - t\alpha\gamma'$ is as well. So $(\gamma)$ is simple and hence in the socle of $\Lambda e_i$.
 		
-		\todo{blabla}
+		By exactly the same argument as above any path in $\Lambda e_i$ is an initial subpath of either $\gamma$ or $\gamma'$. This gives us that $\socle \Lambda e_i = (\gamma)$.
 
-		$\Lambda e_i \cong D e_j \Lambda$, $e_i \mapsto \gamma^*$
+		Lastly we need to show that $\Lambda e_i$ is injective. We can do this by constructing an isomorphism $\varphi \colon \Lambda e_i \to D(e_j \Lambda)$. We define the map by $\varphi(e_i) = \gamma^*$. By the same argument as before $(\gamma)$ is the socle of $e_j\Lambda$ as right modules. Thus $(\gamma^*)$ is the top of $D(e_j \Lambda)$, and $\varphi$ is surjective. Since $\varphi(\gamma) = e_j^*$ and $(\gamma)$ is the socle of $\Lambda e_i$ we have that $\varphi$ is injective, and so it is an isomorphism.
+
+		\todo{blabla}
 		 
 	\end{proof} 
 \end{prop}
@@ -242,13 +246,13 @@ Special biserial algebras that are monomial are called string algebras. Well kno
 				quiver of type $\tilde{\mathbb{A}}_n$
 			\end{tabular}
 		\end{center}
-		If $c(\Lambda) = n \leq 1$, then there is a vertex $l$ with either $E(l)=2$ or $S(l)=2$. We now construct a new string algebra $\Gamma$ and a radical embedding $\Lambda \to \Gamma$ such that $c(\Gamma) \leq n-1$.
+		If $c(\Lambda) = n \geq 1$, then there is a vertex $l$ with either $E(l)=2$ or $S(l)=2$. We now construct a new string algebra $\Gamma$ and a radical embedding $\Lambda \to \Gamma$ such that $c(\Gamma) \leq n-1$.
 
 		The two cases are completely symmetric, so we only show the case $E(l)=2$ here. Let $\alpha_1$ and $\alpha_2$ be the two arrows ending in $l$. Define the quiver $Q'$ to have the same vertices as $Q$, except we replace $l$ by two vertices $l_1$ and $l_2$. The arrows of $Q'$ are exactly the same, except now $\alpha_1$ ends in $l_1$ and $\alpha_2$ ends in $l_2$. For any arrow $\beta \in Q$ that starts in $l$, the corresponding arrow in $Q'$ starts in $l_1$ if and only if $\beta\alpha_1$ is not a relation.
 
 		We may consider $I$ as an ideal in $kQ'$ simply by setting paths to 0 if they are no longer defined in $Q'$. Then $\Gamma := kQ'/I$ is a string algebra, and the map $\Lambda \to \Gamma$ that sends $e_l$ to $e_{l_1}+e_{l_2}$ and all other paths to themselves is a radical embedding.
 
-		For each vertex $k \neq l$, we have $E_\Lambda(k) = E_\Gamma(k)$ and $S_\Lambda(k) = S_\Gamma(k)$, $E_\Lambda(l) = 2$,  $E_\Gamma(l_1) = E_\Gamma(l_2) = 1$, and $S_\Lambda(l) = S_\Gamma(l_1)+S_\Gamma(l_2)$. Since $S_\Lambda(l) \leq 2$ it follows that $c(\Gamma) \leq n-1$.
+		For each vertex $k \neq l$, we have $E_\Lambda(k) = E_\Gamma(k)$ and $S_\Lambda(k) = S_\Gamma(k)$. We also have $E_\Lambda(l) = 2$,  $E_\Gamma(l_1) = E_\Gamma(l_2) = 1$, and $S_\Lambda(l) = S_\Gamma(l_1)+S_\Gamma(l_2)$. Since $S_\Lambda(l) \leq 2$ it follows that $c(\Gamma) \leq n-1$.
 
 		By induction there is a radical embedding of $\Lambda$ into an algebra $\Gamma$ with $c(\Gamma)=0$, which is representation finite. Then by \cref{thm:radical_embedding_repdim_3} we get that $\repdim(\Lambda) \leq 3$, and by \cref{cor:repdim_less_than_3_implies FDC} we have $\findim(\Lambda) < \infty$.
 	\end{proof}

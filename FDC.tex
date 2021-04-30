@@ -110,8 +110,8 @@ Add text here when thesis mainmatter is done.
 \end{flushright}
 \clearpage
 
+%\addcontentsline{toc}{section}{\protect\numberline{}Contents}%
 \tableofcontents
-\addcontentsline{toc}{section}{\protect\numberline{}Contents}%
 \clearpage
 
 \input{notation}
@@ -153,67 +153,67 @@ Add text here when thesis mainmatter is done.
 \input{appendix}
 \end{appendices}
 
-\section{Personal appendix}
-\begin{theorem}
-	The global dimension of an artin algebra is the supremum of $k$ with $\Ext^k(T,T)\neq 0$ ($T$ sum of simples). This is also the supremum of projective dimension and supremum of injective dimension.
-	\begin{proof}
-		For a minimal projective resolution $\Hom(-,T)$ makes the differentials 0, and similarly with $\Hom(T,-)$ and injective resolutions. So $\Ext^k(M, T)$ is only 0 exactly when $k>\pd M$, similarly $\Ext^k(T,M)$ is only 0 when $k$ is bigger than the injective dimension. Since any module is built by extensions of simples you can prove by induction, and the long exact sequence in $\Ext(-,T)$ you get that any module has projective dimension less than or equal to that of $T$. Similarly for injective dimension.
-	\end{proof}
-\end{theorem}
+% \section{Personal appendix}
+% \begin{theorem}
+% 	The global dimension of an artin algebra is the supremum of $k$ with $\Ext^k(T,T)\neq 0$ ($T$ sum of simples). This is also the supremum of projective dimension and supremum of injective dimension.
+% 	\begin{proof}
+% 		For a minimal projective resolution $\Hom(-,T)$ makes the differentials 0, and similarly with $\Hom(T,-)$ and injective resolutions. So $\Ext^k(M, T)$ is only 0 exactly when $k>\pd M$, similarly $\Ext^k(T,M)$ is only 0 when $k$ is bigger than the injective dimension. Since any module is built by extensions of simples you can prove by induction, and the long exact sequence in $\Ext(-,T)$ you get that any module has projective dimension less than or equal to that of $T$. Similarly for injective dimension.
+% 	\end{proof}
+% \end{theorem}
 
-$\findim(\Lambda)$ need not equal $\findim(\Lambda^{\operatorname{op}}) = \sup\{ $injective dimension of $M | M$ has finite injective dimension$ \}$.
+% $\findim(\Lambda)$ need not equal $\findim(\Lambda^{\operatorname{op}}) = \sup\{ $injective dimension of $M | M$ has finite injective dimension$ \}$.
 
-\begin{example} \cite{Gre20}
-	Let $\Lambda=k \left.
-	\left[\begin{tikzcd}
-	\ar[out=150,in=210, loop, swap, looseness=3, "a"] 1 \ar[r, bend left=15, "b"] & 2 \ar[l, bend left=15, "c"]
-	\end{tikzcd}\right] \middle/ (a^2, ac, ba, cbc) \right.$. Then $\findim(\Lambda) \geq 1$, but $\findim(\Lambda^{\operatorname{op}})=0$.
-	\begin{proof}
-		The module $\mymatrix{1\\1} = P_1/P_2 $ ($k^2$ where $a$ acts by $\begin{bsmallmatrix}
-			0 & 1\\0&0
-		\end{bsmallmatrix}$, and $b$ and $c$ act trivially)
-		has projective dimension 1, so $\findim(\Lambda) \geq 1$. The projective/injective modules of $\Lambda$ are:
-		$$ P_1 = \mymatrix{
-			&1&\\
-			1 && 2\\
-			&&1\\
-			&&2
-		},\quad P_2 = \mymatrix{
-			2\\1\\2
-		},\quad I_1 = \mymatrix{
-			&&1\\
-			1&&2\\
-			&1&
-		},\quad I_2 = \mymatrix{
-			1\\2\\1\\2
-		} $$
-		If $\findim(\Lambda^{\operatorname{op}})>0$ there would be a module with finite non-zero injective resolution. In particular it would end with a non-split epimorphism between injectives. I claim this would mean there is a non-split epimorphism $I \to I_i$ from an injective to an indecomposable injective. Obviously we get epimorphisms by composing with the projections onto summands, so we want to show that they are not split. Assume that they are, that is the map looks like
+% \begin{example} \cite{Gre20}
+% 	Let $\Lambda=k \left.
+% 	\left[\begin{tikzcd}
+% 	\ar[out=150,in=210, loop, swap, looseness=3, "a"] 1 \ar[r, bend left=15, "b"] & 2 \ar[l, bend left=15, "c"]
+% 	\end{tikzcd}\right] \middle/ (a^2, ac, ba, cbc) \right.$. Then $\findim(\Lambda) \geq 1$, but $\findim(\Lambda^{\operatorname{op}})=0$.
+% 	\begin{proof}
+% 		The module $\mymatrix{1\\1} = P_1/P_2 $ ($k^2$ where $a$ acts by $\begin{bsmallmatrix}
+% 			0 & 1\\0&0
+% 		\end{bsmallmatrix}$, and $b$ and $c$ act trivially)
+% 		has projective dimension 1, so $\findim(\Lambda) \geq 1$. The projective/injective modules of $\Lambda$ are:
+% 		$$ P_1 = \mymatrix{
+% 			&1&\\
+% 			1 && 2\\
+% 			&&1\\
+% 			&&2
+% 		},\quad P_2 = \mymatrix{
+% 			2\\1\\2
+% 		},\quad I_1 = \mymatrix{
+% 			&&1\\
+% 			1&&2\\
+% 			&1&
+% 		},\quad I_2 = \mymatrix{
+% 			1\\2\\1\\2
+% 		} $$
+% 		If $\findim(\Lambda^{\operatorname{op}})>0$ there would be a module with finite non-zero injective resolution. In particular it would end with a non-split epimorphism between injectives. I claim this would mean there is a non-split epimorphism $I \to I_i$ from an injective to an indecomposable injective. Obviously we get epimorphisms by composing with the projections onto summands, so we want to show that they are not split. Assume that they are, that is the map looks like
 		
-		\begin{center}
-		\begin{tikzcd}[ampersand replacement=\&]
-			I_i \oplus I \ar{r}{
-				\begin{bmatrix}
-				1 & 0\\ f & g
-				\end{bmatrix}
-			} \ar[swap]{rd}{
-				\begin{bmatrix}
-				1 & 0
-				\end{bmatrix}
-			} \& I_i \oplus I' \ar[]{d}{
-				\begin{bmatrix}
-				1 & 0
-				\end{bmatrix}
-			}\\
-			\& I_i
-		\end{tikzcd}.
-		\end{center}
-		We see that by changing basis in the domain we get the matrix $\begin{bmatrix}
-		1&0\\0&g
-		\end{bmatrix}$. Thus $I_i$ is mapped isomorphically to itself, which doesn't happen in a minimal resolution.
+% 		\begin{center}
+% 		\begin{tikzcd}[ampersand replacement=\&]
+% 			I_i \oplus I \ar{r}{
+% 				\begin{bmatrix}
+% 				1 & 0\\ f & g
+% 				\end{bmatrix}
+% 			} \ar[swap]{rd}{
+% 				\begin{bmatrix}
+% 				1 & 0
+% 				\end{bmatrix}
+% 			} \& I_i \oplus I' \ar[]{d}{
+% 				\begin{bmatrix}
+% 				1 & 0
+% 				\end{bmatrix}
+% 			}\\
+% 			\& I_i
+% 		\end{tikzcd}.
+% 		\end{center}
+% 		We see that by changing basis in the domain we get the matrix $\begin{bmatrix}
+% 		1&0\\0&g
+% 		\end{bmatrix}$. Thus $I_i$ is mapped isomorphically to itself, which doesn't happen in a minimal resolution.
 		
-		The only thing left to show is that there are no non-split epimorphisms from injective modules to $I_1$ and $I_2$.
-	\end{proof}
-\end{example}
+% 		The only thing left to show is that there are no non-split epimorphisms from injective modules to $I_1$ and $I_2$.
+% 	\end{proof}
+% \end{example}
 
 \clearpage
 
