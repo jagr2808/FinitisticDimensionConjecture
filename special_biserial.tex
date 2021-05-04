@@ -1,10 +1,13 @@
 \subsection{Special biserial algebras}\label{sec:special_biserial_algebras}
-\cite{EHIS04}
 
 In this section we shall consider two finite dimensional algebras, with a homomorphism between them. We denote these by $\Lambda$ and $\Gamma$, and we denote their radicals by $J_\Lambda$ and $J_\Gamma$ respectively.
 
+The goal of the section is to show that special biserial algebras have representation dimension less than or equal to 3, and consequently that they have finite finitistic dimension. We do this in several parts. In \cref{thm:radical_embedding_repdim_3} we show that an algebra that has a radical embedding into a representation finite algebra has representation dimension at most 3. In \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we show that for every special biserial algebra there is a string algebra with larger representation dimension. Lastly in \cref{thm:special_biserial_algebra_repdim_3} we construct a radical embedding of any string algebra into a representation finite algebra.
+
+First we discuss some general properties of homomorphisms of algebras.
+
 \begin{defn}[Coinduced module]
-	Given a homomorphism of algebras $\psi\colon\Lambda \to \Gamma$ we can consider every $\Gamma$-module as a $\Lambda$-module, where multiplication by $\lambda$ is given by multiplication with $\psi(\lambda)$. This defines a functor $\mod\Gamma \to \mod\Lambda$ known as \emph{restriction of scalars}. The right adjoint to this functor is called the \emph{coinduction functor}. For a $\Lambda$-module $M$ the coinduced module is defined to be
+	Given a homomorphism of algebras $\psi\colon\Lambda \to \Gamma$ we can consider every $\Gamma$-module as a $\Lambda$-module, where multiplication by $\lambda$ is given by multiplication with $\psi(\lambda)$. This defines a functor $\mod\Gamma \to \mod\Lambda$ known as \emph{restriction of scalars}. The right adjoint to this functor is called the \emph{coinduction functor}. For a $\Lambda$-module $M$ the coinduced module is the $\Gamma$-module defined as
 	$$M' := \Hom_\Lambda(\Gamma, M)$$
 	where we consider $\Gamma$ as a $\Lambda$-$\Gamma$-bimodule through restriction of scalars. If we identify $M$ with $\Hom_\Lambda(\Lambda, M)$ then the counit of the adjunction is given by precomposing with $\psi$. Specifically we get the map
 	\begin{center}
@@ -18,9 +21,9 @@ In this section we shall consider two finite dimensional algebras, with a homomo
 \begin{prop}\cite[Lemma~2.2]{EHIS04}\label{prop:coinduction_right_adjoint}
 	The coinduced functor as defined above is the right adjoint to restriction of scalars, and $\varepsilon$ is the counit.
 	\begin{proof}
-		Let $M$ be a $\Lambda$-module and let $N$ $\Gamma$-module. Then we have a Hom-Tensor adjunction
+		Let $M$ be a $\Lambda$-module and let $N$ be a $\Gamma$-module. Then we get an isomoprhism from the Hom-Tensor adjunction 
 		$$\Hom_\Gamma(N, \Hom_\Lambda(\Gamma, M)) \cong \Hom_\Lambda(\Gamma\otimes_\Gamma N, M).$$
-		Notice that $_\Lambda\Gamma\otimes_\Gamma N \cong _\Lambda N$ is exactly restriction of scalars. Further the counit $\Gamma\otimes_\Gamma M' = M' \to M$ is given by $f\mapsto f(1)$, which is exactly how we defined $\varepsilon$ above.
+		Notice that $_\Lambda\Gamma\otimes_\Gamma N \cong {{}_\Lambda N}$ is exactly restriction of scalars. Further the counit $\Gamma\otimes_\Gamma M' = M' \to M$ is given by $f\mapsto f(1)$, which is exactly how we defined $\varepsilon$ above.
 	\end{proof}
 \end{prop}
 
@@ -33,7 +36,9 @@ Next, in preperation for \cref{thm:radical_embedding_repdim_3}, we restrict to t
 \begin{lemma}\cite[Lemma~2.3]{EHIS04}\label{lem:epsilon_semisimple_(co)kernel}
 	If $\Lambda \subseteq \Gamma$ is a radical embedding, then $\ker \varepsilon_M$ and $\cok\varepsilon_M$ are both semisimple for any $\Lambda$-module $M$.
 	\begin{proof}
-		If we apply $\Hom_\Lambda(-, M)$ to the short exact sequence coming from $\psi$, $0 \to \Lambda \to \Gamma \to \Gamma/\Lambda \to 0$, we get 
+		If we apply $\Hom_\Lambda(-, M)$ to the short exact sequence of $\Lambda$-modules \begin{tikzcd}
+			0 \ar[r] & \Lambda \ar[r, "\psi"] & \Gamma \ar[r] & \Gamma/\Lambda \ar[r] & 0,
+		\end{tikzcd} we get 
 		\begin{center}
 			\begin{tikzcd}
 				0 \ar[r] & \Hom(\Gamma/\Lambda, M) \ar[r] & M' \ar[r, "\varepsilon_M"] & M \ar[dr, two heads] \ar[r] & \Ext^1(\Gamma/\Lambda, M)\\
@@ -69,7 +74,7 @@ INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinit
 		
 		Now let $M$ be any $\Lambda$-module. If $M$ is injective, then $M$ is in $\add V$, and so we may simply choose $V_2 = M$ and $V_1=0$. From here on out assume that $M$ has no injective summands. 
 		
-		Let $M'$ be the coinduced module of $M$, and $\varepsilon_M\colon M' \to M$ be the map coming from the counit. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$ then we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_0$.
+		Let $M'$ be the coinduced module of $M$, and $\varepsilon_M\colon M' \to M$ be the counit map. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$, then by lifting the map $P \to \cok\varepsilon_M$ we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_0$.
 		
 		Next, we let $V_1$ be the kernel of the map $V_0 \to M$. Then we wish to show that this is in $\add V$. Since $M \to \cok\varepsilon_M$ is an epimorphism and $P \to \cok\varepsilon_M$ is a projective cover, we can lift this to a morphism $P \to M$. Taking the pullback along $\Image \varepsilon_M \to M$ we get a commutative diagram:
 		\begin{center}
@@ -96,7 +101,9 @@ INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinit
 		\end{center} 
 		This is excatly the isomoprhism of the adjuntion between restriction of scalars and the coinduction functor in \cref{prop:coinduction_right_adjoint}.
 
-		In other words the map $P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. We now show that $\ker\varepsilon_M$ is in $\add V$, by showing that all simple modules are.
+		In other words the map $J_\Lambda P \to \Image \varepsilon_M$ factorizes through $M'$. Then using the pullback property, we get that the map $V_1 \to J_\Lambda P$ splits, and so $V_1 = \ker\varepsilon_M \oplus J_\Lambda P$. 
+		
+		We have already established that $J_\Lambda P$ is a $\Gamma$-module. By \cref{lem:epsilon_semisimple_(co)kernel} we have that $\ker\varepsilon_M$ is semisimple. We now show that $\ker\varepsilon_M$ is in $\add V$, by showing that all simple modules are.
 		
 		Let $S$ be a simple $\Lambda$-module, and let $e$ be an idempotent such that $S \cong \Lambda e / J_\Lambda e$. We have a semisimple $\Gamma$-module $\hat{S}:=\Gamma e / J_\Gamma e$ that contains $S$. Since $J_\Gamma = J_\Lambda$ we have that $\hat{S}$ is also semisimple as a $\Lambda$-module. Thus $S$ is a direct summand of $\hat{S}$. Since $\hat{S}$ is in $\add V$, we get that $S$ is as well. Thus $V_1$ is in $\add V$.
 		
@@ -107,16 +114,18 @@ INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinit
 			\end{tikzcd}
 		\end{center} 
 		The only thing we need to show is that the last map is surjective. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M') \oplus \Hom_\Lambda(W, P)$. We saw in \cref{prop:coinduction_right_adjoint} that the composition
-		\begin{tikzcd}
+		\begin{tikzcd}[column sep=10pt]
 			\Hom_\Gamma(W, M') \ar[r, "\subseteq"] & \Hom_\Lambda(W, M') \ar[r] & \Hom_\Lambda(W, M)
 		\end{tikzcd}
-		is an isomorphism. Thus the map $\Hom_\Lambda(W, M') \to \Hom_\Lambda(W, M)$ is surjective.
+		is an isomorphism. Thus the map \begin{tikzcd}[column sep=10pt]
+			\Hom_\Gamma(W, M') \ar[r] & \Hom_\Lambda(W, M)
+		\end{tikzcd} is surjective.
 		
 		If $W$ is projective, then $\Hom_\Lambda(W, -)$ is exact, and there is nothing we need to show.
 		
 		If $W$ is an indecomposable injective, since we assumed $M$ had no injective summands, a map $W \to M$ cannot be injective. This means that it factors through $W/\socle(W)$. Since $D(W/\socle(W)) = (DW)J_\Lambda = (DW)J_\Gamma$ this means that $W/\socle(W)$ is a $\Gamma$-module. Then from the argument above it follows that the map is surjective.
 		
-		This shows that the global $V$-$\operatorname{res-dim}(\Lambda) \leq 1$, and thus the representation dimension of $\Lambda$ is at most 3.
+		This shows that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$, and thus the representation dimension of $\Lambda$ is at most 3.
 	\end{proof}
 \end{theorem}
 
@@ -149,14 +158,18 @@ Now we move away from the case where $\psi$ is a radical embedding, and instead 
 	\end{proof}
 \end{theorem}
 
+We now give the definition of special biserial algebras, and string algebras.
+
 \begin{defn}[Special biserial algebra]
 	A finite dimensional algebra $\Lambda$ is called \emph{special biserial} if it is isomorphic to a path algebra $kQ/I$ such that
-	\begin{itemize}
+	\begin{enumerate}[i)]
 		\item Each vertex in $Q$ is the initial vertex for at most two arrows, and the terminal vertex for at most two arrows.
 		\item For any arrow $\beta$ in $Q$ there is at most on arrow $\alpha$ such that $\alpha\beta \not\in I$ and at most one arrow $\gamma$ such that $\beta\gamma \not\in I$.
-	\end{itemize}
+	\end{enumerate}
 	A special biserial algebra is called a \emph{string algebra} if it is also monomial. I.e. $I$ is generated by paths. 
 \end{defn}
+
+We now show that given a special biserial algebra we can always construct a string algebra, by moding out socles of projective injective modules like we do in \cref{thm:mod_out_socle}.
 
 \begin{prop}\label{prop:special_biserail_algerbas_are_binomial}
 	If $\Lambda = kQ/I$ is special biserial, then $I$ is generated by monomial and binomial relations. Further if $\gamma + t\gamma'$ is a binomial relation such that $\gamma \not\in I$, then $(\gamma)$ is the socle of a projective-injective module.
@@ -171,18 +184,18 @@ Now we move away from the case where $\psi$ is a radical embedding, and instead 
 
 		We show that $(\gamma)$ is simple, by showing that $\alpha\gamma$ is a relation for every arrow $\alpha$. We have that $\alpha(\gamma + t\gamma')$ is a relation. Since $\alpha_t \neq \alpha'_{t'}$ we have that either $\alpha\alpha_t = 0$ or $\alpha\alpha'_{t'} = 0$. If $\alpha\alpha_t=0$, then $\alpha\gamma=0$ and we are done. If $\alpha\alpha'_{t'} = 0$, then $\alpha\gamma'=0$ which means that $\alpha\gamma = \alpha(\gamma + t\gamma') - t\alpha\gamma'$ is as well. So $(\gamma)$ is simple and hence in the socle of $\Lambda e_i$.
 		
-		By exactly the same argument as above any path in $\Lambda e_i$ is an initial subpath of either $\gamma$ or $\gamma'$. This gives us that $\socle \Lambda e_i = (\gamma)$.
+		By exactly the same argument as above, any path in $\Lambda e_i$ is an initial subpath of either $\gamma$ or $\gamma'$. This gives us that $\socle \Lambda e_i = (\gamma)$.
 
-		Lastly we need to show that $\Lambda e_i$ is injective. We can do this by constructing an isomorphism $\varphi \colon \Lambda e_i \to D(e_j \Lambda)$. We define the map by $\varphi(e_i) = \gamma^*$. By the same argument as before $(\gamma)$ is the socle of $e_j\Lambda$ as right modules. Thus $(\gamma^*)$ is the top of $D(e_j \Lambda)$, and $\varphi$ is surjective. Since $\varphi(\gamma) = e_j^*$ and $(\gamma)$ is the socle of $\Lambda e_i$ we have that $\varphi$ is injective, and so it is an isomorphism.
+		Lastly we need to show that $\Lambda e_i$ is injective. We can do this by constructing an isomorphism $\varphi \colon \Lambda e_i \to D(e_j \Lambda)$. We define the map by $\varphi(e_i) = \gamma^*$. By the same argument as before $(\gamma)$ is the socle of $e_j\Lambda$ as right modules. Thus $\gamma^*$ generates the top of $D(e_j \Lambda)$, and $\varphi$ is surjective. Since $\varphi(\gamma) = e_j^*$ and $(\gamma)$ is the socle of $\Lambda e_i$ we have that $\varphi$ is injective, and so it is an isomorphism.
 
-		\todo{blabla}
-		 
+		Hence $\Lambda e_i$ is projective-injective, and so $(\gamma)$ is the socle of a projective-injective module. 
 	\end{proof} 
 \end{prop}
 
-This explains where the name \emph{special biserial} comes from; the radical of each indecomposable projective of a special biserial algebra is biserial. I.e. it is the sum of two uniserial modules. In fact for an indecomposable projective $P$, either $P$ is uniserial or $JP/\socle P$ is the direct sum of two uniserial modules.
+This explains where the name \emph{special biserial} comes from; the radical of each indecomposable projective of a special biserial algebra is biserial. I.e. it is the sum of two uniserial modules. In fact for an indecomposable projective $P$, either $P$ is uniserial or $JP/\socle P$ is the direct sum of two uniserial modules, as visualized in \cref{fig:biserial_projectives}.
 
-\begin{center}
+\begin{figure}
+	\centering
 \setlength{\tabcolsep}{30pt}
 \begin{tabular}{ccc}
 	\begin{tikzcd}
@@ -210,19 +223,17 @@ This explains where the name \emph{special biserial} comes from; the radical of 
 	\end{tikzcd}
 \end{tabular}
 
-The possible shapes for an indecomposable projective module.
-\end{center}
+\caption{The possible shapes for an indecomposable projective module.}\label{fig:biserial_projectives}
+\end{figure}
 
-Combining \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we can reduce the problem of computing the representation dimension of a special biserial algebra to monomial algebras, by modding out all binomial relations. 
+Combining \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we can reduce the problem of computing the representation dimension of a special biserial algebra to string algebras, by modding out all binomial relations. We now do this to show that special biserial algebras have representation dimension at most 3.
 
-Special biserial algebras that are monomial are called string algebras. Well known examples of these are gentle algebras. We now combine everything we have proved so far.
-
-\begin{theorem}\cite[Corollary~1.3]{EHIS04}
+\begin{theorem}\cite[Corollary~1.3]{EHIS04}\label{thm:special_biserial_algebra_repdim_3}
 	If $\Lambda = kQ/I$ is a special biserial algebra, then $\repdim(\Lambda) \leq 3$, and thus $\findim(\Lambda) < \infty$.
 	\begin{proof}
 		By \cref{thm:mod_out_socle} we may assume $\Lambda$ is a string algebra. If we can construct a radical embedding of $\Lambda$ into a representation finite algebra, then by \cref{thm:radical_embedding_repdim_3} our result would follow.
 
-		For any vertex $l \in Q$ define $E(l)$ to be the set of arrows ending in $l$ and $S(l)$ the set of arrows starting in $l$. Define $c(\Lambda)$ to be the sum of the number of vertices with $|E(l)| \geq 2$ and the number of vertices with $|S(l)| \geq 2$. The proof goes by induction on $c(\Lambda)$.
+		For any vertex $l \in Q$ define $E(l)$ to be the number of arrows ending in $l$ and $S(l)$ the number of arrows starting in $l$. Define $c(\Lambda)$ to be the sum of the number of vertices $l$ with $E(l) \geq 2$ and the number of vertices $k$ with $S(k) \geq 2$. The proof goes by induction on $c(\Lambda)$.
 
 		If $c(\Lambda)=0$, then $Q$ is the disjoint union of linearly oriented quivers of type $\mathbb{A}$ and cyclically oriented quivers of type $\tilde{\mathbb{A}}$. Finite dimensional algebras arising from such quivers are well known to be representation finite (c.f. \cite[Chapter~VI.2]{ARS97} or \cite[Chapter~V.3]{ASS06}), and so the identity map on $\Lambda$ is a radical embedding into an algebra of finite representation type.
 		\begin{center}

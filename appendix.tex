@@ -69,7 +69,7 @@ In this section we collect relevant theorems from homological algebra that would
 		Assume there is a non-projective module with finite projective dimension. Then in particular we have one with projective dimension equal to 1. Since all projective modules are free this means we have a short exact sequence
 		\begin{center}
 			\begin{tikzcd}
-			0 & R^{(I')} & R^{(I)} & M & 0
+			0 \ar[r] & R^{(I')} \ar[r] & R^{(I)} \ar[r] & M \ar[r] & 0
 			\end{tikzcd}
 		\end{center}
 		where $R^{(I')}$ maps into $JR^{(I)}$. Let $k$ be the minimal integer such that $J^k=0$. Let $a$ be a generator in $R^{(I')} $ and let $r$ be a non-zero element of $J^{k-1}$. Then $ra$ is non-zero, but is mapped to something in $J^{k-1}JR^m=0$, thus the map is not injective which gives a contradiction. 

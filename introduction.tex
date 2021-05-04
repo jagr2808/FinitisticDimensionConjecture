@@ -4,8 +4,8 @@
 
 In representation theory of finite dimensional algebras, there are several related conjectures known as the ``homological conejctures''. The strongest of these conjectures is the Finitistic Fimension Conjecture. It concerns the homological invariant called the finitistic dimension. For a noetherian ring we define
 \begin{align*}
-  \findim(R) &:= \{\pd M \mid M \in \mod R, \pd M < \infty\}\\
-  \Findim(R) &:= \{\pd M \mid M \in \Mod R, \pd M < \infty\}.
+  \findim(R) &:= \sup\{\pd M \mid M \in \mod R, \pd M < \infty\}\\
+  \Findim(R) &:= \sup\{\pd M \mid M \in \Mod R, \pd M < \infty\}
 \end{align*}
 The finitistic dimension conjecture states that $\findim(\Lambda) < \infty$, whenever $\Lambda$ is a finite dimensional algebra. Note that $\findim(R) \leq \Findim(R)$, and so a stronger conjecture is whether $\Findim(\Lambda) < \infty$, but in this thesis we are mainly interested in the small finitistic dimension.
 
@@ -13,12 +13,14 @@ The finitistic dimension conjecture states that $\findim(\Lambda) < \infty$, whe
 
 The finitistic dimension was introduced by Auslander--Buchsbaum in the late 1950s to study commutative noetherian rings. They proved that for a local noetherian commutative ring the finitistic dimension equals the depth\cite{AB57}. Later it was shown by Bass and Gruson--Raynaud that for any commutative noetherian ring the (big) finitistic dimension equals the Krull dimension\cite{Bass62,RG71}.
 
-The non-commutative case turned out to be more difficult. In 1960 Bass published to important questions about the finitistic dimension\cite{Bass60}, which he credits to Rosenberg and Zelinsky. Their first question asks whether the small finitistic dimension equals the big finitistic dimension. This was shown to be false even for monomial algebras by Zimmerman-Huisgen in 1992\cite{ZH92}.
+The non-commutative case turned out to be more difficult. In 1960 Bass published to important questions about the finitistic dimension\cite{Bass60}, which they credit to Rosenberg and Zelinsky. Their first question asks whether the small finitistic dimension equals the big finitistic dimension. This was shown to be false even for monomial algebras by Zimmerman-Huisgen in 1992\cite{ZH92}.
 
-Their second question is what we here call the finitistic dimension conjecture. Much progress have been done on the problem over the last 50 years. Zimmerman-Huisgen has a great paper summarizing most of the results\cite{ZH95}. Here we try to do something similar to said paper, with the focus on establishing which classes of algebras the conjecture is known to hold for. We try to keep the thesis self contained by writing out all the proofs, and in addition we include some results not covered in Zimmermann-Huisgen's\todo{Ive seen Zimmermann Huisgen, Zimmermann-Huisgen, and Huisgen-Zimmermann, whixh is it??} paper.
+Their second question is what we here call the finitistic dimension conjecture. Much progress have been done on the problem over the last 60 years. Zimmerman-Huisgen has a great paper summarizing most of the results\cite{ZH95}. Here we try to do something similar to said paper, with the focus on establishing which classes of algebras the conjecture is known to hold for. We try to keep the thesis self contained by writing out all the proofs, and in addition we include some results not covered in Zimmermann-Huisgen's\todo{Ive seen Zimmermann Huisgen, Zimmermann-Huisgen, and Huisgen-Zimmermann, whixh is it??} paper.
 
 \subsection*{Structure of thesis}
-the sections of this thesis are self contained, and can be read independently of one another, except for \cref{sec:vanishing_radical} which relies on results from \cref{sec:Igusa-Todorov}. In \cref{sec:summary} we summarize for which algebras the conjecture is known to hold. This relies only on \cref{sec:contravariantly_finite,sec:Igusa-Todorov,sec:vanishing_radical,sec:monomial_algebras,sec:Unbounded_derived_category}, and not on \cref{sec:homological_conjectures,sec:recollement}.
+The sections of this thesis are self contained, and can be read independently of one another, except for \cref{sec:vanishing_radical} which relies on results from \cref{sec:Igusa-Todorov}. In \cref{sec:summary} we summarize for which algebras the conjecture is known to hold. This relies only on \cref{sec:contravariantly_finite,sec:Igusa-Todorov,sec:vanishing_radical,sec:monomial_algebras,sec:Unbounded_derived_category}, and not on \cref{sec:homological_conjectures,sec:recollement}.
+
+In addition to the main sections of this thesis, there is an appendix, \cref{sec:appendix}, where we cover general theorems from homological algebra that would break the flow of the main text. These results are referenced when used.
 
 In \cref{sec:homological_conjectures} we discuss the homological conjectures, and show the implications between them. All the conjectures concerns a specific property of an algebra that is conjectured to hold for all algebras. In \cref{prop:conj_on_individual_algebras} we give an overview of how the conjectures are related on the level of individual algebras.
 
@@ -30,6 +32,8 @@ In \cref{sec:Igusa-Todorov} we introduce the Igusa--Todorov function, and use it
 
 In \cref{sec:vanishing_radical} we discuss restriction one can impose on the radical for the algebra to satisfy the finitistic dimension conjecture.
 
-
 \todo{text}
 
+In \cref{sec:monomial_algebras} we show that the finitistic dimension of a monomial algebra is always finite. This proof is due to Green--Kirkman--Kuzmanovich\cite{GKK91}. An alternate proof was given by Igusa--Zacharia\cite{IgZa90}, but we don't discuss that here.
+
+In \cref{sec:Unbounded_derived_category} we discuss a more recent result, due to Rickard\cite{Rick19}. In contrast to the rest of this thesis, instead of cinsidering the small finitistic dimension, we give a condition for when the big finitistic dimension is finite. Specifically we show that $\Findim(\Lambda) < \infty$ if the inejctives generate the unbounded derived category. Many of the algebras considered in previous sections also satisfies this more general condition. We state this more precisely in \cref{thm:Findim_summary}(\ref{item:Findim_derived_equiv}).
