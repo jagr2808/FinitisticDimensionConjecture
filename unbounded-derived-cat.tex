@@ -30,7 +30,7 @@ It's a well known fact that $\Lambda$ generates the derived category as a locali
 		The inclusion from the sum to the product is clearly a quasi-isomorphism. We want to show that it is not a homotopy equivalence. Assume for the sake of contradiction that it was. Then tensoring with $\Lambda/J$ would give us another homotopy equivalence. Since $\Lambda/J$ is finitely presented tensoring preserves both products and coproducts. Because all the resolutions were minimal, tensoring with $\Lambda/J$ gives us a complex with differentials equal to 0. In degree 0 we get $$\bigoplus \Tor_i(\Lambda/J, M_i) \to \prod \Tor_i(\Lambda/J, M_i) .$$
 		Since $\Tor_i(\Lambda/J, M_i)$ is nonzero for every $M_i$ this map is not an isomorphism, and so we don't have a homotopy equivalence.
 		
-		Let $C$ be the cone of $\bigoplus P_i[-i] \to \prod P_i[-i]$. Then $C$ is 0 in the derived category, but non-zero in the homotopy category. Since $\Lambda$ is artinian the product of projectives is projective\cite[Theorem~3.3]{Chase60}, so $\prod P_i[-i]$ is a complex of projectives, which means that $C$ is a complex of projectives. 
+		Let $C$ be the cone of $\bigoplus P_i[-i] \to \prod P_i[-i]$. Then $C$ is 0 in the derived category, but non-zero in the homotopy category. Since $\Lambda$ is artinian, the product of projectives is projective\cite[Theorem~3.3]{Chase60}, so $\prod P_i[-i]$ is a complex of projectives, which means that $C$ is a complex of projectives. 
 		
 		In other words $C$ is an acyclic lower bounded complex of projectives that is not contractible. Tensoring with $D\Lambda$ is an equivalence from projectives to injectives with inverse $\Hom(D\Lambda, -)$ (c.f. \cref{thm:Proj_Inj_equivalence} in the appendix), so $D\Lambda \otimes C$ is a lower bounded complex of injectives that is not contractible. Such a complex cannot be acyclic so $D\Lambda \otimes C$ has homology, and is thus non-zero in $\D(\Lambda)$.
 		
@@ -46,7 +46,7 @@ It's a well known fact that $\Lambda$ generates the derived category as a locali
 \begin{theorem}\cite[Theorem~4.4]{Rick19}
 	For a finite dimensional algebra $\Lambda$ we have $\Findim(\Lambda) < \infty$ if and only if $D\Lambda^\perp \cap \D^+(\Lambda) = 0$.
 	\begin{proof}
-		In the theorem above we proved that when the finitistic dimension is infinite then there is a non-zero complex in $\D^+(\Lambda)$ perpendicular to $D\Lambda$. 
+		In the theorem above we proved that when the finitistic dimension is infinite, then there is a non-zero complex in $\D^+(\Lambda)$ perpendicular to $D\Lambda$. 
 		
 		The proof of the converse is the same as for \cref{thm:FDC_implies_VC}. If we have a non-zero object $X \in D\Lambda^\perp \cap \D^+(\Lambda)$, then by replaccing $X$ by its minimal injective resolution we see that $\D(\Lambda)(D\Lambda, X)$ is an acyclic minimal complex of projectives that continue arbitrarily to the right. So the cokernels have arbitrarily large projective dimension. 
 	\end{proof}

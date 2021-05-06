@@ -2,7 +2,9 @@
 
 We remind the reader that throughout this section $\Lambda$ is a finite dimensional algebra, and $J$ is its radical. The Loewy length of an algebra is the smallest integer $n$ such that $J^n = 0$. In this section show that algebras with short Loewy length have finite finitistic dimension.
 
-The may theorem of this section is \cref{thm:half_rep_finite} in which we prove that ``half representation finite'' algebras satisfies the finitistic dimension conjecture. The reader should note that \cref{thm:J2_equals_0_implies_FDC} and \cref{thm:J3_equals_0_implies_FDC} are special cases of \cref{thm:half_rep_finite}, but we include alternate proofs here.
+Historically the two important conditions for showing that $\findim(\Lambda) < \infty$ has been that $J^2=0$ and $J^3=0$. Note that both of these are special case of this sections main theorem, \cref{thm:half_rep_finite}, where we show that $\findim(\Lambda) < \infty$ for ``half representation finite'' algebras. This proof is due to Wang\cite{Wang94}.
+
+We first give an alternate proof for the case $J^2=0$.
 
 \begin{theorem}\label{thm:J2_equals_0_implies_FDC}
 	If $J^2=0$ then $\findim(\Lambda) < \infty$.
@@ -18,7 +20,7 @@ The proof of the above theorem is relatively elementary, but it first appeared a
 	\begin{proof}
 		As before let $d = \max\{\pd S_i \mid \pd S_i < \infty\}$ where $S_i$ ranges over the simple $\Lambda$-modules. We want to show that $\findim(\Lambda) \leq d+1$.
 
-		First note that since $J^i/J^{i+1}$ is semisimple and of finite projective dimension, we have $\pd J^i/J^{i+1} \leq d$. Now let $M$ be a $\Lambda$-module of finite projective dimension. We see that $J^iM/J^{i+1}M$ is in $\add J^i/J^{i+1}$, because it is semisimple and for each nonzero simple summand $(\lambda m)$, we have that $(\lambda m) \cong (\lambda) \subseteq J^i/J^{i+1}$.
+		First note that since $J^i/J^{i+1}$ is semisimple and of finite projective dimension, we have $\pd J^i/J^{i+1} \leq d$. Now let $M$ be a $\Lambda$-module with finite projective dimension. We see that $J^iM/J^{i+1}M$ is in $\add J^i/J^{i+1}$, because it is semisimple and for each nonzero simple summand $(\lambda m)$, we have that $(\lambda m) \cong (\lambda) \subseteq J^i/J^{i+1}$.
 
 		So $\pd J^iM/J^{i+1}M \leq d$ for all $i\geq 2$. For each $i$ we have a short exact sequence
 		\begin{center}
@@ -46,24 +48,26 @@ The proof of the above theorem is relatively elementary, but it first appeared a
 	\end{proof}
 \end{theorem}
 
-The case for $J^3=0$ was first proved by Green--Zimmerman-Huisgen\cite[Theorem~16]{GZH91}. Here we give a simplified proof, due to Igusa--Todorov, using the $\psi$-function from \cref{sec:Igusa-Todorov}.
+The case for $J^3=0$ was first proved by Green--Huisgen-Zimmerman\cite[Theorem~16]{GZH91}. Simplified proofs where given by Fuller--Saorin\cite{FS92}, and Igusa--Todorov\cite[Corollary~6]{IgTo05}. Igusa--Todorov's proof was then generalized by Wang to so called ``half representation finite'' algebras\cite{Wang94}. We give this proof here.
 
-\begin{theorem}\cite[Corollary~6]{IgTo05}\label{thm:J3_equals_0_implies_FDC}
-	If $J^3=0$ then $\findim(\Lambda) < \infty$.
-	\begin{proof}
-		Let $M$ be a module with $\pd M < \infty$, and let $P^0 \to M$ be its projective cover. Since $\Omega M \subseteq JP^0$ we have $J^2\Omega M = 0$. Let $P \to \Omega M$ be a projective cover. Since $J^2\Omega M = 0$ we can factorize this as $P \to P/J^2P \to \Omega M$, and we get a short exact sequence
-		\begin{center}
-		\begin{tikzcd}
-			0 \ar[r] & (\Omega^2 M + J^2P) / J^2 P \ar[r] & P / J^2 P \ar[r] & \Omega M \ar[r] & 0
-		\end{tikzcd}
-		\end{center}
-		Let $\psi$ be the Igusa--Todorov function as introduced in \cref{sec:Igusa-Todorov}. Since $\Omega^2 M \subseteq JP$ we have that $(\Omega^2 M + J^2P) / J^2 P$ is semisimple. Then by \cref{lem:properties_of_psi} $\psi((\Omega^2 M + J^2P) / J^2 P) \leq \psi(\Lambda / J)$, and $\psi(P / J^2 P) \leq \psi(\Lambda / J^2)$.
+%Here we give a simplified proof, due to Igusa--Todorov, using the $\psi$-function from \cref{sec:Igusa-Todorov}.
+
+% \begin{theorem}\cite[Corollary~6]{IgTo05}\label{thm:J3_equals_0_implies_FDC}
+% 	If $J^3=0$ then $\findim(\Lambda) < \infty$.
+% 	\begin{proof}
+% 		Let $M$ be a module with $\pd M < \infty$, and let $P^0 \to M$ be its projective cover. Since $\Omega M \subseteq JP^0$ we have $J^2\Omega M = 0$. Let $P \to \Omega M$ be a projective cover. Since $J^2\Omega M = 0$ we can factorize this as $P \to P/J^2P \to \Omega M$, and we get a short exact sequence
+% 		\begin{center}
+% 		\begin{tikzcd}
+% 			0 \ar[r] & (\Omega^2 M + J^2P) / J^2 P \ar[r] & P / J^2 P \ar[r] & \Omega M \ar[r] & 0
+% 		\end{tikzcd}
+% 		\end{center}
+% 		Let $\psi$ be the Igusa--Todorov function as introduced in \cref{sec:Igusa-Todorov}. Since $\Omega^2 M \subseteq JP$ we have that $(\Omega^2 M + J^2P) / J^2 P$ is semisimple. Then by \cref{lem:properties_of_psi} $\psi((\Omega^2 M + J^2P) / J^2 P) \leq \psi(\Lambda / J)$, and $\psi(P / J^2 P) \leq \psi(\Lambda / J^2)$.
 		
-		Applying \cref{thm:projdim_bounded_by_psi} to the short exact sequence above we thus get $\pd \Omega M \leq \psi(\Lambda / J \oplus \Lambda / J^2) + 1$, and so $\pd M \leq \psi(\Lambda / J \oplus \Lambda / J^2) + 2$, and $\findim(\Lambda) < \infty$.
-	\end{proof}
-\end{theorem}
+% 		Applying \cref{thm:projdim_bounded_by_psi} to the short exact sequence above we thus get $\pd \Omega M \leq \psi(\Lambda / J \oplus \Lambda / J^2) + 1$, and so $\pd M \leq \psi(\Lambda / J \oplus \Lambda / J^2) + 2$, and $\findim(\Lambda) < \infty$.
+% 	\end{proof}
+% \end{theorem}
 
-The main theorem of this section is just a very slight generalization of the proof of the $J^3=0$ case, and is due to Wang. 
+% The main theorem of this section is just a very slight generalization of the proof of the $J^3=0$ case, and is due to Wang. 
 
 \begin{theorem}\cite{Wang94}\label{thm:half_rep_finite}
 	If $J^{2l+1} = 0$ and $\Lambda / J^l$ is representation-finite, then $\findim(\Lambda) < \infty$.

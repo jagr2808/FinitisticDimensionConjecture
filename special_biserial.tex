@@ -53,7 +53,7 @@ We now use the radical embedding to say somethign about the representation dimen
 
 INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinite with repdim of $\Gamma= n-1$. Same proof should give repdim $\Lambda=n$ except there might be problem with the exactness of the sequence since there are more $\Lambda$-linear maps. Find counterexample\todo{?} 
 
-\begin{theorem}\label{thm:radical_embedding_repdim_3}
+\begin{theorem}\cite[Theorem~1.1]{EHIS04}\label{thm:radical_embedding_repdim_3}
 	If $\Gamma$ is representation finite and $\Lambda \subseteq \Gamma$ is a radical embedding, then the representation dimension of $\Lambda$ is at most 3.
 	\begin{proof}
 		Since $\Gamma$ is representation finite there is a finite set of indecomposable $\Gamma$-modules up to isomorphism. Let $X$ be the direct sum of all of these. Since $\Lambda$ is a subalgebra of $\Gamma$ we can consider $X$ as a $\Lambda$-module. Now define $V$ to be $\Lambda \oplus D\Lambda \oplus X$, i.e. $V$ is the sum of all projective $\Lambda$-modules, all injective $\Lambda$-modules, and all $\Gamma$-modules. We claim that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$, which by \cref{prop:repdim_resdim+2} would imply that $\repdim(\Lambda) \leq 3$.
@@ -131,7 +131,7 @@ INTERESTINGQUESTION: what happens if we replace the hypothesis $\Gamma$-repfinit
 
 Now we move away from the case where $\psi$ is a radical embedding, and instead look at a specific quotient map.
 
-\begin{theorem}\label{thm:mod_out_socle}
+\begin{theorem}\cite[Proposition~1.2]{EHIS04}\label{thm:mod_out_socle}
 	Let $\Lambda$ be a basic finite dimensional algebra and let $P$ be a basic projective-injective $\Lambda$-module. Then the socle of $P$ is a two-sided ideal, which allows us to define the ring $\Gamma := \Lambda / \socle P$. Then we have that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\begin{proof}
 		First we show that the socle of $P$ is a two-sided ideal. Multiplication on the right defines a homomorphism $-\cdot \lambda\colon \Lambda \to \Lambda$. Any homomorphism maps the socle to the socle, so $(\socle P) \cdot \lambda \subseteq \socle \Lambda$. Now let $s \in \socle P$ be some element such that $s\lambda$ is non-zero. Then the injective envelope $I(s)$ is a direct summand of $P$ and thus projective-injective. Further since $-\cdot \lambda\colon (s) \to (s\lambda)$ is an injective map, $I(s)$ is mapped injectively into $\Lambda$ by $-\cdot \lambda$, which means $-\cdot\lambda\colon I(s) \to \Lambda$ splits. Since $\Lambda$ is basic this means that $I(s)\lambda \subseteq P$, and thus $s\lambda \in \socle P$, so the socle of $P$ is a two-sided ideal.
