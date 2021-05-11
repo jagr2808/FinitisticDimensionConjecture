@@ -17,7 +17,7 @@ The non-commutative case turned out to be more difficult. In 1960 Bass published
 
 Their second question is what we here call the finitistic dimension conjecture. Much progress have been done on the problem over the last 60 years. Huisgen-Zimmerman has a great paper summarizing most of the results\cite{ZH95}. Here we try to do something similar to said paper, with the focus on establishing which classes of algebras the conjecture is known to hold for. We try to keep the thesis self contained by writing out all the proofs, and in addition we include some results not covered in Huisgen-Zimmermann's paper.
 
-\subsection*{Structure of thesis}
+\subsection*{Overview}
 The sections of this thesis are self contained, and can be read independently of one another, except for \cref{sec:vanishing_radical} which relies on results from \cref{sec:Igusa-Todorov}. In \cref{sec:summary} we summarize for which algebras the conjecture is known to hold. This relies only on \cref{sec:contravariantly_finite,sec:Igusa-Todorov,sec:vanishing_radical,sec:monomial_algebras,sec:Unbounded_derived_category}, and not on \cref{sec:homological_conjectures,sec:recollement}.
 
 In addition to the main sections of this thesis, there is an appendix, \cref{sec:appendix}, where we cover general theorems from homological algebra that would break the flow of the main text. These results are referenced when used.
@@ -35,3 +35,15 @@ In \cref{sec:vanishing_radical} we discuss restriction one can impose on the rad
 In \cref{sec:monomial_algebras} we show that the finitistic dimension of a monomial algebra is always finite. This proof is due to Green--Kirkman--Kuzmanovich\cite{GKK91}. An alternate proof was given by Igusa--Zacharia\cite{IgZa90}, but we don't discuss that here.
 
 In \cref{sec:Unbounded_derived_category} we discuss a more recent result, due to Rickard\cite{Rick19}. In contrast to the rest of this thesis, instead of cinsidering the small finitistic dimension, we give a condition for when the big finitistic dimension is finite. Specifically we show that $\Findim(\Lambda) < \infty$ if the inejctives generate the unbounded derived category. Many of the algebras considered in previous sections also satisfies this more general condition. We state this more precisely in \cref{thm:Findim_summary}(\ref{item:Findim_derived_equiv}).
+
+\subsection*{The intended reader}
+This thesis is written to be understandable to someone who has taken a course on representation theory of finite dimensional algebras and homological algebra. The reader should be familiar with: 
+\renewcommand\labelitemi{---}
+\begin{itemize}
+  \item representation theory of quivers and path algebras,
+  \item projective dimension and the $\Ext$-functor,
+  \item the long exact sequence in $\Ext$ and $\Tor$,
+  \item the basic definitions of category theory, including (co)limits and adjoint functors,
+  \item the derived category and triangulated categories.
+\end{itemize}
+These subject are covered in the courses \textit{MA3203 -- Ring Theory} and \textit{MA3204 -- Homological Algebra} offered at NTNU, or in classical textbooks such as \cite{ARS97} and \cite{Wei94}.
