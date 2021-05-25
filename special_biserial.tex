@@ -1,6 +1,6 @@
 \subsection{Special biserial algebras}\label{sec:special_biserial_algebras}
 
-In this section we shall consider two finite dimensional algebras, with a homomorphism between them. We denote these by $\Lambda$ and $\Gamma$, and we denote their radicals by $J_\Lambda$ and $J_\Gamma$ respectively.
+In this section we consider two finite dimensional algebras, with a homomorphism between them. We denote these by $\Lambda$ and $\Gamma$, and we denote their radicals by $J_\Lambda$ and $J_\Gamma$ respectively.
 
 The goal of the section is to show that special biserial algebras have representation dimension less than or equal to 3, and consequently that they have finite finitistic dimension. We do this in several parts. In \cref{thm:radical_embedding_repdim_3} we show that an algebra that has a radical embedding into a representation finite algebra has representation dimension at most 3. In \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we show that for every special biserial algebra there is a string algebra with larger representation dimension. Lastly in \cref{thm:special_biserial_algebra_repdim_3} we construct a radical embedding of any string algebra into a representation finite algebra.
 
@@ -70,7 +70,7 @@ We now use the radical embedding to say something about the representation dimen
 		\end{center}
 		is exact. 
 		
-		Now let $M$ be any $\Lambda$-module. If $M$ is injective, then $M$ is in $\add V$, and so we may simply choose $V_2 = M$ and $V_1=0$. From here on out assume that $M$ has no injective summands. 
+		Now let $M$ be any $\Lambda$-module. If $M$ is injective, then $M$ is in $\add V$, and so we may simply choose $V_0 = M$ and $V_1=0$. From here on out assume that $M$ has no injective summands. 
 		
 		Let $M'$ be the coinduced module of $M$, and $\varepsilon_M\colon M' \to M$ be the counit map. Now if we let $P$ be the projective cover of $\cok \varepsilon_M$, then by lifting the map $P \to \cok\varepsilon_M$ we get a surjective map $M' \oplus P \to M$. Since $M'$ is a $\Gamma$-module and $P$ is projective $M'\oplus P$ is in $\add V$. We let this be our $V_0$.
 		
@@ -111,7 +111,7 @@ We now use the radical embedding to say something about the representation dimen
 			0\ar[r] & (V, V_1) \ar[r] & (V, V_2) \ar[r] & (V, M) \ar[r] & 0.
 			\end{tikzcd}
 		\end{center} 
-		The only thing we need to show is that the last map is surjective. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M') \oplus \Hom_\Lambda(W, P)$. We saw in \cref{prop:coinduction_right_adjoint} that the composition
+		The only thing we need to show is that the right map is surjective. We do this by verifying the three cases for an indecomposable summand of $V$. Firstly let $W$ be a $\Gamma$-module. Then $\Hom_\Lambda(W, V_2)$ breaks up as a direct sum into $\Hom_\Lambda(W, M') \oplus \Hom_\Lambda(W, P)$. We saw in \cref{prop:coinduction_right_adjoint} that the composition
 		\begin{tikzcd}[column sep=10pt]
 			\Hom_\Gamma(W, M') \ar[r, "\subseteq"] & \Hom_\Lambda(W, M') \ar[r] & \Hom_\Lambda(W, M)
 		\end{tikzcd}
@@ -121,7 +121,7 @@ We now use the radical embedding to say something about the representation dimen
 		
 		If $W$ is projective, then $\Hom_\Lambda(W, -)$ is exact, and there is nothing we need to show.
 		
-		If $W$ is an indecomposable injective, since we assumed $M$ had no injective summands, a map $W \to M$ cannot be injective. This means that it factors through $W/\socle(W)$. Since $D(W/\socle(W)) = (DW)J_\Lambda = (DW)J_\Gamma$ this means that $W/\socle(W)$ is a $\Gamma$-module. Then from the argument above it follows that the map is surjective.
+		Since we assumed $M$ had no injective summands, if $W$ is an indecomposable injective, then a map $W \to M$ cannot be injective. This means that it factors through $W/\socle(W)$. Since $D(W/\socle(W)) = (DW)J_\Lambda = (DW)J_\Gamma$ this means that $W/\socle(W)$ is a $\Gamma$-module. Then from the argument above it follows that the map is surjective.
 		
 		This shows that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$, and thus the representation dimension of $\Lambda$ is at most 3.
 	\end{proof}
@@ -136,7 +136,7 @@ Now we move away from the case where $\psi$ is a radical embedding, and instead 
 		
 		Next we note that any indecomposable $\Lambda$-module is either a $\Gamma$-module, or a direct summand of $P$. To see this, let $M$ be any indecomposable $\Lambda$-module and consider $(\socle P)M$. If this is zero, then $M$ is a $\Gamma$-module. If on the other hand there is some $s \in \socle P$ and $m \in M$ such that $sm \neq 0$, then let $I(s)$ be the injective envelope of $s$ and let $e$ be the idempotent such that $I(s) = \Lambda e$. Then we get a map $I(s) \to M$ which maps $\lambda e$ to $\lambda e m$. Since $sm \neq 0$ this maps the socle of $I(s)$ injectively. Now, since $I(s)$ is injective this mean that $I(s)$ is a direct summand of $M$. Since $M$ is indecomposable we have that $M \cong I(s)$, and thus $M$ is a direct summand of $P$.
 		
-		Now we show that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator-cogenerator because any indecomposable projective or injective module that is not a summand of $P$ will be  a summand of $N$, since all $\Lambda$-modules that are not summands of $P$ are $\Gamma$-modules.
+		Now we show that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ that satisfies the inequality $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator-cogenerator because any indecomposable projective or injective module that is not a summand of $P$ will be  a summand of $N$, since all $\Lambda$-modules that are not summands of $P$ are $\Gamma$-modules.
 		
 		To show that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ we explicitly construct the resolutions. Let $M$ be an indecomposable $\Lambda$-module. Then we wish to construct an exact sequence
 		\begin{center}
@@ -162,12 +162,12 @@ We now give the definition of special biserial algebras, and string algebras.
 	A finite dimensional algebra $\Lambda$ is called \emph{special biserial} if it is isomorphic to a path algebra $kQ/I$ such that
 	\begin{enumerate}[i)]
 		\item Each vertex in $Q$ is the initial vertex for at most two arrows, and the terminal vertex for at most two arrows.
-		\item For any arrow $\beta$ in $Q$ there is at most on arrow $\alpha$ such that $\alpha\beta \not\in I$ and at most one arrow $\gamma$ such that $\beta\gamma \not\in I$.
+		\item For any arrow $\beta$ in $Q$ there is at most one arrow $\alpha$ such that $\alpha\beta \not\in I$ and at most one arrow $\gamma$ such that $\beta\gamma \not\in I$.
 	\end{enumerate}
-	A special biserial algebra is called a \emph{string algebra} if it is also monomial. I.e. $I$ is generated by paths. 
+	A special biserial algebra is called a \emph{string algebra} if it is also monomial, i.e. if $I$ is generated by paths. 
 \end{defn}
 
-We now show that given a special biserial algebra we can always construct a string algebra, by moding out socles of projective injective modules like we do in \cref{thm:mod_out_socle}.
+We now show that given a special biserial algebra we can always construct a string algebra, by moding out socles of projective injective modules like in \cref{thm:mod_out_socle}.
 
 \begin{prop}\label{prop:special_biserail_algerbas_are_binomial}
 	If $\Lambda = kQ/I$ is special biserial, then $I$ is generated by monomial and binomial relations. Further if $\gamma + t\gamma'$ is a binomial relation such that $\gamma \not\in I$, then $(\gamma)$ is the socle of a projective-injective module.

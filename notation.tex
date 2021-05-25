@@ -6,11 +6,11 @@ Throughout this thesis $k$ will be a field, and $\Lambda$ will be a finite dimen
 
 %$\mod\Lambda$ finite dimensional (left-)modules, $\Mod\Lambda$ all (left-)modules.
 
-We will use $\mod\Lambda$ to refer to the category of finite dimensional left $\Lambda$-modules, and $\Mod\Lambda$ to the category of all left $\Lambda$-modules. Any modules considered will be left modules if not specified otherwise. When there is ambiguity we may write $_\Lambda M$ to specify that we are considering $M$ as a left $\Lambda$-module, and $M_\Lambda$ to specify that we are considering $M$ as a right $\Lambda$-module. Similarly $_\Gamma M_\Lambda$ means we are considering $M$ as a $\Gamma$-$\Lambda$-bimodule.
+We will use $\mod\Lambda$ to refer to the category of finite dimensional left $\Lambda$-modules, and $\Mod\Lambda$ to the category of all left $\Lambda$-modules. All modules considered will be left modules if not specified otherwise. When there is ambiguity we may write $_\Lambda M$ to specify that we are considering $M$ as a left $\Lambda$-module, and $M_\Lambda$ to specify that we are considering $M$ as a right $\Lambda$-module. Similarly $_\Gamma M_\Lambda$ means we are considering $M$ as a $\Gamma$-$\Lambda$-bimodule.
 
 %$_\Gamma M_\Lambda$ is a $\Gamma-\Lambda$-bimodule. Left $\Gamma$-module, right $\Lambda$-module
 
-Since right $\Lambda$-modules are the same as left $\Lambda^{\op}$-modules we use these interchangeably. We use the symbol $D$ to denote the duality functor $D\colon \mod \Lambda \leftrightarrow \mod\Lambda^{\operatorname{op}}$ where $DM = \Hom_k(M, k)$. Typically $D\Lambda$ will refer to the left module $D\Lambda_\Lambda$.
+Since right $\Lambda$-modules are the same as left $\Lambda^{\op}$-modules we use these interchangeably. We use the symbol $D$ to denote the duality functor $D\colon \mod \Lambda \leftrightarrow \mod\Lambda^{\operatorname{op}}$ where $DM = \Hom_k(M, k)$. Typically $D\Lambda$ will refer to the left module $D(\Lambda_\Lambda)$.
 
 %$D: \mod \Lambda \to \mod\Lambda^{\operatorname{op}}$ is the duality $DM = \Hom(M, k)$
 
@@ -35,7 +35,7 @@ For an exact category $\mathcal A$ we write:
 \end{itemize}
 We also write $\D^b(\Lambda)$ instead of $\D^b(\mod\Lambda)$ and $\D(\Lambda)$ instead of $\D(\Mod\Lambda)$. 
 
-In all of these triangulated categories $X[i]$ will denote the complex $X$ shifted $i$ degrees down. That is, $(X[i])^n = X^{n+i}$. The hard truncation is the complex defined by $(X^{\geq n})^m = X^m$ when $m \geq n$ and $(X^{\geq n})^m = 0$ otherwise. We denote the hard truncation of $X$ by $X^{\geq n}$. The other hard truncation, $X^{\leq n}$, is defined similarly.
+In all of these triangulated categories $X[i]$ denotes the complex $X$ shifted $i$ degrees down. That is, $(X[i])^n = X^{n+i}$. The hard truncation is the complex defined by $(X^{\geq n})^m = X^m$ when $m \geq n$, and $(X^{\geq n})^m = 0$ otherwise. We denote the hard truncation of $X$ by $X^{\geq n}$. The other hard truncation, $X^{\leq n}$, is defined similarly. \todo{rewrite?}
 
 %$\D^b(\Lambda)$ bounded derived category, $K^b$, $K^{+,b}$, $K^{-, b}$, $\D$, etc. $X^{\geq n}$ hard truncation, $[i]$ shift
 
@@ -46,7 +46,7 @@ For a module $M$ we will write $I(M)$ for its injective envelope, and $P(M)$ for
 		          &            &           &  M      
 	\end{tikzcd}
 \end{center} 
-for its minimal projective resolution. We let the $n$th syzygies of $M$ be the kernel of $d_M^{n-1}$, denoted by $\Omega^n M$. We also define $\Omega^0 M$ to be $M$.
+for its minimal projective resolution. We let the $n^\text{th}$ syzygy of $M$ be the kernel of $d_M^{n-1}$, denoted by $\Omega^n M$. We also define $\Omega^0 M$ to be $M$.
 
 The projective dimension of $M$ is $i$ if $P_M^i$ is the last non-zero module in the minimal projective resolution, and $\infty$ if there is no such module. We denote the projective dimension by $\pd M$.
 

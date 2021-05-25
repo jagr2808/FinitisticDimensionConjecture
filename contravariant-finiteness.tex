@@ -2,11 +2,11 @@
 
 %Results are generalized in \cite{Trl01}
 
-In this section we will study the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{cor:contravariant_finite_implies_FDC} we show that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite. \cref{exam:not_contravariantly_finite}, discovered by Igusa--Smalø--Todorov, shows that $\mathcal P^\infty$ can fail to be contravariantly finite even for monomial algebras with radical cubed equal to 0.
+In this section we will study the structure of contravariantly finite resolving subcategories. One example of a resolving subcategory is the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{thm:contravariantly_finite_resolving_is_Xi_filtered} we give a description of the structure of a contravariantly finite resolving subcategory from the approximations of the simple modules. As a corollary we get that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite. \cref{exam:not_contravariantly_finite}, discovered by Igusa--Smalø--Todorov, shows that $\mathcal P^\infty$ can fail to be contravariantly finite even for monomial algebras with radical cubed equal to 0.
 
 It is known that $\mathcal P^\infty$ is contravariantly finite when the algebra is stably equivalent to a hereditary algebra. This was shown by Auslander--Reiten in their original paper \cite{AR91}. We consider a generalization of this class in \cref{sec:stable_hereditary_algebras} through the perspective of the Igusa--Todorov-function.
 
-Throughout this section we, as usual, assume $\Lambda$ is a finite dimensional algebra, though it should be noted that all the results still hold if we let $\Lambda$ be an artin algebra.
+Throughout this section we, as usual, assume $\Lambda$ is a finite dimensional algebra, though it should be noted that all the results still hold if we instead let $\Lambda$ be an artin algebra.
 
 \begin{defn}[Resolving]
 	A full subcategory of an abelian category is called \emph{resolving} if 
@@ -19,7 +19,7 @@ Throughout this section we, as usual, assume $\Lambda$ is a finite dimensional a
 
 Note that $\mathcal P^\infty$ is a resolving subcategory.
 
-The main theorem of this section will hold for resolving subcategories in general. In the next few propositions we will consider a resolving subcategory $\mathcal X$, and its $\Ext$-orthogonal complement
+In the next few propositions we will consider a resolving subcategory $\mathcal X$, and its $\Ext$-orthogonal complement
 \begin{align*}
 	\mathcal Y := \ker \Ext^{\geq 1}(\mathcal X, -) = \{Y \in \mathcal C \mid \Ext^i(X, Y)=0, \forall X \in \mathcal X, \forall i \geq 1\},
 \end{align*}
@@ -36,7 +36,7 @@ which we now show is equal to
 \end{lemma}
 
 \begin{prop}\label{prop:complement_closed_under_extension}
-	If $\mathcal X$ is resolving, then $\mathcal Y := \ker\Ext^{\geq 1}(\mathcal X, -) = \ker\Ext^{1}(\mathcal X, -)$ is closed under extensions.
+	Let $\mathcal X$ be a full subcategory. Then the $\Ext$-orthogonal complement $\mathcal Y := \ker\Ext^{i}(\mathcal X, -)$ is closed under extensions.
 	\begin{proof}
 		Let $0 \to Y \to E \to Y' \to 0$ be an extension of objects in $\mathcal Y$, and let $X$ be an object of $\mathcal X$. Then we get an exact sequence  
 		\begin{center}
@@ -44,7 +44,7 @@ which we now show is equal to
 			0=\Ext^i(X, Y) \ar[r] & \Ext^i(X, E) \ar[r] & \Ext^i(X, Y')=0
 			\end{tikzcd}
 		\end{center}
-		Thus $\Ext^i(X, E)=0$ for all $i \geq 1$ and $E$ is in $\mathcal Y$.
+		Thus $\Ext^i(X, E)=0$, and so $E$ is in $\mathcal Y$.
 	\end{proof}
 \end{prop}
 
@@ -65,7 +65,7 @@ which we now show is equal to
 		\begin{center}
 			\begin{tikzcd}
 			0 \ar[r] & X \ar[r] \ar[d] & E \ar[r] \ar[d] & X' \ar[d, equal] \ar[r] & 0\\
-			0 \ar[r] & C \ar[r] & C \oplus X' \ar[r] & X' \ar[r] & 0
+			0 \ar[r] & C \ar[r] & C \oplus X' \ar[r] & X' \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
 		Since $\mathcal X$ is closed under extensions $E$ is in $\mathcal X$. By composing with projection $C\oplus X' \to C$ we get a commutative triangle
@@ -75,25 +75,29 @@ which we now show is equal to
 			 C 
 			\end{tikzcd}
 		\end{center}
-		since $X \to C$ is an approximation we get that $E \to C$ factors through $X$. The endomorphism $X \to E \to X$ leaves the approximation unchanged, so by minimality it must be an isomorphism. Hence 
-		$$0 \to X \to E \to X' \to 0$$
-		 is split and $\Ext^1(X', X) \to \Ext^1(X', C)$ is injective. Thus $\Ext^1(X', Y)=0$, and by \cref{lem:resolving_ext_vanish} we have $\Ext^i(X', Y)=0$ for all $i\geq 1$.
+		Since $X \to C$ is an approximation we get that $E \to C$ factors through $X$. The endomorphism $X \to E \to X$ leaves the approximation unchanged, so by minimality it must be an isomorphism. Hence 
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & X \ar[r] & E \ar[r] & X' \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is split and $\Ext^1(X', X) \to \Ext^1(X', C)$ is injective. Thus we have that $\Ext^1(X', Y)=0$, and by \cref{lem:resolving_ext_vanish} we get $\Ext^i(X', Y)=0$ for all $i\geq 1$.
 	\end{proof}
 \end{lemma}
 
 We now prove the main theorem of this section, about the structure of approximations for a resolving subcategory.
 
-\begin{theorem} \cite[3.8]{AR91}
+\begin{theorem} \cite[3.8]{AR91} \label{thm:contravariantly_finite_resolving_is_Xi_filtered}
 	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Let $X_i$ be the minimal approximation of $S_i$. Then any $X \in \mathcal X$ is a direct summand of an $X_i$-filtered module.
 	\begin{proof}
 		The first part of the proof is to show by induction on length that any module $C$ is in an exact sequence $0 \to Y \to X \to C \to 0$ with $X$ $X_i$-filtered and $\Ext^1(\mathcal X, Y)=0$.
 		
-		For the base case if $C=S_i$ is simple then by \cref{lem:exact_sequence_from_approximation} we have an exact sequence $0 \to Y \to X_i \to C \to 0$ with the desired properties stated above. 
+		For the base case if $C=S_i$ is simple, then by \cref{lem:exact_sequence_from_approximation} we have an exact sequence $0 \to Y \to X_i \to C \to 0$ with the desired properties stated above. 
 		
 		For the induction step, assume it holds for all modules of length less than $n$, and let $C$ be a module of length $n$. Then by Jordan-Hölder $C$ is the extension of two modules of length less than $n$. Say
 		\begin{center}
 			\begin{tikzcd}
-			0 \ar[r] & C' \ar[r] & C \ar[r] & C'' \ar[r] & 0
+			0 \ar[r] & C' \ar[r] & C \ar[r] & C'' \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
 		Applying the induction hypothesis we get a diagram on the form
@@ -114,7 +118,7 @@ We now prove the main theorem of this section, about the structure of approximat
 			&0&0&0&
 			\end{tikzcd}
 		\end{center}
-		Since $Y'$ satisfies $\Ext^1(\mathcal X, Y') = 0$ by \cref{lem:resolving_ext_vanish} it also satisfies $\Ext^2(\mathcal X, Y')=0$. In particular from the long exact sequence
+		Since $Y'$ satisfies $\Ext^1(\mathcal X, Y') = 0$ by \cref{lem:resolving_ext_vanish} we have $\Ext^2(\mathcal X, Y')=0$. In particular from the long exact sequence
 		\begin{center}
 			\begin{tikzcd}[column sep=10pt]
 				 0=\Ext^1(X'', Y) \ar[r] & \Ext^1(X'', X') \ar[r] & \Ext^1(X'', C) \ar[r] & \Ext^2(X'', Y)=0
@@ -140,9 +144,9 @@ We now prove the main theorem of this section, about the structure of approximat
 			& 0 &0&0 &
 			\end{tikzcd}
 		\end{center}
-		Since $X$ is an extension of $X_i$-filtered modules, it is also $X_i$-filtered. Since $Y$ is the extension of $Y''$ and $Y'$ it follows from \cref{prop:complement_closed_under_extension} that $\Ext(\mathcal X, Y)=0$.
+		Since $X$ is an extension of $X_i$-filtered modules, it is also $X_i$-filtered. Since $Y$ is the extension of $Y''$ and $Y'$ it follows from \cref{prop:complement_closed_under_extension} that $\Ext^1(\mathcal X, Y)=0$.
 		
-		Hence any $C$ fits into a sequence $0 \to Y \to X \to C \to 0$ with $X$ being $X_i$-filtered and $\Ext^{\geq 1}(\mathcal X, Y)=0$.
+		Hence any $C$ fits into a sequence $0 \to Y \to X \to C \to 0$ with $X$ being $X_i$-filtered and $\Ext^{1}(\mathcal X, Y)=0$.
 		
 		Now suppose that $C$ is in $\mathcal X$, and let $0 \to Y \to X \to C \to 0$ be as before. Then we get that
 		\begin{center}
@@ -157,7 +161,7 @@ We now prove the main theorem of this section, about the structure of approximat
 Applying this to $\mathcal P^\infty$ we get our wanted result about the finitistic dimension.
 
 \begin{cor}\label{cor:contravariant_finite_implies_FDC}
-	If $\mathcal P^\infty$ is contravariantly finite, then the finitistic dimension is the supremum of the projective dimension of $X_i$. In particular it is finite.
+	If $\mathcal P^\infty$ is contravariantly finite, then the finitistic dimension is the supremum of the projective dimension of the approximations of the simple modules. In particular it is finite.
 \end{cor}
 
 To finish this section of we give two examples. The first example is due to Igusa--Smalø--Todorov, which shows that $\mathcal P^\infty$ need not be contravariantly finite even for monomial algebras with $J^3 = 0$.
@@ -190,7 +194,7 @@ To finish this section of we give two examples. The first example is due to Igus
 		The radical of $P_1$ is $P_2\oplus S_2$ and the radical of $P_2$ is $S_1$, so the radical of an arbitrary projective looks like $P_2^n \oplus S_1^m \oplus S_2^n$. Let $P \to X$ be the projective cover of a module with finite projective dimension. Then $\Omega X$ is a submodule of $JP = P_2^n \oplus S_1^m \oplus S_2^n$. Let $M$ be an indecomposable summand of $\Omega X$, and consider the composition $M \to JP \to P_2$ for any possible projection to $P_2$. If this is epi then we must have $M = P_2$. If none of these are epi then $M$ is contained in $JP_2^n \oplus S_1^m \oplus S_2^n = S_1^{m+n} \oplus S_2^n$. This would mean $M=S_1$ or $M=S_2$, but $S_1$ and $S_2$ both have infinite projective dimension. Thus we must have $\Omega X$ projective, and so $\pd X \leq 1$.
 		
 		Next we want to show that $S_1$ has no minimal approximation by modules with finite projective dimension. Assume for the sake of contradiction that $X \to S_1$ is such a minimal approximation. Then we claim that $P_2$ is not a submodule of $X$. If $X$ had $P_2$ as a submodule, then since $\Hom(P_2, S_1) = 0$ the approximation would factor through $X'=X/P_2$. From the short exact sequence $0 \to P_2 \to X \to X' \to 0$ it follows that 
-		$$\pd X' \leq \max\{\pd P_2 + 1, \pd X\} < \infty$$ 
+		$$\pd X' \leq \max\{\pd P_2 + 1, \pd X\} < \infty,$$ 
 		and so $X'$ would give an approximation of shorter length, contradicting the minimality of $X$.
 		
 		% because $X'$ would also have finite projective dimension. Which can be seen in the diagram below.
@@ -249,7 +253,7 @@ To finish this section of we give two examples. The first example is due to Igus
 	\end{proof}
 \end{example}
 
-In the next example we look at the opposite algebra of $\Lambda$, for which $\mathcal P^\infty$ is contravariantly finite. This shows that there is no immediate relationship between $\mathcal P^\infty$ being contravariantly finite for $\Lambda$ and for $\Lambda^{\op}$.
+In the next example we look at the opposite algebra of $\Lambda$, for which $\mathcal P^\infty$ is contravariantly finite for $\Gamma$. This shows that there is no immediate relationship between $\mathcal P^\infty$ being contravariantly finite for $\Lambda$ and for $\Lambda^{\op}$.
 
 \begin{example}
 	Let $\Gamma$ be the opposite algebra of the one in \cref{exam:not_contravariantly_finite}. That is, $\Gamma$ is the path algebra of 
@@ -272,7 +276,7 @@ In the next example we look at the opposite algebra of $\Lambda$, for which $\ma
 			\end{tikzcd}
 		\end{center}
 		
-		Similar to before, notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have a $k$-dimension that is a multiple of 3. So in particular the simple modules have infinite projective dimension. 
+		Similar to before, notice that the indecomposable projective modules are 3-dimensional and thus every module with finite projective dimension will have dimension a multiple of 3. So in particular the simple modules have infinite projective dimension. 
 		
 		Let $X$ be a module with finite projective dimension, and let $P$ be its projective cover. We have that $\Omega X$ is a submodule of $JP$. Notice that $\hat{\alpha} J = \hat{\gamma} J = 0$, so $\Omega X$ is a $\Gamma/(\hat{\alpha}, \hat{\gamma})$-module. But $\Gamma/(\hat{\alpha}, \hat{\gamma})$ is simply isomorphic to the path algebra of  
 		\begin{tikzcd}

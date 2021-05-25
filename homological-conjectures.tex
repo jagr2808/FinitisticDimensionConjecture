@@ -38,7 +38,7 @@ In 1988 Wakamatsu introduced a generalization of tilting modules, now known as W
 The definition is distinct from the definition of a tilting module in two key ways: the projective dimension of $T$ is not assumed to be finite, and $\eta$ is not assumed to be bounded. The Wakamatsu tilting conjecture states that this last condition is unnecessary.
 
 \begin{conj}[Wakamatsu tilting conjecture] 
-	If $T$ is Wakamatsu tilting and has finite projective dimension, then $T$ is a tilting module. In other words we can choose $\eta$ to be bounded.
+	If $T$ is Wakamatsu tilting and has finite projective dimension, then $T$ is a tilting module. In other words, we can choose $\eta$ to be bounded.
 \end{conj}
 
 \subsection*{Gorenstein Symmetry Conjecture (GSC)}
@@ -50,7 +50,7 @@ The definition is distinct from the definition of a tilting module in two key wa
 The Gorenstein symmetry conjecture says that we only need one of the two conditions for our algebra to be Gorenstein.
 
 \begin{conj}[Gorenstein symmetry conjecture] 
-	If $\Lambda$ is a finite dimensional algebra the injective dimension of $\Lambda$ as a left module is finite if and only if the projective dimension of $D\Lambda_\Lambda$ is finite.
+	If $\Lambda$ is a finite dimensional algebra the injective dimension of $\Lambda$ as a left module is finite if and only if the projective dimension of $D(\Lambda_\Lambda)$ is finite.
 \end{conj}
 
 The conjecture describes a sort of symmetry between $\Lambda$ and $\Lambda^{\op}$. An equivalent formulation would be that $\Lambda$ has finite injective dimension as a left module if and only if it has finite injective dimension as a right module.
@@ -69,7 +69,7 @@ Another noteworthy property of Gorenstein algebras is that a module has finite p
 		\end{center}
 		From the long exact sequences in $\Ext(\Lambda/J, -)$ and $\Ext(-, \Lambda/J)$ it follows that $\operatorname{id} M \leq \max\{\id P, \id \Omega M\}$ and $\pd M \leq \max\{\pd I, \pd \mho M\}$. Iterating this construction it follows that for all $n$ we have $\id M \leq \max\{ \id \Lambda, \id \Omega^n M  \}$ and $\pd \leq \max\{\pd D\Lambda, \pd\mho^n M\}$.
 
-		If $M$ has finite projective dimension, then there is an $n$ such that $\Omega^n M = 0$, which implies $\id M \leq \id \Lambda < \infty$. Conversely if $M$ has finite injective dimension, then there is an $n$ such that $\mho^n M = 0$, and so $\pd M \leq \pd D\Lambda < \infty$.
+		If $M$ has finite projective dimension, then there is an $n$ such that $\Omega^n M = 0$, which implies $\id M \leq \id \Lambda < \infty$. Conversely, if $M$ has finite injective dimension, then there is an $n$ such that $\mho^n M = 0$, and so it follows that $\pd M \leq \pd D\Lambda < \infty$.
 	\end{proof}
 \end{prop}
 
@@ -78,7 +78,7 @@ Another noteworthy property of Gorenstein algebras is that a module has finite p
 \subsection*{Vanishing Conjecture (VC)}
 %If $\Lambda$ is a finite dimensional algebra we denote by $K^b(\inj \Lambda)$ the homotopy category of bounded complexes of injective modules. The category $K^{+,b}(\inj\Lambda)$ is the homotopy category of complexes of injectives that are bounded below, and bounded in homology. There is an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
 
-We remind the reader that when $\Lambda$ is a finite dimensional algebra, we have an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$ given by injective resolutions. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
+We remind the reader that when $\Lambda$ is a finite dimensional algebra, we have an equivalence of categories between $K^{+,b}(\inj\Lambda)$ and the bounded derived category $\D^b(\Lambda)$, given by injective resolutions. This allows us to consider $K^b(\inj\Lambda)$ as a subcategory of $\D^b(\Lambda)$. Using this we define the perpendicular subcategory
 
 \begin{align*}
 	K^b(\inj\Lambda)^\perp = \{X \in \D^b(\Lambda) \mid \Hom_{\D^b(\Lambda)}(I, X)=0 \text{ for all } I \in K^b(\inj\Lambda)\}.
@@ -123,12 +123,12 @@ We can also formulate the conjecture as all indecomposable injectives appearing 
 				0 \ar[r] & \Lambda \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
 			\end{tikzcd}
 		\end{center}
-		Since the resolution is minimal, we have that $\Ext^n(S, \Lambda) = \Hom(S, I_n)$ for any simple module $S$. This is non-zero if and only if $S$ is in the socle of $I_n$. Thus $\Ext^n(S, \Lambda)$ is non-zero if and only if the injective envelope of $S$ is a direct summand of $I_n$. Since every indecomposable injective module is the injective envelope of a simple module, we have that $\Lambda$ satisfies GNC if and only if every indecomposable injective appears in the resolution.
+		Since the resolution is minimal, we have that $\Ext^n(S, \Lambda) = \Hom(S, I_n)$ for any simple module $S$. This is non-zero if and only if $S$ is in the socle of $I_n$. Thus $\Ext^n(S, \Lambda)$ is non-zero if and only if the injective envelope of $S$ is a direct summand of $I_n$. Since every indecomposable injective module is the injective envelope of a simple module, we have that $\Lambda$ satisfies GNC if and only if every indecomposable injective appears in the resolution as a summand.
 	\end{proof}
 \end{prop}
 
 \subsection*{Auslander--Reiten Conjecture (ARC)}
-
+\todo{more context?}
 \begin{conj}[Auslander--Reiten conjecture] 
 	Let $\Lambda$ be  finite dimensional algebra. If $M$ is a generator in $\mod\Lambda$ such that  $\Ext^n(M, M) = 0$ for all $n > 0$, then $M$ is projective. 
 \end{conj}
@@ -182,9 +182,9 @@ The remainder of this section is used to prove these implications.
 			\Ext^{n}(T_{i}, T) \ar[r] & \Ext^{n}(K_{i}, T) \ar[r] & \Ext^{n+1}(K_{i+1}, T) \ar[r] & \Ext^{n+1}(T_{i}, T)
 			\end{tikzcd}
 		\end{center}
-		Since $T_{i}$ is in $\add T$ we have that $\Ext^n(T_{i}, T)=0$ for all $n>0$. Then by exactness we have that $\Ext^{n+1}(K_{i+1}, T) \cong \Ext^{n}(K_i, T) = 0$ for all $n \geq 1$. Since $T$ is Wakamatsu tilting we have that $\Ext^1(K_{i+1}, T) = 0$, so by induction $\Ext^{>0}(K_i, T)=0$ for all $i\geq 0$.
+		Since $T_{i}$ is in $\add T$ we have that $\Ext^n(T_{i}, T)=0$ for all $n>0$. Then by exactness we have that $\Ext^{n+1}(K_{i+1}, T) \cong \Ext^{n}(K_i, T) = 0$ for all $n \geq 1$. Since $T$ is Wakamatsu tilting we already have that $\Ext^1(K_{i+1}, T) = 0$, so by induction $\Ext^{>0}(K_i, T)=0$ for all $i\geq 0$.
 		
-		By a similar argument we now wish to show that $$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for all $i \leq m$. We proceed by induction on $i$. When $i=1$ the statement is evident. Now assume that $$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for some $i \geq 1$. Then it is sufficient to show that $$ \Ext^{i}(K_m, K_{m-i}) \cong  \Ext^{i+1}(K_m, K_{m-i-1}).$$
+		By a similar argument we now wish to show that $$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for all $1 \leq i \leq m$. We proceed by induction on $i$. When $i=1$ the statement is evident. Now assume that $$\Ext^1(K_m, K_{m-1}) \cong \Ext^{i}(K_m, K_{m-i})$$ for some $i \geq 1$. Then it is sufficient to show that $$ \Ext^{i}(K_m, K_{m-i}) \cong  \Ext^{i+1}(K_m, K_{m-i-1}).$$
 		We have a short exact sequence
 		\begin{center}
 			\begin{tikzcd}
@@ -247,7 +247,7 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:FDC_implies_VC}
 	The finitistic dimension conjecture implies the vanishing conjecture.
 	\begin{proof}
-		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we can consider $I^\bullet$ as a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if it's concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono, then replacing $I^0$ by $0$ and $I^1$ by $I^1/I^0$ gives a homotopic complex.
+		Assume $\Lambda$ doesn't satisfy VC, and let $I^\bullet \in K^b(\inj\Lambda)^\perp$ be a non-zero complex. Since $\D^b(\Lambda) \cong K^{+,b}(\inj\Lambda)$ we may consider $I^\bullet$ as a complex of injectives, and without loss of generality we may assume it is concentrated in degrees $i \geq 0$, and that $d^0\colon I^0 \to I^1$ is not split mono. Since if it's concentrated in degrees $i \geq k$ we can just shift it, and if $d^0$ is split mono, then replacing $I^0$ by $0$ and $I^1$ by $I^1/I^0$ gives a homotopic complex.
 			
 		The module $\Hom(D\Lambda, I^i)$ is in $\add\Hom(D\Lambda, D\Lambda) = \add\Lambda$ so $\Hom(D\Lambda, I^\bullet)$ is a complex of projectives. We show that this complex is acyclic by considering the following diagram.
 		
@@ -267,7 +267,7 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[1.2]{Hap93} \label{thm:VC_implies_Nuc}
 	The vanishing conjecture implies the Nunke condition.
 	\begin{proof}
-		Assume $\Lambda$ doesn't satisfy NuC. That is, there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. Then we claim that $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. To show this we proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$. If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$, which is 0 because $I$ is in $\add D\Lambda$ and $\Ext^i(D\Lambda, X)=0$.
+		Assume $\Lambda$ doesn't satisfy NuC. Then there is an $X \neq 0$ with $\Ext^i(D\Lambda, X) = 0$ for all $i \geq 0$. We claim that $X$ considered as a stalk complex is in $K^b(\inj\Lambda)^\perp$. To show this we proceed by induction on the width of $I^\bullet \in K^b(\inj\Lambda)$. If the width is 1, then $I^\bullet = I[-i] \in K^b(\inj\Lambda)$ is a stalk complex. Then $\D^b(I[-i], X) = \Ext^i(I, X)$, which is 0 because $I$ is in $\add D\Lambda$ and $\Ext^i(D\Lambda, X)=0$.
 		
 		Let $I^\bullet \in K^b(\inj\Lambda)$ be a complex of width $n$. without loss of generality we may assume $I^\bullet$ is concentrated in degrees $0 \leq i < n$. Then 
 		\begin{center}
@@ -309,10 +309,12 @@ The remainder of this section is used to prove these implications.
 %	Let $\Gamma$ be an artin algebra and $P$ a projective $\Gamma$-module. If $P$ contains the projective cover of all simple modules that appear in the socle of an injective copresentation of $\Gamma$, then $P$ is Wedderburn projective.
 %\end{restatable}
 
+That the Nunke condition is equivalent to the strong Nakayam conjecture should be clear, since they are simply duals of each other. Similarly it should be clear that the strong Nakayama conjecture implies the generalized Nakayama conjecture, since the latter is simply a special case of the former.
+
 Before we can prove the equivalence between the generalized Nakayama conjecture and the Auslander--Reiten Conjecture we will need the following proposition.
 
 \begin{prop}\label{prop:hom_generator_preserves_injectives}
-	Let $M$ be a module and $I$ an injective module. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I)$ is an injective $\Gamma:=\End(M)^{\operatorname{op}}$-module. In particular if $M$ is a generator then $(M,-)$ preserves injectives.
+	Let $M$ be a module, $I$ an injective module, and write $\Gamma$ for the endomorphism ring $\End(M)^{\operatorname{op}}$. If the projective cover of the socle of $I$ is in $\add M$, then $(M,I) := \Hom(M, I)$ is an injective $\Gamma$-module. In particular if $M$ is a generator, then $(M,-)$ preserves injectives.
 	\begin{proof}
 		Let $J \leq \Gamma$ be a left ideal and let $\psi\colon J \to (M,I)$ be any $\Gamma$-linear map. By \cref{lem:injectives_for_noetherian_ring} in the appendix it is enough to show that $\psi$ factors through $\Gamma$ to conclude that $(M, I)$ is injective. Assume $J$ is generated by $\{f_i\}$. If we can find $\gamma\colon M \to I$ such that $\gamma \circ f_i = \psi(f_i)$ then we would get our factorization of $\psi$ by 
 		\begin{tikzcd}
@@ -340,7 +342,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 			M \ar[ur, dashed, swap, "\exists\gamma"]
 			\end{tikzcd}
 		\end{center}
-		Since $I$ is injective it lifts monomorphisms so we know that $\gamma$ exists. Thus $(M, I)$ is an injective $\Gamma$-module.
+		Since $I$ is injective it lifts monomorphisms, and so we can find a $\gamma$ making the diagram commute. Thus $(M, I)$ is an injective $\Gamma$-module.
 	\end{proof}
 \end{prop}
 
@@ -378,11 +380,11 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 		
 		Using the Hom-Tensor adjunction we see that 
 		\begin{align*}
-		D(P \otimes_\Gamma X) &= \Hom_k(P \otimes_\Gamma X, k)\\
-		&= \Hom_\Gamma(P, \Hom_k(X, k))\\
-		&= \Hom_\Gamma(P, D X)
+		D(P \otimes_\Gamma X) &\cong \Hom_k(P \otimes_\Gamma X, k)\\
+		&\cong \Hom_\Gamma(P, \Hom_k(X, k))\\
+		&\cong \Hom_\Gamma(P, D X)
 		\end{align*}
-		In particular we have that $D(P\otimes_\Gamma I) = \End_\Gamma(P) = \Lambda$ as right $\Lambda$-modules, and so $P\otimes_\Gamma I = D\Lambda$. 
+		In particular we have that $D(P\otimes_\Gamma I) \cong \End_\Gamma(P) \cong \Lambda$ as right $\Lambda$-modules, and so $P\otimes_\Gamma I \cong D\Lambda$. 
 		
 		Now let $\mathcal S \subseteq \mod\Gamma$ be the full subcategory of $\Gamma$-modules that have a copresentation in $\add I$. Then we claim there is an equivalence of categories
 		
@@ -394,19 +396,19 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 		
 		To see this we first note the following identities
 		\begin{align*}
-		\Hom_\Lambda(P, P\otimes_\Gamma I) &= \Hom_\Lambda(P, D\Lambda)\\
-		&= \Hom_k(\Lambda \otimes_\Lambda P, k) \\
-		&= DP = I\\
+		\Hom_\Lambda(P, P\otimes_\Gamma I) &\cong \Hom_\Lambda(P, D\Lambda)\\
+		&\cong \Hom_k(\Lambda \otimes_\Lambda P, k) \\
+		&\cong DP \cong I\\
 		\\
-		P \otimes_\Gamma \Hom_\Lambda(P, D\Lambda) &= P \otimes_\Gamma DP\\
-		&= D\Lambda
+		P \otimes_\Gamma \Hom_\Lambda(P, D\Lambda) &\cong P \otimes_\Gamma DP\\
+		&\cong D\Lambda
 		\end{align*}
 		
 		Since $P_\Gamma$ is projective $P\otimes_\Gamma -$ is exact, so both functors are left exact. This means they induce equivalences between the subcategories with copresentations in $\add I$ and $\add D\Lambda$ respectively. Thus we get our wanted equivalence.
 		
-		Now if we apply $P\otimes_\Gamma -$ to the injective resolution $I_\bullet$, we get an injective resolution of $P\otimes_\Gamma\Gamma = P$ as a $\Lambda$-module. Applying $\Hom_\Lambda(P, -)$ gives us back the complex $I_\bullet$ and thus we have that $\Ext_\Lambda^n(P, P)=0$ for all $n>0$. 
+		Now if we apply $P\otimes_\Gamma -$ to the injective resolution $I_\bullet$, we get an injective resolution of $P\otimes_\Gamma\Gamma \cong P$ as a $\Lambda$-module. Applying $\Hom_\Lambda(P, -)$ gives us back the complex $I_\bullet$ and thus we have that $\Ext_\Lambda^n(P, P)=0$ for all $n>0$. 
 		
-		Since $\Hom_\Lambda(P, -)$ is an equivalence, it is faithful. This says exactly that $P$ is a generator in $\mod\Lambda$. Since by assumption ARC holds, we get that $P$ is projective as a $\Lambda$-module. Thus $\Hom_\Lambda(P, -)$ is right exact. Since $\Gamma$ is in $\mathcal S$, the equivalence give us $\Hom_\Lambda(P, P) = \Hom_\Lambda(P, P\otimes \Gamma) = \Gamma$. Combining these two facts we get that $\Hom_\Lambda(P,-)$ induces an equivalence between modules with a presentation in $\add P$ and modules with a presentation in $\add \Gamma$. We conclude that $\mathcal S = \mod\Gamma$, and thus that $I$ is a cogenerator.
+		Since $\Hom_\Lambda(P, -)$ is an equivalence, it is faithful. This says exactly that $P$ is a generator in $\mod\Lambda$. Since we have assumed ARC holds, we get that $P$ is projective as a $\Lambda$-module. Thus $\Hom_\Lambda(P, -)$ is right exact. Since $\Gamma$ is in $\mathcal S$, the equivalence gives us that $\Hom_\Lambda(P, P) = \Hom_\Lambda(P, P\otimes \Gamma) = \Gamma$. Combining these two facts we get that $\Hom_\Lambda(P,-)$ induces an equivalence between modules with a presentation in $\add P$ and modules with a presentation in $\add \Gamma$. We conclude that $\mathcal S = \mod\Gamma$, and thus that $I$ is a cogenerator.
 		
 		Since $I$ is a cogenerator all indecomposable injective modules appear in the resolution of $\Gamma$, and thus $\Gamma$ satisfies GNC.
 	\end{proof}
@@ -438,7 +440,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 %Combining the implications above we see that the generalized Nakayama conjecture implies the Nakayama conjecture. There is however a much simpler proof of this fact which we include below.
 
 \begin{prop}\cite{AR75} 
-	The generalized Nakayama conjecture implies the Nakayama conjecture
+	The generalized Nakayama conjecture implies the Nakayama conjecture.
 	\begin{proof}
 		Assume $\Lambda$ satisfies GNC and that the dominant dimension of $\Lambda$ is $\infty$. As shown in \cref{prop:GNC_reformulated} if $\Ext^\bullet(S, \Lambda)$ is nonzero that means the injective envelope $I(S)$ appears in the minimal injective resolution of $\Lambda$. If all injectives appear in the resolution and the dominant dimension is infinity then all injectives are projective. Thus $\Lambda$ is self injective, and hence $\Lambda$ satisfies NC. 
 	\end{proof}

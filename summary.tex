@@ -3,7 +3,7 @@
 
 We conclude the thesis by summarizing for which families of algebras the finitistic dimension conjecture has been shown to hold.
 
-\begin{theorem}
+\begin{theorem}\label{thm:findim_summary}
 	The following classes of algebras satisfies the finitistic dimension conjecture:
 	\begin{enumerate}[a)]
 		\item Representation-finite algebras
@@ -31,7 +31,7 @@ We conclude the thesis by summarizing for which families of algebras the finitis
 			\item Local artin algebras have finitistic dimension 0. A proof of this is included in the appendix, \cref{thm:local_artin_ring_Findim_0}.
 			\item Stably hereditary algebras are considered in \cref{sec:stable_hereditary_algebras}.
 			\item Special biseral algebras are considered in \cref{sec:special_biserial_algebras}.
-			\item Half representation-finite algebras are considered \cref{sec:vanishing_radical}.
+			\item Half representation-finite algebras are considered in \cref{thm:half_rep_finite}.
 		\end{enumerate}
 	\end{proof}
 \end{theorem}
@@ -55,12 +55,12 @@ In this thesis our main focus has been on the small finitistic dimension. We now
 			\item[]
 			\item It was shown by Auslander and Ringel--Tachikawa that if an artin ring is representation finite, then any module is the direct sum of finitely generated modules\cite[II Proposition~4.3(c)]{Aus74}\cite[Corollary~4.4]{RT74}. This implies that $\Findim(\Lambda) = \findim(\Lambda) < \infty$ for a representation finite algebra $\Lambda$.
 			\item Although \cref{sec:monomial_algebras} is formulated in terms of finitely generated modules, all the same arguments hold if we consider infinitely generated modules. 
-			\item \label{item:Findim_gorenstein} By the same argument as above, we have that $\Findim(\Lambda) = \pd D\Lambda$ for a Gorenstein algebra.
+			\item \label{item:Findim_gorenstein} By the same argument as in \cref{thm:findim_summary}, we have that $\Findim(\Lambda) = \pd D\Lambda$ for a Gorenstein algebra.
 			\item Any infinitely generated module is the direct limit of its finitely generated submodules. Since all finitely generated submodules has projective dimension less than the global dimension and $\Tor_\bullet(\Lambda/J, -)$ commutes with direct limits, it follows that $\Findim(\Lambda) = \operatorname{gl.dim}(\Lambda)$.
-			\item By the same argument as above we have that $\Findim(\Lambda) = 0$ for a self-injective algebra.
+			\item By the same argument as as in \cref{thm:findim_summary} we have that $\Findim(\Lambda) = 0$ for a self-injective algebra.
 			\item \cref{thm:J2_equals_0_implies_FDC} does not depend on the module being finitely generated, so the same proof works equally well to prove that $\Findim(\Lambda) < \infty$ when $J^2 = 0$.
 			\item\label{item:Findim_derived_equiv} Rickard showed that injectives generates the derived category for all the classes of algebras above\cite[Theoreom~3.2, Corrolary~7.4-7.6]{Rick19}. This also gives an alternate proof that all the algebras above satisfies $\Findim(\Lambda) < \infty$. We can combine this with the fact that whether injectives generate is preserved under derived equivalence\cite[Theorem~3.4]{Rick19}. Then we get that any algebra derived equivalent to any of the above satisfies $\Findim(\Lambda) < \infty$.
-			\item Like above, \cref{thm:local_artin_ring_Findim_0} gives us that $\Findim(\Lambda)=0$ for a local artin algebra.
+			\item Like as in \cref{thm:findim_summary}, \cref{thm:local_artin_ring_Findim_0} gives us that $\Findim(\Lambda)=0$ for a local artin algebra.
 		\end{enumerate}
 	\end{proof}
 \end{theorem}

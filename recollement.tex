@@ -1,6 +1,6 @@
 \section{Recollement}\label{sec:recollement}
 
-In this section we will discuss a reduction technique known as recollement. The idea of reduction techniques is to reduce the work of proving an algebra has finite finitistic dimension to proving the same for ``simpler'' algebras. In \cref{sec:Triangular_matrix_rings} we will consider a reduction technique of triangular matrix algebras. The triangular matrix rings are closely related to recollements, and we discuss their relationship more closely in \cref{sec:recollemt_of_triangular_rings}.
+In this section we discuss a reduction technique known as recollement. The idea of reduction techniques is to reduce the work of proving an algebra has finite finitistic dimension to proving the same for ``simpler'' algebras. In \cref{sec:Triangular_matrix_rings} we will consider a reduction technique of triangular matrix algebras. The triangular matrix rings are closely related to recollements, and we discuss their relationship more closely in \cref{sec:recollemt_of_triangular_rings}.
 
 We begin by defining a recollement of triangulated categories.
 
@@ -39,9 +39,7 @@ We begin by defining a recollement of triangulated categories.
 Note that (\ref{item:i_fully-faith}) and (\ref{item:j_fully-faith}) are equivalent to $i_*$, $j_!$, and $j_*$ being fully faithful.
 \end{defn}
 
-We are specifically interested in recollements where the triangulated categories in question are (bounded) derived categories of finite dimensional algebras.
-
-We now give some properties of such functors, when they are defined over bounded derived categories.
+We are specifically interested in recollements where the triangulated categories in question are (bounded) derived categories of finite dimensional algebras. We now give some properties of such functors in this restricted setting.
 
 \begin{lemma} \label{lem:adjoint_preserves_bounded_proj/inj}
 	Let \begin{tikzcd}
@@ -97,9 +95,9 @@ Now that we have a good understanding of how the functors in a recollement inter
 		\arrow[phantom, from=j, to=jr, "\dashv" rotate=-90]
 		\end{tikzcd}	
 	\end{center}
-	 then we have that $\findim(\Lambda) < \infty$ if and only if we have that $\findim(\Lambda') < \infty$ and $\findim(\Lambda'') < \infty$.
+	 then we have that $\findim(\Lambda) < \infty$ if and only if both $\findim(\Lambda') < \infty$ and $\findim(\Lambda'') < \infty$.
 	\begin{proof}
-		Assume $\findim(\Lambda) < \infty$. We begin by showing that $\findim(\Lambda') < \infty$.
+		Assume $\findim(\Lambda) < \infty$. First we show that $\findim(\Lambda') < \infty$.
 		
 		Let $T = \Lambda' / \rad\Lambda'$ be the sum of all simple $\Lambda'$-modules. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. We consider $X$ as a complex concentrated in degree 0. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Say:
 		$$i_*X = 0 \to P^{-s} \to \cdots \to P^{s'} \to 0$$
