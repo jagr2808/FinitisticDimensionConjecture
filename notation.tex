@@ -14,7 +14,7 @@ Since right $\Lambda$-modules are the same as left $\Lambda^{\op}$-modules we us
 
 %$D: \mod \Lambda \to \mod\Lambda^{\operatorname{op}}$ is the duality $DM = \Hom(M, k)$
 
-A quiver is a direct graph with a finite number of vertices. We write composition of paths right to left. I.e. for paths $\alpha\colon i \to j$ and $\beta\colon k\to l$ the composition $\alpha\beta$ is defined if and only if $l=i$. For a quiver $Q$, the path algebra $kQ$ is the free vector space of all paths, including a trivial path for each vertex. Multiplication of paths is defined to be composition when it is defined, and 0 otherwise. The multiplication extends linearly to make $kQ$ and algebra.
+A quiver is a direct graph with a finite number of vertices. We write composition of paths right to left. I.e. for paths $\alpha\colon i \to j$ and $\beta\colon k\to l$ the composition $\alpha\beta$ is defined if and only if $l=i$. For a quiver $Q$, the path algebra $kQ$ is the free vector space of all paths, including a trivial path for each vertex. Multiplication of paths is defined to be composition when it is defined, and 0 otherwise. The multiplication extends linearly to make $kQ$ an algebra.
 
 %If $Q$ is a quiver we denote by $Q_0$ the set of vertices and $Q_1$ the set of arrows. We have two maps $s,t:Q_1 \to Q_0$ which assign to an arrow $\alpha: i\to j$ its vertex of origin $s(\alpha) = i$, and its vertex of termination $t(\alpha) = j$.
 
@@ -35,7 +35,7 @@ For an exact category $\mathcal A$ we write:
 \end{itemize}
 We also write $\D^b(\Lambda)$ instead of $\D^b(\mod\Lambda)$ and $\D(\Lambda)$ instead of $\D(\Mod\Lambda)$. 
 
-In all of these triangulated categories $X[i]$ denotes the complex $X$ shifted $i$ degrees down. That is, $(X[i])^n = X^{n+i}$. The hard truncation is the complex defined by $(X^{\geq n})^m = X^m$ when $m \geq n$, and $(X^{\geq n})^m = 0$ otherwise. We denote the hard truncation of $X$ by $X^{\geq n}$. The other hard truncation, $X^{\leq n}$, is defined similarly. \todo{rewrite?}
+In all of these triangulated categories $X[i]$ denotes the complex $X$ shifted $i$ degrees down. That is, $(X[i])^n = X^{n+i}$. We use the notation $X^{\geq n}$ to refer to the hard truncation of $X$. The hard truncation is equal to $X$ in degrees greater than or equal to $n$ and is $0$ elsewhere. The other truncations $X^{\leq n}$, $X^{>n}$, and $X^{<n}$ are defined similarly. 
 
 %$\D^b(\Lambda)$ bounded derived category, $K^b$, $K^{+,b}$, $K^{-, b}$, $\D$, etc. $X^{\geq n}$ hard truncation, $[i]$ shift
 
@@ -48,6 +48,6 @@ For a module $M$ we will write $I(M)$ for its injective envelope, and $P(M)$ for
 \end{center} 
 for its minimal projective resolution. We let the $n^\text{th}$ syzygy of $M$ be the kernel of $d_M^{n-1}$, denoted by $\Omega^n M$. We also define $\Omega^0 M$ to be $M$.
 
-The projective dimension of $M$ is $i$ if $P_M^i$ is the last non-zero module in the minimal projective resolution, and $\infty$ if there is no such module. We denote the projective dimension by $\pd M$.
+The projective dimension of $M$ is defined to be the length of its shortest projective resolution. This is $i$ if $P_M^i$ is the last non-zero module in the minimal projective resolution, and $\infty$ if there is no such module. We denote the projective dimension by $\pd M$.
 
 %$I(M)$ injective envelope, $P_M^0$ projective cover, $\cdots \to P_M^1 \to P_M^0$ projective resolution. $\Omega^n M$ syzygy.
