@@ -2,7 +2,7 @@
 
 %Results are generalized in \cite{Trl01}
 
-In this section we will study the structure of contravariantly finite resolving subcategories. One example of a resolving subcategory is the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{thm:contravariantly_finite_resolving_is_Xi_filtered} we give a description of the structure of a contravariantly finite resolving subcategory from the approximations of the simple modules. As a corollary we get that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite. \cref{exam:not_contravariantly_finite}, discovered by Igusa--Smalø--Todorov, shows that $\mathcal P^\infty$ can fail to be contravariantly finite even for monomial algebras with radical cubed equal to 0.
+In this section we study the structure of contravariantly finite resolving subcategories. One example of a resolving subcategory is the subcategory of modules with finite projective dimension, which we denote by $\mathcal P^\infty$. In \cref{thm:contravariantly_finite_resolving_is_Xi_filtered} we give a description of the structure of a contravariantly finite resolving subcategory from the approximations of the simple modules. As a corollary we get that an algebra has finite finitistic dimension when $\mathcal P^\infty$ is contravariantly finite. \cref{exam:not_contravariantly_finite}, discovered by Igusa--Smalø--Todorov, shows that $\mathcal P^\infty$ can fail to be contravariantly finite even for monomial algebras with radical cubed equal to 0.
 
 It is known that $\mathcal P^\infty$ is contravariantly finite when the algebra is stably equivalent to a hereditary algebra. This was shown by Auslander--Reiten in their original paper \cite{AR91}. We consider a generalization of this class in \cref{sec:stable_hereditary_algebras} through the perspective of the Igusa--Todorov-function.
 
@@ -31,7 +31,7 @@ which we now show is equal to
 \begin{lemma}\label{lem:resolving_ext_vanish}
 	Let $\mathcal X$ be a resolving subcategory. Then $\Ext^1(\mathcal X, Y) = 0$ implies that $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism between objects in $\mathcal X$. Thus $\mathcal X$ contains all syzygies, and we have $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
+		Since $\mathcal X$ contains the projectives, $\Omega X$ is the kernel of an epimorphism in $\mathcal X$. Thus $\mathcal X$ contains syzygies, and we have $\Ext^i(X, Y) = \Ext^1(\Omega^{i-1}X, Y) = 0$.
 	\end{proof}
 \end{lemma}
 
@@ -50,10 +50,20 @@ which we now show is equal to
 
 \begin{lemma} \label{lem:exact_sequence_from_approximation}
 	Let $\mathcal X$ be a contravariantly finite, resolving subcategory of $\mod \Lambda$. Then for every object $C \in \mod\Lambda$ there is a short exact sequence 
-	$$0 \to Y \to X \to C \to 0$$ 
+	\begin{center}
+		\begin{tikzcd}
+			0 \ar[r] & Y \ar[r] & X \ar[r] & C \ar[r] & 0
+		\end{tikzcd}
+	\end{center}
 	with $X\to C$ minimal $\mathcal X$-approximation and $\Ext^i(\mathcal X, Y)=0$ for all $i \geq 1$.
 	\begin{proof}
-		Since $\mathcal X$ is contravariantly finite, $C$ has a minimal $\mathcal X$-approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence $$0 \to Y \to X \to C \to 0.$$ Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
+		Since $\mathcal X$ is contravariantly finite, $C$ has a minimal $\mathcal X$-approximation $X \to C$. Since $\mathcal X$ contains the projective cover of $C$ this approximation must be an epimorphism. So it is part of a short exact sequence 
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & Y \ar[r] & X \ar[r] & C \ar[r] & 0.
+			\end{tikzcd}
+		\end{center} 
+		Let $X'$ be an arbitrary object in $\mathcal X$. Taking the long exact sequence in $\Ext(X', -)$ gives us
 		\begin{center}
 		\begin{tikzcd}
 			\Hom(X', Y) \ar[r]&\Hom(X', X) \ar[r] & \Hom(X', C) \ar[dll, overlay, out=-15, in=165] \\ \Ext^1(X', Y) \ar[r] & \Ext(X', X)^1 \ar[r] & \Ext^1(X', C)
@@ -120,11 +130,11 @@ We now prove the main theorem of this section, about the structure of approximat
 		\end{center}
 		Since $Y'$ satisfies $\Ext^1(\mathcal X, Y') = 0$ by \cref{lem:resolving_ext_vanish} we have $\Ext^2(\mathcal X, Y')=0$. In particular from the long exact sequence
 		\begin{center}
-			\begin{tikzcd}[column sep=10pt]
+			\begin{tikzcd}%[column sep=10pt]
 				 0=\Ext^1(X'', Y) \ar[r] & \Ext^1(X'', X') \ar[r] & \Ext^1(X'', C) \ar[r] & \Ext^2(X'', Y)=0
 			\end{tikzcd}
 		\end{center}
-		 we get that $X' \to C'$ induces an isomorphism $\Ext^1(X'', X') \to \Ext^1(X'', C)$. Thus the short exact sequence $0 \to C' \to E \to X'' \to 0$  must come from a sequence $0 \to X' \to X \to X'' \to 0$. This gives us a diagram
+		 we get that $X' \to C'$ induces an isomorphism $\Ext^1(X'', X') \to \Ext^1(X'', C)$. Thus the sequence $0 \to C' \to E \to X'' \to 0$  must come from a sequence $0 \to X' \to X \to X'' \to 0$. This gives us a diagram
 		\begin{center}
 			\begin{tikzcd}
 			& 0 \ar[d] &&0 \ar[d] &\\

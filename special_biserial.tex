@@ -23,7 +23,7 @@ First we discuss some general properties of homomorphisms of algebras.
 	\begin{proof}
 		Let $M$ be a $\Lambda$-module and let $N$ be a $\Gamma$-module. Then we get an isomoprhism from the Hom-Tensor adjunction 
 		$$\Hom_\Gamma(N, \Hom_\Lambda(\Gamma, M)) \cong \Hom_\Lambda(\Gamma\otimes_\Gamma N, M).$$
-		Notice that $_\Lambda\Gamma\otimes_\Gamma N \cong {{}_\Lambda N}$ is exactly restriction of scalars. Further the counit $\Gamma\otimes_\Gamma M' = M' \to M$ is given by $f\mapsto f(1)$, which is exactly how we defined $\varepsilon$ above.
+		Notice that $_\Lambda\Gamma\otimes_\Gamma N \cong {{}_\Lambda N}$ is exactly restriction of scalars. Further the counit of the adjunction $\Gamma\otimes_\Gamma M' = M' \to M$ is given by $f\mapsto f(1)$, which is exactly how we defined $\varepsilon$ above.
 	\end{proof}
 \end{prop}
 
@@ -36,7 +36,7 @@ Next, in preperation for \cref{thm:radical_embedding_repdim_3}, we restrict to t
 \begin{lemma}\cite[Lemma~2.3]{EHIS04}\label{lem:epsilon_semisimple_(co)kernel}
 	If $\Lambda \subseteq \Gamma$ is a radical embedding, then $\ker \varepsilon_M$ and $\cok\varepsilon_M$ are both semisimple for any $\Lambda$-module $M$.
 	\begin{proof}
-		If we apply $\Hom_\Lambda(-, M)$ to the short exact sequence of $\Lambda$-modules \begin{tikzcd}
+		If we apply $\Hom_\Lambda(-, M)$ to \begin{tikzcd}
 			0 \ar[r] & \Lambda \ar[r, "\psi"] & \Gamma \ar[r] & \Gamma/\Lambda \ar[r] & 0,
 		\end{tikzcd} we get 
 		\begin{center}
@@ -45,7 +45,7 @@ Next, in preperation for \cref{thm:radical_embedding_repdim_3}, we restrict to t
 				  &&    && \cok\varepsilon_M \ar[u, hookrightarrow]
 			\end{tikzcd}
 		\end{center}
-		Thus $\Hom(\Gamma/\Lambda, M)$ is the kernel of $\varepsilon_M$ and the cokernel is a submodule of $\Ext^1(\Gamma/\Lambda, M)$. Since $J_\Gamma = J_\Lambda \subseteq \Lambda$ we have that $(\Gamma/\Lambda)J_\Lambda = 0$. Thus $J_\Lambda\Hom(\Gamma/\Lambda, M)$ and $J_\Lambda\Ext^1(\Gamma/\Lambda, M)$ are both 0, which means they are both semisimple. Since $\cok\varepsilon_M$ is a submodule of $\Ext^1(\Gamma/\Lambda, M)$, it is also semisimple.
+		Thus $\Hom(\Gamma/\Lambda, M)$ is the kernel of $\varepsilon_M$ and the cokernel is a submodule of $\Ext^1(\Gamma/\Lambda, M)$. Since $J_\Gamma = J_\Lambda \subseteq \Lambda$ we get $(\Gamma/\Lambda)J_\Lambda = 0$. Thus $J_\Lambda\Hom(\Gamma/\Lambda, M)$ and $J_\Lambda\Ext^1(\Gamma/\Lambda, M)$ are both 0, which means they are both semisimple. Since $\cok\varepsilon_M$ is a submodule of $\Ext^1(\Gamma/\Lambda, M)$, it is also semisimple.
 	\end{proof}
 \end{lemma}
 
@@ -130,13 +130,13 @@ We now use the radical embedding to say something about the representation dimen
 Now we move away from the case where $\psi$ is a radical embedding, and instead look at a specific quotient map.
 
 \begin{theorem}\cite[Proposition~1.2]{EHIS04}\label{thm:mod_out_socle}
-	Let $\Lambda$ be a basic finite dimensional algebra and let $P$ be a basic projective-injective $\Lambda$-module. Then the socle of $P$ is a two-sided ideal, which allows us to define the ring $\Gamma := \Lambda / \socle P$. Then we have that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
+	Let $\Lambda$ be a basic finite dimensional algebra and let $P$ be a basic projective-injective $\Lambda$-module. Then the socle of $P$ is a two-sided ideal, which allows us to define the ring $\Gamma := \Lambda / \socle P$. Further we get a bound on the representation dimension of $\Lambda$ by $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\begin{proof}
-		First we show that the socle of $P$ is a two-sided ideal. Multiplication on the right defines a homomorphism $-\cdot \lambda\colon \Lambda \to \Lambda$. Any homomorphism maps the socle to the socle, so $(\socle P) \cdot \lambda \subseteq \socle \Lambda$. Now let $s \in \socle P$ be some element such that $s\lambda$ is non-zero. Then the injective envelope $I(s)$ is a direct summand of $P$ and thus projective-injective. Further since $-\cdot \lambda\colon (s) \to (s\lambda)$ is an injective map, $I(s)$ is mapped injectively into $\Lambda$ by $-\cdot \lambda$, which means $-\cdot\lambda\colon I(s) \to \Lambda$ splits. Since $\Lambda$ is basic this means that $I(s)\lambda \subseteq P$, and thus $s\lambda \in \socle P$, so the socle of $P$ is a two-sided ideal.
+		First we show that the socle of $P$ is a two-sided ideal. Multiplication on the right defines a homomorphism $-\cdot \lambda\colon \Lambda \to \Lambda$. Any homomorphism maps the socle to the socle, so $(\socle P) \cdot \lambda \subseteq \socle \Lambda$. Now let $s \in \socle P$ be some element such that $s\lambda$ is non-zero. Then the injective envelope $I(\Lambda s)$ is a direct summand of $P$ and thus projective-injective. Further since $-\cdot \lambda\colon (s) \to (s\lambda)$ is an injective map, $I(\Lambda s)$ is mapped injectively into $\Lambda$ by $-\cdot \lambda$, which means $-\cdot\lambda\colon I(\Lambda s) \to \Lambda$ splits. Since $\Lambda$ is basic this means that $I(\Lambda s)\lambda \subseteq P$, and thus $s\lambda \in \socle P$, so the socle of $P$ is a two-sided ideal.
 		
-		Next we note that any indecomposable $\Lambda$-module is either a $\Gamma$-module, or a direct summand of $P$. To see this, let $M$ be any indecomposable $\Lambda$-module and consider $(\socle P)M$. If this is zero, then $M$ is a $\Gamma$-module. If on the other hand there is some $s \in \socle P$ and $m \in M$ such that $sm \neq 0$, then let $I(s)$ be the injective envelope of $s$ and let $e$ be the idempotent such that $I(s) = \Lambda e$. Then we get a map $I(s) \to M$ which maps $\lambda e$ to $\lambda e m$. Since $sm \neq 0$ this maps the socle of $I(s)$ injectively. Now, since $I(s)$ is injective this mean that $I(s)$ is a direct summand of $M$. Since $M$ is indecomposable we have that $M \cong I(s)$, and thus $M$ is a direct summand of $P$.
+		Next we note that any indecomposable $\Lambda$-module is either a $\Gamma$-module, or a direct summand of $P$. To see this, let $M$ be any indecomposable $\Lambda$-module and consider $(\socle P)M$. If this is zero, then $M$ is a $\Gamma$-module. If on the other hand there is some $s \in \socle P$ and $m \in M$ such that $sm \neq 0$, then let $I(\Lambda s)$ be the injective envelope of $\Lambda s$ and let $e$ be the idempotent such that $I(\Lambda s) = \Lambda e$. Then we get a map $I(\Lambda s) \to M$ which maps $\lambda e$ to $\lambda e m$. Since $sm \neq 0$ this maps the socle of $I(\Lambda s)$ injectively. Now, since $I(\Lambda s)$ is injective this mean that $I(\Lambda s)$ is a direct summand of $M$. Since $M$ is indecomposable we have that $M \cong I(\Lambda s)$, and thus $M$ is a direct summand of $P$.
 		
-		Now we show that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ that satisfies the inequality $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator-cogenerator because any indecomposable projective or injective module that is not a summand of $P$ will be  a summand of $N$, since all $\Lambda$-modules that are not summands of $P$ are $\Gamma$-modules.
+		Now we show that $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. By \cref{prop:repdim_resdim+2} it suffices to find a generator-cogenerator $V$ with $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$. Let $N$ be the generator-cogenerator in $\mod\Gamma$ that achieves the minimal resolution dimension. Then we claim $V = N \oplus P$ is our desired generator-cogenerator. This is a generator-cogenerator because any indecomposable projective or injective module that is not a summand of $P$ will be  a summand of $N$, since all $\Lambda$-modules that are not summands of $P$ are $\Gamma$-modules.
 		
 		To show that $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ we explicitly construct the resolutions. Let $M$ be an indecomposable $\Lambda$-module. Then we wish to construct an exact sequence
 		\begin{center}
@@ -152,7 +152,7 @@ Now we move away from the case where $\psi$ is a radical embedding, and instead 
 				0 \ar[r] & N_n \ar[r] & \cdots \ar[r] & N_1 \ar[r] & N_0 \ar[r] & M \ar[r] & 0
 			\end{tikzcd}
 		\end{center} 
-		with $N_i \in \add N$. Since $\Lambda \to \Gamma$ is surjective we get that $\Hom_\Lambda(N, -)=\Hom_\Gamma(N,-)$ on $\Gamma$-modules. So if we apply $\Hom_\Lambda(N, -)$ to the sequence it remains exact. Lastly since $\Hom(V,-) = \Hom(N, -) \oplus \Hom(P, -)$ and $\Hom(P, -)$ is an exact functor, if we apply $\Hom(V, -)$ to the sequences it still remains exact. Thus $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ and $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
+		with $N_i \in \add N$. Since $\Lambda \to \Gamma$ is surjective we get that $\Hom_\Lambda(N, -)=\Hom_\Gamma(N,-)$ on $\Gamma$-modules. So if we apply $\Hom_\Lambda(N, -)$ to the sequence it remains exact. Lastly since $\Hom(V,-) = \Hom(N, -) \oplus \Hom(P, -)$ and $\Hom(P, -)$ is an exact functor, if we apply $\Hom(V, -)$ to the sequences it still remains exact. Thus we get the desired inequalities $V$-$\operatorname{res-dim}(\mod \Lambda) \leq \max\{0, \repdim(\Gamma)-2\}$ and $\repdim(\Lambda) \leq \max\{2, \repdim(\Gamma)\}$. 
 	\end{proof}
 \end{theorem}
 
@@ -167,10 +167,10 @@ We now give the definition of special biserial algebras, and string algebras.
 	A special biserial algebra is called a \emph{string algebra} if it is also monomial, i.e. if $I$ is generated by paths. 
 \end{defn}
 
-We now show that given a special biserial algebra we can always construct a string algebra, by moding out socles of projective injective modules like in \cref{thm:mod_out_socle}.
+We now show that given a special biserial algebra we can always construct a string algebra, by factoring out socles of projective injective modules like in \cref{thm:mod_out_socle}.
 
 \begin{prop}\label{prop:special_biserail_algerbas_are_binomial}
-	If $\Lambda = kQ/I$ is special biserial, then $I$ is generated by monomial and binomial relations. Further if $\gamma + t\gamma'$ is a binomial relation such that $\gamma \not\in I$, then $(\gamma)$ is the socle of a projective-injective module.
+	If $\Lambda = kQ/I$ is special biserial, then $I$ is generated by monomial and binomial relations. Further if $\gamma + t\gamma'$ is a binomial relation, with $\gamma$ and $\gamma'$ paths and $t \in k$, such that $\gamma \not\in I$, then $(\gamma)$ is the socle of a projective-injective module.
 	\begin{proof}
 		Let $\rho$ be a relation. Then we may assume $\rho$ is some linear combinations of paths which start in the same vertex and end in the same vertex. Assume by induction that $\rho$ is a combination of $n$ distinct paths for some $n\geq 3$, and let $\gamma^1$, $\gamma^2$, and $\gamma^3$ be three of those paths. Write each path as a composition of arrows $\gamma^1 = \alpha^1_{t_1} \cdots \alpha^1_1\alpha^1_0$,  $\gamma^2 = \alpha^2_{t_2} \cdots \alpha^2_1\alpha^2_0$, and  $\gamma^3 = \alpha^3_{t_3} \cdots \alpha^3_1\alpha^3_0$.
 		
@@ -178,7 +178,7 @@ We now show that given a special biserial algebra we can always construct a stri
 		
 		Now let $\gamma + t\gamma'$ be a binomial relation such that $\gamma \not\in I$. Let $i$ be the origin vertex of $\gamma$, let $j$ be the terminal vertex, and let $e_i$ and $e_j$ be the corresponding idempotents. Then we claim that $\Lambda e_i$ is projective-injective, and that $(\gamma)$ is its socle.
 		
-		As above decompose the two paths into a product of arrows $\gamma = \alpha_{t}\cdots \alpha_1\alpha_0$ and $\gamma' = \alpha'_{t'}\cdots \alpha_1\alpha_0$, and let $k$ be the smallest integer such that $\alpha_k \neq \alpha'_k$. If $k$ is bigger than 0, then as before we get that either $\alpha_k\alpha_{k-1}$ or $\alpha'_k\alpha_{k-1}$ is a relation. Consequently both $\gamma$ and $\gamma'$ would be relations contradicting our assumption. Similarly if we let $k$ be the smallest integer such that $\alpha_{t-k} \neq \alpha'_{t'-k}$ we get that $k$ cannot be bigger than 0, by exactly the same argument. This means that $\alpha_0 \neq \alpha'_0$ and that $\alpha_t \neq \alpha'_{t'}$, which will be important later.
+		As above decompose the two paths into a product of arrows $\gamma = \alpha_{t}\cdots \alpha_1\alpha_0$ and $\gamma' = \alpha'_{t'}\cdots \alpha_1\alpha_0$, and let $k$ be the smallest integer such that $\alpha_k \neq \alpha'_k$. If $k$ is bigger than 0, then as before we get that either $\alpha_k\alpha_{k-1}$ or $\alpha'_k\alpha_{k-1}$ is a relation. Consequently, both $\gamma$ and $\gamma'$ would be relations contradicting our assumption. Similarly if we let $k$ be the smallest integer such that $\alpha_{t-k} \neq \alpha'_{t'-k}$ we get that $k$ cannot be bigger than 0, by exactly the same argument. This means that $\alpha_0 \neq \alpha'_0$ and that $\alpha_t \neq \alpha'_{t'}$, which will be important later.
 
 		We show that $(\gamma)$ is simple, by showing that $\alpha\gamma$ is a relation for every arrow $\alpha$. We have that $\alpha(\gamma + t\gamma')$ is a relation. Since $\alpha_t \neq \alpha'_{t'}$ we have that either $\alpha\alpha_t = 0$ or $\alpha\alpha'_{t'} = 0$. If $\alpha\alpha_t=0$, then $\alpha\gamma=0$ and we are done. If $\alpha\alpha'_{t'} = 0$, then $\alpha\gamma'=0$ which means that $\alpha\gamma = \alpha(\gamma + t\gamma') - t\alpha\gamma'$ is as well. So $(\gamma)$ is simple and hence in the socle of $\Lambda e_i$.
 		
@@ -224,7 +224,7 @@ This explains where the name \emph{special biserial} comes from; the radical of 
 \caption{The possible shapes for an indecomposable projective module.}\label{fig:biserial_projectives}
 \end{figure}
 
-Combining \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we can reduce the problem of computing the representation dimension of a special biserial algebra to string algebras, by modding out all binomial relations. We now do this to show that special biserial algebras have representation dimension at most 3.
+Combining \cref{thm:mod_out_socle} and \cref{prop:special_biserail_algerbas_are_binomial} we can reduce the problem of computing the representation dimension of a special biserial algebra to string algebras, by factoring out all binomial relations. We now do this to show that special biserial algebras have representation dimension at most 3.
 
 \begin{theorem}\cite[Corollary~1.3]{EHIS04}\label{thm:special_biserial_algebra_repdim_3}
 	If $\Lambda = kQ/I$ is a special biserial algebra, then $\repdim(\Lambda) \leq 3$, and thus $\findim(\Lambda) < \infty$.

@@ -31,7 +31,7 @@ In 1988 Wakamatsu introduced a generalization of tilting modules, now known as W
 			\end{tikzcd}
 		\end{center}
 		where $T_i$ is in $\add T$.
-		\item The sequence $\Hom(\eta, T)$ is exact. Which is equivalent to the condition that $\Ext^1(\Ker d_i, T)=0$ for every differential $d_i$ in $\eta$.
+		\item The sequence $\Hom(\eta, T)$ is exact. Which is equivalent to $\Ext^1(\Ker d_i, T)=0$ for every differential $d_i$ in $\eta$.
 	\end{enumerate}
 \end{defn}
 
@@ -67,7 +67,7 @@ Another noteworthy property of Gorenstein algebras is that a module has finite p
 				0 \ar[r] & M \ar[r] & I \ar[r] & \mho M \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
-		From the long exact sequences in $\Ext(\Lambda/J, -)$ and $\Ext(-, \Lambda/J)$ it follows that $\operatorname{id} M \leq \max\{\id P, \id \Omega M\}$ and $\pd M \leq \max\{\pd I, \pd \mho M\}$. Iterating this construction it follows that for all $n$ we have $\id M \leq \max\{ \id \Lambda, \id \Omega^n M  \}$ and $\pd \leq \max\{\pd D\Lambda, \pd\mho^n M\}$.
+		From the long exact sequences in $\Ext(\Lambda/J, -)$ and $\Ext(-, \Lambda/J)$ it follows that we get inequalities $\operatorname{id} M \leq \max\{\id P, \id \Omega M\}$ and $\pd M \leq \max\{\pd I, \pd \mho M\}$. Iterating this construction it follows that for all $n$ we have that $\id M \leq \max\{ \id \Lambda, \id \Omega^n M  \}$ and that $\pd M \leq \max\{\pd D\Lambda, \pd\mho^n M\}$.
 
 		If $M$ has finite projective dimension, then there is an $n$ such that $\Omega^n M = 0$, which implies $\id M \leq \id \Lambda < \infty$. Conversely, if $M$ has finite injective dimension, then there is an $n$ such that $\mho^n M = 0$, and so it follows that $\pd M \leq \pd D\Lambda < \infty$.
 	\end{proof}
@@ -86,7 +86,7 @@ We remind the reader that when $\Lambda$ is a finite dimensional algebra, we hav
 
 The vanishing conjecture then states that this subcategory is trivial.
 \begin{conj}[Vanishing conjecture] 
-	If $\Lambda$ is a finite dimensional algebra, then $K^b(\inj\Lambda)^\perp = 0$.
+	If $\Lambda$ is a finite dimensional algebra, then we have that $K^b(\inj\Lambda)^\perp = 0$.
 \end{conj}
 
 In \cref{sec:Unbounded_derived_category} we investigate an analog of this conjecture for the unbounded derived category.
@@ -129,8 +129,7 @@ We can also formulate the conjecture as all indecomposable injectives appearing 
 
 \subsection*{Auslander--Reiten Conjecture (ARC)}
 
-The Auslander--Reiten conjecture was introduced in the '70s by Auslander and Reiten as a generalization of the Nakayama conjecture \cite{AR75}. There has been a lot of interest surrounding the commutative case, but the noncommutative case is still not well understood.\todo{refrences?}
-%https://link.springer.com/content/pdf/10.1007/s00013-015-0776-z.pdf
+The Auslander--Reiten conjecture was introduced in the '70s by Auslander and Reiten as a generalization of the Nakayama conjecture \cite{AR75}. There has been a lot of interest surrounding the commutative case \cite{ADSS93,CH10,CT13,HL04,HS04,Jorg08}, but the noncommutative case is still not well understood.
 
 \begin{conj}[Auslander--Reiten conjecture] 
 	Let $\Lambda$ be  finite dimensional algebra. If $M$ is a generator in $\mod\Lambda$ such that  $\Ext^n(M, M) = 0$ for all $n > 0$, then $M$ is projective. 
@@ -165,7 +164,7 @@ The remainder of this section is used to prove these implications.
 \begin{theorem} \cite[Proposition~4.4]{MR04}
 	The finitistic dimension conjecture implies the Wakamatsu tilting conjecture.
 	\begin{proof}
-		Assume $\Lambda$ satisfies FDC, and let $T$ be a Wakamatsu tilting module with $\pd T < \infty$. By definition we have an exact sequence
+		Assume $\Lambda$ satisfies FDC, and let $T$ be a Wakamatsu tilting module that satisfies $\pd T < \infty$. By definition we have an exact sequence
 		\begin{center}
 			\begin{tikzcd}
 			\eta\colon 0 \ar[r] & \Lambda \ar[r, "d_{-1}"] & T_0 \ar[r, "d_0"] & T_1 \ar[r, "d_1"] & \cdots
@@ -173,7 +172,7 @@ The remainder of this section is used to prove these implications.
 		\end{center}
 		We want to show that $\eta$ can be replaced by a bounded sequence of the same form. 
 		
-		Let $K_i$ denote the kernel of $d_i$. First we prove by induction on $i$ that $\Ext^{>0}(K_i, T)=0$. For $i=0$ we have $K_0=\Lambda$, so we have $\Ext^{>0}(K_0, T)=0$. Now assume that $\Ext^{>0}(K_i, T)=0$ for some $i \geq 0$. We have a short exact sequence
+		Let $K_i$ denote the kernel of $d_i$. First we prove that $\Ext^{>0}(K_i, T)=0$, by induction on $i$. For $i=0$ we have $K_0=\Lambda$, so we have $\Ext^{>0}(K_0, T)=0$. Now assume that $\Ext^{>0}(K_i, T)=0$ for some $i \geq 0$. We have a short exact sequence
 		\begin{center}
 			\begin{tikzcd}
 			0  \ar[r] & K_{i}  \ar[r] & T_{i}  \ar[r] & K_{i+1}  \ar[r] & 0.
@@ -181,7 +180,7 @@ The remainder of this section is used to prove these implications.
 		\end{center}
 		Applying the long exact sequence in $\Ext(-, T)$ we get
 		\begin{center}
-			\begin{tikzcd}[column sep=18pt]
+			\begin{tikzcd}
 			\Ext^{n}(T_{i}, T) \ar[r] & \Ext^{n}(K_{i}, T) \ar[r] & \Ext^{n+1}(K_{i+1}, T) \ar[r] & \Ext^{n+1}(T_{i}, T)
 			\end{tikzcd}
 		\end{center}
@@ -230,7 +229,7 @@ The remainder of this section is used to prove these implications.
 		\end{center}
 		This means that $K_{n+1}$ is a direct summand of $T_n$, and thus is in $\add T$. Then we get a bounded version of $\eta$ by
 		\begin{center}
-			\begin{tikzcd}[column sep=23pt]
+			\begin{tikzcd}%[column sep=23pt]
 			\eta'\colon 0 \ar[r] & \Lambda \ar[r, "d_{-1}"] & T_0 \ar[r, "d_0"] & T_1 \ar[r, "d_1"] & \cdots \ar[r, "d_{n-1}"] & T_n \ar[r, "d_n"] & K_{n+1} \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
@@ -358,7 +357,7 @@ Before we can prove the equivalence between the generalized Nakayama conjecture 
 			0 \ar[r] & M \ar[r] & I_0 \ar[r] & I_1 \ar[r] & \cdots
 		\end{tikzcd}
 		\end{center}
-		be an injective resolution of $M$. Since $\Ext^n(M,M)=0$, when we apply $(M,-):=\Hom(M,-)$ we get an exact sequence.
+		be an injective resolution of $M$. Since $\Ext^n(M,M)=0$, when we apply the functor $(M,-):=\Hom(M,-)$ we get an exact sequence.
 		\begin{center}
 		\begin{tikzcd}
 			0 \ar[r] & \Gamma \ar[r] & (M,I_0) \ar[r] & (M,I_1) \ar[r] & \cdots

@@ -22,7 +22,7 @@ Like we said above, the archetypical example of a stably hereditary algebra is o
 \end{defn}
 
 \begin{prop}
-	If for an algebra $\Lambda$ there is a hereditary algebra $H$ such that $\underline{\mod}\Lambda \cong \underline{\mod}H$ then $\Lambda$ is stably hereditary.
+	If for an algebra $\Lambda$ there is a hereditary algebra $H$ such that $\underline{\mod}\Lambda \cong \underline{\mod}H$, then $\Lambda$ is stably hereditary.
 	\begin{proof}
 		The proof is omitted here, but can be found in \cite[Chapter~IV, Theorem~1.5]{AR73}.
 	\end{proof}
@@ -33,7 +33,7 @@ There exists stably hereditary algebras that are not stably equivalent to a here
 \begin{theorem}\cite[Theorem~3.5]{Xi02}\label{thm:stably_hereditary_repdim_3}
 	If $\Lambda$ is stably hereditary, then it has representation dimension at most 3.
 	\begin{proof}
-		By \cref{prop:repdim_resdim+2} it is enough to find a generator-cogenerator $V$ such that $V$-$\operatorname{res-dim}(\Lambda) \leq 1$.
+		By \cref{prop:repdim_resdim+2} it is enough to find a generator-cogenerator $V$ that satisfies $V$-$\operatorname{res-dim}(\Lambda) \leq 1$.
 		
 		Let $V$ be the direct sum of all the indecomposable projective, all the indecomposable injective, and all the simple modules. Then $V$ is a generator-cogenerator. So we just need to show that  $V$-$\operatorname{res-dim}(\Lambda) \leq 1$.
 		
@@ -129,4 +129,9 @@ There exists stably hereditary algebras that are not stably equivalent to a here
 %	\end{proof}
 %\end{theorem}
 
-Now because of \cref{cor:repdim_less_than_3_implies FDC} this means that $\findim(\Lambda) < \infty$ whenever $\Lambda$ is stably hereditary.
+\begin{cor}
+	If $\Lambda$ is stably hereditary, then $\findim(\Lambda) < \infty$.
+	\begin{proof}
+		Since $\repdim(\Lambda) \leq 3$, by applying \cref{cor:repdim_less_than_3_implies FDC} we get the desired result.
+	\end{proof} 
+\end{cor}

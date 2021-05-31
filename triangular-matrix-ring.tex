@@ -1,6 +1,6 @@
 \subsection{Triangular matrix rings}\label{sec:Triangular_matrix_rings}
 
-In this section we will relate the finitistic dimension of the triangular matrix ring $\Lambda = \begin{pmatrix}
+In this section we relate the finitistic dimension of the triangular matrix ring $\Lambda = \begin{pmatrix}
 R & 0\\
 M& S
 \end{pmatrix}$ to the finitistic dimension of $R$ and $S$. Specifically the finitistic dimension of $\Lambda$ will be finite if the finitistic dimensions of both $R$ and $S$ are finite. 
@@ -10,7 +10,7 @@ In \cref{sec:recollemt_of_triangular_rings} we give some further conditions on $
 We will first define the concept of a comma category and describe some of its homological properties. In \cref{thm:findim_of_comma_cat} we give a bound on the finitistic dimension of the comma category. Then in \cref{prop:triangular_matrix_is_comma_cat} we show that for $\Lambda$ a triangular matrix ring as above, we have that $\mod \Lambda$ is isomorphic to the comma category of $M\otimes_R - \colon \mod R \to \mod S$, which means we get a bound on $\findim(\Lambda)$.
 
 \begin{defn}[Comma category]
-	Let $\mathcal A$ and $\mathcal B$ be categories and let $F\colon\mathcal A \to \mathcal B$ be a functor. Then the \emph{comma category} $(F, \mathcal  B)$ has as objects triplets $(A, B, f)$ with $A \in \mathcal  A$, $B \in \mathcal  B$, and $f\colon FA \to B$ a morphism in $\mathcal  B$. The morphisms are pairs $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ with $\alpha\colon A \to A'$ and $\beta\colon B \to B'$ such that the following diagram commutes:
+	Let $\mathcal A$ and $\mathcal B$ be categories and let $F\colon\mathcal A \to \mathcal B$ be a functor. Then the \emph{comma category} $(F, \mathcal  B)$ has as objects triplets $(A, B, f)$ with $A \in \mathcal  A$, $B \in \mathcal  B$, and $f\colon FA \to B$ a morphism in $\mathcal  B$. The morphisms are given by pairs $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ with $\alpha\colon A \to A'$ and $\beta\colon B \to B'$ such that the following diagram commutes:
 	\begin{center}
 		\begin{tikzcd}
 			FA \ar[r, "f"] \ar[d, swap, "F\alpha"] & B \ar[d, "\beta"]\\
@@ -35,14 +35,14 @@ We will first define the concept of a comma category and describe some of its ho
 		\end{tikzcd}
 	\end{center}
 	\begin{proof}
-		We need to show that $(F, \mathcal B)$ has kernels and cokernels, and that for any map the image equals the coimage. First we show that it contains kernels. Let $(\alpha, \beta)\colon(A, B, f) \to (C, D, g)$ be a morphism in the comma category. Then we have a diagram:
+		We need to show that $(F, \mathcal B)$ has kernels and cokernels, and that for any map the image equals the coimage. First we show that it contains kernels. Consider a morphism in the comma category $(\alpha, \beta)\colon(A, B, f) \to (C, D, g)$. Then we have a diagram:
 		\begin{center}
 		\begin{tikzcd}
 			& F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, dashed, "\theta"]& FA \ar[r, "F\alpha"] \ar[d, "f"] & FC \ar[d, "g"]\\
 			0 \ar[r] & \ker \beta \ar[r, "\iota_\beta"] & B \ar[r, "\beta"] & D
 		\end{tikzcd}
 		\end{center}
-		Since $\beta f F\iota_\alpha = f' F\alpha F \iota_\alpha = 0$ there is a unique $\theta$ making the diagram commute. I claim the kernel of $(\alpha, \beta)$ is $(\ker \alpha, \ker \beta, \theta)$. Indeed if we have a morphism $(\alpha', \beta')\colon (A', B', f') \to (A, B, f)$ such that $(\alpha, \beta) \circ (\alpha', \beta') = 0$, then $\alpha\alpha'=0$ and $\beta\beta'=0$. This means both $\alpha'$ and $\beta'$ factor uniquely through $\iota_\alpha$ and $\iota_\beta$. Let $\alpha''$ and $\beta''$ be the morphisms such that $\alpha' = \iota_\alpha \circ \alpha''$ and $\beta' = \iota_\beta \circ \beta''$. Then we claim $(\alpha', \beta')$ factors through $(\iota_\alpha, \iota_\beta)$ as indicated in the diagram below.
+		Since $\beta f F\iota_\alpha = f' F\alpha F \iota_\alpha = 0$ there is a unique $\theta$ making the diagram commute. I claim the kernel of $(\alpha, \beta)$ is $(\ker \alpha, \ker \beta, \theta)$. Indeed, if $(\alpha', \beta')\colon (A', B', f') \to (A, B, f)$ is a morphism such that $(\alpha, \beta) \circ (\alpha', \beta') = 0$, then $\alpha\alpha'=0$ and $\beta\beta'=0$. This means both $\alpha'$ and $\beta'$ factor uniquely through $\iota_\alpha$ and $\iota_\beta$. Let $\alpha''$ and $\beta''$ be the morphisms such that $\alpha' = \iota_\alpha \circ \alpha''$ and $\beta' = \iota_\beta \circ \beta''$. Then we claim $(\alpha', \beta')$ factors through $(\iota_\alpha, \iota_\beta)$ as indicated in the diagram below.
 		\begin{center}
 			\begin{tikzcd}
 			FA' \ar[d, "f'"] \ar[r, "F\alpha''"] & F \ker \alpha \ar[r, "F\iota_\alpha"] \ar[d, "\theta"]& FA  \ar[d, "f"] \\
@@ -187,7 +187,7 @@ We will now use these four functors to understand the structure of projective ob
 			FA \ar[u, equal] \ar[r, hookrightarrow]  & \cok f \oplus FA. \ar[u, swap,  two heads]
 		\end{tikzcd}
 		\end{center}
-		By the projective property of $P$ there is some morphism $\beta$ factorizing the map $P \to ZC(P)$, which gives us the diagram:
+		By the projective property of $P$ there is a map $\beta$ factorizing $P \to ZC(P)$, which gives us the diagram:
 		\begin{center}
 			\begin{tikzcd}
 			FA \ar[d, equal] \ar[r, "f"] & B \ar[d, "\beta"]\\
@@ -195,14 +195,14 @@ We will now use these four functors to understand the structure of projective ob
 			FA \ar[r, "0"] & \cok f.
 			\end{tikzcd}
 		\end{center}
-		Since $FA \hookrightarrow \cok f \oplus FA$ is split mono, $f$ is split mono. This means that $B$ splits as a direct sum of the image and cokernel of $f$, i.e. $B$ is isomorphic to $\cok f \oplus \Image f \cong \cok f \oplus FA$. From the diagram we see that $\beta$ induces an isomorphism on each component, and thus $\beta$ is an isomorphism. So we have $P \cong TC(P)$.
+		Since $FA \hookrightarrow \cok f \oplus FA$ is split mono, $f$ is split mono. This means that $B$ splits as a direct sum of the image and cokernel of $f$, i.e. $B$ is isomorphic to the direct sum $\cok f \oplus \Image f \cong \cok f \oplus FA$. From the diagram we see that $\beta$ induces an isomorphism on each component, and thus $\beta$ is an isomorphism. So we have $P \cong TC(P)$.
 	\end{proof}
 \end{prop}
 
 \begin{prop}\cite[Lemma~4.16]{FGR75}\label{prop:pd_in_commacat}
 	Let $X = (A, B, f)$ be an object in the comma category. Then $\pd X \geq \pd A$. Further if $A=0$, then we have that $\pd X = \pd B$.
 	\begin{proof}
-		We first show that $\pd X \geq \pd A$. Note that there is an equality $\pd C(X) = \max\{ \pd A, \pd \cok f \}$ so we always have $\pd C(X) \geq \pd A$. If $\pd X = \infty$ then the statement holds so let us assume $\pd X = n < \infty$. We proceed by induction on $n$. If $n=0$ then $C(X)$ is projective so $\pd X = \pd C(X) = \pd A = 0$. Next assume the statement holds whenever the projective dimension is less than $n$ for some $n \geq 1$. Let $P \to A$ and $P' \to \cok f$ be epimorphisms from projectives. Then we have an epimorphism $T(P, P') \to X$. If we let $\Omega A$ be the kernel of $P \to A$ and $X' = (\Omega A, K, \theta)$ be the kernel of $T(P, P') \to X$, as shown in the following diagram
+		We first show that $\pd X \geq \pd A$. Note that $\pd C(X) = \max\{ \pd A, \pd \cok f \}$, so we always have $\pd C(X) \geq \pd A$. If $\pd X = \infty$ then the statement holds so let us assume $\pd X = n < \infty$. We proceed by induction on $n$. If $n=0$ then $C(X)$ is projective so $\pd X = \pd C(X) = \pd A = 0$. Next assume the statement holds whenever the projective dimension is less than $n$ for some $n \geq 1$. Let $P \to A$ and $P' \to \cok f$ be epimorphisms from projectives. Then we have an epimorphism $T(P, P') \to X$. If we let $\Omega A$ be the kernel of $P \to A$ and $X' = (\Omega A, K, \theta)$ be the kernel of $T(P, P') \to X$, as shown in the following diagram
 		\begin{center}
 		\begin{tikzcd}
 			& F\Omega A \ar[r] \ar[d, "\theta", swap] & FP \ar[r] \ar[d, hookrightarrow] & FA \ar[r] \ar[d, "f"] & 0\\
@@ -220,17 +220,17 @@ Now we are ready for the main theorem of this section, where we give an upper bo
 \begin{theorem}\cite[Theorem~4.20]{FGR75}\label{thm:findim_of_comma_cat}
 	The finitistic dimension of the comma category $(F, \mathcal B)$ is bounded above by $\findim(\mathcal A) + \findim(\mathcal B) + 1$.
 	\begin{proof}
-		Let $X=(A, B, f)$ be an element of the comma category with finite projective dimension. Let $P_A^\bullet$ be a projective resolution of $A$ shorter than $\findim(\mathcal A)$. Similar to what we did in \cref{prop:pd_in_commacat} define $P_X^0$ to be $T(P_A^0, P(\cok f))$ where $P(\cok f)$ is a projective module with an epimorphism onto $\cok f$. Then let the kernel of $P_X^0 \to X$ be $(\Omega A, K^0, \theta^0)$. We continue inductively, defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then we have that $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Thus by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So we conclude that $\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1$.
+		Let $X=(A, B, f)$ be an element of the comma category with finite projective dimension. Let $P_A^\bullet$ be a projective resolution of $A$ shorter than $\findim(\mathcal A)$. Similar to what we did in \cref{prop:pd_in_commacat} define $P_X^0$ to be $T(P_A^0, P(\cok f))$ where $P(\cok f)$ is a projective module with an epimorphism onto $\cok f$. Then let the kernel of $P_X^0 \to X$ be $(\Omega A, K^0, \theta^0)$. We continue inductively, defining $P_X^n$ to be $T(P_A^n, \cok \theta^{n-1})$. Then we have that $\Omega^{\findim(\mathcal A)+1} X = (0, K^{\findim(\mathcal A)}, 0)$. Thus by \cref{prop:pd_in_commacat} we know that $\pd\Omega^{\findim(\mathcal A)+1}X = \pd K^{\findim(\mathcal A)} \leq \findim(\mathcal B)$. So we conclude that $$\pd X \leq \findim(\mathcal A) + \findim(\mathcal B) + 1.$$
 	\end{proof}
 \end{theorem}
 
 Before applying this to triangular matrix rings, let us have a look at a simple example.
 
 \begin{example}\label{ex:triangular_matrix_ring}
-	If $k$ is a field, $\mathcal A = \mathcal B = \mod k$, and $F$ is the identity, then the comma category $(F, \mathcal B)$ is equivalent to the category of finite dimensional representations of $\mathbb A_2$ over $k$. 
+	If $k$ is a field, $\mathcal A = \mathcal B = \mod k$, and $F$ is the identity, then the comma category $(F, \mathcal B)$ is equivalent to the category of finite dimensional representations of the quiver $\mathbb A_2 = 1 \to 2$ over $k$. 
 \end{example}
 
-In this example $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0, while $(F, \mathcal B)$ has finitistic dimension 1. So the bound shown above is tight. 
+In this example $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0, while $(F, \mathcal B)$ has finitistic dimension 1. So the bound shown above is sharp. 
 
 \begin{defn}[Triangular matrix ring]
 	Let $R$ and $S$ be rings, and let $M$ be an $S$-$R$-bimodule. Then the \emph{triangular matrix ring} $\begin{pmatrix}
@@ -261,7 +261,7 @@ k & k
 	If $\Lambda = \begin{pmatrix}
 	R & 0\\
 	M & S
-	\end{pmatrix}$ is a triangular matrix ring and $M$ is finitely generated as an $S$-module, then $\mod \Lambda$ is isomorphic to the comma category $(M \otimes_R -, \mod S)$. In particular this holds if $\Lambda$ is also a finite dimensional algebra.
+	\end{pmatrix}$ is a triangular matrix ring and $M$ is finitely generated as an $S$-module, then $\mod \Lambda$ is isomorphic to $(M \otimes_R -, \mod S)$. In particular this holds if $\Lambda$ is also a finite dimensional algebra.
 	\begin{proof}
 		Notice, if $N$ is a $\Lambda$-module, then as an abelian group $N$ splits as a direct sum into
 		$$N= N_R \oplus N_S :=

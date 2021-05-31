@@ -95,19 +95,23 @@ Now that we have a good understanding of how the functors in a recollement inter
 		\arrow[phantom, from=j, to=jr, "\dashv" rotate=-90]
 		\end{tikzcd}	
 	\end{center}
-	 then we have that $\findim(\Lambda) < \infty$ if and only if both $\findim(\Lambda') < \infty$ and $\findim(\Lambda'') < \infty$.
+	 then $\findim(\Lambda) < \infty$ if and only if both $\findim(\Lambda') < \infty$ and $\findim(\Lambda'') < \infty$.
 	\begin{proof}
 		Assume $\findim(\Lambda) < \infty$. First we show that $\findim(\Lambda') < \infty$.
 		
-		Let $T = \Lambda' / \rad\Lambda'$ be the sum of all simple $\Lambda'$-modules. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. We consider $X$ as a complex concentrated in degree 0. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Say:
-		$$i_*X = 0 \to P^{-s} \to \cdots \to P^{s'} \to 0$$
+		Let $T = \Lambda' / \rad\Lambda'$ be the sum of all simple $\Lambda'$-modules. Then the projective dimension of $X$ is the largest $t$ for which $\Ext^t(X, T) \neq 0$. Let $X$ be a module in $\mod \Lambda'$ with finite projective dimension. We consider $X$ as a complex concentrated in degree 0. Then since $X$ is isomorphic to its projective resolution, by \cref{lem:adjoint_preserves_bounded_proj/inj} $i_*X$ is a bounded complex of projectives. Let it be given by
+		\begin{center}
+			\begin{tikzcd}
+				i_*X\colon 0 \ar[r] & P^{-s} \ar[r] & \cdots \ar[r] & P^{s'} \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
 		By \cref{lem:uniform_bound_on_homology} we know there is an $r$ independent of $X$ such that $H^{-j}(i_*X)=0$ for $j \geq r$. Truncating $i_*X$ at $-r$ gives a projective resolution of $\ker d^{-r}_{i_*X}$. So $\ker d^{-r}_{i_*X}$ has projective dimension $-r-(-s) = s-r$. Since $\findim(\Lambda)<\infty$ this means that $s \leq r + \findim(\Lambda)$.
 		
-		Since $i_*T$ is in $\D^b(\Lambda)$ it is a bounded complex, in particular there is a $t_0$ such that $i_*T^{t}=0$ for $t \geq t_0$. Then by the bounds above $\D^b(\Lambda)(i_*X, i_*T[t]) = 0$ for $t \geq t_0 + s \geq t_0 + r + \findim(\Lambda)$. Since $i_*$ is fully faithful this equals $\D^b(\Lambda')(X, T[t])$, and so $\findim(\Lambda') \leq t_0 + r + \findim(\Lambda)$. In particular it is finite.
+		Since $i_*T$ is in $\D^b(\Lambda)$ it is a bounded complex, in particular there is a $t_0$ such that $i_*T^{t}=0$ for $t \geq t_0$. Then by the bounds above we have $\D^b(\Lambda)(i_*X, i_*T[t]) = 0$ for $t \geq t_0 + s \geq t_0 + r + \findim(\Lambda)$. Since $i_*$ is fully faithful this equals $\D^b(\Lambda')(X, T[t])$, and so $\findim(\Lambda') \leq t_0 + r + \findim(\Lambda)$. In particular it is finite.
 		
 		The proof for $\findim(\Lambda'')$ is the same, just replacing $i_*$ with $j_!$. We leave writing out the details to the reader.
 		
-		For the converse assume $\Lambda'$ and $\Lambda''$ both have finite finitistic dimension. Let $T = \Lambda / \rad\Lambda$, and $X$ be a $\Lambda$-module with finite projective dimension, and consider both modules as a complex concentrated in degree 0. By \cref{def:recollement}(\ref{recollement:triangles}) we have distinguished triangles:
+		For the converse assume $\Lambda'$ and $\Lambda''$ both have finite finitistic dimension. Let $T$ be the module $\Lambda / \rad\Lambda$, and $X$ be a $\Lambda$-module with finite projective dimension, and consider both modules as a complex concentrated in degree 0. By \cref{def:recollement}(\ref{recollement:triangles}) we have distinguished triangles:
 		\begin{center}
 			\begin{tikzcd}
 				j_!j^!X \ar[r] & X \ar[r] & i_*i^* X \ar[r] & j_!j^!X[1]\\		

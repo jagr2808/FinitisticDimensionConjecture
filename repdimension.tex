@@ -1,6 +1,6 @@
 \subsection{Representation dimension}\label{sec:repdimension}
 
-In this section we look at the representation dimension of an algebra. This is another useful homological invariant of the representation theory for a finite dimensional algebra. The representation dimension is less than or equal to 2 if and only if $\Lambda$ is representation finite, so it is natural to think that the representation dimension in some sense measures how far $\Lambda$ is from being representation finite. In \cref{cor:repdim_less_than_3_implies FDC} we show that $\findim(\Lambda) < \infty$ when $\repdim(\Lambda) \leq 3$, and in \cref{sec:stable_hereditary_algebras} and \cref{sec:special_biserial_algebras} we give a two examples of families of algebras that satisfy this.
+In this section we look at the representation dimension of an algebra. This is another useful homological invariant of the representation theory for a finite dimensional algebra. The representation dimension is less than or equal to 2 if and only if $\Lambda$ is representation finite, so it is natural to think that the representation dimension in some sense measures how far $\Lambda$ is from being representation finite. In \cref{cor:repdim_less_than_3_implies FDC} we show that $\findim(\Lambda)$ is finite when $\repdim(\Lambda) \leq 3$, and in \cref{sec:stable_hereditary_algebras} and \cref{sec:special_biserial_algebras} we give a two examples of families of algebras that satisfy this.
 
 \begin{defn}[Representation dimension]
 	Let $\Lambda$ be a finite dimensional algebra. The \emph{representation dimension} of $\Lambda$, denoted $\repdim(\Lambda)$, is the minimal global dimension of $\End(M)^{\operatorname{op}}$ for $M$ a generator-cogenerator in $\mod\Lambda$. We call a generator-cogenerator that achieves this minimum an \emph{Auslander-generator}.
@@ -21,7 +21,7 @@ The representation dimension can also be defined using $\mathcal M$-resolutions,
 
 An $\mathcal M$-resolution of $X$ should be thought of as a projective resolution of $\Hom(-, X)|_{\mathcal M}$ in the category of coherent functors on $\mathcal M$. When $\mathcal M = \add M$ the category of coherent functors is isomorphic to $\mod \End(M)^{\op}$, where $\Hom(-, X)|_{\mathcal M}$ corresponds to $\Hom(M, X)$. In the proof of the next proposition we use this correspondence, and we write $M$-$\operatorname{res-dim}$ instead of $(\add M)$-$\operatorname{res-dim}$. 
 
-\begin{prop}\label{prop:repdim_resdim+2}
+\begin{prop}\label{prop:repdim_resdim+2}\cite[Chapter~III.5]{Aus71}
 	If the representation dimension of $\Lambda$ is at least $2$, then $\repdim(\Lambda) - 2$ equals the minimum of $M$-$\operatorname{res-dim}(\mod \Lambda)$ for $M$ a generator-cogenerator. In fact, for any generator-cogenerator, $M$-$\operatorname{res-dim}(\mod \Lambda)$ is two less than the global dimension of $\End(M)^{\op}$.
 	\begin{proof}
 		Let $M$ be a generator-cogenerator. We first show that the global dimension of $\End(M)^{\op}$ is less than or equal to $M$-$\operatorname{res-dim}(\mod \Lambda) + 2$. 
@@ -56,23 +56,43 @@ An $\mathcal M$-resolution of $X$ should be thought of as a projective resolutio
 
 The next two results paint an important picture of the representation dimension as an invariant, but are not relevant for the other results in this thesis.
 
-\begin{theorem}
+\begin{theorem}\cite[Corollary~1.2]{Iya02}
 	The representation dimension of an artin algebra is always finite.
 	\begin{proof}
-		This was proven by Iyama in 2002. The proof is omitted here, but can be found in \cite{Iya02}.
+		This was proven by Iyama in 2002. The proof is omitted here, but can be found in their paper \cite{Iya02}.
 	\end{proof}
 \end{theorem}
 
-\begin{prop}
+\begin{prop}\cite[Chapter~III.4]{Aus71}
 	The representation dimension of $\Lambda$ is less than or equal to $2$ if and only if $\Lambda$ is representation finite.
 	\begin{proof}
-		Assume $\Lambda$ is representation finite and let $M$ be the direct sum of all indecomposable modules up to isomorphism. Then $M$ is a generator-cogenerator. Let $X$ be an $\End(M)^{\operatorname{op}}$-module with projective presentation 
-		$$(M,M_1) \to (M, M_0) \to X \to 0.$$ 
+		Assume $\Lambda$ is representation finite and let $M$ be the direct sum of all indecomposable modules up to isomorphism. Then $M$ is a generator-cogenerator. Let $X$ be an $\End(M)^{\operatorname{op}}$-module with projective presentation
+		\begin{center}
+			\begin{tikzcd}
+				(M,M_1) \ar[r] & (M, M_0) \ar[r] & X \ar[r] & 0.
+			\end{tikzcd}
+		\end{center}
 		Let $M_2$ be the kernel of $M_1 \to M_0$. Since $M$ is the sum of all indecomposables $M_2$ is in $\add M$, so 
-		$$0 \to (M, M_2) \to (M,M_1) \to (M, M_0) \to X \to 0$$ 
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & (M, M_2) \ar[r] & (M,M_1) \ar[r] & (M, M_0) \ar[r] & X \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
 		is a projective resolution of $X$. So $\Lambda$ has representation dimension at most 2.
 		
-		Assume $\Lambda$ has representation dimension at most 2, and let $M$ be an Auslander-generator. We want to show that $\add M = \mod\Lambda$. Let $X$ be any $\Lambda$-module, and let $$0 \to X \to I_0 \to I_1$$ be a minimal injective presentation. If $I_0 \to I_1$ is split then $X$ is injective and thus in $\add M$. Let $M_X$ be a minimal $M$-approximation of $X$, let $\Omega_M X$ be the kernel of the approximation, and let $Y$ be the cokernel of $(M, I_0) \to (M, I_1)$. Then $$(M,\Omega_M X) \to (M,M_X) \to (M, I_0) \to (M, I_1) \to Y \to 0$$ is a minimal exact sequence. Since the global dimension of $\End(M)^{\operatorname{op}}$ is at most 2 this means that $(M, \Omega_M X)=0$. Consequently we have that $\Omega_M X = 0$ and that $X=M_X$, so $X$ is in $\add M$. Thus $\Lambda$ is representation finite.
+		Assume $\Lambda$ has representation dimension at most 2, and let $M$ be an Auslander-generator. We want to show that $\add M = \mod\Lambda$. Let $X$ be any $\Lambda$-module, and let 
+		\begin{center}
+			\begin{tikzcd}
+				0 \ar[r] & X \ar[r] & I_0 \ar[r] & I_1
+			\end{tikzcd}
+		\end{center}
+		be a minimal injective presentation. If $I_0 \to I_1$ is split then $X$ is injective and thus in $\add M$. Let $M_X$ be a minimal $M$-approximation of $X$, let $\Omega_M X$ be the kernel of the approximation, and let $Y$ be the cokernel of $(M, I_0) \to (M, I_1)$. Then 
+		\begin{center}
+			\begin{tikzcd}
+				(M,\Omega_M X) \ar[r] & (M,M_X) \ar[r] & (M, I_0) \ar[r] & (M, I_1) \ar[r] & Y \ar[r] & 0
+			\end{tikzcd}
+		\end{center}
+		is a minimal exact sequence. Since the global dimension of $\End(M)^{\operatorname{op}}$ is at most 2 this means that $(M, \Omega_M X)=0$. Consequently we have that $\Omega_M X = 0$ and that $X=M_X$, so $X$ is in $\add M$. Thus $\Lambda$ is representation finite.
 	\end{proof}
 \end{prop}
 
@@ -81,7 +101,7 @@ We conclude this subsection by proving that $\findim(\Lambda)$ is finite when $\
 \begin{theorem}\cite[Corollary~8]{IgTo05}
 	If $\Lambda = \End_\Gamma(P)^{\op}$ for an algebra $\Gamma$ with global dimension at most 3, and $P$ projective, then $\findim(\Lambda) < \infty$.
 	\begin{proof}
-		Let $X$ be any $\Lambda$-module with finite projective dimension. Then it has a projective presentation $(P, P_1) \to (P,P_0) \to X \to 0$ where $(P,P_i)=\Hom_\Gamma(P,P_i)$ with $P_i \in \add P$. Since $(P,-)$ is an equivalence from $\add P$ to $\proj\Lambda$ this corresponds to a map $P_1 \to P_0$ which we can extend to a projective resolution in $\mod\Gamma$:
+		Let $X$ be any $\Lambda$-module with finite projective dimension. Then it has a projective presentation $(P, P_1) \to (P,P_0) \to X \to 0$ where $(P,P_i)=\Hom_\Gamma(P,P_i)$ with $P_i \in \add P$. Since $(P,-)$ is an equivalence from $\add P$ to $\proj\Lambda$, this corresponds to a map $P_1 \to P_0$ which we can extend to a projective resolution in $\mod\Gamma$:
 		\begin{center}
 			\begin{tikzcd}
 			0 \ar[r] & P_3 \ar[r] & P_2 \ar[r] & P_1 \ar[r] & P_0.
@@ -99,9 +119,9 @@ We conclude this subsection by proving that $\findim(\Lambda)$ is finite when $\
 			0 \ar[r] & (P, P_3) \ar[r] & (P, P_2) \ar[r] & \Omega^2 X \ar[r] & 0.
 			\end{tikzcd}
 		\end{center}
-		Then by \cref{thm:projdim_bounded_by_psi} the projective dimension of $\Omega^2 X$ is bounded by $\psi((P, P_3)\oplus (P, P_2))+1$. Which means
-		$$\pd X \leq \psi((P, P_3)\oplus (P, P_2))+3 \leq \psi((P,\Gamma))+3$$
-		Since this bound doesn't depend on $X$, $\Lambda$ has finite finitistic dimension.
+		Then by \cref{thm:projdim_bounded_by_psi} the projective dimension of $\Omega^2 X$ has an upper bound given by $\psi((P, P_3)\oplus (P, P_2))+1$. Which means that
+		$$\pd X \leq \psi((P, P_3)\oplus (P, P_2))+3 \leq \psi((P,\Gamma))+3.$$
+		Since this bound doesn't depend on $X$, we have $\findim(\Lambda) < \infty$.
 	\end{proof} 
 \end{theorem}
 
