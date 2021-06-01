@@ -3,11 +3,11 @@
 In this section we relate the finitistic dimension of the triangular matrix ring $\Lambda = \begin{pmatrix}
 R & 0\\
 M& S
-\end{pmatrix}$ to the finitistic dimension of $R$ and $S$. Specifically the finitistic dimension of $\Lambda$ will be finite if the finitistic dimensions of both $R$ and $S$ are finite. 
+\end{pmatrix}$ to the finitistic dimension of $R$ and $S$. Specifically the finitistic dimension of $\Lambda$ is finite if the finitistic dimensions of both $R$ and $S$ are finite. 
 
 In \cref{sec:recollemt_of_triangular_rings} we give some further conditions on $M$ for which we get a recollement between the bounded derived categories of $S$, $R$ and $\Lambda$.
 
-We will first define the concept of a comma category and describe some of its homological properties. In \cref{thm:findim_of_comma_cat} we give a bound on the finitistic dimension of the comma category. Then in \cref{prop:triangular_matrix_is_comma_cat} we show that for $\Lambda$ a triangular matrix ring as above, we have that $\mod \Lambda$ is isomorphic to the comma category of $M\otimes_R - \colon \mod R \to \mod S$, which means we get a bound on $\findim(\Lambda)$.
+We first define the concept of a comma category and describe some of its homological properties. In \cref{thm:findim_of_comma_cat} we give a bound on the finitistic dimension of the comma category. Then in \cref{prop:triangular_matrix_is_comma_cat} we show that for $\Lambda$ a triangular matrix ring as above, we have that $\mod \Lambda$ is isomorphic to the comma category of $M\otimes_R - \colon \mod R \to \mod S$, which means we get a bound on $\findim(\Lambda)$.
 
 \begin{defn}[Comma category]
 	Let $\mathcal A$ and $\mathcal B$ be categories and let $F\colon\mathcal A \to \mathcal B$ be a functor. Then the \emph{comma category} $(F, \mathcal  B)$ has as objects triplets $(A, B, f)$ with $A \in \mathcal  A$, $B \in \mathcal  B$, and $f\colon FA \to B$ a morphism in $\mathcal  B$. The morphisms are given by pairs $(\alpha, \beta)\colon(A, B, f) \to (A', B', f')$ with $\alpha\colon A \to A'$ and $\beta\colon B \to B'$ such that the following diagram commutes:
@@ -111,7 +111,7 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 		\end{center}
 		are short exact. Since when we apply $U$ we simply get the product of these two sequences, $U$ is exact.
 		
-		Similarly for $Z$ since the two sequences we start with are assumed to be exact the resulting sequence will be exact by the characterization in \cref{prop:comma-cat_abelian}.
+		Similarly for $Z$ since the two sequences we start with are assumed to be exact the resulting sequence is also exact by the characterization in \cref{prop:comma-cat_abelian}.
 	\end{proof}
 \end{prop}
 
@@ -174,7 +174,7 @@ For the rest of this section we assume $F$ is a right exact functor between abel
 	\end{proof}
 \end{cor}
 
-We will now use these four functors to understand the structure of projective objects in the comma category, and consequently projective resolutions.
+We now use these four functors to understand the structure of projective objects in the comma category, and consequently projective resolutions.
 
 \begin{prop}\cite[Corollary~1.6c]{FGR75}
 	For a projective object $P$ in $(F, \mathcal B)$ we have that $T(C(P)) \cong P$, in particular all projectives are of the form $T(P')$ for a projective $P' \in \mathcal A \times \mathcal B$.
@@ -255,7 +255,7 @@ In this example $\mathcal A$ and $\mathcal B$ both have finitistic dimension 0, 
 We have already hinted at an example of this in \cref{ex:triangular_matrix_ring}. The algebra $k\mathbb A_2$ is isomorphic to the matrix ring $\begin{pmatrix}
 k & 0\\
 k & k
-\end{pmatrix}$, and we saw how $\mod k\mathbb A_2$ becomes the comma category for a functor between $\mod k$ and $\mod k$. In fact whenever $\Lambda$ is a triangular matrix ring, the module category $\mod \Lambda$ will be the comma category for a specific functor.
+\end{pmatrix}$, and we saw how $\mod k\mathbb A_2$ becomes the comma category for a functor between $\mod k$ and $\mod k$. In fact, whenever $\Lambda$ is a triangular matrix ring, the module category $\mod \Lambda$ is isomorphic to the comma category of a specific functor.
 
 \begin{prop}\label{prop:triangular_matrix_is_comma_cat}
 	If $\Lambda = \begin{pmatrix}
